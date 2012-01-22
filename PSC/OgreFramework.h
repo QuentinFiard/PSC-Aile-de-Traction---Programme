@@ -5,23 +5,23 @@
 
 //|||||||||||||||||||||||||||||||||||||||||||||||
 
-#include <OgreCamera.h>
-#include <OgreEntity.h>
-#include <OgreLogManager.h>
-#include <OgreOverlay.h>
-#include <OgreOverlayElement.h>
-#include <OgreOverlayManager.h>
-#include <OgreRoot.h>
-#include <OgreViewport.h>
-#include <OgreSceneManager.h>
-#include <OgreRenderWindow.h>
-#include <OgreConfigFile.h>
+#include <Ogre/OgreCamera.h>
+#include <Ogre/OgreEntity.h>
+#include <Ogre/OgreLogManager.h>
+#include <Ogre/OgreOverlay.h>
+#include <Ogre/OgreOverlayElement.h>
+#include <Ogre/OgreOverlayManager.h>
+#include <Ogre/OgreRoot.h>
+#include <Ogre/OgreViewport.h>
+#include <Ogre/OgreSceneManager.h>
+#include <Ogre/OgreRenderWindow.h>
+#include <Ogre/OgreConfigFile.h>
 
-#include <OISEvents.h>
-#include <OISInputManager.h>
-#include <OISKeyboard.h>
-#include <OISMouse.h>
-#include <OISJoyStick.h>
+#include <Ogre/OIS/OISEvents.h>
+#include <Ogre/OIS/OISInputManager.h>
+#include <Ogre/OIS/OISKeyboard.h>
+#include <Ogre/OIS/OISMouse.h>
+#include <Ogre/OIS/OISJoyStick.h>
 
 #include <SDL/SDL.h>
 
@@ -68,7 +68,7 @@
 #   include <OISMultiTouch.h>
 #endif
 
-#include <SdkTrays.h>
+#include <Ogre/SdkTrays.h>
 
 //|||||||||||||||||||||||||||||||||||||||||||||||
 

@@ -9,9 +9,10 @@
 #ifndef PSC_Joystick_h
 #define PSC_Joystick_h
 
+#import <Cocoa/Cocoa.h>
 #include <SDL/SDL.h>
 
-class DemoApp;
+@class Moteur3D;
 
 class Joystick
 {
@@ -20,7 +21,7 @@ private:
 public:
 	Joystick();
 	void prepareJoystick();
-	void handleJoystickEvent(SDL_Event& event,DemoApp* demo);
+	void handleJoystickEvent(SDL_Event& event,Moteur3D* demo);
 	
 	static Joystick* handler();
 };

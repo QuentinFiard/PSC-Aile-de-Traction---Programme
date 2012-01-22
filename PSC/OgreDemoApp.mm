@@ -211,7 +211,7 @@ void DemoApp::runDemo()
 				}*/
 				if(event.type==SDL_JOYAXISMOTION || event.type==SDL_JOYHATMOTION || event.type==SDL_JOYBUTTONUP || event.type==SDL_JOYBALLMOTION || event.type==SDL_JOYBUTTONDOWN)
 				{
-					Joystick::handler()->handleJoystickEvent(event,this);
+					//Joystick::handler()->handleJoystickEvent(event,this);
 				}
 			}
 			

@@ -8,7 +8,7 @@
 
 #include "Joystick.h"
 #include <iostream>
-#include "OgreDemoApp.h"
+#include "Moteur3D.h"
 
 #include "Tests.h"
 
@@ -63,7 +63,7 @@ void Joystick::prepareJoystick()
 		printf("Impossible de charger le joystick\n");
 }
 
-void Joystick::handleJoystickEvent(SDL_Event& event,DemoApp* demo)
+void Joystick::handleJoystickEvent(SDL_Event& event,Moteur3D* demo)
 {
 	if(event.type==SDL_JOYAXISMOTION)
 	{
@@ -71,15 +71,15 @@ void Joystick::handleJoystickEvent(SDL_Event& event,DemoApp* demo)
 		
 		if(event.jaxis.axis == 0)
 		{
-			demo->pitchSpeed = ROTSPEED * event.jaxis.value/32768;
+			demo.pitchSpeed = ROTSPEED * event.jaxis.value/32768;
 		}
 		else if(event.jaxis.axis == 1)
 		{
-			demo->yawSpeed = -ROTSPEED * event.jaxis.value/32768;
+			demo.yawSpeed = -ROTSPEED * event.jaxis.value/32768;
 		}
 		else if(event.jaxis.axis == 2)
 		{
-			demo->rollSpeed = -1.5*ROTSPEED * event.jaxis.value/32768;
+			demo.rollSpeed = -1.5*ROTSPEED * event.jaxis.value/32768;
 		}
 	}
 	else if(event.type==SDL_JOYHATMOTION)

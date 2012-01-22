@@ -7,395 +7,474 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		836FC9C414CAFE1100D06793 /* libboost_system-xgcc42-mt-1_48.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 836FC9C214CAFE1000D06793 /* libboost_system-xgcc42-mt-1_48.dylib */; };
-		836FC9C514CAFE1100D06793 /* libboost_thread-xgcc42-mt-1_48.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 836FC9C314CAFE1000D06793 /* libboost_thread-xgcc42-mt-1_48.dylib */; };
-		836FC9C614CB003300D06793 /* Dynamixel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839EF75314C9FA690034F3AF /* Dynamixel.cpp */; };
-		839EF6CF14C9ED130034F3AF /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839EF6CE14C9ED130034F3AF /* Carbon.framework */; };
-		839EF6D114C9ED130034F3AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839EF6D014C9ED130034F3AF /* Cocoa.framework */; };
-		839EF6D314C9ED130034F3AF /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839EF6D214C9ED130034F3AF /* IOKit.framework */; };
-		839EF6D514C9ED130034F3AF /* Ogre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839EF6D414C9ED130034F3AF /* Ogre.framework */; };
-		839EF6D714C9ED130034F3AF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839EF6D614C9ED130034F3AF /* OpenGL.framework */; };
-		839EF6D914C9ED130034F3AF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839EF6D814C9ED130034F3AF /* QuartzCore.framework */; };
-		839EF6E114C9ED140034F3AF /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 839EF6E014C9ED140034F3AF /* main.mm */; };
-		839EF74514C9EF4E0034F3AF /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839EF74414C9EF4E0034F3AF /* SDL.framework */; };
-		839EF74A14C9F3E80034F3AF /* SDL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 839EF74414C9EF4E0034F3AF /* SDL.framework */; };
-		839EF77F14C9FA690034F3AF /* hid.c in Sources */ = {isa = PBXBuildFile; fileRef = 839EF75514C9FA690034F3AF /* hid.c */; };
-		839EF78014C9FA690034F3AF /* InterfaceUSB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839EF75714C9FA690034F3AF /* InterfaceUSB.cpp */; };
-		839EF78314C9FA690034F3AF /* Matrice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839EF75F14C9FA690034F3AF /* Matrice.cpp */; };
-		839EF78414C9FA690034F3AF /* Plan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839EF76114C9FA690034F3AF /* Plan.cpp */; };
-		839EF78514C9FA690034F3AF /* Point.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839EF76314C9FA690034F3AF /* Point.cpp */; };
-		839EF78614C9FA690034F3AF /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839EF76514C9FA690034F3AF /* Quaternion.cpp */; };
-		839EF78714C9FA690034F3AF /* Referentiel3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839EF76714C9FA690034F3AF /* Referentiel3D.cpp */; };
-		839EF78814C9FA690034F3AF /* Vecteur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839EF76914C9FA690034F3AF /* Vecteur.cpp */; };
-		839EF78914C9FA690034F3AF /* Vecteur3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839EF76B14C9FA690034F3AF /* Vecteur3D.cpp */; };
-		839EF78A14C9FA690034F3AF /* Action.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839EF77214C9FA690034F3AF /* Action.cpp */; };
-		839EF78B14C9FA690034F3AF /* AileTraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839EF77414C9FA690034F3AF /* AileTraction.cpp */; };
-		839EF78C14C9FA690034F3AF /* Referentiel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839EF77614C9FA690034F3AF /* Referentiel.cpp */; };
-		839EF78D14C9FA690034F3AF /* Solide.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839EF77814C9FA690034F3AF /* Solide.cpp */; };
-		839EF78E14C9FA690034F3AF /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839EF77A14C9FA690034F3AF /* State.cpp */; };
-		839EF78F14C9FA690034F3AF /* Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839EF77C14C9FA690034F3AF /* Tests.cpp */; };
-		839EF79B14CA0CAD0034F3AF /* Joystick.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839EF75A14C9FA690034F3AF /* Joystick.cpp */; };
-		839EF79C14CA0D2C0034F3AF /* OgreDemoApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839EF6E414C9ED140034F3AF /* OgreDemoApp.cpp */; };
-		839EF79F14CA0ED00034F3AF /* OgreFramework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839EF6E714C9ED140034F3AF /* OgreFramework.cpp */; };
-		83F866FE14CABF4100D7DF06 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F866FD14CABF4100D7DF06 /* SDLMain.m */; };
-		83FEE92214CC3ECE0009160F /* UIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FEE92014CC3ECE0009160F /* UIController.m */; };
+		8349FCBD14CCA9670028E058 /* RenderSystem_GL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8349FCBC14CCA9670028E058 /* RenderSystem_GL.dylib */; };
+		837D55DE14CCC612002CD3DA /* OgreDemoApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6EB714CC99DA002396A5 /* OgreDemoApp.mm */; };
+		83BC6E3014CC98AF002396A5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BC6E2F14CC98AF002396A5 /* Cocoa.framework */; };
+		83BC6E3A14CC98AF002396A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6E3814CC98AF002396A5 /* InfoPlist.strings */; };
+		83BC6E4014CC98AF002396A5 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6E3E14CC98AF002396A5 /* Credits.rtf */; };
+		83BC6E8A14CC9997002396A5 /* Dynamixel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E5614CC9997002396A5 /* Dynamixel.cpp */; };
+		83BC6E8B14CC9997002396A5 /* hid.c in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E5814CC9997002396A5 /* hid.c */; };
+		83BC6E8C14CC9997002396A5 /* InterfaceUSB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E5A14CC9997002396A5 /* InterfaceUSB.cpp */; };
+		83BC6E8D14CC9997002396A5 /* Joystick.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E5D14CC9997002396A5 /* Joystick.mm */; };
+		83BC6E8E14CC9997002396A5 /* Matrice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E6014CC9997002396A5 /* Matrice.cpp */; };
+		83BC6E8F14CC9997002396A5 /* Plan.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E6214CC9997002396A5 /* Plan.cpp */; };
+		83BC6E9014CC9997002396A5 /* Point.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E6414CC9997002396A5 /* Point.cpp */; };
+		83BC6E9114CC9997002396A5 /* Quaternion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E6614CC9997002396A5 /* Quaternion.cpp */; };
+		83BC6E9214CC9997002396A5 /* Referentiel3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E6814CC9997002396A5 /* Referentiel3D.cpp */; };
+		83BC6E9314CC9997002396A5 /* Vecteur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E6A14CC9997002396A5 /* Vecteur.cpp */; };
+		83BC6E9414CC9997002396A5 /* Vecteur3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E6C14CC9997002396A5 /* Vecteur3D.cpp */; };
+		83BC6E9514CC9997002396A5 /* kite.material in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6E6F14CC9997002396A5 /* kite.material */; };
+		83BC6E9614CC9997002396A5 /* kite.mesh in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6E7014CC9997002396A5 /* kite.mesh */; };
+		83BC6E9714CC9997002396A5 /* kite.mesh.xml in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6E7114CC9997002396A5 /* kite.mesh.xml */; };
+		83BC6E9814CC9997002396A5 /* Moteur3D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E7314CC9997002396A5 /* Moteur3D.mm */; };
+		83BC6E9914CC9997002396A5 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E7714CC9997002396A5 /* SDLMain.m */; };
+		83BC6E9A14CC9997002396A5 /* Action.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E7914CC9997002396A5 /* Action.cpp */; };
+		83BC6E9B14CC9997002396A5 /* AileTraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E7B14CC9997002396A5 /* AileTraction.cpp */; };
+		83BC6E9C14CC9997002396A5 /* Referentiel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E7D14CC9997002396A5 /* Referentiel.cpp */; };
+		83BC6E9D14CC9997002396A5 /* Solide.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E7F14CC9997002396A5 /* Solide.cpp */; };
+		83BC6E9E14CC9997002396A5 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E8114CC9997002396A5 /* State.cpp */; };
+		83BC6E9F14CC9997002396A5 /* Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E8314CC9997002396A5 /* Tests.cpp */; };
+		83BC6EA014CC9997002396A5 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6E8614CC9997002396A5 /* Application.xib */; };
+		83BC6EA114CC9997002396A5 /* UIController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E8914CC9997002396A5 /* UIController.mm */; };
+		83BC6EBF14CC99DA002396A5 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6EA414CC99DA002396A5 /* AppDelegate.mm */; };
+		83BC6EC014CC99DA002396A5 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6EA514CC99DA002396A5 /* main.mm */; };
+		83BC6EC114CC99DA002396A5 /* Examples.material in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6EA914CC99DA002396A5 /* Examples.material */; };
+		83BC6EC214CC99DA002396A5 /* Ogre.material in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6EAA14CC99DA002396A5 /* Ogre.material */; };
+		83BC6EC314CC99DA002396A5 /* GreenSkin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6EAC14CC99DA002396A5 /* GreenSkin.jpg */; };
+		83BC6EC414CC99DA002396A5 /* spheremap.png in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6EAD14CC99DA002396A5 /* spheremap.png */; };
+		83BC6EC514CC99DA002396A5 /* tusk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6EAE14CC99DA002396A5 /* tusk.jpg */; };
+		83BC6EC614CC99DA002396A5 /* ogrehead.mesh in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6EB014CC99DA002396A5 /* ogrehead.mesh */; };
+		83BC6EC714CC99DA002396A5 /* cubemap.zip in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6EB214CC99DA002396A5 /* cubemap.zip */; };
+		83BC6EC814CC99DA002396A5 /* cubemapsJS.zip in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6EB314CC99DA002396A5 /* cubemapsJS.zip */; };
+		83BC6EC914CC99DA002396A5 /* SdkTrays.zip in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6EB414CC99DA002396A5 /* SdkTrays.zip */; };
+		83BC6ECA14CC99DA002396A5 /* skybox.zip in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6EB514CC99DA002396A5 /* skybox.zip */; };
+		83BC6ECB14CC99DA002396A5 /* ogre.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6EB614CC99DA002396A5 /* ogre.cfg */; };
+		83BC6ECD14CC99DA002396A5 /* OgreFramework.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6EBA14CC99DA002396A5 /* OgreFramework.mm */; };
+		83BC6ECE14CC99DA002396A5 /* plugins.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6EBB14CC99DA002396A5 /* plugins.cfg */; };
+		83BC6ECF14CC99DA002396A5 /* PSC-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6EBC14CC99DA002396A5 /* PSC-Info.plist */; };
+		83BC6ED014CC99DA002396A5 /* resources.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6EBE14CC99DA002396A5 /* resources.cfg */; };
+		83BC6EDD14CC9AD5002396A5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BC6ED214CC9AD4002396A5 /* CoreData.framework */; };
+		83BC6EDE14CC9AD5002396A5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BC6ED314CC9AD4002396A5 /* Foundation.framework */; };
+		83BC6EDF14CC9AD5002396A5 /* libboost_system-xgcc42-mt-1_48.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BC6ED414CC9AD4002396A5 /* libboost_system-xgcc42-mt-1_48.dylib */; };
+		83BC6EE014CC9AD5002396A5 /* libboost_thread-xgcc42-mt-1_48.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BC6ED514CC9AD4002396A5 /* libboost_thread-xgcc42-mt-1_48.dylib */; };
+		83BC6EE114CC9AD5002396A5 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BC6ED614CC9AD4002396A5 /* AppKit.framework */; };
+		83BC6EE214CC9AD5002396A5 /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BC6ED714CC9AD4002396A5 /* SDL.framework */; };
+		83BC6EE314CC9AD5002396A5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BC6ED814CC9AD4002396A5 /* Carbon.framework */; };
+		83BC6EE414CC9AD5002396A5 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BC6ED914CC9AD4002396A5 /* IOKit.framework */; };
+		83BC6EE514CC9AD5002396A5 /* Ogre.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BC6EDA14CC9AD4002396A5 /* Ogre.framework */; };
+		83BC6EE614CC9AD5002396A5 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BC6EDB14CC9AD4002396A5 /* OpenGL.framework */; };
+		83BC6EE714CC9AD5002396A5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BC6EDC14CC9AD4002396A5 /* QuartzCore.framework */; };
+		83BC6EEA14CC9B47002396A5 /* SDL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83BC6ED714CC9AD4002396A5 /* SDL.framework */; };
+		83BC6EEC14CC9B57002396A5 /* Application.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83BC6E8614CC9997002396A5 /* Application.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		839EF74914C9F3CE0034F3AF /* CopyFiles */ = {
+		83BC6EE914CC9B3C002396A5 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				839EF74A14C9F3E80034F3AF /* SDL.framework in CopyFiles */,
+				83BC6EEA14CC9B47002396A5 /* SDL.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		839EF74B14C9F7470034F3AF /* CopyFiles */ = {
+		83BC6EEB14CC9B4E002396A5 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = materials/scripts;
+			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				83BC6EEC14CC9B57002396A5 /* Application.xib in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		836FC9C214CAFE1000D06793 /* libboost_system-xgcc42-mt-1_48.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_system-xgcc42-mt-1_48.dylib"; path = "usr/local/lib/libboost_system-xgcc42-mt-1_48.dylib"; sourceTree = SDKROOT; };
-		836FC9C314CAFE1000D06793 /* libboost_thread-xgcc42-mt-1_48.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_thread-xgcc42-mt-1_48.dylib"; path = "usr/local/lib/libboost_thread-xgcc42-mt-1_48.dylib"; sourceTree = SDKROOT; };
-		839EF6CA14C9ED130034F3AF /* PSC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSC.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		839EF6CE14C9ED130034F3AF /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		839EF6D014C9ED130034F3AF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		839EF6D214C9ED130034F3AF /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
-		839EF6D414C9ED130034F3AF /* Ogre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogre.framework; path = Library/Frameworks/Ogre.framework; sourceTree = DEVELOPER_DIR; };
-		839EF6D614C9ED130034F3AF /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
-		839EF6D814C9ED130034F3AF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		839EF6DC14C9ED140034F3AF /* PSC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PSC-Info.plist"; sourceTree = "<group>"; };
-		839EF6DE14C9ED140034F3AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		839EF6DF14C9ED140034F3AF /* PSC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PSC-Prefix.pch"; sourceTree = "<group>"; };
-		839EF6E014C9ED140034F3AF /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
-		839EF6E314C9ED140034F3AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		839EF6E414C9ED140034F3AF /* OgreDemoApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OgreDemoApp.cpp; sourceTree = "<group>"; };
-		839EF6E614C9ED140034F3AF /* OgreDemoApp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OgreDemoApp.h; sourceTree = "<group>"; };
-		839EF6E714C9ED140034F3AF /* OgreFramework.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OgreFramework.cpp; sourceTree = "<group>"; };
-		839EF6E914C9ED140034F3AF /* OgreFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OgreFramework.h; sourceTree = "<group>"; };
-		839EF6ED14C9ED140034F3AF /* Examples.material */ = {isa = PBXFileReference; lastKnownFileType = text; path = Examples.material; sourceTree = "<group>"; };
-		839EF6EE14C9ED140034F3AF /* Ogre.material */ = {isa = PBXFileReference; lastKnownFileType = text; path = Ogre.material; sourceTree = "<group>"; };
-		839EF6F014C9ED140034F3AF /* GreenSkin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GreenSkin.jpg; sourceTree = "<group>"; };
-		839EF6F114C9ED140034F3AF /* spheremap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spheremap.png; sourceTree = "<group>"; };
-		839EF6F214C9ED140034F3AF /* tusk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tusk.jpg; sourceTree = "<group>"; };
-		839EF6F414C9ED140034F3AF /* ogrehead.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = ogrehead.mesh; sourceTree = "<group>"; };
-		839EF6F614C9ED140034F3AF /* cubemap.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = cubemap.zip; sourceTree = "<group>"; };
-		839EF6F714C9ED140034F3AF /* cubemapsJS.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = cubemapsJS.zip; sourceTree = "<group>"; };
-		839EF6F814C9ED140034F3AF /* SdkTrays.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = SdkTrays.zip; sourceTree = "<group>"; };
-		839EF6F914C9ED140034F3AF /* skybox.zip */ = {isa = PBXFileReference; lastKnownFileType = folder; name = skybox.zip; path = ..; sourceTree = "<group>"; };
-		839EF6FA14C9ED140034F3AF /* ogre.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; path = ogre.cfg; sourceTree = "<group>"; };
-		839EF6FB14C9ED140034F3AF /* plugins.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; path = plugins.cfg; sourceTree = "<group>"; };
-		839EF6FC14C9ED140034F3AF /* resources.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; path = resources.cfg; sourceTree = "<group>"; };
-		839EF74414C9EF4E0034F3AF /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = Library/Frameworks/SDL.framework; sourceTree = SDKROOT; };
-		839EF75314C9FA690034F3AF /* Dynamixel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dynamixel.cpp; sourceTree = "<group>"; };
-		839EF75414C9FA690034F3AF /* Dynamixel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dynamixel.h; sourceTree = "<group>"; };
-		839EF75514C9FA690034F3AF /* hid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hid.c; sourceTree = "<group>"; };
-		839EF75614C9FA690034F3AF /* hidapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hidapi.h; sourceTree = "<group>"; };
-		839EF75714C9FA690034F3AF /* InterfaceUSB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InterfaceUSB.cpp; sourceTree = "<group>"; };
-		839EF75814C9FA690034F3AF /* InterfaceUSB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceUSB.h; sourceTree = "<group>"; };
-		839EF75A14C9FA690034F3AF /* Joystick.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Joystick.cpp; sourceTree = "<group>"; };
-		839EF75B14C9FA690034F3AF /* Joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Joystick.h; sourceTree = "<group>"; };
-		839EF75F14C9FA690034F3AF /* Matrice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrice.cpp; sourceTree = "<group>"; };
-		839EF76014C9FA690034F3AF /* Matrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrice.h; sourceTree = "<group>"; };
-		839EF76114C9FA690034F3AF /* Plan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Plan.cpp; sourceTree = "<group>"; };
-		839EF76214C9FA690034F3AF /* Plan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plan.h; sourceTree = "<group>"; };
-		839EF76314C9FA690034F3AF /* Point.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Point.cpp; sourceTree = "<group>"; };
-		839EF76414C9FA690034F3AF /* Point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Point.h; sourceTree = "<group>"; };
-		839EF76514C9FA690034F3AF /* Quaternion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Quaternion.cpp; sourceTree = "<group>"; };
-		839EF76614C9FA690034F3AF /* Quaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quaternion.h; sourceTree = "<group>"; };
-		839EF76714C9FA690034F3AF /* Referentiel3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Referentiel3D.cpp; sourceTree = "<group>"; };
-		839EF76814C9FA690034F3AF /* Referentiel3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Referentiel3D.h; sourceTree = "<group>"; };
-		839EF76914C9FA690034F3AF /* Vecteur.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vecteur.cpp; sourceTree = "<group>"; };
-		839EF76A14C9FA690034F3AF /* Vecteur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vecteur.h; sourceTree = "<group>"; };
-		839EF76B14C9FA690034F3AF /* Vecteur3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vecteur3D.cpp; sourceTree = "<group>"; };
-		839EF76C14C9FA690034F3AF /* Vecteur3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vecteur3D.h; sourceTree = "<group>"; };
-		839EF76E14C9FA690034F3AF /* kite.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kite.material; sourceTree = "<group>"; };
-		839EF76F14C9FA690034F3AF /* kite.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = kite.mesh; sourceTree = "<group>"; };
-		839EF77014C9FA690034F3AF /* Parametres.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parametres.h; sourceTree = "<group>"; };
-		839EF77214C9FA690034F3AF /* Action.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Action.cpp; sourceTree = "<group>"; };
-		839EF77314C9FA690034F3AF /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
-		839EF77414C9FA690034F3AF /* AileTraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AileTraction.cpp; sourceTree = "<group>"; };
-		839EF77514C9FA690034F3AF /* AileTraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AileTraction.h; sourceTree = "<group>"; };
-		839EF77614C9FA690034F3AF /* Referentiel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Referentiel.cpp; sourceTree = "<group>"; };
-		839EF77714C9FA690034F3AF /* Referentiel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Referentiel.h; sourceTree = "<group>"; };
-		839EF77814C9FA690034F3AF /* Solide.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Solide.cpp; sourceTree = "<group>"; };
-		839EF77914C9FA690034F3AF /* Solide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Solide.h; sourceTree = "<group>"; };
-		839EF77A14C9FA690034F3AF /* State.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State.cpp; sourceTree = "<group>"; };
-		839EF77B14C9FA690034F3AF /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
-		839EF77C14C9FA690034F3AF /* Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tests.cpp; sourceTree = "<group>"; };
-		839EF77D14C9FA690034F3AF /* Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tests.h; sourceTree = "<group>"; };
-		83F866FC14CABF4100D7DF06 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
-		83F866FD14CABF4100D7DF06 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
-		83FEE91F14CC3ECE0009160F /* UIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIController.h; path = UI/UIController.h; sourceTree = "<group>"; };
-		83FEE92014CC3ECE0009160F /* UIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIController.m; path = UI/UIController.m; sourceTree = "<group>"; };
-		83FEE92314CC3EED0009160F /* Application.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Application.xib; path = UI/Application.xib; sourceTree = "<group>"; };
+		8349FCB914CCA14E0028E058 /* OgreOSXCocoaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreOSXCocoaView.h; path = ../../../../../../../Library/OgreSDK/lib/release/Ogre.framework/Versions/1.7.4/Headers/OSX/OgreOSXCocoaView.h; sourceTree = "<group>"; };
+		8349FCBC14CCA9670028E058 /* RenderSystem_GL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = RenderSystem_GL.dylib; path = /Library/OgreSDK/lib/RenderSystem_GL.dylib; sourceTree = "<absolute>"; };
+		83BC6E2B14CC98AF002396A5 /* PSC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83BC6E2F14CC98AF002396A5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		83BC6E3214CC98AF002396A5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		83BC6E3314CC98AF002396A5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		83BC6E3414CC98AF002396A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		83BC6E3714CC98AF002396A5 /* PSC-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PSC-Info.plist"; sourceTree = "<group>"; };
+		83BC6E3914CC98AF002396A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		83BC6E3D14CC98AF002396A5 /* PSC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PSC-Prefix.pch"; sourceTree = "<group>"; };
+		83BC6E3F14CC98AF002396A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		83BC6E5614CC9997002396A5 /* Dynamixel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dynamixel.cpp; sourceTree = "<group>"; };
+		83BC6E5714CC9997002396A5 /* Dynamixel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dynamixel.h; sourceTree = "<group>"; };
+		83BC6E5814CC9997002396A5 /* hid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hid.c; sourceTree = "<group>"; };
+		83BC6E5914CC9997002396A5 /* hidapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hidapi.h; sourceTree = "<group>"; };
+		83BC6E5A14CC9997002396A5 /* InterfaceUSB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InterfaceUSB.cpp; sourceTree = "<group>"; };
+		83BC6E5B14CC9997002396A5 /* InterfaceUSB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceUSB.h; sourceTree = "<group>"; };
+		83BC6E5D14CC9997002396A5 /* Joystick.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Joystick.mm; sourceTree = "<group>"; };
+		83BC6E5E14CC9997002396A5 /* Joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Joystick.h; sourceTree = "<group>"; };
+		83BC6E6014CC9997002396A5 /* Matrice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrice.cpp; sourceTree = "<group>"; };
+		83BC6E6114CC9997002396A5 /* Matrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrice.h; sourceTree = "<group>"; };
+		83BC6E6214CC9997002396A5 /* Plan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Plan.cpp; sourceTree = "<group>"; };
+		83BC6E6314CC9997002396A5 /* Plan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plan.h; sourceTree = "<group>"; };
+		83BC6E6414CC9997002396A5 /* Point.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Point.cpp; sourceTree = "<group>"; };
+		83BC6E6514CC9997002396A5 /* Point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Point.h; sourceTree = "<group>"; };
+		83BC6E6614CC9997002396A5 /* Quaternion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Quaternion.cpp; sourceTree = "<group>"; };
+		83BC6E6714CC9997002396A5 /* Quaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quaternion.h; sourceTree = "<group>"; };
+		83BC6E6814CC9997002396A5 /* Referentiel3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Referentiel3D.cpp; sourceTree = "<group>"; };
+		83BC6E6914CC9997002396A5 /* Referentiel3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Referentiel3D.h; sourceTree = "<group>"; };
+		83BC6E6A14CC9997002396A5 /* Vecteur.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vecteur.cpp; sourceTree = "<group>"; };
+		83BC6E6B14CC9997002396A5 /* Vecteur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vecteur.h; sourceTree = "<group>"; };
+		83BC6E6C14CC9997002396A5 /* Vecteur3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vecteur3D.cpp; sourceTree = "<group>"; };
+		83BC6E6D14CC9997002396A5 /* Vecteur3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vecteur3D.h; sourceTree = "<group>"; };
+		83BC6E6F14CC9997002396A5 /* kite.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kite.material; sourceTree = "<group>"; };
+		83BC6E7014CC9997002396A5 /* kite.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = kite.mesh; sourceTree = "<group>"; };
+		83BC6E7114CC9997002396A5 /* kite.mesh.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = kite.mesh.xml; sourceTree = "<group>"; };
+		83BC6E7214CC9997002396A5 /* Moteur3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Moteur3D.h; sourceTree = "<group>"; };
+		83BC6E7314CC9997002396A5 /* Moteur3D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Moteur3D.mm; sourceTree = "<group>"; };
+		83BC6E7414CC9997002396A5 /* Parametres.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parametres.h; sourceTree = "<group>"; };
+		83BC6E7614CC9997002396A5 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
+		83BC6E7714CC9997002396A5 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
+		83BC6E7914CC9997002396A5 /* Action.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Action.cpp; sourceTree = "<group>"; };
+		83BC6E7A14CC9997002396A5 /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
+		83BC6E7B14CC9997002396A5 /* AileTraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AileTraction.cpp; sourceTree = "<group>"; };
+		83BC6E7C14CC9997002396A5 /* AileTraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AileTraction.h; sourceTree = "<group>"; };
+		83BC6E7D14CC9997002396A5 /* Referentiel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Referentiel.cpp; sourceTree = "<group>"; };
+		83BC6E7E14CC9997002396A5 /* Referentiel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Referentiel.h; sourceTree = "<group>"; };
+		83BC6E7F14CC9997002396A5 /* Solide.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Solide.cpp; sourceTree = "<group>"; };
+		83BC6E8014CC9997002396A5 /* Solide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Solide.h; sourceTree = "<group>"; };
+		83BC6E8114CC9997002396A5 /* State.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State.cpp; sourceTree = "<group>"; };
+		83BC6E8214CC9997002396A5 /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
+		83BC6E8314CC9997002396A5 /* Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tests.cpp; sourceTree = "<group>"; };
+		83BC6E8414CC9997002396A5 /* Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tests.h; sourceTree = "<group>"; };
+		83BC6E8714CC9997002396A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Application.xib; sourceTree = "<group>"; };
+		83BC6E8814CC9997002396A5 /* UIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIController.h; sourceTree = "<group>"; };
+		83BC6E8914CC9997002396A5 /* UIController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIController.mm; sourceTree = "<group>"; };
+		83BC6EA314CC99DA002396A5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		83BC6EA414CC99DA002396A5 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		83BC6EA514CC99DA002396A5 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		83BC6EA914CC99DA002396A5 /* Examples.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Examples.material; sourceTree = "<group>"; };
+		83BC6EAA14CC99DA002396A5 /* Ogre.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Ogre.material; sourceTree = "<group>"; };
+		83BC6EAC14CC99DA002396A5 /* GreenSkin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GreenSkin.jpg; sourceTree = "<group>"; };
+		83BC6EAD14CC99DA002396A5 /* spheremap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spheremap.png; sourceTree = "<group>"; };
+		83BC6EAE14CC99DA002396A5 /* tusk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tusk.jpg; sourceTree = "<group>"; };
+		83BC6EB014CC99DA002396A5 /* ogrehead.mesh */ = {isa = PBXFileReference; lastKnownFileType = file; path = ogrehead.mesh; sourceTree = "<group>"; };
+		83BC6EB214CC99DA002396A5 /* cubemap.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = cubemap.zip; sourceTree = "<group>"; };
+		83BC6EB314CC99DA002396A5 /* cubemapsJS.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = cubemapsJS.zip; sourceTree = "<group>"; };
+		83BC6EB414CC99DA002396A5 /* SdkTrays.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = SdkTrays.zip; sourceTree = "<group>"; };
+		83BC6EB514CC99DA002396A5 /* skybox.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = skybox.zip; sourceTree = "<group>"; };
+		83BC6EB614CC99DA002396A5 /* ogre.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ogre.cfg; sourceTree = "<group>"; };
+		83BC6EB714CC99DA002396A5 /* OgreDemoApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OgreDemoApp.mm; sourceTree = "<group>"; };
+		83BC6EB814CC99DA002396A5 /* OgreDemoApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreDemoApp.h; sourceTree = "<group>"; };
+		83BC6EB914CC99DA002396A5 /* OgreFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreFramework.h; sourceTree = "<group>"; };
+		83BC6EBA14CC99DA002396A5 /* OgreFramework.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OgreFramework.mm; sourceTree = "<group>"; };
+		83BC6EBB14CC99DA002396A5 /* plugins.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plugins.cfg; sourceTree = "<group>"; };
+		83BC6EBC14CC99DA002396A5 /* PSC-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PSC-Info.plist"; sourceTree = "<group>"; };
+		83BC6EBD14CC99DA002396A5 /* PSC-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PSC-Prefix.pch"; sourceTree = "<group>"; };
+		83BC6EBE14CC99DA002396A5 /* resources.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = resources.cfg; sourceTree = "<group>"; };
+		83BC6ED214CC9AD4002396A5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		83BC6ED314CC9AD4002396A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		83BC6ED414CC9AD4002396A5 /* libboost_system-xgcc42-mt-1_48.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_system-xgcc42-mt-1_48.dylib"; path = "usr/local/lib/libboost_system-xgcc42-mt-1_48.dylib"; sourceTree = SDKROOT; };
+		83BC6ED514CC9AD4002396A5 /* libboost_thread-xgcc42-mt-1_48.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_thread-xgcc42-mt-1_48.dylib"; path = "usr/local/lib/libboost_thread-xgcc42-mt-1_48.dylib"; sourceTree = SDKROOT; };
+		83BC6ED614CC9AD4002396A5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		83BC6ED714CC9AD4002396A5 /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = Library/Frameworks/SDL.framework; sourceTree = SDKROOT; };
+		83BC6ED814CC9AD4002396A5 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		83BC6ED914CC9AD4002396A5 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		83BC6EDA14CC9AD4002396A5 /* Ogre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogre.framework; path = Library/Frameworks/Ogre.framework; sourceTree = DEVELOPER_DIR; };
+		83BC6EDB14CC9AD4002396A5 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
+		83BC6EDC14CC9AD4002396A5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		839EF6C714C9ED130034F3AF /* Frameworks */ = {
+		83BC6E2814CC98AF002396A5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				836FC9C414CAFE1100D06793 /* libboost_system-xgcc42-mt-1_48.dylib in Frameworks */,
-				836FC9C514CAFE1100D06793 /* libboost_thread-xgcc42-mt-1_48.dylib in Frameworks */,
-				839EF74514C9EF4E0034F3AF /* SDL.framework in Frameworks */,
-				839EF6CF14C9ED130034F3AF /* Carbon.framework in Frameworks */,
-				839EF6D114C9ED130034F3AF /* Cocoa.framework in Frameworks */,
-				839EF6D314C9ED130034F3AF /* IOKit.framework in Frameworks */,
-				839EF6D514C9ED130034F3AF /* Ogre.framework in Frameworks */,
-				839EF6D714C9ED130034F3AF /* OpenGL.framework in Frameworks */,
-				839EF6D914C9ED130034F3AF /* QuartzCore.framework in Frameworks */,
+				8349FCBD14CCA9670028E058 /* RenderSystem_GL.dylib in Frameworks */,
+				83BC6E3014CC98AF002396A5 /* Cocoa.framework in Frameworks */,
+				83BC6EDD14CC9AD5002396A5 /* CoreData.framework in Frameworks */,
+				83BC6EDE14CC9AD5002396A5 /* Foundation.framework in Frameworks */,
+				83BC6EDF14CC9AD5002396A5 /* libboost_system-xgcc42-mt-1_48.dylib in Frameworks */,
+				83BC6EE014CC9AD5002396A5 /* libboost_thread-xgcc42-mt-1_48.dylib in Frameworks */,
+				83BC6EE114CC9AD5002396A5 /* AppKit.framework in Frameworks */,
+				83BC6EE214CC9AD5002396A5 /* SDL.framework in Frameworks */,
+				83BC6EE314CC9AD5002396A5 /* Carbon.framework in Frameworks */,
+				83BC6EE414CC9AD5002396A5 /* IOKit.framework in Frameworks */,
+				83BC6EE514CC9AD5002396A5 /* Ogre.framework in Frameworks */,
+				83BC6EE614CC9AD5002396A5 /* OpenGL.framework in Frameworks */,
+				83BC6EE714CC9AD5002396A5 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		839EF6BF14C9ED130034F3AF = {
+		8349FCB814CCA10D0028E058 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				83FEE92314CC3EED0009160F /* Application.xib */,
-				83FEE91D14CC3E830009160F /* UI */,
-				83F866FB14CABF2700D7DF06 /* SDL */,
-				839EF75214C9FA690034F3AF /* ConnectionUSB */,
-				839EF75914C9FA690034F3AF /* Joystick */,
-				839EF75E14C9FA690034F3AF /* Maths */,
-				839EF76D14C9FA690034F3AF /* Ogre */,
-				839EF77014C9FA690034F3AF /* Parametres.h */,
-				839EF77114C9FA690034F3AF /* Simulation */,
-				839EF77C14C9FA690034F3AF /* Tests.cpp */,
-				839EF77D14C9FA690034F3AF /* Tests.h */,
-				839EF6DA14C9ED140034F3AF /* PSC */,
-				839EF6CD14C9ED130034F3AF /* Frameworks */,
-				839EF6CB14C9ED130034F3AF /* Products */,
+				8349FCB914CCA14E0028E058 /* OgreOSXCocoaView.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		83BC6E2014CC98AF002396A5 = {
+			isa = PBXGroup;
+			children = (
+				83BC6E5514CC9997002396A5 /* ConnectionUSB */,
+				83BC6E5C14CC9997002396A5 /* Joystick */,
+				83BC6E5F14CC9997002396A5 /* Maths */,
+				83BC6E6E14CC9997002396A5 /* Ogre */,
+				83BC6E7414CC9997002396A5 /* Parametres.h */,
+				83BC6E7514CC9997002396A5 /* SDL */,
+				83BC6E7814CC9997002396A5 /* Simulation */,
+				83BC6E8314CC9997002396A5 /* Tests.cpp */,
+				83BC6E8414CC9997002396A5 /* Tests.h */,
+				83BC6E8514CC9997002396A5 /* UI */,
+				83BC6E3514CC98AF002396A5 /* PSC */,
+				83BC6E2E14CC98AF002396A5 /* Frameworks */,
+				83BC6E2C14CC98AF002396A5 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		839EF6CB14C9ED130034F3AF /* Products */ = {
+		83BC6E2C14CC98AF002396A5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				839EF6CA14C9ED130034F3AF /* PSC.app */,
+				83BC6E2B14CC98AF002396A5 /* PSC.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		839EF6CD14C9ED130034F3AF /* Frameworks */ = {
+		83BC6E2E14CC98AF002396A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				836FC9C214CAFE1000D06793 /* libboost_system-xgcc42-mt-1_48.dylib */,
-				836FC9C314CAFE1000D06793 /* libboost_thread-xgcc42-mt-1_48.dylib */,
-				839EF74414C9EF4E0034F3AF /* SDL.framework */,
-				839EF6CE14C9ED130034F3AF /* Carbon.framework */,
-				839EF6D014C9ED130034F3AF /* Cocoa.framework */,
-				839EF6D214C9ED130034F3AF /* IOKit.framework */,
-				839EF6D414C9ED130034F3AF /* Ogre.framework */,
-				839EF6D614C9ED130034F3AF /* OpenGL.framework */,
-				839EF6D814C9ED130034F3AF /* QuartzCore.framework */,
+				8349FCBC14CCA9670028E058 /* RenderSystem_GL.dylib */,
+				83BC6ED214CC9AD4002396A5 /* CoreData.framework */,
+				83BC6ED314CC9AD4002396A5 /* Foundation.framework */,
+				83BC6ED414CC9AD4002396A5 /* libboost_system-xgcc42-mt-1_48.dylib */,
+				83BC6ED514CC9AD4002396A5 /* libboost_thread-xgcc42-mt-1_48.dylib */,
+				83BC6ED614CC9AD4002396A5 /* AppKit.framework */,
+				83BC6ED714CC9AD4002396A5 /* SDL.framework */,
+				83BC6ED814CC9AD4002396A5 /* Carbon.framework */,
+				83BC6ED914CC9AD4002396A5 /* IOKit.framework */,
+				83BC6EDA14CC9AD4002396A5 /* Ogre.framework */,
+				83BC6EDB14CC9AD4002396A5 /* OpenGL.framework */,
+				83BC6EDC14CC9AD4002396A5 /* QuartzCore.framework */,
+				83BC6E2F14CC98AF002396A5 /* Cocoa.framework */,
+				83BC6E3114CC98AF002396A5 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		839EF6DA14C9ED140034F3AF /* PSC */ = {
+		83BC6E3114CC98AF002396A5 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				839EF6E014C9ED140034F3AF /* main.mm */,
-				839EF6DB14C9ED140034F3AF /* Resources */,
-				839EF6E214C9ED140034F3AF /* Basic Ogre Framework */,
+				83BC6E3214CC98AF002396A5 /* AppKit.framework */,
+				83BC6E3314CC98AF002396A5 /* CoreData.framework */,
+				83BC6E3414CC98AF002396A5 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		83BC6E3514CC98AF002396A5 /* PSC */ = {
+			isa = PBXGroup;
+			children = (
+				83BC6EA514CC99DA002396A5 /* main.mm */,
+				83BC6EA614CC99DA002396A5 /* media */,
+				83BC6EB614CC99DA002396A5 /* ogre.cfg */,
+				83BC6EBB14CC99DA002396A5 /* plugins.cfg */,
+				83BC6EBC14CC99DA002396A5 /* PSC-Info.plist */,
+				83BC6EBD14CC99DA002396A5 /* PSC-Prefix.pch */,
+				83BC6EBE14CC99DA002396A5 /* resources.cfg */,
+				83BC6ED114CC9A1B002396A5 /* Ogre Framework */,
+				83BC6E3614CC98AF002396A5 /* Supporting Files */,
 			);
 			path = PSC;
 			sourceTree = "<group>";
 		};
-		839EF6DB14C9ED140034F3AF /* Resources */ = {
+		83BC6E3614CC98AF002396A5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				839EF6DC14C9ED140034F3AF /* PSC-Info.plist */,
-				839EF6DD14C9ED140034F3AF /* InfoPlist.strings */,
-				839EF6DF14C9ED140034F3AF /* PSC-Prefix.pch */,
-				839EF6FA14C9ED140034F3AF /* ogre.cfg */,
-				839EF6FB14C9ED140034F3AF /* plugins.cfg */,
-				839EF6FC14C9ED140034F3AF /* resources.cfg */,
-				839EF6EA14C9ED140034F3AF /* media */,
+				83BC6E3714CC98AF002396A5 /* PSC-Info.plist */,
+				83BC6E3814CC98AF002396A5 /* InfoPlist.strings */,
+				83BC6E3D14CC98AF002396A5 /* PSC-Prefix.pch */,
+				83BC6E3E14CC98AF002396A5 /* Credits.rtf */,
 			);
-			name = Resources;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		839EF6E214C9ED140034F3AF /* Basic Ogre Framework */ = {
+		83BC6E5514CC9997002396A5 /* ConnectionUSB */ = {
 			isa = PBXGroup;
 			children = (
-				839EF6E314C9ED140034F3AF /* AppDelegate.h */,
-				839EF6E414C9ED140034F3AF /* OgreDemoApp.cpp */,
-				839EF6E614C9ED140034F3AF /* OgreDemoApp.h */,
-				839EF6E714C9ED140034F3AF /* OgreFramework.cpp */,
-				839EF6E914C9ED140034F3AF /* OgreFramework.h */,
-			);
-			name = "Basic Ogre Framework";
-			sourceTree = "<group>";
-		};
-		839EF6EA14C9ED140034F3AF /* media */ = {
-			isa = PBXGroup;
-			children = (
-				839EF6EB14C9ED140034F3AF /* materials */,
-				839EF6F314C9ED140034F3AF /* models */,
-				839EF6F514C9ED140034F3AF /* packs */,
-			);
-			path = media;
-			sourceTree = "<group>";
-		};
-		839EF6EB14C9ED140034F3AF /* materials */ = {
-			isa = PBXGroup;
-			children = (
-				839EF6EC14C9ED140034F3AF /* scripts */,
-				839EF6EF14C9ED140034F3AF /* textures */,
-			);
-			path = materials;
-			sourceTree = "<group>";
-		};
-		839EF6EC14C9ED140034F3AF /* scripts */ = {
-			isa = PBXGroup;
-			children = (
-				839EF6ED14C9ED140034F3AF /* Examples.material */,
-				839EF6EE14C9ED140034F3AF /* Ogre.material */,
-			);
-			path = scripts;
-			sourceTree = "<group>";
-		};
-		839EF6EF14C9ED140034F3AF /* textures */ = {
-			isa = PBXGroup;
-			children = (
-				839EF6F014C9ED140034F3AF /* GreenSkin.jpg */,
-				839EF6F114C9ED140034F3AF /* spheremap.png */,
-				839EF6F214C9ED140034F3AF /* tusk.jpg */,
-			);
-			path = textures;
-			sourceTree = "<group>";
-		};
-		839EF6F314C9ED140034F3AF /* models */ = {
-			isa = PBXGroup;
-			children = (
-				839EF6F414C9ED140034F3AF /* ogrehead.mesh */,
-			);
-			path = models;
-			sourceTree = "<group>";
-		};
-		839EF6F514C9ED140034F3AF /* packs */ = {
-			isa = PBXGroup;
-			children = (
-				839EF6F614C9ED140034F3AF /* cubemap.zip */,
-				839EF6F714C9ED140034F3AF /* cubemapsJS.zip */,
-				839EF6F814C9ED140034F3AF /* SdkTrays.zip */,
-				839EF6F914C9ED140034F3AF /* skybox.zip */,
-			);
-			path = packs;
-			sourceTree = "<group>";
-		};
-		839EF75214C9FA690034F3AF /* ConnectionUSB */ = {
-			isa = PBXGroup;
-			children = (
-				839EF75314C9FA690034F3AF /* Dynamixel.cpp */,
-				839EF75414C9FA690034F3AF /* Dynamixel.h */,
-				839EF75514C9FA690034F3AF /* hid.c */,
-				839EF75614C9FA690034F3AF /* hidapi.h */,
-				839EF75714C9FA690034F3AF /* InterfaceUSB.cpp */,
-				839EF75814C9FA690034F3AF /* InterfaceUSB.h */,
+				83BC6E5614CC9997002396A5 /* Dynamixel.cpp */,
+				83BC6E5714CC9997002396A5 /* Dynamixel.h */,
+				83BC6E5814CC9997002396A5 /* hid.c */,
+				83BC6E5914CC9997002396A5 /* hidapi.h */,
+				83BC6E5A14CC9997002396A5 /* InterfaceUSB.cpp */,
+				83BC6E5B14CC9997002396A5 /* InterfaceUSB.h */,
 			);
 			path = ConnectionUSB;
 			sourceTree = "<group>";
 		};
-		839EF75914C9FA690034F3AF /* Joystick */ = {
+		83BC6E5C14CC9997002396A5 /* Joystick */ = {
 			isa = PBXGroup;
 			children = (
-				839EF75A14C9FA690034F3AF /* Joystick.cpp */,
-				839EF75B14C9FA690034F3AF /* Joystick.h */,
+				83BC6E5D14CC9997002396A5 /* Joystick.mm */,
+				83BC6E5E14CC9997002396A5 /* Joystick.h */,
 			);
 			path = Joystick;
 			sourceTree = "<group>";
 		};
-		839EF75E14C9FA690034F3AF /* Maths */ = {
+		83BC6E5F14CC9997002396A5 /* Maths */ = {
 			isa = PBXGroup;
 			children = (
-				839EF75F14C9FA690034F3AF /* Matrice.cpp */,
-				839EF76014C9FA690034F3AF /* Matrice.h */,
-				839EF76114C9FA690034F3AF /* Plan.cpp */,
-				839EF76214C9FA690034F3AF /* Plan.h */,
-				839EF76314C9FA690034F3AF /* Point.cpp */,
-				839EF76414C9FA690034F3AF /* Point.h */,
-				839EF76514C9FA690034F3AF /* Quaternion.cpp */,
-				839EF76614C9FA690034F3AF /* Quaternion.h */,
-				839EF76714C9FA690034F3AF /* Referentiel3D.cpp */,
-				839EF76814C9FA690034F3AF /* Referentiel3D.h */,
-				839EF76914C9FA690034F3AF /* Vecteur.cpp */,
-				839EF76A14C9FA690034F3AF /* Vecteur.h */,
-				839EF76B14C9FA690034F3AF /* Vecteur3D.cpp */,
-				839EF76C14C9FA690034F3AF /* Vecteur3D.h */,
+				83BC6E6014CC9997002396A5 /* Matrice.cpp */,
+				83BC6E6114CC9997002396A5 /* Matrice.h */,
+				83BC6E6214CC9997002396A5 /* Plan.cpp */,
+				83BC6E6314CC9997002396A5 /* Plan.h */,
+				83BC6E6414CC9997002396A5 /* Point.cpp */,
+				83BC6E6514CC9997002396A5 /* Point.h */,
+				83BC6E6614CC9997002396A5 /* Quaternion.cpp */,
+				83BC6E6714CC9997002396A5 /* Quaternion.h */,
+				83BC6E6814CC9997002396A5 /* Referentiel3D.cpp */,
+				83BC6E6914CC9997002396A5 /* Referentiel3D.h */,
+				83BC6E6A14CC9997002396A5 /* Vecteur.cpp */,
+				83BC6E6B14CC9997002396A5 /* Vecteur.h */,
+				83BC6E6C14CC9997002396A5 /* Vecteur3D.cpp */,
+				83BC6E6D14CC9997002396A5 /* Vecteur3D.h */,
 			);
 			path = Maths;
 			sourceTree = "<group>";
 		};
-		839EF76D14C9FA690034F3AF /* Ogre */ = {
+		83BC6E6E14CC9997002396A5 /* Ogre */ = {
 			isa = PBXGroup;
 			children = (
-				839EF76E14C9FA690034F3AF /* kite.material */,
-				839EF76F14C9FA690034F3AF /* kite.mesh */,
+				8349FCB814CCA10D0028E058 /* Headers */,
+				83BC6E6F14CC9997002396A5 /* kite.material */,
+				83BC6E7014CC9997002396A5 /* kite.mesh */,
+				83BC6E7114CC9997002396A5 /* kite.mesh.xml */,
+				83BC6E7214CC9997002396A5 /* Moteur3D.h */,
+				83BC6E7314CC9997002396A5 /* Moteur3D.mm */,
 			);
 			path = Ogre;
 			sourceTree = "<group>";
 		};
-		839EF77114C9FA690034F3AF /* Simulation */ = {
+		83BC6E7514CC9997002396A5 /* SDL */ = {
 			isa = PBXGroup;
 			children = (
-				839EF77214C9FA690034F3AF /* Action.cpp */,
-				839EF77314C9FA690034F3AF /* Action.h */,
-				839EF77414C9FA690034F3AF /* AileTraction.cpp */,
-				839EF77514C9FA690034F3AF /* AileTraction.h */,
-				839EF77614C9FA690034F3AF /* Referentiel.cpp */,
-				839EF77714C9FA690034F3AF /* Referentiel.h */,
-				839EF77814C9FA690034F3AF /* Solide.cpp */,
-				839EF77914C9FA690034F3AF /* Solide.h */,
-				839EF77A14C9FA690034F3AF /* State.cpp */,
-				839EF77B14C9FA690034F3AF /* State.h */,
+				83BC6E7614CC9997002396A5 /* SDLMain.h */,
+				83BC6E7714CC9997002396A5 /* SDLMain.m */,
+			);
+			path = SDL;
+			sourceTree = "<group>";
+		};
+		83BC6E7814CC9997002396A5 /* Simulation */ = {
+			isa = PBXGroup;
+			children = (
+				83BC6E7914CC9997002396A5 /* Action.cpp */,
+				83BC6E7A14CC9997002396A5 /* Action.h */,
+				83BC6E7B14CC9997002396A5 /* AileTraction.cpp */,
+				83BC6E7C14CC9997002396A5 /* AileTraction.h */,
+				83BC6E7D14CC9997002396A5 /* Referentiel.cpp */,
+				83BC6E7E14CC9997002396A5 /* Referentiel.h */,
+				83BC6E7F14CC9997002396A5 /* Solide.cpp */,
+				83BC6E8014CC9997002396A5 /* Solide.h */,
+				83BC6E8114CC9997002396A5 /* State.cpp */,
+				83BC6E8214CC9997002396A5 /* State.h */,
 			);
 			path = Simulation;
 			sourceTree = "<group>";
 		};
-		83F866FB14CABF2700D7DF06 /* SDL */ = {
+		83BC6E8514CC9997002396A5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				83F866FC14CABF4100D7DF06 /* SDLMain.h */,
-				83F866FD14CABF4100D7DF06 /* SDLMain.m */,
+				83BC6E8614CC9997002396A5 /* Application.xib */,
+				83BC6E8814CC9997002396A5 /* UIController.h */,
+				83BC6E8914CC9997002396A5 /* UIController.mm */,
 			);
-			name = SDL;
+			path = UI;
 			sourceTree = "<group>";
 		};
-		83FEE91D14CC3E830009160F /* UI */ = {
+		83BC6EA614CC99DA002396A5 /* media */ = {
 			isa = PBXGroup;
 			children = (
-				83FEE91F14CC3ECE0009160F /* UIController.h */,
-				83FEE92014CC3ECE0009160F /* UIController.m */,
+				83BC6EA714CC99DA002396A5 /* materials */,
+				83BC6EAF14CC99DA002396A5 /* models */,
+				83BC6EB114CC99DA002396A5 /* packs */,
 			);
-			name = UI;
+			path = media;
+			sourceTree = "<group>";
+		};
+		83BC6EA714CC99DA002396A5 /* materials */ = {
+			isa = PBXGroup;
+			children = (
+				83BC6EA814CC99DA002396A5 /* scripts */,
+				83BC6EAB14CC99DA002396A5 /* textures */,
+			);
+			path = materials;
+			sourceTree = "<group>";
+		};
+		83BC6EA814CC99DA002396A5 /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				83BC6EA914CC99DA002396A5 /* Examples.material */,
+				83BC6EAA14CC99DA002396A5 /* Ogre.material */,
+			);
+			path = scripts;
+			sourceTree = "<group>";
+		};
+		83BC6EAB14CC99DA002396A5 /* textures */ = {
+			isa = PBXGroup;
+			children = (
+				83BC6EAC14CC99DA002396A5 /* GreenSkin.jpg */,
+				83BC6EAD14CC99DA002396A5 /* spheremap.png */,
+				83BC6EAE14CC99DA002396A5 /* tusk.jpg */,
+			);
+			path = textures;
+			sourceTree = "<group>";
+		};
+		83BC6EAF14CC99DA002396A5 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				83BC6EB014CC99DA002396A5 /* ogrehead.mesh */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		83BC6EB114CC99DA002396A5 /* packs */ = {
+			isa = PBXGroup;
+			children = (
+				83BC6EB214CC99DA002396A5 /* cubemap.zip */,
+				83BC6EB314CC99DA002396A5 /* cubemapsJS.zip */,
+				83BC6EB414CC99DA002396A5 /* SdkTrays.zip */,
+				83BC6EB514CC99DA002396A5 /* skybox.zip */,
+			);
+			path = packs;
+			sourceTree = "<group>";
+		};
+		83BC6ED114CC9A1B002396A5 /* Ogre Framework */ = {
+			isa = PBXGroup;
+			children = (
+				83BC6EA314CC99DA002396A5 /* AppDelegate.h */,
+				83BC6EA414CC99DA002396A5 /* AppDelegate.mm */,
+				83BC6EB714CC99DA002396A5 /* OgreDemoApp.mm */,
+				83BC6EB814CC99DA002396A5 /* OgreDemoApp.h */,
+				83BC6EB914CC99DA002396A5 /* OgreFramework.h */,
+				83BC6EBA14CC99DA002396A5 /* OgreFramework.mm */,
+			);
+			name = "Ogre Framework";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		839EF6C914C9ED130034F3AF /* PSC */ = {
+		83BC6E2A14CC98AF002396A5 /* PSC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 839EF6FF14C9ED140034F3AF /* Build configuration list for PBXNativeTarget "PSC" */;
+			buildConfigurationList = 83BC6E4914CC98B0002396A5 /* Build configuration list for PBXNativeTarget "PSC" */;
 			buildPhases = (
-				839EF6C614C9ED130034F3AF /* Sources */,
-				839EF6C714C9ED130034F3AF /* Frameworks */,
-				839EF6C814C9ED130034F3AF /* ShellScript */,
-				839EF74914C9F3CE0034F3AF /* CopyFiles */,
-				839EF74B14C9F7470034F3AF /* CopyFiles */,
+				83BC6E2714CC98AF002396A5 /* Sources */,
+				83BC6E2814CC98AF002396A5 /* Frameworks */,
+				83BC6E2914CC98AF002396A5 /* Resources */,
+				83BC6EE814CC9ADF002396A5 /* ShellScript */,
+				83BC6EE914CC9B3C002396A5 /* CopyFiles */,
+				83BC6EEB14CC9B4E002396A5 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -403,37 +482,67 @@
 			);
 			name = PSC;
 			productName = PSC;
-			productReference = 839EF6CA14C9ED130034F3AF /* PSC.app */;
+			productReference = 83BC6E2B14CC98AF002396A5 /* PSC.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		839EF6C114C9ED130034F3AF /* Project object */ = {
+		83BC6E2214CC98AF002396A5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "École Polytechnique";
 			};
-			buildConfigurationList = 839EF6C414C9ED130034F3AF /* Build configuration list for PBXProject "PSC" */;
+			buildConfigurationList = 83BC6E2514CC98AF002396A5 /* Build configuration list for PBXProject "PSC" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 839EF6BF14C9ED130034F3AF;
-			productRefGroup = 839EF6CB14C9ED130034F3AF /* Products */;
+			mainGroup = 83BC6E2014CC98AF002396A5;
+			productRefGroup = 83BC6E2C14CC98AF002396A5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				839EF6C914C9ED130034F3AF /* PSC */,
+				83BC6E2A14CC98AF002396A5 /* PSC */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		83BC6E2914CC98AF002396A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83BC6E3A14CC98AF002396A5 /* InfoPlist.strings in Resources */,
+				83BC6E4014CC98AF002396A5 /* Credits.rtf in Resources */,
+				83BC6E9514CC9997002396A5 /* kite.material in Resources */,
+				83BC6E9614CC9997002396A5 /* kite.mesh in Resources */,
+				83BC6E9714CC9997002396A5 /* kite.mesh.xml in Resources */,
+				83BC6EA014CC9997002396A5 /* Application.xib in Resources */,
+				83BC6EC114CC99DA002396A5 /* Examples.material in Resources */,
+				83BC6EC214CC99DA002396A5 /* Ogre.material in Resources */,
+				83BC6EC314CC99DA002396A5 /* GreenSkin.jpg in Resources */,
+				83BC6EC414CC99DA002396A5 /* spheremap.png in Resources */,
+				83BC6EC514CC99DA002396A5 /* tusk.jpg in Resources */,
+				83BC6EC614CC99DA002396A5 /* ogrehead.mesh in Resources */,
+				83BC6EC714CC99DA002396A5 /* cubemap.zip in Resources */,
+				83BC6EC814CC99DA002396A5 /* cubemapsJS.zip in Resources */,
+				83BC6EC914CC99DA002396A5 /* SdkTrays.zip in Resources */,
+				83BC6ECA14CC99DA002396A5 /* skybox.zip in Resources */,
+				83BC6ECB14CC99DA002396A5 /* ogre.cfg in Resources */,
+				83BC6ECE14CC99DA002396A5 /* plugins.cfg in Resources */,
+				83BC6ECF14CC99DA002396A5 /* PSC-Info.plist in Resources */,
+				83BC6ED014CC99DA002396A5 /* resources.cfg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXShellScriptBuildPhase section */
-		839EF6C814C9ED130034F3AF /* ShellScript */ = {
+		83BC6EE814CC9ADF002396A5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -444,158 +553,183 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# This shell script simply copies resources into their respective locations\n\nditto \"/Library/OgreSDK/lib/release/Ogre.framework\" \"$BUILT_PRODUCTS_DIR/PSC.app/Contents/Frameworks/Ogre.framework\"\nditto \"/Library/OgreSDK/lib/RenderSystem_GL.dylib\" \"$BUILT_PRODUCTS_DIR/PSC.app/Contents/Plugins/\"\nditto $PROJECT_DIR/Ogre/*.material \"$BUILT_PRODUCTS_DIR/PSC.app/Contents/Resources/media/materials/scripts/\"\nditto $PROJECT_DIR/Ogre/*.mesh \"$BUILT_PRODUCTS_DIR/PSC.app/Contents/Resources/media/models/\"\nditto $PROJECT_DIR/$PROJECT_NAME/*.cfg \"$BUILT_PRODUCTS_DIR/PSC.app/Contents/Resources/\"\nditto $PROJECT_DIR/$PROJECT_NAME/media/ \"$BUILT_PRODUCTS_DIR/PSC.app/Contents/Resources/media/\"\n";
+			shellScript = "# This shell script simply copies resources into their respective locations\n\nditto \"/Library/OgreSDK/lib/release/Ogre.framework\" \"$BUILT_PRODUCTS_DIR/PSC.app/Contents/Frameworks/Ogre.framework\"\nditto \"/Library/OgreSDK/lib/RenderSystem_GL.dylib\" \"$BUILT_PRODUCTS_DIR/PSC.app/Contents/Plugins/\"\nditto $PROJECT_DIR/Ogre/*.material \"$BUILT_PRODUCTS_DIR/PSC.app/Contents/Resources/media/materials/scripts/\"\n                        ditto $PROJECT_DIR/Ogre/*.mesh \"$BUILT_PRODUCTS_DIR/PSC.app/Contents/Resources/media/models/\"\n                        ditto $PROJECT_DIR/$PROJECT_NAME/*.cfg \"$BUILT_PRODUCTS_DIR/PSC.app/Contents/Resources/\"\n                        ditto $PROJECT_DIR/$PROJECT_NAME/media/ \"$BUILT_PRODUCTS_DIR/PSC.app/Contents/Resources/media/\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		839EF6C614C9ED130034F3AF /* Sources */ = {
+		83BC6E2714CC98AF002396A5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				839EF6E114C9ED140034F3AF /* main.mm in Sources */,
-				839EF77F14C9FA690034F3AF /* hid.c in Sources */,
-				839EF78014C9FA690034F3AF /* InterfaceUSB.cpp in Sources */,
-				839EF78314C9FA690034F3AF /* Matrice.cpp in Sources */,
-				839EF78414C9FA690034F3AF /* Plan.cpp in Sources */,
-				839EF78514C9FA690034F3AF /* Point.cpp in Sources */,
-				839EF78614C9FA690034F3AF /* Quaternion.cpp in Sources */,
-				839EF78714C9FA690034F3AF /* Referentiel3D.cpp in Sources */,
-				839EF78814C9FA690034F3AF /* Vecteur.cpp in Sources */,
-				839EF78914C9FA690034F3AF /* Vecteur3D.cpp in Sources */,
-				839EF78A14C9FA690034F3AF /* Action.cpp in Sources */,
-				839EF78B14C9FA690034F3AF /* AileTraction.cpp in Sources */,
-				839EF78C14C9FA690034F3AF /* Referentiel.cpp in Sources */,
-				839EF78D14C9FA690034F3AF /* Solide.cpp in Sources */,
-				839EF78E14C9FA690034F3AF /* State.cpp in Sources */,
-				839EF78F14C9FA690034F3AF /* Tests.cpp in Sources */,
-				839EF79B14CA0CAD0034F3AF /* Joystick.cpp in Sources */,
-				839EF79C14CA0D2C0034F3AF /* OgreDemoApp.cpp in Sources */,
-				839EF79F14CA0ED00034F3AF /* OgreFramework.cpp in Sources */,
-				83F866FE14CABF4100D7DF06 /* SDLMain.m in Sources */,
-				836FC9C614CB003300D06793 /* Dynamixel.cpp in Sources */,
-				83FEE92214CC3ECE0009160F /* UIController.m in Sources */,
+				83BC6E8A14CC9997002396A5 /* Dynamixel.cpp in Sources */,
+				83BC6E8B14CC9997002396A5 /* hid.c in Sources */,
+				83BC6E8C14CC9997002396A5 /* InterfaceUSB.cpp in Sources */,
+				83BC6E8D14CC9997002396A5 /* Joystick.mm in Sources */,
+				83BC6E8E14CC9997002396A5 /* Matrice.cpp in Sources */,
+				83BC6E8F14CC9997002396A5 /* Plan.cpp in Sources */,
+				83BC6E9014CC9997002396A5 /* Point.cpp in Sources */,
+				83BC6E9114CC9997002396A5 /* Quaternion.cpp in Sources */,
+				83BC6E9214CC9997002396A5 /* Referentiel3D.cpp in Sources */,
+				83BC6E9314CC9997002396A5 /* Vecteur.cpp in Sources */,
+				83BC6E9414CC9997002396A5 /* Vecteur3D.cpp in Sources */,
+				83BC6E9814CC9997002396A5 /* Moteur3D.mm in Sources */,
+				83BC6E9914CC9997002396A5 /* SDLMain.m in Sources */,
+				83BC6E9A14CC9997002396A5 /* Action.cpp in Sources */,
+				83BC6E9B14CC9997002396A5 /* AileTraction.cpp in Sources */,
+				83BC6E9C14CC9997002396A5 /* Referentiel.cpp in Sources */,
+				83BC6E9D14CC9997002396A5 /* Solide.cpp in Sources */,
+				83BC6E9E14CC9997002396A5 /* State.cpp in Sources */,
+				83BC6E9F14CC9997002396A5 /* Tests.cpp in Sources */,
+				83BC6EA114CC9997002396A5 /* UIController.mm in Sources */,
+				83BC6EBF14CC99DA002396A5 /* AppDelegate.mm in Sources */,
+				83BC6EC014CC99DA002396A5 /* main.mm in Sources */,
+				83BC6ECD14CC99DA002396A5 /* OgreFramework.mm in Sources */,
+				837D55DE14CCC612002CD3DA /* OgreDemoApp.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		839EF6DD14C9ED140034F3AF /* InfoPlist.strings */ = {
+		83BC6E3814CC98AF002396A5 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				839EF6DE14C9ED140034F3AF /* en */,
+				83BC6E3914CC98AF002396A5 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		83BC6E3E14CC98AF002396A5 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83BC6E3F14CC98AF002396A5 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		83BC6E8614CC9997002396A5 /* Application.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83BC6E8714CC9997002396A5 /* en */,
+			);
+			name = Application.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		839EF6FD14C9ED140034F3AF /* Debug */ = {
+		83BC6E4714CC98B0002396A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"/Library/OgreSDK//lib/release\"",
 					"\"/Library/OgreSDK//Dependencies\"",
 				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"\"/Library/OgreSDK//include/OGRE\"",
 					"\"/Library/OgreSDK//include/OGRE/OSX\"",
 					"\"/Library/OgreSDK//include/OIS\"",
 					"\"/Library/OgreSDK//Dependencies/include\"",
-					"\"/Library/OgreSDK//boost_1_46_1\"",
+					/usr/local/include/boost/,
 				);
 				LIBRARY_SEARCH_PATHS = (
-					"\"/Library/OgreSDK//lib\"",
-					"\"/Library/OgreSDK//Dependencies/lib/Release\"",
+					"\"/Library/OgreSDK/lib\"",
+					"\"/Library/OgreSDK/Dependencies/lib/Release\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lOIS";
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "\"/Library/OgreSDK/include/OGRE\" \"/Library/OgreSDK/include/OGRE/OSX\" \"/Library/OgreSDK/include/OIS\" \"/Library/OgreSDK//Dependencies/include\" /usr/local/include/boost/";
 			};
 			name = Debug;
 		};
-		839EF6FE14C9ED140034F3AF /* Release */ = {
+		83BC6E4814CC98B0002396A5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"/Library/OgreSDK//lib/release\"",
 					"\"/Library/OgreSDK//Dependencies\"",
 				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"\"/Library/OgreSDK//include/OGRE\"",
 					"\"/Library/OgreSDK//include/OGRE/OSX\"",
 					"\"/Library/OgreSDK//include/OIS\"",
 					"\"/Library/OgreSDK//Dependencies/include\"",
-					"\"/Library/OgreSDK//boost_1_46_1\"",
+					/usr/local/include/boost/,
 				);
 				LIBRARY_SEARCH_PATHS = (
-					"\"/Library/OgreSDK//lib\"",
-					"\"/Library/OgreSDK//Dependencies/lib/Release\"",
+					"\"/Library/OgreSDK/lib\"",
+					"\"/Library/OgreSDK/Dependencies/lib/Release\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lOIS";
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "\"/Library/OgreSDK/include/OGRE\" \"/Library/OgreSDK/include/OGRE/OSX\" \"/Library/OgreSDK/include/OIS\" \"/Library/OgreSDK//Dependencies/include\" /usr/local/include/boost/";
 			};
 			name = Release;
 		};
-		839EF70014C9ED140034F3AF /* Debug */ = {
+		83BC6E4A14CC98B0002396A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PSC/PSC-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"/Library/OgreSDK/include/OGRE\"",
-					"\"/Library/OgreSDK/include/OGRE/OSX\"",
-					"\"/Library/OgreSDK/include/OIS\"",
-					"\"/Library/OgreSDK/boost_1_46_1\"",
-					/usr/local/include,
-				);
 				INFOPLIST_FILE = "PSC/PSC-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
-					/usr/local/lib,
-					"\"/Library/OgreSDK/lib\"",
+					"$(inherited)",
+					"\"$(LOCAL_LIBRARY_DIR)/OgreSDK/lib\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
-		839EF70114C9ED140034F3AF /* Release */ = {
+		83BC6E4B14CC98B0002396A5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PSC/PSC-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"\"/Library/OgreSDK/include/OGRE\"",
-					"\"/Library/OgreSDK/include/OGRE/OSX\"",
-					"\"/Library/OgreSDK/include/OIS\"",
-					"\"/Library/OgreSDK/boost_1_46_1\"",
-					/usr/local/include,
-				);
 				INFOPLIST_FILE = "PSC/PSC-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
-					/usr/local/lib,
-					"\"/Library/OgreSDK/lib\"",
+					"$(inherited)",
+					"\"$(LOCAL_LIBRARY_DIR)/OgreSDK/lib\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -605,25 +739,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		839EF6C414C9ED130034F3AF /* Build configuration list for PBXProject "PSC" */ = {
+		83BC6E2514CC98AF002396A5 /* Build configuration list for PBXProject "PSC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				839EF6FD14C9ED140034F3AF /* Debug */,
-				839EF6FE14C9ED140034F3AF /* Release */,
+				83BC6E4714CC98B0002396A5 /* Debug */,
+				83BC6E4814CC98B0002396A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		839EF6FF14C9ED140034F3AF /* Build configuration list for PBXNativeTarget "PSC" */ = {
+		83BC6E4914CC98B0002396A5 /* Build configuration list for PBXNativeTarget "PSC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				839EF70014C9ED140034F3AF /* Debug */,
-				839EF70114C9ED140034F3AF /* Release */,
+				83BC6E4A14CC98B0002396A5 /* Debug */,
+				83BC6E4B14CC98B0002396A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 839EF6C114C9ED130034F3AF /* Project object */;
+	rootObject = 83BC6E2214CC98AF002396A5 /* Project object */;
 }

@@ -1,5 +1,5 @@
 #include "OgreFramework.h"
-#include "macUtils.h"
+#include <Ogre/OSX/macUtils.h>
 
 #include "Joystick.h"
 

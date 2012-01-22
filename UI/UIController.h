@@ -7,7 +7,19 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <Ogre/OSX/OgreOSXCocoaView.h>
+#include "AppDelegate.h"
 
-@interface UIController : NSViewController
+@interface UIController : NSObject
+{
+	IBOutlet OgreView* ogreView;
+	IBOutlet NSWindow* window;
+	IBOutlet AppDelegate* delegate;
+}
+
+@property (retain,nonatomic) IBOutlet OgreView* ogreView;
+@property (assign,nonatomic) IBOutlet NSWindow* window;
+
+@property (retain,nonatomic) IBOutlet AppDelegate* delegate;
 
 @end
