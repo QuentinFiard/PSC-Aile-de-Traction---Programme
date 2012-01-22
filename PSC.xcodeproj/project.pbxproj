@@ -38,6 +38,7 @@
 		839EF79C14CA0D2C0034F3AF /* OgreDemoApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839EF6E414C9ED140034F3AF /* OgreDemoApp.cpp */; };
 		839EF79F14CA0ED00034F3AF /* OgreFramework.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 839EF6E714C9ED140034F3AF /* OgreFramework.cpp */; };
 		83F866FE14CABF4100D7DF06 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F866FD14CABF4100D7DF06 /* SDLMain.m */; };
+		83FEE92214CC3ECE0009160F /* UIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FEE92014CC3ECE0009160F /* UIController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -134,6 +135,9 @@
 		839EF77D14C9FA690034F3AF /* Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tests.h; sourceTree = "<group>"; };
 		83F866FC14CABF4100D7DF06 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
 		83F866FD14CABF4100D7DF06 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
+		83FEE91F14CC3ECE0009160F /* UIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIController.h; path = UI/UIController.h; sourceTree = "<group>"; };
+		83FEE92014CC3ECE0009160F /* UIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIController.m; path = UI/UIController.m; sourceTree = "<group>"; };
+		83FEE92314CC3EED0009160F /* Application.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Application.xib; path = UI/Application.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,8 @@
 		839EF6BF14C9ED130034F3AF = {
 			isa = PBXGroup;
 			children = (
+				83FEE92314CC3EED0009160F /* Application.xib */,
+				83FEE91D14CC3E830009160F /* UI */,
 				83F866FB14CABF2700D7DF06 /* SDL */,
 				839EF75214C9FA690034F3AF /* ConnectionUSB */,
 				839EF75914C9FA690034F3AF /* Joystick */,
@@ -369,6 +375,15 @@
 			name = SDL;
 			sourceTree = "<group>";
 		};
+		83FEE91D14CC3E830009160F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				83FEE91F14CC3ECE0009160F /* UIController.h */,
+				83FEE92014CC3ECE0009160F /* UIController.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -459,6 +474,7 @@
 				839EF79F14CA0ED00034F3AF /* OgreFramework.cpp in Sources */,
 				83F866FE14CABF4100D7DF06 /* SDLMain.m in Sources */,
 				836FC9C614CB003300D06793 /* Dynamixel.cpp in Sources */,
+				83FEE92214CC3ECE0009160F /* UIController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
