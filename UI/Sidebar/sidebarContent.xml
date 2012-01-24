@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <folder>
+	<name>Suivi de l'expérience</name>
+        <node>
+            <name>Simulation</name>
+            <imageName>NSNetwork</imageName>
+            <nibName>SimulationController</nibName>
+			<ownerClass>SimulationController</ownerClass>
+        </node>
+		<node>
+            <name>Webcam</name>
+            <imageName>NSQuickLookTemplate</imageName>
+            <nibName>WebcamController</nibName>
+			<ownerClass>WebcamController</ownerClass>
+        </node>
+		<node>
+            <name>Comparaison Webcam/Simulation</name>
+            <imageName>NSActionTemplate</imageName>
+            <nibName>ComparaisonController</nibName>
+			<ownerClass>ComparaisonController</ownerClass>
+        </node>
+		<node>
+            <name>Paramètres moteur</name>
+            <imageName>NSRevealFreestandingTemplate</imageName>
+            <nibName>MoteurController</nibName>
+			<ownerClass>MoteurController</ownerClass>
+        </node>
+    </folder>
+</root>

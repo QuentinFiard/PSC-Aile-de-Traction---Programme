@@ -27,6 +27,17 @@ static Moteur3D* moteur3D;
 @synthesize ogreView;
 @synthesize yawSpeed,rollSpeed,pitchSpeed;
 
++(Moteur3D*)moteur3D
+{
+	if(!moteur3D)
+	{
+		moteur3D = [[Moteur3D alloc] init];
+		
+		[moteur3D prepareRenderer];
+	}
+	return moteur3D;
+}
+
 -(id)init
 {
 	shutDownOgre     = false;
@@ -39,6 +50,11 @@ static Moteur3D* moteur3D;
 	viewport			= 0;
 	log					= 0;
 	timer				= 0;
+	
+	ogreView = [[OgreView alloc] init];
+	[ogreView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
+	
+	backgroundView = [[OgreView alloc] initWithFrame:NSMakeRect(0,0,10,10)];
     
 #if OGRE_PLATFORM == OGRE_PLATFORM_APPLE
     resourcePath = macBundlePath() + "/Contents/Resources/";
@@ -53,35 +69,62 @@ static Moteur3D* moteur3D;
 	return self;
 }
 
-+(void)prepareOgreFramework
+-(void)prepareRenderer
 {
-	if(!ogreFrameworkPrepared)
+	if(ogreFrameworkPrepared)
 	{
+		return;
+	}
+	
 #ifdef OGRE_STATIC_LIB
     m_StaticPluginLoader.load();
 #endif
-	}
 	ogreFrameworkPrepared = true;
+	
+	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK);
+	
+	Joystick::handler()->prepareJoystick();
+	
+	testerCommunicationMoteur();
+	
+	new Ogre::LogManager();
+	
+	log = Ogre::LogManager::getSingleton().createLog("OgreLogfile.log", true, true, false);
+	log->setDebugOutputEnabled(true);
+    
+    String pluginsPath;
+    // only use plugins.cfg if not static
+#ifndef OGRE_STATIC_LIB
+    pluginsPath = resourcePath + "plugins.cfg";
+#endif
+    
+    root = new Ogre::Root(pluginsPath);//, Ogre::macBundlePath() + "/ogre.cfg");
+	
+	// set up the render system. Since this is running on Mac, our only option is OpenGL.
+	root->setRenderSystem(root->getRenderSystemByName("OpenGL Rendering Subsystem"));
+	
+	// Initialise without an automatically created window
+	root->initialise(false);
+	
+	// Ask for a new renderwindow passing in the ogreView in our nib file
+	Ogre::NameValuePairList misc;
+	// Pass the handle to the ogreView in our nib
+	misc["externalWindowHandle"] = Ogre::StringConverter::toString((size_t)backgroundView);
+	// Tell OGRE that we're using cocoa, so it doesn't need to make a window for us
+	misc["macAPI"] = "cocoa";
+	misc["VSync"]="Yes";
+	misc["VSync Interval"]="1";
+	NSRect frame = [backgroundView frame];
+	root->createRenderWindow("Background", frame.size.width, frame.size.height, false, &misc);
+	renderWindow = [backgroundView ogreWindow];
+	
+	[self prepareScene];
 }
 
 -(void)prepareScene
 {
 	sceneManager = root->createSceneManager(ST_GENERIC, "SceneManager");
 	sceneManager->setAmbientLight(Ogre::ColourValue(0.0f, 0.0f, 0.0f));
-	
-	camera = sceneManager->createCamera("Camera");
-	camera->setPosition(Vector3(3,1,1));
-	camera->lookAt(Vector3(0,0,0));
-	camera->setNearClipDistance(0.1);
-	
-	camera->roll(Radian(M_PI_2));
-    
-	viewport = renderWindow->addViewport(camera);
-	viewport->setBackgroundColour(ColourValue(0.8f, 0.7f, 0.6f, 1.0f));
-    
-	camera->setAspectRatio(Real(viewport->getActualWidth()) / Real(viewport->getActualHeight()));
-	
-	viewport->setCamera(camera);
 					
 	Ogre::String secName, typeName, archName;
 	Ogre::ConfigFile cf;
@@ -112,12 +155,16 @@ static Moteur3D* moteur3D;
     
 	timer = OGRE_NEW Ogre::Timer();
 	timer->reset();
-    
-	renderWindow->setActive(true);
-}
-
--(void)setupDemoScene
-{
+	
+	camera = sceneManager->createCamera("Camera");
+	camera->setPosition(Vector3(3,1,1));
+	camera->lookAt(Vector3(0,0,0));
+	camera->setNearClipDistance(0.1);
+	
+	camera->roll(Radian(M_PI_2));
+	
+	
+	//Ajout des objets de la démo
 	sceneManager->setSkyBox(true, "Examples/SpaceSkyBox");
     
 	sceneManager->createLight("Light")->setPosition(75,75,75);
@@ -125,13 +172,7 @@ static Moteur3D* moteur3D;
 	kiteEntity = sceneManager->createEntity("Cube", "kite.mesh");
 	kiteNode = sceneManager->getRootSceneNode()->createChildSceneNode("CubeNode");
 	kiteNode->attachObject(kiteEntity);
-}
-
--(void)startDemo
-{    
-	log->logMessage("Demo initialized!");
-    
-	[self setupDemoScene];
+	
 }
 
 //|||||||||||||||||||||||||||||||||||||||||||||||
@@ -142,14 +183,13 @@ static Moteur3D* moteur3D;
 	
 	double timeSinceLastFrame = 0;
 	double startTime = 0;
-	
-	bool m_bShutdown = false;
     
     renderWindow->resetStatistics();
     
-	while(!m_bShutdown /*&& !OgreFramework::getSingletonPtr()->isOgreToBeShutDown()*/) 
+	while(!shutDownOgre /*&& !OgreFramework::getSingletonPtr()->isOgreToBeShutDown()*/) 
 	{
-		if(renderWindow->isClosed())m_bShutdown = true;
+		if(renderWindow->isClosed())
+			shutDownOgre = true;
         
 		Ogre::WindowEventUtilities::messagePump();
 		
@@ -195,7 +235,8 @@ static Moteur3D* moteur3D;
 			}
             
 			//OgreFramework::getSingletonPtr()->updateOgre(timeSinceLastFrame);
-			root->renderOneFrame();
+			if(!root->renderOneFrame())
+				sleep(0.5);
             
 			timeSinceLastFrame = (timer->getMicrosecondsCPU() - startTime)/1000;
 			
@@ -212,37 +253,17 @@ static Moteur3D* moteur3D;
 #endif
 }
 
-
--(void)initInView:(OgreView*)anOgreView
+-(void)renderInView:(NSView*)superView label:(NSString*)aLabel
 {
-	self.ogreView = anOgreView;
+	std::string label([aLabel UTF8String]);
+	if(root->getRenderTarget(label))
+	{
+		root->detachRenderTarget(label);
+	}
 	
-	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK);
+	[ogreView setFrame:[superView bounds]];
 	
-	Joystick::handler()->prepareJoystick();
-	
-	testerCommunicationMoteur();
-	
-	new Ogre::LogManager();
-	
-	log = Ogre::LogManager::getSingleton().createLog("OgreLogfile.log", true, true, false);
-	log->setDebugOutputEnabled(true);
-    
-    String pluginsPath;
-    // only use plugins.cfg if not static
-#ifndef OGRE_STATIC_LIB
-    pluginsPath = resourcePath + "plugins.cfg";
-#endif
-	
-	[Moteur3D prepareOgreFramework];
-    
-    root = new Ogre::Root(pluginsPath);//, Ogre::macBundlePath() + "/ogre.cfg");
-	
-	// set up the render system. Since this is running on Mac, our only option is OpenGL.
-	root->setRenderSystem(root->getRenderSystemByName("OpenGL Rendering Subsystem"));
-	
-	// Initialise without an automatically created window
-	root->initialise(false);
+	[superView addSubview:ogreView];
 	
 	// Ask for a new renderwindow passing in the ogreView in our nib file
 	Ogre::NameValuePairList misc;
@@ -254,15 +275,36 @@ static Moteur3D* moteur3D;
 	misc["VSync Interval"]="1";
 	// Actually create the render window
 	NSRect frame = [ogreView frame];
-	root->createRenderWindow("ogre window", frame.size.width, frame.size.height, false, &misc);
+	root->createRenderWindow(label, frame.size.width, frame.size.height, false, &misc);
 	// And then get a pointer to it.
 	renderWindow = [ogreView ogreWindow];
 	
-	[self prepareScene];
 	
-	[self setupDemoScene];
+	viewport = renderWindow->addViewport(camera);
+	viewport->setBackgroundColour(ColourValue(0.8f, 0.7f, 0.6f, 1.0f));
+    
+	camera->setAspectRatio(Real(viewport->getActualWidth()) / Real(viewport->getActualHeight()));
 	
-	[self runDemo];
+	viewport->setCamera(camera);
+    
+	renderWindow->setActive(true);
+	
+	shutDownOgre = false;
+	
+	[self performSelectorOnMainThread:@selector(runDemo) withObject:nil waitUntilDone:NO];
+}
+
+-(void)removeFromView:(NSString*)aLabel
+{
+	std::string label([aLabel UTF8String]);
+	shutDownOgre = true;
+	
+	[ogreView removeFromSuperview];
+	
+	if(root->getRenderTarget(label))
+	{
+		root->detachRenderTarget(label);
+	}
 }
 
 @end

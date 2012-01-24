@@ -27,8 +27,11 @@
 {
 @private
 	OgreView*				ogreView;
+	OgreView*				backgroundView;
+	
 	Ogre::Root*             root;
 	Ogre::RenderWindow*		renderWindow;
+	Ogre::RenderWindow*		backgroundRenderWindow;
 	Ogre::SceneManager*		sceneManager;
 	Ogre::SceneNode*		sceneNode;
 	Ogre::Camera*			camera;
@@ -59,7 +62,15 @@
 @property (nonatomic) double yawSpeed;
 @property (nonatomic) double rollSpeed;
 
--(void)initInView:(OgreView*)ogreView;
++(Moteur3D*)moteur3D;
+
+-(void)prepareRenderer;
+-(void)prepareScene;
+-(void)runDemo;
+
+-(void)renderInView:(NSView*)superView label:(NSString*)label;
+
+-(void)removeFromView:(NSString*)label;
 
 @end
 

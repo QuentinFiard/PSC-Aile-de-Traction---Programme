@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		8349FCBD14CCA9670028E058 /* RenderSystem_GL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8349FCBC14CCA9670028E058 /* RenderSystem_GL.dylib */; };
 		837D55DE14CCC612002CD3DA /* OgreDemoApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6EB714CC99DA002396A5 /* OgreDemoApp.mm */; };
+		83A388B114CD8FB6009D7636 /* sidebarContent.xml in Resources */ = {isa = PBXBuildFile; fileRef = 83A388B014CD8FB6009D7636 /* sidebarContent.xml */; };
+		83A388B314CD8FCA009D7636 /* sidebarContent.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83A388B014CD8FB6009D7636 /* sidebarContent.xml */; };
+		83B601E414CD83DB0022569F /* CellView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B601D714CD83DB0022569F /* CellView.mm */; };
+		83B601E514CD83DB0022569F /* NSArrayExt.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B601D914CD83DB0022569F /* NSArrayExt.mm */; };
+		83B601E614CD83DB0022569F /* NSIndexPathExt.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B601DB14CD83DB0022569F /* NSIndexPathExt.mm */; };
+		83B601E714CD83DB0022569F /* Sidebar.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B601DD14CD83DB0022569F /* Sidebar.mm */; };
+		83B601E814CD83DB0022569F /* SidebarBadgeCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B601DF14CD83DB0022569F /* SidebarBadgeCell.mm */; };
+		83B601E914CD83DB0022569F /* SidebarNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B601E114CD83DB0022569F /* SidebarNode.mm */; };
+		83B601EA14CD83DB0022569F /* FoldersView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B601E314CD83DB0022569F /* FoldersView.mm */; };
 		83BC6E3014CC98AF002396A5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BC6E2F14CC98AF002396A5 /* Cocoa.framework */; };
 		83BC6E3A14CC98AF002396A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6E3814CC98AF002396A5 /* InfoPlist.strings */; };
 		83BC6E4014CC98AF002396A5 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6E3E14CC98AF002396A5 /* Credits.rtf */; };
@@ -34,7 +43,6 @@
 		83BC6E9D14CC9997002396A5 /* Solide.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E7F14CC9997002396A5 /* Solide.cpp */; };
 		83BC6E9E14CC9997002396A5 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E8114CC9997002396A5 /* State.cpp */; };
 		83BC6E9F14CC9997002396A5 /* Tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E8314CC9997002396A5 /* Tests.cpp */; };
-		83BC6EA014CC9997002396A5 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6E8614CC9997002396A5 /* Application.xib */; };
 		83BC6EA114CC9997002396A5 /* UIController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E8914CC9997002396A5 /* UIController.mm */; };
 		83BC6EBF14CC99DA002396A5 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6EA414CC99DA002396A5 /* AppDelegate.mm */; };
 		83BC6EC014CC99DA002396A5 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6EA514CC99DA002396A5 /* main.mm */; };
@@ -65,7 +73,31 @@
 		83BC6EE614CC9AD5002396A5 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BC6EDB14CC9AD4002396A5 /* OpenGL.framework */; };
 		83BC6EE714CC9AD5002396A5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BC6EDC14CC9AD4002396A5 /* QuartzCore.framework */; };
 		83BC6EEA14CC9B47002396A5 /* SDL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83BC6ED714CC9AD4002396A5 /* SDL.framework */; };
-		83BC6EEC14CC9B57002396A5 /* Application.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83BC6E8614CC9997002396A5 /* Application.xib */; };
+		83F586AD14CDA94200DA0F60 /* SimulationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83F586AB14CDA94200DA0F60 /* SimulationController.mm */; };
+		83F586AE14CDA94200DA0F60 /* SimulationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F586AC14CDA94200DA0F60 /* SimulationController.xib */; };
+		83F586B214CDB09D00DA0F60 /* WebcamController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F586B014CDB09D00DA0F60 /* WebcamController.m */; };
+		83F586B314CDB09D00DA0F60 /* WebcamController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F586B114CDB09D00DA0F60 /* WebcamController.xib */; };
+		83F586B714CDB0B100DA0F60 /* ComparaisonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F586B514CDB0B100DA0F60 /* ComparaisonController.m */; };
+		83F586B814CDB0B100DA0F60 /* ComparaisonController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F586B614CDB0B100DA0F60 /* ComparaisonController.xib */; };
+		83F586BC14CDB0BE00DA0F60 /* MoteurController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F586BA14CDB0BE00DA0F60 /* MoteurController.m */; };
+		83F586BD14CDB0BE00DA0F60 /* MoteurController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F586BB14CDB0BE00DA0F60 /* MoteurController.xib */; };
+		83F586C814CDB73F00DA0F60 /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F586C714CDB73F00DA0F60 /* Status.m */; };
+		83F586CF14CDE69900DA0F60 /* StatusController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83F586CD14CDE69900DA0F60 /* StatusController.mm */; };
+		83F586D014CDE69900DA0F60 /* StatusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F586CE14CDE69900DA0F60 /* StatusController.xib */; };
+		83F586D414CDEB5F00DA0F60 /* status0.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F586D114CDEB5F00DA0F60 /* status0.png */; };
+		83F586D514CDEB5F00DA0F60 /* status1.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F586D214CDEB5F00DA0F60 /* status1.png */; };
+		83F586D614CDEB5F00DA0F60 /* status2.png in Resources */ = {isa = PBXBuildFile; fileRef = 83F586D314CDEB5F00DA0F60 /* status2.png */; };
+		83F586D714CDEB7000DA0F60 /* status0.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83F586D114CDEB5F00DA0F60 /* status0.png */; };
+		83F586D814CDEB7200DA0F60 /* status1.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83F586D214CDEB5F00DA0F60 /* status1.png */; };
+		83F586D914CDEB7400DA0F60 /* status2.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83F586D314CDEB5F00DA0F60 /* status2.png */; };
+		83F586E014CDFB7800DA0F60 /* StatusController.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83F586CE14CDE69900DA0F60 /* StatusController.xib */; };
+		83F586E214CE210A00DA0F60 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F586E114CE210900DA0F60 /* QTKit.framework */; };
+		83F586E614CEF25600DA0F60 /* SimulationController.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83F586AC14CDA94200DA0F60 /* SimulationController.xib */; };
+		83F586E714CEF25900DA0F60 /* WebcamController.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83F586B114CDB09D00DA0F60 /* WebcamController.xib */; };
+		83F586E814CEF25A00DA0F60 /* ComparaisonController.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83F586B614CDB0B100DA0F60 /* ComparaisonController.xib */; };
+		83F586E914CEF25D00DA0F60 /* MoteurController.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83F586BB14CDB0BE00DA0F60 /* MoteurController.xib */; };
+		83F586EB14CF014200DA0F60 /* Application.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F586EA14CF014200DA0F60 /* Application.xib */; };
+		83F586EC14CF015100DA0F60 /* Application.xib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83F586EA14CF014200DA0F60 /* Application.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -85,7 +117,16 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				83BC6EEC14CC9B57002396A5 /* Application.xib in CopyFiles */,
+				83F586D914CDEB7400DA0F60 /* status2.png in CopyFiles */,
+				83F586E014CDFB7800DA0F60 /* StatusController.xib in CopyFiles */,
+				83F586E614CEF25600DA0F60 /* SimulationController.xib in CopyFiles */,
+				83F586EC14CF015100DA0F60 /* Application.xib in CopyFiles */,
+				83F586D814CDEB7200DA0F60 /* status1.png in CopyFiles */,
+				83F586E714CEF25900DA0F60 /* WebcamController.xib in CopyFiles */,
+				83F586E914CEF25D00DA0F60 /* MoteurController.xib in CopyFiles */,
+				83F586E814CEF25A00DA0F60 /* ComparaisonController.xib in CopyFiles */,
+				83A388B314CD8FCA009D7636 /* sidebarContent.xml in CopyFiles */,
+				83F586D714CDEB7000DA0F60 /* status0.png in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +135,21 @@
 /* Begin PBXFileReference section */
 		8349FCB914CCA14E0028E058 /* OgreOSXCocoaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreOSXCocoaView.h; path = ../../../../../../../Library/OgreSDK/lib/release/Ogre.framework/Versions/1.7.4/Headers/OSX/OgreOSXCocoaView.h; sourceTree = "<group>"; };
 		8349FCBC14CCA9670028E058 /* RenderSystem_GL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = RenderSystem_GL.dylib; path = /Library/OgreSDK/lib/RenderSystem_GL.dylib; sourceTree = "<absolute>"; };
+		83A388B014CD8FB6009D7636 /* sidebarContent.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sidebarContent.xml; path = UI/Sidebar/sidebarContent.xml; sourceTree = "<group>"; };
+		83B601D614CD83DB0022569F /* CellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CellView.h; path = UI/Sidebar/CellView.h; sourceTree = "<group>"; };
+		83B601D714CD83DB0022569F /* CellView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CellView.mm; path = UI/Sidebar/CellView.mm; sourceTree = "<group>"; };
+		83B601D814CD83DB0022569F /* NSArrayExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSArrayExt.h; path = UI/Sidebar/NSArrayExt.h; sourceTree = "<group>"; };
+		83B601D914CD83DB0022569F /* NSArrayExt.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NSArrayExt.mm; path = UI/Sidebar/NSArrayExt.mm; sourceTree = "<group>"; };
+		83B601DA14CD83DB0022569F /* NSIndexPathExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSIndexPathExt.h; path = UI/Sidebar/NSIndexPathExt.h; sourceTree = "<group>"; };
+		83B601DB14CD83DB0022569F /* NSIndexPathExt.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = NSIndexPathExt.mm; path = UI/Sidebar/NSIndexPathExt.mm; sourceTree = "<group>"; };
+		83B601DC14CD83DB0022569F /* Sidebar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sidebar.h; path = UI/Sidebar/Sidebar.h; sourceTree = "<group>"; };
+		83B601DD14CD83DB0022569F /* Sidebar.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Sidebar.mm; path = UI/Sidebar/Sidebar.mm; sourceTree = "<group>"; };
+		83B601DE14CD83DB0022569F /* SidebarBadgeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SidebarBadgeCell.h; path = UI/Sidebar/SidebarBadgeCell.h; sourceTree = "<group>"; };
+		83B601DF14CD83DB0022569F /* SidebarBadgeCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SidebarBadgeCell.mm; path = UI/Sidebar/SidebarBadgeCell.mm; sourceTree = "<group>"; };
+		83B601E014CD83DB0022569F /* SidebarNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SidebarNode.h; path = UI/Sidebar/SidebarNode.h; sourceTree = "<group>"; };
+		83B601E114CD83DB0022569F /* SidebarNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SidebarNode.mm; path = UI/Sidebar/SidebarNode.mm; sourceTree = "<group>"; };
+		83B601E214CD83DB0022569F /* FoldersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoldersView.h; path = UI/Sidebar/FoldersView.h; sourceTree = "<group>"; };
+		83B601E314CD83DB0022569F /* FoldersView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FoldersView.mm; path = UI/Sidebar/FoldersView.mm; sourceTree = "<group>"; };
 		83BC6E2B14CC98AF002396A5 /* PSC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83BC6E2F14CC98AF002396A5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		83BC6E3214CC98AF002396A5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -145,7 +201,6 @@
 		83BC6E8214CC9997002396A5 /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
 		83BC6E8314CC9997002396A5 /* Tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tests.cpp; sourceTree = "<group>"; };
 		83BC6E8414CC9997002396A5 /* Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tests.h; sourceTree = "<group>"; };
-		83BC6E8714CC9997002396A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Application.xib; sourceTree = "<group>"; };
 		83BC6E8814CC9997002396A5 /* UIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIController.h; sourceTree = "<group>"; };
 		83BC6E8914CC9997002396A5 /* UIController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UIController.mm; sourceTree = "<group>"; };
 		83BC6EA314CC99DA002396A5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -181,6 +236,28 @@
 		83BC6EDA14CC9AD4002396A5 /* Ogre.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ogre.framework; path = Library/Frameworks/Ogre.framework; sourceTree = DEVELOPER_DIR; };
 		83BC6EDB14CC9AD4002396A5 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
 		83BC6EDC14CC9AD4002396A5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		83F586AA14CDA94200DA0F60 /* SimulationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationController.h; sourceTree = "<group>"; };
+		83F586AB14CDA94200DA0F60 /* SimulationController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SimulationController.mm; sourceTree = "<group>"; };
+		83F586AC14CDA94200DA0F60 /* SimulationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimulationController.xib; sourceTree = "<group>"; };
+		83F586AF14CDB09D00DA0F60 /* WebcamController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamController.h; sourceTree = "<group>"; };
+		83F586B014CDB09D00DA0F60 /* WebcamController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebcamController.m; sourceTree = "<group>"; };
+		83F586B114CDB09D00DA0F60 /* WebcamController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebcamController.xib; sourceTree = "<group>"; };
+		83F586B414CDB0B100DA0F60 /* ComparaisonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComparaisonController.h; sourceTree = "<group>"; };
+		83F586B514CDB0B100DA0F60 /* ComparaisonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComparaisonController.m; sourceTree = "<group>"; };
+		83F586B614CDB0B100DA0F60 /* ComparaisonController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComparaisonController.xib; sourceTree = "<group>"; };
+		83F586B914CDB0BE00DA0F60 /* MoteurController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoteurController.h; sourceTree = "<group>"; };
+		83F586BA14CDB0BE00DA0F60 /* MoteurController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoteurController.m; sourceTree = "<group>"; };
+		83F586BB14CDB0BE00DA0F60 /* MoteurController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoteurController.xib; sourceTree = "<group>"; };
+		83F586C614CDB73F00DA0F60 /* Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Status.h; path = Status/Status.h; sourceTree = "<group>"; };
+		83F586C714CDB73F00DA0F60 /* Status.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Status.m; path = Status/Status.m; sourceTree = "<group>"; };
+		83F586CC14CDE69900DA0F60 /* StatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusController.h; sourceTree = "<group>"; };
+		83F586CD14CDE69900DA0F60 /* StatusController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = StatusController.mm; sourceTree = "<group>"; };
+		83F586CE14CDE69900DA0F60 /* StatusController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusController.xib; sourceTree = "<group>"; };
+		83F586D114CDEB5F00DA0F60 /* status0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = status0.png; path = Status/status0.png; sourceTree = "<group>"; };
+		83F586D214CDEB5F00DA0F60 /* status1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = status1.png; path = Status/status1.png; sourceTree = "<group>"; };
+		83F586D314CDEB5F00DA0F60 /* status2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = status2.png; path = Status/status2.png; sourceTree = "<group>"; };
+		83F586E114CE210900DA0F60 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
+		83F586EA14CF014200DA0F60 /* Application.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Application.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +265,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83F586E214CE210A00DA0F60 /* QTKit.framework in Frameworks */,
 				8349FCBD14CCA9670028E058 /* RenderSystem_GL.dylib in Frameworks */,
 				83BC6E3014CC98AF002396A5 /* Cocoa.framework in Frameworks */,
 				83BC6EDD14CC9AD5002396A5 /* CoreData.framework in Frameworks */,
@@ -215,9 +293,33 @@
 			name = Headers;
 			sourceTree = "<group>";
 		};
+		83B601D414CD83C60022569F /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				83A388B014CD8FB6009D7636 /* sidebarContent.xml */,
+				83B601D614CD83DB0022569F /* CellView.h */,
+				83B601D714CD83DB0022569F /* CellView.mm */,
+				83B601D814CD83DB0022569F /* NSArrayExt.h */,
+				83B601D914CD83DB0022569F /* NSArrayExt.mm */,
+				83B601DA14CD83DB0022569F /* NSIndexPathExt.h */,
+				83B601DB14CD83DB0022569F /* NSIndexPathExt.mm */,
+				83B601DC14CD83DB0022569F /* Sidebar.h */,
+				83B601DD14CD83DB0022569F /* Sidebar.mm */,
+				83B601DE14CD83DB0022569F /* SidebarBadgeCell.h */,
+				83B601DF14CD83DB0022569F /* SidebarBadgeCell.mm */,
+				83B601E014CD83DB0022569F /* SidebarNode.h */,
+				83B601E114CD83DB0022569F /* SidebarNode.mm */,
+				83B601E214CD83DB0022569F /* FoldersView.h */,
+				83B601E314CD83DB0022569F /* FoldersView.mm */,
+			);
+			name = Sidebar;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		83BC6E2014CC98AF002396A5 = {
 			isa = PBXGroup;
 			children = (
+				83F586C514CDB71100DA0F60 /* Status */,
 				83BC6E5514CC9997002396A5 /* ConnectionUSB */,
 				83BC6E5C14CC9997002396A5 /* Joystick */,
 				83BC6E5F14CC9997002396A5 /* Maths */,
@@ -245,6 +347,7 @@
 		83BC6E2E14CC98AF002396A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				83F586E114CE210900DA0F60 /* QTKit.framework */,
 				8349FCBC14CCA9670028E058 /* RenderSystem_GL.dylib */,
 				83BC6ED214CC9AD4002396A5 /* CoreData.framework */,
 				83BC6ED314CC9AD4002396A5 /* Foundation.framework */,
@@ -385,9 +488,23 @@
 		83BC6E8514CC9997002396A5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				83BC6E8614CC9997002396A5 /* Application.xib */,
+				83F586EA14CF014200DA0F60 /* Application.xib */,
+				83F586BE14CDB48E00DA0F60 /* Status */,
+				83B601D414CD83C60022569F /* Sidebar */,
 				83BC6E8814CC9997002396A5 /* UIController.h */,
 				83BC6E8914CC9997002396A5 /* UIController.mm */,
+				83F586AA14CDA94200DA0F60 /* SimulationController.h */,
+				83F586AB14CDA94200DA0F60 /* SimulationController.mm */,
+				83F586AC14CDA94200DA0F60 /* SimulationController.xib */,
+				83F586AF14CDB09D00DA0F60 /* WebcamController.h */,
+				83F586B014CDB09D00DA0F60 /* WebcamController.m */,
+				83F586B114CDB09D00DA0F60 /* WebcamController.xib */,
+				83F586B414CDB0B100DA0F60 /* ComparaisonController.h */,
+				83F586B514CDB0B100DA0F60 /* ComparaisonController.m */,
+				83F586B614CDB0B100DA0F60 /* ComparaisonController.xib */,
+				83F586B914CDB0BE00DA0F60 /* MoteurController.h */,
+				83F586BA14CDB0BE00DA0F60 /* MoteurController.m */,
+				83F586BB14CDB0BE00DA0F60 /* MoteurController.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -462,6 +579,28 @@
 			name = "Ogre Framework";
 			sourceTree = "<group>";
 		};
+		83F586BE14CDB48E00DA0F60 /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				83F586CC14CDE69900DA0F60 /* StatusController.h */,
+				83F586CD14CDE69900DA0F60 /* StatusController.mm */,
+				83F586CE14CDE69900DA0F60 /* StatusController.xib */,
+			);
+			name = Status;
+			sourceTree = "<group>";
+		};
+		83F586C514CDB71100DA0F60 /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				83F586D114CDEB5F00DA0F60 /* status0.png */,
+				83F586D214CDEB5F00DA0F60 /* status1.png */,
+				83F586D314CDEB5F00DA0F60 /* status2.png */,
+				83F586C614CDB73F00DA0F60 /* Status.h */,
+				83F586C714CDB73F00DA0F60 /* Status.m */,
+			);
+			name = Status;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -521,7 +660,6 @@
 				83BC6E9514CC9997002396A5 /* kite.material in Resources */,
 				83BC6E9614CC9997002396A5 /* kite.mesh in Resources */,
 				83BC6E9714CC9997002396A5 /* kite.mesh.xml in Resources */,
-				83BC6EA014CC9997002396A5 /* Application.xib in Resources */,
 				83BC6EC114CC99DA002396A5 /* Examples.material in Resources */,
 				83BC6EC214CC99DA002396A5 /* Ogre.material in Resources */,
 				83BC6EC314CC99DA002396A5 /* GreenSkin.jpg in Resources */,
@@ -536,6 +674,16 @@
 				83BC6ECE14CC99DA002396A5 /* plugins.cfg in Resources */,
 				83BC6ECF14CC99DA002396A5 /* PSC-Info.plist in Resources */,
 				83BC6ED014CC99DA002396A5 /* resources.cfg in Resources */,
+				83A388B114CD8FB6009D7636 /* sidebarContent.xml in Resources */,
+				83F586AE14CDA94200DA0F60 /* SimulationController.xib in Resources */,
+				83F586B314CDB09D00DA0F60 /* WebcamController.xib in Resources */,
+				83F586B814CDB0B100DA0F60 /* ComparaisonController.xib in Resources */,
+				83F586BD14CDB0BE00DA0F60 /* MoteurController.xib in Resources */,
+				83F586D014CDE69900DA0F60 /* StatusController.xib in Resources */,
+				83F586D414CDEB5F00DA0F60 /* status0.png in Resources */,
+				83F586D514CDEB5F00DA0F60 /* status1.png in Resources */,
+				83F586D614CDEB5F00DA0F60 /* status2.png in Resources */,
+				83F586EB14CF014200DA0F60 /* Application.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +734,19 @@
 				83BC6EC014CC99DA002396A5 /* main.mm in Sources */,
 				83BC6ECD14CC99DA002396A5 /* OgreFramework.mm in Sources */,
 				837D55DE14CCC612002CD3DA /* OgreDemoApp.mm in Sources */,
+				83B601E414CD83DB0022569F /* CellView.mm in Sources */,
+				83B601E514CD83DB0022569F /* NSArrayExt.mm in Sources */,
+				83B601E614CD83DB0022569F /* NSIndexPathExt.mm in Sources */,
+				83B601E714CD83DB0022569F /* Sidebar.mm in Sources */,
+				83B601E814CD83DB0022569F /* SidebarBadgeCell.mm in Sources */,
+				83B601E914CD83DB0022569F /* SidebarNode.mm in Sources */,
+				83B601EA14CD83DB0022569F /* FoldersView.mm in Sources */,
+				83F586AD14CDA94200DA0F60 /* SimulationController.mm in Sources */,
+				83F586B214CDB09D00DA0F60 /* WebcamController.m in Sources */,
+				83F586B714CDB0B100DA0F60 /* ComparaisonController.m in Sources */,
+				83F586BC14CDB0BE00DA0F60 /* MoteurController.m in Sources */,
+				83F586C814CDB73F00DA0F60 /* Status.m in Sources */,
+				83F586CF14CDE69900DA0F60 /* StatusController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,14 +767,6 @@
 				83BC6E3F14CC98AF002396A5 /* en */,
 			);
 			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		83BC6E8614CC9997002396A5 /* Application.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				83BC6E8714CC9997002396A5 /* en */,
-			);
-			name = Application.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
