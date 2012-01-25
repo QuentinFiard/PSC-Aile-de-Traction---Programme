@@ -79,7 +79,7 @@
 		83F586B314CDB09D00DA0F60 /* WebcamController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F586B114CDB09D00DA0F60 /* WebcamController.xib */; };
 		83F586B714CDB0B100DA0F60 /* ComparaisonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F586B514CDB0B100DA0F60 /* ComparaisonController.m */; };
 		83F586B814CDB0B100DA0F60 /* ComparaisonController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F586B614CDB0B100DA0F60 /* ComparaisonController.xib */; };
-		83F586BC14CDB0BE00DA0F60 /* MoteurController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F586BA14CDB0BE00DA0F60 /* MoteurController.m */; };
+		83F586BC14CDB0BE00DA0F60 /* MoteurController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83F586BA14CDB0BE00DA0F60 /* MoteurController.mm */; };
 		83F586BD14CDB0BE00DA0F60 /* MoteurController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F586BB14CDB0BE00DA0F60 /* MoteurController.xib */; };
 		83F586C814CDB73F00DA0F60 /* Status.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F586C714CDB73F00DA0F60 /* Status.m */; };
 		83F586CF14CDE69900DA0F60 /* StatusController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83F586CD14CDE69900DA0F60 /* StatusController.mm */; };
@@ -246,7 +246,7 @@
 		83F586B514CDB0B100DA0F60 /* ComparaisonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComparaisonController.m; sourceTree = "<group>"; };
 		83F586B614CDB0B100DA0F60 /* ComparaisonController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComparaisonController.xib; sourceTree = "<group>"; };
 		83F586B914CDB0BE00DA0F60 /* MoteurController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoteurController.h; sourceTree = "<group>"; };
-		83F586BA14CDB0BE00DA0F60 /* MoteurController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoteurController.m; sourceTree = "<group>"; };
+		83F586BA14CDB0BE00DA0F60 /* MoteurController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MoteurController.mm; sourceTree = "<group>"; };
 		83F586BB14CDB0BE00DA0F60 /* MoteurController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoteurController.xib; sourceTree = "<group>"; };
 		83F586C614CDB73F00DA0F60 /* Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Status.h; path = Status/Status.h; sourceTree = "<group>"; };
 		83F586C714CDB73F00DA0F60 /* Status.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Status.m; path = Status/Status.m; sourceTree = "<group>"; };
@@ -503,7 +503,7 @@
 				83F586B514CDB0B100DA0F60 /* ComparaisonController.m */,
 				83F586B614CDB0B100DA0F60 /* ComparaisonController.xib */,
 				83F586B914CDB0BE00DA0F60 /* MoteurController.h */,
-				83F586BA14CDB0BE00DA0F60 /* MoteurController.m */,
+				83F586BA14CDB0BE00DA0F60 /* MoteurController.mm */,
 				83F586BB14CDB0BE00DA0F60 /* MoteurController.xib */,
 			);
 			path = UI;
@@ -744,7 +744,7 @@
 				83F586AD14CDA94200DA0F60 /* SimulationController.mm in Sources */,
 				83F586B214CDB09D00DA0F60 /* WebcamController.m in Sources */,
 				83F586B714CDB0B100DA0F60 /* ComparaisonController.m in Sources */,
-				83F586BC14CDB0BE00DA0F60 /* MoteurController.m in Sources */,
+				83F586BC14CDB0BE00DA0F60 /* MoteurController.mm in Sources */,
 				83F586C814CDB73F00DA0F60 /* Status.m in Sources */,
 				83F586CF14CDE69900DA0F60 /* StatusController.mm in Sources */,
 			);

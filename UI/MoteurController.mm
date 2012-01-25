@@ -1,34 +1,25 @@
 //
-//  Dynamixel.cpp
+//  MoteurController.m
 //  PSC
 //
-//  Created by Quentin Fiard on 15/01/12.
+//  Created by Quentin Fiard on 23/01/12.
 //  Copyright (c) 2012 École Polytechnique. All rights reserved.
 //
 
-#include <CoreFoundation/CoreFoundation.h>
+#import "MoteurController.h"
 
 #include <IOKit/IOKitLib.h>
 #include <IOKit/serial/IOSerialKeys.h>
 #include <IOKit/serial/ioss.h>
 #include <IOKit/IOBSD.h>
 
-#include <string>
+#include <assert.h>
 
-#include <iostream>
+@implementation MoteurController
 
-#include <boost/array.hpp>
-#include "Dynamixel.h"
-#include <boost/asio.hpp>
+@synthesize bsdPath;
 
-/* FindSerialPort
- Source : Apple Reference Library
- Fonction : Renvoie dans matchingServices un itérateur sur l'ensemble des ports séries connectés à l'ordinateur
-*/
-
-// Returns an iterator across all known serial ports. Caller is responsible for
-// releasing the iterator when iteration is complete.
-kern_return_t FindSerialPort(io_iterator_t *matchingServices)
+static kern_return_t FindSerialPort(io_iterator_t *matchingServices)
 {
     kern_return_t           kernResult; 
     CFMutableDictionaryRef  classesToMatch;
@@ -103,12 +94,10 @@ kern_return_t FindSerialPort(io_iterator_t *matchingServices)
 // Étant donné un itérateur sur les ports séries connectés à l'ordinateur, renvoie le
 // chemin BSD (bsdPath = identifiant du port) du premier port de l'itérateur
 
-std::string getBSDPathOfFirstSerialPort(io_iterator_t serialPortIterator)
+static NSString* nextBSDPath(io_iterator_t serialPortIterator)
 {
 	io_object_t     serialPort;
     Boolean         portFound = false;
-	
-	std::string res;
     
     // Iterate across all ports found. In this example, we bail after finding the first port.
     
@@ -121,25 +110,19 @@ std::string getBSDPathOfFirstSerialPort(io_iterator_t serialPortIterator)
         // incoming calls, e.g. a fax listener.
 		
         bsdPathAsCFString = (CFStringRef)IORegistryEntryCreateCFProperty(serialPort,
-                                                            CFSTR(kIOCalloutDeviceKey),
-                                                            kCFAllocatorDefault,
-                                                            0);
+																		 CFSTR(kIOCalloutDeviceKey),
+																		 kCFAllocatorDefault,
+																		 0);
         if (bsdPathAsCFString)
         {
-            Boolean result;
-            
             // Convert the path from a CFString to a stringstr
 			
 			const char* path = CFStringGetCStringPtr(bsdPathAsCFString, CFStringGetSystemEncoding());
 			
-			res = std::string(path);
+			NSString* res = [NSString stringWithCString:path encoding:NSUTF8StringEncoding];
             CFRelease(bsdPathAsCFString);
             
-            if (!res.empty())
-            {
-				std::cout << "Port found with BSD path: " << res << std::endl;
-                //portFound = true;
-            }
+            return res;
         }
 		
         // Release the io_service_t now that we are done with it.
@@ -147,148 +130,150 @@ std::string getBSDPathOfFirstSerialPort(io_iterator_t serialPortIterator)
         (void) IOObjectRelease(serialPort);
     }
 	
-    return res;
+    return nil;
 }
 
-Dynamixel::Dynamixel(std::string bsdPath) : port(io,bsdPath)
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-	boost::asio::serial_port_base::baud_rate baud_option(115200); 
-	port.set_option(baud_option);
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+		
+    }
+    
+    return self;
+}
+
+-(IBAction)rechercherPortsSerie:(id)sender
+{
+	[listePortsSerie removeAllItems];
 	
-	boost::asio::serial_port_base::stop_bits stop_bit(boost::asio::serial_port_base::stop_bits::one);
-	port.set_option(stop_bit);
+	io_iterator_t portsSerie;
 	
-	boost::asio::serial_port_base::parity parity(boost::asio::serial_port_base::parity::none);
-	port.set_option(parity);
-}
-
-#pragma mark - Vérifications des erreurs
-
-bool Dynamixel::isInstructionError(uint8_t error)
-{
-	return (error & 0x40) != 0;
-}
-
-bool Dynamixel::isOverloadError(uint8_t error)
-{
-	return (error & 0x20) != 0;
-}
-
-bool Dynamixel::isChecksumError(uint8_t error)
-{
-	return (error & 0x10) != 0;
-}
-
-bool Dynamixel::isRangeError(uint8_t error)
-{
-	return (error & 0x08) != 0;
-}
-
-bool Dynamixel::isOverheatingError(uint8_t error)
-{
-	return (error & 0x04) != 0;
-}
-
-bool Dynamixel::isAngleLimitError(uint8_t error)
-{
-	return (error & 0x02) != 0;
-}
-
-bool Dynamixel::isInputVoltageError(uint8_t error)
-{
-	return (error & 0x01) != 0;
-}
-
-#pragma mark -
-#pragma mark Privé : Opérations d'envois et de réceptions
-
-void Dynamixel::sendInstructionPacket(const InstructionPacket& aEnvoyer)
-{
-	std::vector<uint8_t> buffer(aEnvoyer.parameters.size()+6);
+	FindSerialPort(&portsSerie);
 	
-	buffer[0] = 0xFF;
-	buffer[1] = 0xFF;
+	NSString* bsdPathNew;
 	
-	buffer[2] = aEnvoyer.ID;
-	buffer[3] = aEnvoyer.parameters.size()+2;
+	bool start = true;
 	
-	buffer[4] = aEnvoyer.instruction;
-	
-	uint8_t checksum = aEnvoyer.ID;
-	checksum += aEnvoyer.parameters.size()+2;
-	checksum += aEnvoyer.instruction;
-	
-	for(int i=0 ; i<aEnvoyer.parameters.size() ; i++)
+	while ((bsdPathNew = nextBSDPath(portsSerie)))
 	{
-		buffer[5+i] = aEnvoyer.parameters[i];
-		checksum += aEnvoyer.parameters[i];
+		if(start)
+		{
+			self.bsdPath = bsdPathNew;
+			start = false;
+		}
+		
+		[listePortsSerie addItemWithTitle:bsdPathNew];
+	}
+}
+
+static std::string hexToBinary = "0123456789ABCDEF";
+
+static uint8_t hexLetterToBinary(char l)
+{
+	uint8_t res = 0;
+	
+	while(hexToBinary[res]!=l)
+	{
+		res++;
 	}
 	
-	checksum = ~checksum;
+	assert(res<16);
 	
-	buffer[5+aEnvoyer.parameters.size()] = checksum;
-	
-	boost::asio::write(port,boost::asio::buffer(buffer));
+	return res;
 }
 
-StatusPacket Dynamixel::receiveStatusPacket()
+static std::vector<uint8_t> hexStringToBinary(NSString* s)
 {
-	// On reçoit 4 octets, qui doivent être 0xFF 0xFF (début de trame)
-	// suivis de l'ID du moteur et de la longueur du message
+	s = [s uppercaseString];
 	
-	boost::array<uint8_t, 4> bufferStart;
+	std::vector<uint8_t> res;
 	
-	boost::asio::read(port,boost::asio::buffer(bufferStart));
+	assert(s.length%2==0); // Sinon les paramètres ne représentent pas une chaîne d'octets
 	
-	assert(bufferStart[0]==0xFF);
-	assert(bufferStart[1]==0xFF);
+	uint8_t tmp;
 	
-	uint8_t id = bufferStart[2];
-	uint8_t length = bufferStart[3];
-	
-	std::vector<uint8_t> bufferEnd(length);
-	
-	boost::asio::read(port,boost::asio::buffer(bufferEnd));
-	
-	uint8_t error = bufferEnd[0];
-	
-	// On calcule la somme de contrôle pour vérifier que l'on peut se fier
-	// aux informations reçues
-	
-	uint8_t checksum = id;
-	checksum += length;
-	checksum += error;
-	
-	for(int i=0 ; i<length-2 ; i++)
+	for(int i=0 ; i<s.length/2 ; i++)
 	{
-		checksum += bufferEnd[1+i];
-	}
-	
-	checksum = ~checksum;
-	
-	assert(checksum == bufferEnd[length-1]);
-	
-	StatusPacket res;
-	res.ID = id;
-	res.error = error;
-	res.parameters.resize(length-2);
-	
-	for(int i=0 ; i<length-2 ; i++)
-	{
-		res.parameters[i] = bufferEnd[1+i];
+		char l = [s characterAtIndex:2*i];
+		tmp = hexLetterToBinary(l);
+		tmp *= 16;
+		
+		l = [s characterAtIndex:2*i+1];
+		tmp += hexLetterToBinary(l);
+		
+		res.push_back(tmp);
 	}
 	
 	return res;
 }
 
-#pragma mark - Debug
-
-/*void Dynamixel::check()
+static NSString* byteToHex(uint8_t var)
 {
-	io_iterator_t serialPort;
+	char l[3];
 	
-	FindSerialPort(&serialPort);
+	l[0] = hexToBinary[var/16];
+	l[1] = hexToBinary[var%16];
+	l[2] = '\0';
 	
-	getBSDPathOfFirstSerialPort(serialPort);
-}*/
+	NSString* res = [NSString stringWithUTF8String:l];
+	
+	return res;
+}
 
+
+
+static NSString* binaryToHexString(std::vector<uint8_t> v)
+{
+	NSMutableString* res = [[NSMutableString alloc] init];
+	
+	for(int i=0 ; i<v.size() ; i++)
+	{		
+		[res appendString:byteToHex(v[i])];
+	}
+	
+	return [res autorelease];
+}
+
+-(IBAction)envoyerPaquet:(id)sender
+{
+	if(!bsdPath || [bsdPath isEqualToString:@""])
+	{
+		NSLog(@"Port Invalide");
+		return;
+	}
+	
+	dynamixel = new Dynamixel(std::string([bsdPath UTF8String]));
+	
+	InstructionPacket toSend;
+	
+	toSend.instruction = [commande selectedTag];
+	if(toSend.instruction==0)
+	{
+		NSLog(@"Commande Invalide");
+		return;
+	}
+	
+	NSString* param = [parametres stringValue];
+	
+	toSend.parameters = hexStringToBinary(param);
+	
+	toSend.ID = hexStringToBinary([ID stringValue])[0];
+	
+	dynamixel->sendInstructionPacket(toSend);
+	
+	StatusPacket response = dynamixel->receiveStatusPacket();
+	
+	NSMutableString* responseString = [[NSMutableString alloc] init];
+	
+	[responseString appendFormat:@"Id:%@ Erreur:%@ Parametres:%@",byteToHex(response.ID),byteToHex(response.error),binaryToHexString(response.parameters)];
+	
+	[reponse setStringValue:responseString];
+}
+
+-(IBAction)choisirNomPort:(id)sender
+{
+	self.bsdPath = [sender titleOfSelectedItem];
+}
+
+@end

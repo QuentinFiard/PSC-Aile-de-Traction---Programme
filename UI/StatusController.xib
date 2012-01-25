@@ -67,7 +67,7 @@
 					<object class="NSBox" id="52631918">
 						<reference key="NSNextResponder" ref="290030354"/>
 						<int key="NSvFlags">10</int>
-						<string key="NSFrame">{{0, 55}, {1196, 5}}</string>
+						<string key="NSFrame">{{0, 55}, {1194, 5}}</string>
 						<reference key="NSSuperview" ref="290030354"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="611818466"/>
@@ -112,7 +112,7 @@
 									<object class="NSCollectionView" id="125020107">
 										<reference key="NSNextResponder" ref="998568274"/>
 										<int key="NSvFlags">274</int>
-										<string key="NSFrameSize">{1194, 55}</string>
+										<string key="NSFrameSize">{1194, 57}</string>
 										<reference key="NSSuperview" ref="998568274"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="817580116"/>
@@ -134,7 +134,7 @@
 										<int key="NSDraggingSourceMaskForNonLocal">0</int>
 									</object>
 								</array>
-								<string key="NSFrame">{{1, 1}, {1194, 55}}</string>
+								<string key="NSFrameSize">{1194, 57}</string>
 								<reference key="NSSuperview" ref="611818466"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="125020107"/>
@@ -170,7 +170,6 @@
 								<string key="NSFrame">{{1, 144}, {233, 15}}</string>
 								<reference key="NSSuperview" ref="611818466"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:3374</string>
 								<int key="NSsFlags">1</int>
 								<reference key="NSTarget" ref="611818466"/>
@@ -178,12 +177,12 @@
 								<double key="NSPercent">0.63157892227172852</double>
 							</object>
 						</array>
-						<string key="NSFrame">{{0, 1}, {1196, 57}}</string>
+						<string key="NSFrame">{{0, 1}, {1194, 57}}</string>
 						<reference key="NSSuperview" ref="290030354"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="998568274"/>
 						<string key="NSReuseIdentifierKey">_NS:3363</string>
-						<int key="NSsFlags">133682</int>
+						<int key="NSsFlags">133680</int>
 						<reference key="NSVScroller" ref="817580116"/>
 						<reference key="NSHScroller" ref="449152966"/>
 						<reference key="NSContentView" ref="998568274"/>
@@ -217,7 +216,7 @@
 						</object>
 					</object>
 				</array>
-				<string key="NSFrameSize">{1196, 81}</string>
+				<string key="NSFrameSize">{1194, 81}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="495521698"/>
@@ -240,7 +239,7 @@
 							<string>NeXT Encapsulated PostScript v1.2 pasteboard type</string>
 							<string>NeXT TIFF v4.0 pasteboard type</string>
 						</set>
-						<string key="NSFrame">{{39, 19}, {42, 19}}</string>
+						<string key="NSFrame">{{39, 20}, {42, 19}}</string>
 						<reference key="NSSuperview" ref="153629765"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="258679195"/>
@@ -267,7 +266,6 @@
 						<string key="NSFrame">{{37, 3}, {47, 16}}</string>
 						<reference key="NSSuperview" ref="153629765"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:687</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="686255582">
@@ -490,8 +488,8 @@
 						<reference key="object" ref="290030354"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="495521698"/>
-							<reference ref="611818466"/>
 							<reference ref="52631918"/>
+							<reference ref="611818466"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>

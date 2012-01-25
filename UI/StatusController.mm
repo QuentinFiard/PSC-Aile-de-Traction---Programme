@@ -35,7 +35,7 @@
 	[uicontroller.window.contentView addSubview:self.view];
 	
 	NSRect frame = self.view.frame;
-	NSRect sidebarFrame = [uicontroller.sidebar frame];
+	NSRect sidebarFrame = [uicontroller.sidebarContainer frame];
 	
 	frame.origin.x = sidebarFrame.size.width;
 	frame.origin.y = 0;
@@ -46,10 +46,7 @@
 
 -(void)awakeFromNib
 {
-	if(!isOnView && uicontroller)
-	{
-		[self showStatusView];
-	}
+	[self showStatusView];
 	
 	Status* test = [[Status alloc] init];
 	

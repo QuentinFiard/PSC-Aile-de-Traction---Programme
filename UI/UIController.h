@@ -20,6 +20,7 @@
 	id currentView;
 	IBOutlet NSView* mainView;
 	
+	IBOutlet NSScrollView* sidebarContainer;
 	IBOutlet NSOutlineView* sidebar;
 	
 	StatusController* statusController;
@@ -27,10 +28,13 @@
 
 @property (assign,nonatomic) IBOutlet NSWindow* window;
 @property (retain,nonatomic) IBOutlet NSOutlineView* sidebar;
+@property (retain,nonatomic) IBOutlet NSScrollView* sidebarContainer;
 @property (retain,nonatomic) IBOutlet AppDelegate* delegate;
 
 @property (retain,nonatomic) StatusController* statusController;
 
 -(void)changeView:(id)sender;
+
+-(void)windowWillClose;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "UIController.h"
 
 static id mAppDelegate;
 
@@ -124,6 +125,13 @@ static id mAppDelegate;
     }
     
     [super dealloc];
+}
+
+#pragma mark - NSWindowDelegate methods
+
+- (void)windowWillClose:(NSNotification *)notification
+{
+	 [NSApp performSelector:@selector(terminate:) withObject:nil afterDelay:0.0];
 }
 
 

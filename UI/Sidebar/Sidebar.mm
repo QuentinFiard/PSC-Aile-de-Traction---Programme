@@ -11,6 +11,8 @@
 #import "SidebarBadgeCell.h"
 #import "NSIndexPathExt.h"
 
+#import "UIController.h"
+
 #import <objc/runtime.h>
 
 #define kNodesPBoardType		@"myNodesPBoardType"
@@ -516,6 +518,7 @@ BOOL isChild(NSTreeNode* toCheck,NSTreeNode* possibleNode)
 #pragma mark - Filling Source View
 
 - (void)populateOutlineContents:(id)inObject {
+	
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
 	NSBundle *mainBundle = [NSBundle mainBundle];
@@ -590,6 +593,10 @@ BOOL isChild(NSTreeNode* toCheck,NSTreeNode* possibleNode)
 	}
 	
 	[self clearSelection];
+	
+	NSUInteger indexPath[2] = {0,0};
+	
+	[treeController setSelectionIndexPath:[NSIndexPath indexPathWithIndexes:indexPath length:2]];
 	
 	[pool release];
 }

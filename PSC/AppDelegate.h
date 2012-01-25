@@ -22,13 +22,16 @@
 }
 @end
 
+@class UIController;
+
 #if defined(MAC_OS_X_VERSION_10_6) && MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_6
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate,NSWindowDelegate>
 #else
 @interface AppDelegate : NSObject
 #endif
 {
 	IBOutlet NSWindow* window;
+	IBOutlet UIController* uicontroller;
     NSTimer *mTimer;
     DemoApp demo;
     

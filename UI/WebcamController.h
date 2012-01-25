@@ -7,7 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <QTKit/QTKit.h>
 
 @interface WebcamController : NSViewController
+{
+	IBOutlet QTCaptureView *outputView;
+	
+	QTCaptureSession *session;
+	QTCaptureDevice *iSight;
+}
 
 @end

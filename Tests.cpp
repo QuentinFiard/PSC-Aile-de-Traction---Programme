@@ -45,5 +45,5 @@ void testerReferentiels()
 
 void testerCommunicationMoteur()
 {
-	Dynamixel::check();
+	//Dynamixel::check();
 }

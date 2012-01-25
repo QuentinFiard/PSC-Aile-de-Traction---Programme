@@ -34,7 +34,7 @@
 			<object class="NSCustomView" id="192049528">
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
-				<string key="NSFrameSize">{1195, 679}</string>
+				<string key="NSFrameSize">{1194, 670}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<string key="NSReuseIdentifierKey">_NS:1192</string>

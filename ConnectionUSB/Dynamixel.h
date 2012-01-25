@@ -30,7 +30,7 @@ class Dynamixel
 {
 public:
 	
-	Dynamixel();
+	Dynamixel(std::string bsdPath);
 	
 	static bool isInstructionError(uint8_t error);
 	static bool isOverloadError(uint8_t error);
@@ -40,13 +40,14 @@ public:
 	static bool isAngleLimitError(uint8_t error);
 	static bool isInputVoltageError(uint8_t error);
 	
-	static void check();
-	
-private:
-	boost::asio::serial_port* port;
+	//static void check();
 	
 	void sendInstructionPacket(const InstructionPacket& aEnvoyer);
 	StatusPacket receiveStatusPacket();
+	
+private:
+	boost::asio::io_service io;
+	boost::asio::serial_port port;
 };
 
 #endif

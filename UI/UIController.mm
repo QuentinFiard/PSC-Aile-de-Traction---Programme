@@ -20,7 +20,7 @@
 @implementation UIController
 
 @dynamic window;
-@synthesize sidebar;
+@synthesize sidebar,sidebarContainer;
 @synthesize delegate;
 @synthesize statusController;
 
@@ -49,10 +49,7 @@
 	
 	statusController.uicontroller = self;
 	
-	if(!statusController.isOnView && statusController.view)
-	{
-		[statusController showStatusView];
-	}
+	[statusController view]; // Creating the view and placing it on screen
 }
 
 -(void)awakeFromNib
@@ -60,8 +57,6 @@
 	[self testVideo];
 	
 	[self initializeStatusController];
-	
-	[sidebar selectRowIndexes:[NSIndexSet indexSetWithIndex:1] byExtendingSelection:NO];
 }
 
 -(void)setWindow:(NSWindow *)aWindow
@@ -98,6 +93,12 @@
 	NSLog(@"%@",@"View changed");
 	
 	[pool drain];
+}
+
+-(void)windowWillClose
+{
+	[currentView removeFromSuperview];
+	[mainViewController release];
 }
 
 @end
