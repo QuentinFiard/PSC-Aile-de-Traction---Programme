@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
     <folder>
-	<name>Suivi de l'expérience</name>
+		<name>Suivi de l'expérience</name>
         <node>
             <name>Simulation</name>
             <imageName>NSNetwork</imageName>
@@ -25,6 +25,15 @@
             <imageName>NSRevealFreestandingTemplate</imageName>
             <nibName>MoteurController</nibName>
 			<ownerClass>MoteurController</ownerClass>
+        </node>
+    </folder>
+	<folder>
+		<name>Configuration</name>
+        <node>
+            <name>Calibrage de la caméra</name>
+            <imageName>NSQuickLookTemplate</imageName>
+            <nibName>WebcamCalibrationController</nibName>
+			<ownerClass>WebcamCalibrationController</ownerClass>
         </node>
     </folder>
 </root>

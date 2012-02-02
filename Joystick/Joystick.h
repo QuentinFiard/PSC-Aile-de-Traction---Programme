@@ -12,6 +12,8 @@
 #import <Cocoa/Cocoa.h>
 #include <SDL/SDL.h>
 
+#include "Dynamixel.h"
+
 @class Moteur3D;
 
 class Joystick
@@ -21,7 +23,10 @@ private:
 public:
 	Joystick();
 	void prepareJoystick();
+	
 	void handleJoystickEvent(SDL_Event& event,Moteur3D* demo);
+	
+	void handleJoystickEvent(SDL_Event& event,Dynamixel* dynamixel);
 	
 	static Joystick* handler();
 };

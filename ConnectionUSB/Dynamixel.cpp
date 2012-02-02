@@ -21,6 +21,8 @@
 #include "Dynamixel.h"
 #include <boost/asio.hpp>
 
+#include <math.h>
+
 /* FindSerialPort
  Source : Apple Reference Library
  Fonction : Renvoie dans matchingServices un itérateur sur l'ensemble des ports séries connectés à l'ordinateur
@@ -28,7 +30,7 @@
 
 // Returns an iterator across all known serial ports. Caller is responsible for
 // releasing the iterator when iteration is complete.
-kern_return_t FindSerialPort(io_iterator_t *matchingServices)
+static kern_return_t FindSerialPort(io_iterator_t *matchingServices)
 {
     kern_return_t           kernResult; 
     CFMutableDictionaryRef  classesToMatch;
@@ -103,7 +105,7 @@ kern_return_t FindSerialPort(io_iterator_t *matchingServices)
 // Étant donné un itérateur sur les ports séries connectés à l'ordinateur, renvoie le
 // chemin BSD (bsdPath = identifiant du port) du premier port de l'itérateur
 
-std::string getBSDPathOfFirstSerialPort(io_iterator_t serialPortIterator)
+static std::string getBSDPathOfFirstSerialPort(io_iterator_t serialPortIterator)
 {
 	io_object_t     serialPort;
     Boolean         portFound = false;
@@ -126,9 +128,7 @@ std::string getBSDPathOfFirstSerialPort(io_iterator_t serialPortIterator)
                                                             0);
         if (bsdPathAsCFString)
         {
-            Boolean result;
-            
-            // Convert the path from a CFString to a stringstr
+			// Convert the path from a CFString to a stringstr
 			
 			const char* path = CFStringGetCStringPtr(bsdPathAsCFString, CFStringGetSystemEncoding());
 			
@@ -150,7 +150,7 @@ std::string getBSDPathOfFirstSerialPort(io_iterator_t serialPortIterator)
     return res;
 }
 
-Dynamixel::Dynamixel(std::string bsdPath) : port(io,bsdPath)
+Dynamixel::Dynamixel(std::string bsdPath, uint8_t anID) : port(io,bsdPath),ID(anID)
 {
 	boost::asio::serial_port_base::baud_rate baud_option(115200); 
 	port.set_option(baud_option);
@@ -209,12 +209,12 @@ void Dynamixel::sendInstructionPacket(const InstructionPacket& aEnvoyer)
 	buffer[0] = 0xFF;
 	buffer[1] = 0xFF;
 	
-	buffer[2] = aEnvoyer.ID;
+	buffer[2] = ID;
 	buffer[3] = aEnvoyer.parameters.size()+2;
 	
 	buffer[4] = aEnvoyer.instruction;
 	
-	uint8_t checksum = aEnvoyer.ID;
+	uint8_t checksum = ID;
 	checksum += aEnvoyer.parameters.size()+2;
 	checksum += aEnvoyer.instruction;
 	
@@ -231,7 +231,7 @@ void Dynamixel::sendInstructionPacket(const InstructionPacket& aEnvoyer)
 	boost::asio::write(port,boost::asio::buffer(buffer));
 }
 
-StatusPacket Dynamixel::receiveStatusPacket()
+bool Dynamixel::receiveStatusPacket(StatusPacket& paquetRecu)
 {
 	// On reçoit 4 octets, qui doivent être 0xFF 0xFF (début de trame)
 	// suivis de l'ID du moteur et de la longueur du message
@@ -240,8 +240,11 @@ StatusPacket Dynamixel::receiveStatusPacket()
 	
 	boost::asio::read(port,boost::asio::buffer(bufferStart));
 	
-	assert(bufferStart[0]==0xFF);
-	assert(bufferStart[1]==0xFF);
+	if(bufferStart[0]!=0xFF || bufferStart[1]!=0xFF)
+	{
+		std::cout << "Erreur de réception : la chaîne reçu ne commence pas par 0xFF 0xFF" << std::endl;
+		return false;
+	}
 	
 	uint8_t id = bufferStart[2];
 	uint8_t length = bufferStart[3];
@@ -266,19 +269,51 @@ StatusPacket Dynamixel::receiveStatusPacket()
 	
 	checksum = ~checksum;
 	
-	assert(checksum == bufferEnd[length-1]);
+	if(checksum != bufferEnd[length-1])
+	{
+		std::cout << "Erreur de réception : la somme de contrôle est invalide" << std::endl;
+		return false;
+	}
 	
-	StatusPacket res;
-	res.ID = id;
-	res.error = error;
-	res.parameters.resize(length-2);
+	paquetRecu.error = error;
+	paquetRecu.parameters.resize(length-2);
 	
 	for(int i=0 ; i<length-2 ; i++)
 	{
-		res.parameters[i] = bufferEnd[1+i];
+		paquetRecu.parameters[i] = bufferEnd[1+i];
 	}
 	
-	return res;
+	return true;
+}
+
+#pragma mark - Commandes utiles
+
+bool Dynamixel::setPosition(double position)
+{
+	assert(position>=0 && position<=1);
+	
+	InstructionPacket aEnvoyer;
+	aEnvoyer.instruction = 0x03;
+	aEnvoyer.parameters.push_back(0x1E);
+	
+	double valeurEntiere = 0x3FF * position;
+	
+	unsigned int objectif = round(valeurEntiere);
+	
+	aEnvoyer.parameters.push_back(objectif%0x100);
+	aEnvoyer.parameters.push_back(objectif/0x100);
+	
+	sendInstructionPacket(aEnvoyer);
+}
+
+void Dynamixel::setID(uint8_t anID)
+{
+	ID = anID;
+}
+
+uint8_t Dynamixel::getID()
+{
+	return ID;
 }
 
 #pragma mark - Debug

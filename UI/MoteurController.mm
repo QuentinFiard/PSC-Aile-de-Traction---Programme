@@ -15,9 +15,15 @@
 
 #include <assert.h>
 
+#include <SDL/SDL.h>
+
+#include "Joystick.h"
+
 @implementation MoteurController
 
 @synthesize bsdPath;
+
+static NSString* byteToHex(uint8_t var);
 
 static kern_return_t FindSerialPort(io_iterator_t *matchingServices)
 {
@@ -136,11 +142,22 @@ static NSString* nextBSDPath(io_iterator_t serialPortIterator)
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self)
+	{
 		
     }
     
     return self;
+}
+
+-(void)awakeFromNib
+{
+	[ID addItemWithTitle:@"FE"];
+	for(int i=0 ; i<0xFD ; i++)
+	{
+		[ID addItemWithTitle:byteToHex(i)];
+	}
+	[ID selectItemWithTitle:@"01"];
 }
 
 -(IBAction)rechercherPortsSerie:(id)sender
@@ -241,9 +258,7 @@ static NSString* binaryToHexString(std::vector<uint8_t> v)
 	{
 		NSLog(@"Port Invalide");
 		return;
-	}
-	
-	dynamixel = new Dynamixel(std::string([bsdPath UTF8String]));
+	}	
 	
 	InstructionPacket toSend;
 	
@@ -258,22 +273,78 @@ static NSString* binaryToHexString(std::vector<uint8_t> v)
 	
 	toSend.parameters = hexStringToBinary(param);
 	
-	toSend.ID = hexStringToBinary([ID stringValue])[0];
-	
 	dynamixel->sendInstructionPacket(toSend);
 	
-	StatusPacket response = dynamixel->receiveStatusPacket();
-	
-	NSMutableString* responseString = [[NSMutableString alloc] init];
-	
-	[responseString appendFormat:@"Id:%@ Erreur:%@ Parametres:%@",byteToHex(response.ID),byteToHex(response.error),binaryToHexString(response.parameters)];
-	
-	[reponse setStringValue:responseString];
+	if(toSend.instruction <= 2)
+	{
+		StatusPacket response;
+		if(dynamixel->receiveStatusPacket(response))
+		{
+			NSMutableString* responseString = [[NSMutableString alloc] init];
+			
+			[responseString appendFormat:@"Erreur:%@ Parametres:%@",byteToHex(response.error),binaryToHexString(response.parameters)];
+			
+			[reponse setStringValue:responseString];
+		}
+	}
+	else
+	{
+		[reponse setStringValue:@""];
+	}
 }
 
 -(IBAction)choisirNomPort:(id)sender
 {
+	if(dynamixel)
+	{
+		delete dynamixel;
+	}
 	self.bsdPath = [sender titleOfSelectedItem];
+	
+	dynamixel = new Dynamixel(std::string([bsdPath UTF8String]), hexStringToBinary([ID titleOfSelectedItem])[0]);
+}
+
+-(void)runSession
+{
+	while(joystickSessionRunning) 
+	{
+		SDL_Event event;
+		while(SDL_PollEvent(&event))
+		{
+			if(event.type==SDL_JOYAXISMOTION || event.type==SDL_JOYHATMOTION || event.type==SDL_JOYBUTTONUP || event.type==SDL_JOYBALLMOTION || event.type==SDL_JOYBUTTONDOWN)
+			{
+				Joystick::handler()->handleJoystickEvent(event,dynamixel);
+			}
+		}
+	}
+}
+
+-(IBAction)startJoystickSession:(id)sender
+{
+	joystickSessionRunning = true;
+	
+	Joystick::handler()->prepareJoystick();
+	
+	if(!bsdPath || [bsdPath isEqualToString:@""])
+	{
+		NSLog(@"Port Invalide");
+		return;
+	}
+	
+	[stopSession setEnabled:YES];
+	[startSession setEnabled:NO];
+	
+	[self performSelectorOnMainThread:@selector(runSession) withObject:nil waitUntilDone:NO];
+}
+
+-(IBAction)stopJoystickSession:(id)sender
+{
+	joystickSessionRunning = false;
+	
+	delete dynamixel;
+	
+	[stopSession setEnabled:NO];
+	[startSession setEnabled:YES];
 }
 
 @end

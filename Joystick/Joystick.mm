@@ -133,3 +133,79 @@ void Joystick::handleJoystickEvent(SDL_Event& event,Moteur3D* demo)
 		printf("Button %d released for joystick %d\n",event.jbutton.button,event.jbutton.which);
 	}
 }
+
+void Joystick::handleJoystickEvent(SDL_Event& event,Dynamixel* dynamixel)
+{
+	if(event.type==SDL_JOYAXISMOTION)
+	{
+		printf("Axis %d %d %d\n",event.jaxis.which,event.jaxis.axis,event.jaxis.value);
+		
+		if(event.jaxis.axis == 0)
+		{
+			//Axe gauche droite
+			
+			double position = event.jaxis.value + 0x8000;
+			position /= 0x10000;
+			
+			dynamixel->setPosition(position);
+		}
+		else if(event.jaxis.axis == 1)
+		{
+			//Axe avant arrière
+		}
+		else if(event.jaxis.axis == 2)
+		{
+			//Axe auxiliaire
+		}
+	}
+	else if(event.type==SDL_JOYHATMOTION)
+	{
+		printf("Hat %d %d ",event.jhat.which,event.jhat.hat);
+		Uint8 value = event.jhat.value;
+		if(value == SDL_HAT_CENTERED)
+		{
+			cout << "center";
+		}
+		else if(value == SDL_HAT_UP)
+		{
+			cout << "up";
+		}
+		else if(value == SDL_HAT_RIGHTUP)
+		{
+			cout << "right up";
+		}
+		else if(value == SDL_HAT_RIGHT)
+		{
+			cout << "right";
+		}
+		else if(value == SDL_HAT_RIGHTDOWN)
+		{
+			cout << "right down";
+		}
+		else if(value == SDL_HAT_DOWN)
+		{
+			cout << "down";
+		}
+		else if(value == SDL_HAT_LEFTDOWN)
+		{
+			cout << "left down";
+		}
+		else if(value == SDL_HAT_LEFT)
+		{
+			cout << "left";
+		}
+		else if(value == SDL_HAT_LEFTUP)
+		{
+			cout << "left up";
+		}
+		cout << endl;
+	}
+	else if(event.type == SDL_JOYBUTTONDOWN)
+	{
+		printf("Button %d pressed for joystick %d\n",event.jbutton.button,event.jbutton.which);
+	}
+	else if(event.type == SDL_JOYBUTTONUP)
+	{
+		printf("Button %d released for joystick %d\n",event.jbutton.button,event.jbutton.which);
+	}
+}
