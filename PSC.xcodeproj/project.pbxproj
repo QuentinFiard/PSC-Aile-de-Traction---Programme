@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83025AED14E46F8A0017F4E3 /* ControleOptimal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83025AEC14E46F8A0017F4E3 /* ControleOptimal.cpp */; };
+		83025BD514E542060017F4E3 /* libacado.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025BD014E542050017F4E3 /* libacado.a */; };
+		83025BD614E542060017F4E3 /* libcsparse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025BD114E542060017F4E3 /* libcsparse.a */; };
+		83025BD714E542060017F4E3 /* libgnuplot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025BD214E542060017F4E3 /* libgnuplot.a */; };
+		83025BD814E542060017F4E3 /* libqpoases-extras.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025BD314E542060017F4E3 /* libqpoases-extras.a */; };
+		83025BD914E542060017F4E3 /* libqpoases.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025BD414E542060017F4E3 /* libqpoases.a */; };
+		83025BDB14E542350017F4E3 /* libacado.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83025BD014E542050017F4E3 /* libacado.a */; };
+		83025BDC14E542370017F4E3 /* libcsparse.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83025BD114E542060017F4E3 /* libcsparse.a */; };
+		83025BDD14E5423B0017F4E3 /* libgnuplot.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83025BD214E542060017F4E3 /* libgnuplot.a */; };
+		83025BDE14E5423E0017F4E3 /* libqpoases-extras.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83025BD314E542060017F4E3 /* libqpoases-extras.a */; };
+		83025BDF14E542400017F4E3 /* libqpoases.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83025BD414E542060017F4E3 /* libqpoases.a */; };
 		8349FCBD14CCA9670028E058 /* RenderSystem_GL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8349FCBC14CCA9670028E058 /* RenderSystem_GL.dylib */; };
 		8376E09714D590D900ABECEA /* WebcamCalibrationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8376E09514D590D900ABECEA /* WebcamCalibrationController.mm */; };
 		8376E09814D590D900ABECEA /* WebcamCalibrationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8376E09614D590D900ABECEA /* WebcamCalibrationController.xib */; };
@@ -108,8 +119,6 @@
 		83F65BE414DA1C60006B7C60 /* NSImage_OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83F65BE314DA1C60006B7C60 /* NSImage_OpenCV.mm */; };
 		83F65BE714DA2769006B7C60 /* NSImage+CIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F65BE614DA2769006B7C60 /* NSImage+CIImage.m */; };
 		83F65BEA14DA288F006B7C60 /* NSBitmapImageRep+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F65BE914DA288F006B7C60 /* NSBitmapImageRep+Extras.m */; };
-		83F65BEC14DA37F8006B7C60 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83F65BEB14DA37F8006B7C60 /* test.jpg */; };
-		83F65BED14DA3801006B7C60 /* test.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83F65BEB14DA37F8006B7C60 /* test.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -120,6 +129,11 @@
 			dstSubfolderSpec = 10;
 			files = (
 				83BC6EEA14CC9B47002396A5 /* SDL.framework in CopyFiles */,
+				83025BDB14E542350017F4E3 /* libacado.a in CopyFiles */,
+				83025BDC14E542370017F4E3 /* libcsparse.a in CopyFiles */,
+				83025BDD14E5423B0017F4E3 /* libgnuplot.a in CopyFiles */,
+				83025BDE14E5423E0017F4E3 /* libqpoases-extras.a in CopyFiles */,
+				83025BDF14E542400017F4E3 /* libqpoases.a in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +146,6 @@
 				83F586D914CDEB7400DA0F60 /* status2.png in CopyFiles */,
 				83F586E014CDFB7800DA0F60 /* StatusController.xib in CopyFiles */,
 				83F586E614CEF25600DA0F60 /* SimulationController.xib in CopyFiles */,
-				83F65BED14DA3801006B7C60 /* test.jpg in CopyFiles */,
 				83F586EC14CF015100DA0F60 /* Application.xib in CopyFiles */,
 				83F586D814CDEB7200DA0F60 /* status1.png in CopyFiles */,
 				83F586E714CEF25900DA0F60 /* WebcamController.xib in CopyFiles */,
@@ -146,6 +159,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		83025AEC14E46F8A0017F4E3 /* ControleOptimal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControleOptimal.cpp; sourceTree = "<group>"; };
+		83025AEE14E46F9A0017F4E3 /* ControleOptimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControleOptimal.h; sourceTree = "<group>"; };
+		83025BD014E542050017F4E3 /* libacado.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libacado.a; path = /usr/local/lib/acado/libacado.a; sourceTree = "<absolute>"; };
+		83025BD114E542060017F4E3 /* libcsparse.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcsparse.a; path = /usr/local/lib/acado/libcsparse.a; sourceTree = "<absolute>"; };
+		83025BD214E542060017F4E3 /* libgnuplot.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgnuplot.a; path = /usr/local/lib/acado/libgnuplot.a; sourceTree = "<absolute>"; };
+		83025BD314E542060017F4E3 /* libqpoases-extras.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libqpoases-extras.a"; path = "/usr/local/lib/acado/libqpoases-extras.a"; sourceTree = "<absolute>"; };
+		83025BD414E542060017F4E3 /* libqpoases.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libqpoases.a; path = /usr/local/lib/acado/libqpoases.a; sourceTree = "<absolute>"; };
 		8349FCB914CCA14E0028E058 /* OgreOSXCocoaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreOSXCocoaView.h; path = ../../../../../../../Library/OgreSDK/lib/release/Ogre.framework/Versions/1.7.4/Headers/OSX/OgreOSXCocoaView.h; sourceTree = "<group>"; };
 		8349FCBC14CCA9670028E058 /* RenderSystem_GL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = RenderSystem_GL.dylib; path = /Library/OgreSDK/lib/RenderSystem_GL.dylib; sourceTree = "<absolute>"; };
 		8376E09414D590D900ABECEA /* WebcamCalibrationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamCalibrationController.h; sourceTree = "<group>"; };
@@ -286,7 +306,6 @@
 		83F65BE614DA2769006B7C60 /* NSImage+CIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSImage+CIImage.m"; path = "TraitementVideo/NSImage+CIImage.m"; sourceTree = "<group>"; };
 		83F65BE814DA288F006B7C60 /* NSBitmapImageRep+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSBitmapImageRep+Extras.h"; path = "TraitementVideo/NSBitmapImageRep+Extras.h"; sourceTree = "<group>"; };
 		83F65BE914DA288F006B7C60 /* NSBitmapImageRep+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSBitmapImageRep+Extras.m"; path = "TraitementVideo/NSBitmapImageRep+Extras.m"; sourceTree = "<group>"; };
-		83F65BEB14DA37F8006B7C60 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = test.jpg; path = TraitementVideo/test.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +313,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83025BD514E542060017F4E3 /* libacado.a in Frameworks */,
+				83025BD614E542060017F4E3 /* libcsparse.a in Frameworks */,
+				83025BD714E542060017F4E3 /* libgnuplot.a in Frameworks */,
+				83025BD814E542060017F4E3 /* libqpoases-extras.a in Frameworks */,
+				83025BD914E542060017F4E3 /* libqpoases.a in Frameworks */,
 				8376E0A314D5A21100ABECEA /* libopencv_calib3d.dylib in Frameworks */,
 				8376E0A414D5A21100ABECEA /* libopencv_highgui.dylib in Frameworks */,
 				8376E0A514D5A21100ABECEA /* libopencv_imgproc.dylib in Frameworks */,
@@ -318,6 +342,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83025AEB14E46C500017F4E3 /* ACADOToolkit */ = {
+			isa = PBXGroup;
+			children = (
+				83025AEE14E46F9A0017F4E3 /* ControleOptimal.h */,
+				83025AEC14E46F8A0017F4E3 /* ControleOptimal.cpp */,
+			);
+			path = ACADOToolkit;
+			sourceTree = "<group>";
+		};
+		83025BDA14E542140017F4E3 /* ACADO */ = {
+			isa = PBXGroup;
+			children = (
+				83025BD014E542050017F4E3 /* libacado.a */,
+				83025BD114E542060017F4E3 /* libcsparse.a */,
+				83025BD214E542060017F4E3 /* libgnuplot.a */,
+				83025BD314E542060017F4E3 /* libqpoases-extras.a */,
+				83025BD414E542060017F4E3 /* libqpoases.a */,
+			);
+			name = ACADO;
+			sourceTree = "<group>";
+		};
 		8349FCB814CCA10D0028E058 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,7 +382,6 @@
 				8376E09B14D5918800ABECEA /* CalibrationCamera.cpp */,
 				83F65BE214DA1C60006B7C60 /* NSImage_OpenCV.h */,
 				83F65BE314DA1C60006B7C60 /* NSImage_OpenCV.mm */,
-				83F65BEB14DA37F8006B7C60 /* test.jpg */,
 			);
 			name = TraitementVideo;
 			sourceTree = "<group>";
@@ -368,6 +412,7 @@
 		83BC6E2014CC98AF002396A5 = {
 			isa = PBXGroup;
 			children = (
+				83025AEB14E46C500017F4E3 /* ACADOToolkit */,
 				8376E09A14D5914400ABECEA /* TraitementVideo */,
 				83F586C514CDB71100DA0F60 /* Status */,
 				83BC6E5514CC9997002396A5 /* ConnectionUSB */,
@@ -397,6 +442,7 @@
 		83BC6E2E14CC98AF002396A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				83025BDA14E542140017F4E3 /* ACADO */,
 				8376E0A014D5A21100ABECEA /* libopencv_calib3d.dylib */,
 				8376E0A114D5A21100ABECEA /* libopencv_highgui.dylib */,
 				8376E0A214D5A21100ABECEA /* libopencv_imgproc.dylib */,
@@ -742,7 +788,6 @@
 				83F586D614CDEB5F00DA0F60 /* status2.png in Resources */,
 				83F586EB14CF014200DA0F60 /* Application.xib in Resources */,
 				8376E09814D590D900ABECEA /* WebcamCalibrationController.xib in Resources */,
-				83F65BEC14DA37F8006B7C60 /* test.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -811,6 +856,7 @@
 				83F65BE414DA1C60006B7C60 /* NSImage_OpenCV.mm in Sources */,
 				83F65BE714DA2769006B7C60 /* NSImage+CIImage.m in Sources */,
 				83F65BEA14DA288F006B7C60 /* NSBitmapImageRep+Extras.m in Sources */,
+				83025AED14E46F8A0017F4E3 /* ControleOptimal.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -927,8 +973,10 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "PSC/PSC-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
+					"/usr/local/lib/**",
 					"$(inherited)",
 					"\"$(LOCAL_LIBRARY_DIR)/OgreSDK/lib\"",
+					/usr/local/lib/acado,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -947,8 +995,10 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "PSC/PSC-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
+					"/usr/local/lib/**",
 					"$(inherited)",
 					"\"$(LOCAL_LIBRARY_DIR)/OgreSDK/lib\"",
+					/usr/local/lib/acado,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
