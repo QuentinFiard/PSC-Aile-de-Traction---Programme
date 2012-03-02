@@ -13,6 +13,11 @@
 
 #pragma mark Constructeurs
 
+Vecteur3D::Vecteur3D() : Vecteur(3)
+{
+	
+}
+
 Vecteur3D::Vecteur3D(const Vecteur& vect) : Vecteur(vect)
 {
 	assert(vect.dim() == 3);
@@ -57,4 +62,33 @@ Vecteur3D Vecteur3D::operator^(const Vecteur3D &v) const//Produit vectoriel
 	const Vecteur3D& u = *this;
 	
 	return Vecteur3D(u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0],ref());
+}
+
+#pragma mark - Enregistrement
+
+Vecteur3D::Vecteur3D(const std::vector<uint8_t>& binaryData) : Vecteur(binaryData.data(),binaryData.size())
+{
+	
+}
+
+Vecteur3D::Vecteur3D(const void* binaryData, std::size_t size) : Vecteur(binaryData,size)
+{
+	
+}
+
+DataType Vecteur3D::type() const
+{
+	return typeOfTemplate<Vecteur3D>();
+}
+
+void Vecteur3D::operator=(const DatabaseData& toCopy)
+{
+	assert(toCopy.type() == this->type());
+	
+	this->operator=(reinterpret_cast<const Vecteur3D&>(toCopy));
+}
+
+bool Vecteur3D::isResizable()
+{
+	return false;
 }

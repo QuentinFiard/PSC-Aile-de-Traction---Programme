@@ -15,16 +15,21 @@
 
 #include <iostream>
 
-std::map<unsigned char, Referentiel*> references;
+std::map<std::size_t, Referentiel*> references;
 
 #pragma mark Constructeurs
+
+Referentiel::Referentiel() : origin_(), matrice()
+{
+	
+}
 
 Referentiel::Referentiel(const Referentiel& ref) : origin_(ref.origin_), matrice(ref.matrice)
 {
 	
 }
 
-Referentiel::Referentiel(const Point& origin) : origin_(origin), matrice(0,0)
+Referentiel::Referentiel(const Point& origin) : origin_(origin), matrice((std::size_t)0,0)
 {
 	if(!origin_.ref()) // On suppose dans ce cas que l'origine est exprimée dans le repère courant
 	{
@@ -53,7 +58,7 @@ Referentiel::Referentiel(const Point& origin, Matrice& matNew) : origin_(origin)
 	}
 }
 
-const unsigned char Referentiel::dim() const
+const std::size_t Referentiel::dim() const
 {
 	return matrice.nbLignes();
 }
@@ -67,9 +72,9 @@ Referentiel* Referentiel::referentielParTranslation(Vecteur &translation)
 	return res;
 }
 
-Referentiel* Referentiel::ReferentielDeReference(unsigned char dim)
+Referentiel* Referentiel::ReferentielDeReference(std::size_t dim)
 {
-	std::map<unsigned char, Referentiel*>::iterator it = references.find(dim);
+	std::map<std::size_t, Referentiel*>::iterator it = references.find(dim);
 	
 	if(it == references.end())
 	{
@@ -94,7 +99,7 @@ Referentiel* Referentiel::ReferentielDeReference(unsigned char dim)
 void Referentiel::afficher() const
 {
 	std::cout << "\nAffichage du référentiel" << std::endl;
-	printf("Dimension : %d\n",dim());
+	printf("Dimension : %ld\n",dim());
 	std::cout << "Origin : ";
 	origin_.afficher();
 	std::cout << std::endl;
@@ -138,4 +143,51 @@ Vecteur Referentiel::vecteurDeReferenceVersCourant(const Vecteur &vecteur) // La
 	res.setRef(this);
 	
 	return res;
+}
+
+#pragma mark - Enregistrement
+
+Referentiel::Referentiel(const void* binaryData, std::size_t size) : matrice(binaryData,*((uint64_t*)binaryData)), origin_((uint8_t*)binaryData+(*((uint64_t*)binaryData)),size-(*((uint64_t*)binaryData)))
+{
+	
+}
+
+Referentiel::Referentiel(const std::vector<uint8_t>& binaryData) : matrice(binaryData.data(),*((uint64_t*)binaryData.data())), origin_((uint8_t*)binaryData.data()+(*((uint64_t*)binaryData.data())),binaryData.size()-(*((uint64_t*)binaryData.data())))
+{
+	
+}
+
+std::vector<uint8_t> Referentiel::toBinary() const
+{
+	std::vector<uint8_t> res = matrice.toBinary();
+	
+	std::vector<uint8_t> binaryOrigin = origin_.toBinary();
+	
+	res.insert(res.end(), binaryOrigin.begin(), binaryOrigin.end());
+	
+	return res;
+}
+
+std::string Referentiel::toCSVString() const
+{
+	if(this != ReferentielDeReference(dim()))
+	{
+		return matrice.toCSVString() + origin_.toCSVString();
+	}
+	else
+	{
+		return "";
+	}
+}
+
+DataType Referentiel::type() const
+{
+	return typeOfTemplate<Referentiel>();
+}
+
+void Referentiel::operator=(const DatabaseData& toCopy)
+{
+	assert(toCopy.type() == this->type());
+	
+	this->operator=(reinterpret_cast<const Referentiel&>(toCopy));
 }

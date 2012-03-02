@@ -48,6 +48,16 @@ public:
 	//Opérations auxiliaires
 	Quaternion operator-(const Quaternion &vecteur2) const; // Différence
 	Quaternion operator/(const Reel lambda) const; // Division par un scalaire
+	
+#pragma mark - DatabaseData
+	
+	Quaternion(const void* binaryData, std::size_t size);
+	Quaternion(const std::vector<uint8_t>& binaryData);
+	
+	DataType type() const;
+	void operator=(const DatabaseData& toCopy);
+	
+	bool isResizable();
 };
 
 Quaternion operator*(const Reel lambda, const Quaternion& vecteur);

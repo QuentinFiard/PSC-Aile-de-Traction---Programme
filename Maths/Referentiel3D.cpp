@@ -15,6 +15,11 @@ static Referentiel3D* reference = NULL;
 
 #pragma mark Constructeurs
 
+Referentiel3D::Referentiel3D() : Referentiel(), q(1,0,0,0)
+{
+	
+}
+
 /*Referentiel3D::Referentiel3D(const Referentiel& ref)
 {
 	
@@ -88,7 +93,7 @@ void Referentiel3D::afficher()
 	std::cout << std::endl;
 }
 
-const unsigned char Referentiel3D::dim() const
+const std::size_t Referentiel3D::dim() const
 {
 	return 3;
 }
@@ -119,4 +124,43 @@ Vecteur Referentiel3D::vecteurDeReferenceVersCourant(const Vecteur &vecteur)
 	}
 	
 	return Referentiel::vecteurDeReferenceVersCourant(vecteur);
+}
+
+#pragma mark - Enregistrement
+
+Referentiel3D::Referentiel3D(const void* binaryData, std::size_t size) : Referentiel(Point((void*)(((uint8_t*)binaryData)+8+4*sizeof(Reel)),size - (8+4*sizeof(Reel)))),q(binaryData,8+4*sizeof(Reel))
+{
+	
+}
+
+Referentiel3D::Referentiel3D(const std::vector<uint8_t>& binaryData) : Referentiel(Point((void*)(((uint8_t*)binaryData.data())+8+4*sizeof(Reel)),binaryData.size() - (8+4*sizeof(Reel)))),q(binaryData.data(),8+4*sizeof(Reel))
+{
+	
+}
+
+std::vector<uint8_t> Referentiel3D::toBinary() const
+{
+	std::vector<uint8_t> res = q.toBinary();
+	
+	std::vector<uint8_t> binaryOrigin = origin_.toBinary();
+	
+	res.insert(res.end(), binaryOrigin.begin(), binaryOrigin.end());
+	return res;
+}
+
+std::string Referentiel3D::toCSVString() const
+{
+	return origin_.toCSVString()+ q.toCSVString();
+}
+
+DataType Referentiel3D::type() const
+{
+	return typeOfTemplate<Referentiel3D>();
+}
+
+void Referentiel3D::operator=(const DatabaseData& toCopy)
+{
+	assert(toCopy.type() == this->type());
+	
+	this->operator=(reinterpret_cast<const Referentiel3D&>(toCopy));
 }

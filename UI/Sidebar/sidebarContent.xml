@@ -35,5 +35,11 @@
             <nibName>WebcamCalibrationController</nibName>
 			<ownerClass>WebcamCalibrationController</ownerClass>
         </node>
+		<node>
+            <name>Base de données</name>
+            <imageName>NSActionTemplate</imageName>
+            <nibName>DatabaseController</nibName>
+			<ownerClass>DatabaseController</ownerClass>
+        </node>
     </folder>
 </root>

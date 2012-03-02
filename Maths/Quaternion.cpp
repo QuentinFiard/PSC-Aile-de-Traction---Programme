@@ -199,3 +199,32 @@ Quaternion Quaternion::operator/(const Reel lambda) const // Division par un sca
 {
 	return operator*(1/lambda);
 }
+
+#pragma mark - Enregistrement
+
+Quaternion::Quaternion(const void* binaryData, std::size_t size) : Vecteur(binaryData,size)
+{
+	
+}
+
+Quaternion::Quaternion(const std::vector<uint8_t>& binaryData) : Vecteur(binaryData.data(),binaryData.size())
+{
+	
+}
+
+DataType Quaternion::type() const
+{
+	return typeOfTemplate<Quaternion>();
+}
+
+void Quaternion::operator=(const DatabaseData& toCopy)
+{
+	assert(toCopy.type() == this->type());
+	
+	this->operator=(reinterpret_cast<const Quaternion&>(toCopy));
+}
+
+bool Quaternion::isResizable()
+{
+	return false;
+}

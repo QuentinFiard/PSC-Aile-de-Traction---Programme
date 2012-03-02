@@ -17,7 +17,9 @@ class Point : public Vecteur
 {
 public:
 	Point();
-	Point(unsigned char dim, Referentiel* ref=NULL);
+	Point(const void* binaryData, std::size_t size);
+	Point(const std::vector<uint8_t>& binaryData);
+	Point(std::size_t dim, Referentiel* ref=NULL);
 	Point(std::vector<Reel> &coord, Referentiel* ref=NULL);
 	Point(Reel x, Reel y, Reel z, Referentiel* ref=NULL); // Création d'un point en dimension 3
 	Point(Reel x, Reel y, Referentiel* ref=NULL); // Création d'un point en dimension 2
@@ -37,6 +39,11 @@ public:
 	Point operator*(const Reel lambda) const; // Produit par un scalaire
 	Point operator-() const; // Moins unaire
 	Point operator/(const Reel lambda) const; // Division par un scalaire
+	
+#pragma mark - Database Data
+	
+	DataType type() const;
+	void operator=(const DatabaseData& toCopy);
 };
 
 

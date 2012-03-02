@@ -13,17 +13,21 @@
 #include <vector>
 #include "Parametres.h"
 
+#include "VectorData.h"
+
 class Referentiel;
 class Point;
 
 class Quaternion;
 
-class Vecteur // Vecteur d'un espace vectoriel réel
+class Vecteur : public VectorData// Vecteur d'un espace vectoriel réel
 {
 public:
 //Constructeurs
 	Vecteur();
-	Vecteur(unsigned char dim, Referentiel* ref=NULL); // Vecteur nul
+	Vecteur(const void* binaryData, std::size_t size);
+	Vecteur(const std::vector<uint8_t>& binaryData);
+	Vecteur(std::size_t dim, Referentiel* ref=NULL); // Vecteur nul
 	Vecteur(const Vecteur &vecteurACopier); //Copie d'un vecteur
 	Vecteur(const std::vector<Reel> &coord, Referentiel* ref=NULL);
 	Vecteur(Reel x, Reel y, Reel z, Referentiel* ref=NULL); // Création d'un point en dimension 3
@@ -37,8 +41,8 @@ public:
 	Vecteur operator+(const Vecteur &vecteur2) const; // Somme vectorielle
 	Vecteur operator*(const Reel lambda) const; // Produit par un scalaire
 	Reel operator*(const Vecteur &vecteur2) const; // Produit scalaire
-	Reel& operator[](const unsigned char i); // Coordonnées suivant le i-ème vecteur de la base vectorielle du référentiel
-	Reel operator[](const unsigned char i) const;
+	Reel& operator[](const std::size_t i); // Coordonnées suivant le i-ème vecteur de la base vectorielle du référentiel
+	Reel operator[](const std::size_t i) const;
 	Vecteur operator-() const; // Moins unaire
 	Vecteur& operator=(const Vecteur &vecteur2); // Recopie du vecteur
 	
@@ -58,7 +62,7 @@ public:
 	void normaliser();
 	Reel norme() const;
 	Reel maxCoeff() const;
-	unsigned char dim() const;
+	std::size_t dim() const;
 	
 	bool estNul() const;
 
@@ -71,12 +75,31 @@ public:
 	Referentiel* ref() const;
 	
 	void afficher() const;
+	
+#pragma mark - DatabaseData
+	
+	std::vector<uint8_t> toBinary() const;
+	std::string toCSVString() const;
+	DataType type() const;
+	
+	void operator=(const DatabaseData& toCopy);
+	void operator=(const VectorData& toCopy);
+	
+#pragma mark - VecteurData
+	
+	bool setValueAtIndexWithString(std::size_t i,std::string& text);
+	std::string valueAtIndexToString(std::size_t i) const;
+	
+	bool isResizable();
+	
+	void setDim(std::size_t n);
 
 protected:
 	std::vector<Reel> coord;
 	Referentiel* ref_;
 	
 	void init(const std::vector<Reel> &coordNew, Referentiel* refNew);
+	void initWithBinaryData(const void* binaryData, std::size_t size);
 };
 
 Vecteur operator*(const Reel lambda, const Vecteur& vecteur);

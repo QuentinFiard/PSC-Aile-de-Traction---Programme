@@ -23,8 +23,6 @@
 @property (assign,nonatomic) UIController* uicontroller;
 @property (nonatomic) BOOL isOnView;
 
--(IBAction)retryTest:(id)sender withTitle:(id)title;
-
 -(void)insertObject:(Status*)status inStatusArrayAtIndex:(NSUInteger)index;
 -(void)removeObjectFromStatusArrayAtIndex:(NSUInteger)index;
 
