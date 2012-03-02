@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		831BC0C7150151BD00614624 /* CameraStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 831BC0C6150151BD00614624 /* CameraStatus.m */; };
 		8349FCBD14CCA9670028E058 /* RenderSystem_GL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8349FCBC14CCA9670028E058 /* RenderSystem_GL.dylib */; };
 		8376E09714D590D900ABECEA /* WebcamCalibrationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8376E09514D590D900ABECEA /* WebcamCalibrationController.mm */; };
 		8376E09814D590D900ABECEA /* WebcamCalibrationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8376E09614D590D900ABECEA /* WebcamCalibrationController.xib */; };
@@ -146,6 +147,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		831BC0C5150151BD00614624 /* CameraStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraStatus.h; path = Status/CameraStatus.h; sourceTree = "<group>"; };
+		831BC0C6150151BD00614624 /* CameraStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraStatus.m; path = Status/CameraStatus.m; sourceTree = "<group>"; };
 		8349FCB914CCA14E0028E058 /* OgreOSXCocoaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreOSXCocoaView.h; path = ../../../../../../../Library/OgreSDK/lib/release/Ogre.framework/Versions/1.7.4/Headers/OSX/OgreOSXCocoaView.h; sourceTree = "<group>"; };
 		8349FCBC14CCA9670028E058 /* RenderSystem_GL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = RenderSystem_GL.dylib; path = /Library/OgreSDK/lib/RenderSystem_GL.dylib; sourceTree = "<absolute>"; };
 		8376E09414D590D900ABECEA /* WebcamCalibrationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamCalibrationController.h; sourceTree = "<group>"; };
@@ -649,6 +652,8 @@
 		83F586C514CDB71100DA0F60 /* Status */ = {
 			isa = PBXGroup;
 			children = (
+				831BC0C5150151BD00614624 /* CameraStatus.h */,
+				831BC0C6150151BD00614624 /* CameraStatus.m */,
 				83F586D114CDEB5F00DA0F60 /* status0.png */,
 				83F586D214CDEB5F00DA0F60 /* status1.png */,
 				83F586D314CDEB5F00DA0F60 /* status2.png */,
@@ -811,6 +816,7 @@
 				83F65BE414DA1C60006B7C60 /* NSImage_OpenCV.mm in Sources */,
 				83F65BE714DA2769006B7C60 /* NSImage+CIImage.m in Sources */,
 				83F65BEA14DA288F006B7C60 /* NSBitmapImageRep+Extras.m in Sources */,
+				831BC0C7150151BD00614624 /* CameraStatus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
