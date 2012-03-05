@@ -19,7 +19,15 @@
 		83025BDD14E5423B0017F4E3 /* libgnuplot.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83025BD214E542060017F4E3 /* libgnuplot.a */; };
 		83025BDE14E5423E0017F4E3 /* libqpoases-extras.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83025BD314E542060017F4E3 /* libqpoases-extras.a */; };
 		83025BDF14E542400017F4E3 /* libqpoases.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83025BD414E542060017F4E3 /* libqpoases.a */; };
+		830747A614EC43A300C01E52 /* ConfigurationForDisplay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 830747A514EC43A300C01E52 /* ConfigurationForDisplay.mm */; };
+		830747A914EC5C5D00C01E52 /* DatabaseData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 830747A814EC5C5C00C01E52 /* DatabaseData.cpp */; };
+		830747AB14EC5CFA00C01E52 /* GenericSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 830747AA14EC5CF900C01E52 /* GenericSource.cpp */; };
+		83088EA114F41C320005227E /* CameraStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 83088EA014F41C320005227E /* CameraStatus.m */; };
 		8349FCBD14CCA9670028E058 /* RenderSystem_GL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8349FCBC14CCA9670028E058 /* RenderSystem_GL.dylib */; };
+		8351BC3E14E6D418005C058D /* Record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8351BC3D14E6D418005C058D /* Record.cpp */; };
+		8351BC4014E6D8E6005C058D /* libboost_date_time-xgcc42-mt-1_48.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8351BC3F14E6D8E5005C058D /* libboost_date_time-xgcc42-mt-1_48.dylib */; };
+		8351BC4314E6DB70005C058D /* Source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8351BC4214E6DB70005C058D /* Source.cpp */; };
+		8351BC4614E6DC93005C058D /* Donnee.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8351BC4514E6DC93005C058D /* Donnee.cpp */; };
 		8376E09714D590D900ABECEA /* WebcamCalibrationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8376E09514D590D900ABECEA /* WebcamCalibrationController.mm */; };
 		8376E09814D590D900ABECEA /* WebcamCalibrationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8376E09614D590D900ABECEA /* WebcamCalibrationController.xib */; };
 		8376E09C14D5918800ABECEA /* CalibrationCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8376E09B14D5918800ABECEA /* CalibrationCamera.cpp */; };
@@ -27,10 +35,22 @@
 		8376E0A314D5A21100ABECEA /* libopencv_calib3d.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E0A014D5A21100ABECEA /* libopencv_calib3d.dylib */; };
 		8376E0A414D5A21100ABECEA /* libopencv_highgui.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E0A114D5A21100ABECEA /* libopencv_highgui.dylib */; };
 		8376E0A514D5A21100ABECEA /* libopencv_imgproc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E0A214D5A21100ABECEA /* libopencv_imgproc.dylib */; };
+		837D29F215014CC600221B7A /* ConnectionUSB.mm in Sources */ = {isa = PBXBuildFile; fileRef = 837D29F115014CC600221B7A /* ConnectionUSB.mm */; };
+		837D29F415014DF000221B7A /* Position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 837D29F315014DF000221B7A /* Position.cpp */; };
 		837D55DE14CCC612002CD3DA /* OgreDemoApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6EB714CC99DA002396A5 /* OgreDemoApp.mm */; };
 		83867FB11504FF550004ED08 /* EtatSysteme.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83867FB01504FF550004ED08 /* EtatSysteme.cpp */; };
+		83A27C4014E9388200B60BFC /* SourceForDisplay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83A27C3F14E9388200B60BFC /* SourceForDisplay.mm */; };
+		83A27C4314E938A300B60BFC /* RecordForDisplay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83A27C4214E938A300B60BFC /* RecordForDisplay.mm */; };
 		83A388B114CD8FB6009D7636 /* sidebarContent.xml in Resources */ = {isa = PBXBuildFile; fileRef = 83A388B014CD8FB6009D7636 /* sidebarContent.xml */; };
 		83A388B314CD8FCA009D7636 /* sidebarContent.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83A388B014CD8FB6009D7636 /* sidebarContent.xml */; };
+		83AA3A2014E6456B00C39446 /* psc.database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 83AA3A1F14E6456B00C39446 /* psc.database.sqlite */; };
+		83AA3A2214E645C700C39446 /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83AA3A2114E645C700C39446 /* Database.cpp */; };
+		83AA3A2514E6462E00C39446 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AA3A2414E6462E00C39446 /* libsqlite3.dylib */; };
+		83B56FB614EAC831002AA428 /* CreateFieldController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B56FB514EAC831002AA428 /* CreateFieldController.mm */; };
+		83B56FBA14EAC844002AA428 /* EditFieldSingleValue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B56FB914EAC844002AA428 /* EditFieldSingleValue.mm */; };
+		83B56FBD14EAC857002AA428 /* EditFieldMatrix.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B56FBC14EAC857002AA428 /* EditFieldMatrix.mm */; };
+		83B56FC314EB275B002AA428 /* EditFieldVector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B56FC214EB275B002AA428 /* EditFieldVector.mm */; };
+		83B56FC714EBA1F6002AA428 /* DataTypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83B56FC614EBA1F6002AA428 /* DataTypes.cpp */; };
 		83B601E414CD83DB0022569F /* CellView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B601D714CD83DB0022569F /* CellView.mm */; };
 		83B601E514CD83DB0022569F /* NSArrayExt.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B601D914CD83DB0022569F /* NSArrayExt.mm */; };
 		83B601E614CD83DB0022569F /* NSIndexPathExt.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B601DB14CD83DB0022569F /* NSIndexPathExt.mm */; };
@@ -38,6 +58,8 @@
 		83B601E814CD83DB0022569F /* SidebarBadgeCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B601DF14CD83DB0022569F /* SidebarBadgeCell.mm */; };
 		83B601E914CD83DB0022569F /* SidebarNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B601E114CD83DB0022569F /* SidebarNode.mm */; };
 		83B601EA14CD83DB0022569F /* FoldersView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B601E314CD83DB0022569F /* FoldersView.mm */; };
+		83BAF05914E7A860000880F0 /* Utilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BAF05814E7A860000880F0 /* Utilities.mm */; };
+		83BAF05D14E7B43C000880F0 /* NumericValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BAF05C14E7B43C000880F0 /* NumericValue.cpp */; };
 		83BC6E3014CC98AF002396A5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BC6E2F14CC98AF002396A5 /* Cocoa.framework */; };
 		83BC6E3A14CC98AF002396A5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6E3814CC98AF002396A5 /* InfoPlist.strings */; };
 		83BC6E4014CC98AF002396A5 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 83BC6E3E14CC98AF002396A5 /* Credits.rtf */; };
@@ -121,6 +143,9 @@
 		83F65BE414DA1C60006B7C60 /* NSImage_OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83F65BE314DA1C60006B7C60 /* NSImage_OpenCV.mm */; };
 		83F65BE714DA2769006B7C60 /* NSImage+CIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F65BE614DA2769006B7C60 /* NSImage+CIImage.m */; };
 		83F65BEA14DA288F006B7C60 /* NSBitmapImageRep+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F65BE914DA288F006B7C60 /* NSBitmapImageRep+Extras.m */; };
+		83F6CC0814EA7A170096890B /* DatabaseController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83F6CC0614EA7A170096890B /* DatabaseController.mm */; };
+		83F6CC0914EA7A170096890B /* DatabaseController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F6CC0714EA7A170096890B /* DatabaseController.xib */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -172,13 +197,27 @@
 		83025BD214E542060017F4E3 /* libgnuplot.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgnuplot.a; path = /usr/local/lib/acado/libgnuplot.a; sourceTree = "<absolute>"; };
 		83025BD314E542060017F4E3 /* libqpoases-extras.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libqpoases-extras.a"; path = "/usr/local/lib/acado/libqpoases-extras.a"; sourceTree = "<absolute>"; };
 		83025BD414E542060017F4E3 /* libqpoases.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libqpoases.a; path = /usr/local/lib/acado/libqpoases.a; sourceTree = "<absolute>"; };
+		830747A414EC43A300C01E52 /* ConfigurationForDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurationForDisplay.h; sourceTree = "<group>"; };
+		830747A514EC43A300C01E52 /* ConfigurationForDisplay.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConfigurationForDisplay.mm; sourceTree = "<group>"; };
+		830747A814EC5C5C00C01E52 /* DatabaseData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DatabaseData.cpp; sourceTree = "<group>"; };
+		830747AA14EC5CF900C01E52 /* GenericSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GenericSource.cpp; sourceTree = "<group>"; };
+		83088E9F14F41C320005227E /* CameraStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraStatus.h; path = Status/CameraStatus.h; sourceTree = "<group>"; };
+		83088EA014F41C320005227E /* CameraStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraStatus.m; path = Status/CameraStatus.m; sourceTree = "<group>"; };
 		8349FCB914CCA14E0028E058 /* OgreOSXCocoaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreOSXCocoaView.h; path = ../../../../../../../Library/OgreSDK/lib/release/Ogre.framework/Versions/1.7.4/Headers/OSX/OgreOSXCocoaView.h; sourceTree = "<group>"; };
 		8349FCBC14CCA9670028E058 /* RenderSystem_GL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = RenderSystem_GL.dylib; path = /Library/OgreSDK/lib/RenderSystem_GL.dylib; sourceTree = "<absolute>"; };
+		8351BC3714E6AFB3005C058D /* DatabaseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DatabaseData.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		8351BC3C14E6D40F005C058D /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
+		8351BC3D14E6D418005C058D /* Record.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Record.cpp; sourceTree = "<group>"; };
+		8351BC3F14E6D8E5005C058D /* libboost_date_time-xgcc42-mt-1_48.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libboost_date_time-xgcc42-mt-1_48.dylib"; path = "usr/local/lib/libboost_date_time-xgcc42-mt-1_48.dylib"; sourceTree = SDKROOT; };
+		8351BC4114E6DB60005C058D /* Source.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Source.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		8351BC4214E6DB70005C058D /* Source.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Source.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		8351BC4414E6DC86005C058D /* Donnee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Donnee.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		8351BC4514E6DC93005C058D /* Donnee.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Donnee.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		8376E09414D590D900ABECEA /* WebcamCalibrationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamCalibrationController.h; sourceTree = "<group>"; };
 		8376E09514D590D900ABECEA /* WebcamCalibrationController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WebcamCalibrationController.mm; sourceTree = "<group>"; };
 		8376E09614D590D900ABECEA /* WebcamCalibrationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebcamCalibrationController.xib; sourceTree = "<group>"; };
 		8376E09B14D5918800ABECEA /* CalibrationCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CalibrationCamera.cpp; path = TraitementVideo/CalibrationCamera.cpp; sourceTree = "<group>"; };
-		8376E09D14D5919900ABECEA /* CalibrationCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalibrationCamera.h; path = TraitementVideo/CalibrationCamera.h; sourceTree = "<group>"; };
+		8376E09D14D5919900ABECEA /* CalibrationCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CalibrationCamera.h; path = TraitementVideo/CalibrationCamera.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		8376E09E14D5943900ABECEA /* libopencv_core.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.dylib; path = usr/local/lib/libopencv_core.dylib; sourceTree = SDKROOT; };
 		8376E0A014D5A21100ABECEA /* libopencv_calib3d.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_calib3d.dylib; path = usr/local/lib/libopencv_calib3d.dylib; sourceTree = SDKROOT; };
 		8376E0A114D5A21100ABECEA /* libopencv_highgui.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.dylib; path = usr/local/lib/libopencv_highgui.dylib; sourceTree = SDKROOT; };
@@ -187,7 +226,33 @@
 		83867FB01504FF550004ED08 /* EtatSysteme.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EtatSysteme.cpp; path = Asservissement/EtatSysteme.cpp; sourceTree = SOURCE_ROOT; };
 		83867FB2150501210004ED08 /* Capteur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Capteur.h; path = Asservissement/Capteur.h; sourceTree = SOURCE_ROOT; };
 		83867FB415050B270004ED08 /* ForceAero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForceAero.h; path = Asservissement/ForceAero.h; sourceTree = SOURCE_ROOT; };
+		837D29EF15014CBC00221B7A /* ConnectionUSB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionUSB.h; sourceTree = "<group>"; };
+		837D29F115014CC600221B7A /* ConnectionUSB.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConnectionUSB.mm; sourceTree = "<group>"; };
+		837D29F315014DF000221B7A /* Position.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Position.cpp; sourceTree = "<group>"; };
+		8399ED1A14ED779F00AAB062 /* MatriceTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatriceTemplate.h; sourceTree = "<group>"; };
+		83A27C3E14E9388200B60BFC /* SourceForDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceForDisplay.h; sourceTree = "<group>"; };
+		83A27C3F14E9388200B60BFC /* SourceForDisplay.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SourceForDisplay.mm; sourceTree = "<group>"; };
+		83A27C4114E938A300B60BFC /* RecordForDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordForDisplay.h; sourceTree = "<group>"; };
+		83A27C4214E938A300B60BFC /* RecordForDisplay.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RecordForDisplay.mm; sourceTree = "<group>"; };
 		83A388B014CD8FB6009D7636 /* sidebarContent.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sidebarContent.xml; path = UI/Sidebar/sidebarContent.xml; sourceTree = "<group>"; };
+		83AA3A1F14E6456B00C39446 /* psc.database.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = psc.database.sqlite; sourceTree = "<group>"; };
+		83AA3A2114E645C700C39446 /* Database.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Database.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		83AA3A2314E645D300C39446 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Database.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		83AA3A2414E6462E00C39446 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		83B56FB414EAC831002AA428 /* CreateFieldController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateFieldController.h; sourceTree = "<group>"; };
+		83B56FB514EAC831002AA428 /* CreateFieldController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CreateFieldController.mm; sourceTree = "<group>"; };
+		83B56FB814EAC844002AA428 /* EditFieldSingleValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditFieldSingleValue.h; sourceTree = "<group>"; };
+		83B56FB914EAC844002AA428 /* EditFieldSingleValue.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EditFieldSingleValue.mm; sourceTree = "<group>"; };
+		83B56FBB14EAC857002AA428 /* EditFieldMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditFieldMatrix.h; sourceTree = "<group>"; };
+		83B56FBC14EAC857002AA428 /* EditFieldMatrix.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EditFieldMatrix.mm; sourceTree = "<group>"; };
+		83B56FBE14EAD030002AA428 /* SingleValueData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleValueData.h; sourceTree = "<group>"; };
+		83B56FBF14EAD03D002AA428 /* MatrixData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatrixData.h; sourceTree = "<group>"; };
+		83B56FC014EAD10B002AA428 /* VectorData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorData.h; sourceTree = "<group>"; };
+		83B56FC114EB275B002AA428 /* EditFieldVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditFieldVector.h; sourceTree = "<group>"; };
+		83B56FC214EB275B002AA428 /* EditFieldVector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EditFieldVector.mm; sourceTree = "<group>"; };
+		83B56FC414EB9FC9002AA428 /* GenericSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericSource.h; sourceTree = "<group>"; };
+		83B56FC514EBA03D002AA428 /* DataTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTypes.h; sourceTree = "<group>"; };
+		83B56FC614EBA1F6002AA428 /* DataTypes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataTypes.cpp; sourceTree = "<group>"; };
 		83B601D614CD83DB0022569F /* CellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CellView.h; path = UI/Sidebar/CellView.h; sourceTree = "<group>"; };
 		83B601D714CD83DB0022569F /* CellView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CellView.mm; path = UI/Sidebar/CellView.mm; sourceTree = "<group>"; };
 		83B601D814CD83DB0022569F /* NSArrayExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSArrayExt.h; path = UI/Sidebar/NSArrayExt.h; sourceTree = "<group>"; };
@@ -202,6 +267,10 @@
 		83B601E114CD83DB0022569F /* SidebarNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SidebarNode.mm; path = UI/Sidebar/SidebarNode.mm; sourceTree = "<group>"; };
 		83B601E214CD83DB0022569F /* FoldersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoldersView.h; path = UI/Sidebar/FoldersView.h; sourceTree = "<group>"; };
 		83B601E314CD83DB0022569F /* FoldersView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FoldersView.mm; path = UI/Sidebar/FoldersView.mm; sourceTree = "<group>"; };
+		83BAF05714E7A856000880F0 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utilities.h; path = Utilities/Utilities.h; sourceTree = "<group>"; };
+		83BAF05814E7A860000880F0 /* Utilities.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Utilities.mm; sourceTree = "<group>"; };
+		83BAF05B14E7B432000880F0 /* NumericValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumericValue.h; sourceTree = "<group>"; };
+		83BAF05C14E7B43C000880F0 /* NumericValue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NumericValue.cpp; sourceTree = "<group>"; };
 		83BC6E2B14CC98AF002396A5 /* PSC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PSC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83BC6E2F14CC98AF002396A5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		83BC6E3214CC98AF002396A5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -211,16 +280,16 @@
 		83BC6E3914CC98AF002396A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		83BC6E3D14CC98AF002396A5 /* PSC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PSC-Prefix.pch"; sourceTree = "<group>"; };
 		83BC6E3F14CC98AF002396A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		83BC6E5614CC9997002396A5 /* Dynamixel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dynamixel.cpp; sourceTree = "<group>"; };
-		83BC6E5714CC9997002396A5 /* Dynamixel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dynamixel.h; sourceTree = "<group>"; };
+		83BC6E5614CC9997002396A5 /* Dynamixel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Dynamixel.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		83BC6E5714CC9997002396A5 /* Dynamixel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Dynamixel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		83BC6E5814CC9997002396A5 /* hid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hid.c; sourceTree = "<group>"; };
 		83BC6E5914CC9997002396A5 /* hidapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hidapi.h; sourceTree = "<group>"; };
 		83BC6E5A14CC9997002396A5 /* InterfaceUSB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InterfaceUSB.cpp; sourceTree = "<group>"; };
 		83BC6E5B14CC9997002396A5 /* InterfaceUSB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceUSB.h; sourceTree = "<group>"; };
-		83BC6E5D14CC9997002396A5 /* Joystick.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Joystick.mm; sourceTree = "<group>"; };
+		83BC6E5D14CC9997002396A5 /* Joystick.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = Joystick.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		83BC6E5E14CC9997002396A5 /* Joystick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Joystick.h; sourceTree = "<group>"; };
 		83BC6E6014CC9997002396A5 /* Matrice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Matrice.cpp; sourceTree = "<group>"; };
-		83BC6E6114CC9997002396A5 /* Matrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrice.h; sourceTree = "<group>"; };
+		83BC6E6114CC9997002396A5 /* Matrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Matrice.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		83BC6E6214CC9997002396A5 /* Plan.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Plan.cpp; sourceTree = "<group>"; };
 		83BC6E6314CC9997002396A5 /* Plan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plan.h; sourceTree = "<group>"; };
 		83BC6E6414CC9997002396A5 /* Point.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Point.cpp; sourceTree = "<group>"; };
@@ -230,7 +299,7 @@
 		83BC6E6814CC9997002396A5 /* Referentiel3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Referentiel3D.cpp; sourceTree = "<group>"; };
 		83BC6E6914CC9997002396A5 /* Referentiel3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Referentiel3D.h; sourceTree = "<group>"; };
 		83BC6E6A14CC9997002396A5 /* Vecteur.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vecteur.cpp; sourceTree = "<group>"; };
-		83BC6E6B14CC9997002396A5 /* Vecteur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vecteur.h; sourceTree = "<group>"; };
+		83BC6E6B14CC9997002396A5 /* Vecteur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Vecteur.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		83BC6E6C14CC9997002396A5 /* Vecteur3D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vecteur3D.cpp; sourceTree = "<group>"; };
 		83BC6E6D14CC9997002396A5 /* Vecteur3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vecteur3D.h; sourceTree = "<group>"; };
 		83BC6E6F14CC9997002396A5 /* kite.material */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kite.material; sourceTree = "<group>"; };
@@ -238,7 +307,7 @@
 		83BC6E7114CC9997002396A5 /* kite.mesh.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = kite.mesh.xml; sourceTree = "<group>"; };
 		83BC6E7214CC9997002396A5 /* Moteur3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Moteur3D.h; sourceTree = "<group>"; };
 		83BC6E7314CC9997002396A5 /* Moteur3D.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Moteur3D.mm; sourceTree = "<group>"; };
-		83BC6E7414CC9997002396A5 /* Parametres.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parametres.h; sourceTree = "<group>"; };
+		83BC6E7414CC9997002396A5 /* Parametres.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Parametres.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		83BC6E7614CC9997002396A5 /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
 		83BC6E7714CC9997002396A5 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
 		83BC6E7914CC9997002396A5 /* Action.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Action.cpp; sourceTree = "<group>"; };
@@ -246,7 +315,7 @@
 		83BC6E7B14CC9997002396A5 /* AileTraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AileTraction.cpp; sourceTree = "<group>"; };
 		83BC6E7C14CC9997002396A5 /* AileTraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AileTraction.h; sourceTree = "<group>"; };
 		83BC6E7D14CC9997002396A5 /* Referentiel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Referentiel.cpp; sourceTree = "<group>"; };
-		83BC6E7E14CC9997002396A5 /* Referentiel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Referentiel.h; sourceTree = "<group>"; };
+		83BC6E7E14CC9997002396A5 /* Referentiel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Referentiel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		83BC6E7F14CC9997002396A5 /* Solide.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Solide.cpp; sourceTree = "<group>"; };
 		83BC6E8014CC9997002396A5 /* Solide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Solide.h; sourceTree = "<group>"; };
 		83BC6E8114CC9997002396A5 /* State.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State.cpp; sourceTree = "<group>"; };
@@ -297,8 +366,8 @@
 		83F586B414CDB0B100DA0F60 /* ComparaisonController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComparaisonController.h; sourceTree = "<group>"; };
 		83F586B514CDB0B100DA0F60 /* ComparaisonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComparaisonController.m; sourceTree = "<group>"; };
 		83F586B614CDB0B100DA0F60 /* ComparaisonController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComparaisonController.xib; sourceTree = "<group>"; };
-		83F586B914CDB0BE00DA0F60 /* MoteurController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoteurController.h; sourceTree = "<group>"; };
-		83F586BA14CDB0BE00DA0F60 /* MoteurController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MoteurController.mm; sourceTree = "<group>"; };
+		83F586B914CDB0BE00DA0F60 /* MoteurController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MoteurController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		83F586BA14CDB0BE00DA0F60 /* MoteurController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = MoteurController.mm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		83F586BB14CDB0BE00DA0F60 /* MoteurController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoteurController.xib; sourceTree = "<group>"; };
 		83F586C614CDB73F00DA0F60 /* Status.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Status.h; path = Status/Status.h; sourceTree = "<group>"; };
 		83F586C714CDB73F00DA0F60 /* Status.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Status.m; path = Status/Status.m; sourceTree = "<group>"; };
@@ -316,6 +385,10 @@
 		83F65BE614DA2769006B7C60 /* NSImage+CIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSImage+CIImage.m"; path = "TraitementVideo/NSImage+CIImage.m"; sourceTree = "<group>"; };
 		83F65BE814DA288F006B7C60 /* NSBitmapImageRep+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSBitmapImageRep+Extras.h"; path = "TraitementVideo/NSBitmapImageRep+Extras.h"; sourceTree = "<group>"; };
 		83F65BE914DA288F006B7C60 /* NSBitmapImageRep+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSBitmapImageRep+Extras.m"; path = "TraitementVideo/NSBitmapImageRep+Extras.m"; sourceTree = "<group>"; };
+		83F6CC0514EA7A170096890B /* DatabaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseController.h; sourceTree = "<group>"; };
+		83F6CC0614EA7A170096890B /* DatabaseController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DatabaseController.mm; sourceTree = "<group>"; };
+		83F6CC0714EA7A170096890B /* DatabaseController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatabaseController.xib; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,6 +401,8 @@
 				83025BD714E542060017F4E3 /* libgnuplot.a in Frameworks */,
 				83025BD814E542060017F4E3 /* libqpoases-extras.a in Frameworks */,
 				83025BD914E542060017F4E3 /* libqpoases.a in Frameworks */,
+				8351BC4014E6D8E6005C058D /* libboost_date_time-xgcc42-mt-1_48.dylib in Frameworks */,
+				83AA3A2514E6462E00C39446 /* libsqlite3.dylib in Frameworks */,
 				8376E0A314D5A21100ABECEA /* libopencv_calib3d.dylib in Frameworks */,
 				8376E0A414D5A21100ABECEA /* libopencv_highgui.dylib in Frameworks */,
 				8376E0A514D5A21100ABECEA /* libopencv_imgproc.dylib in Frameworks */,
@@ -405,6 +480,34 @@
 			name = TraitementVideo;
 			sourceTree = "<group>";
 		};
+		83AA3A1D14E6454000C39446 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				83B56FC514EBA03D002AA428 /* DataTypes.h */,
+				83B56FC614EBA1F6002AA428 /* DataTypes.cpp */,
+				83AA3A1F14E6456B00C39446 /* psc.database.sqlite */,
+				83AA3A2314E645D300C39446 /* Database.h */,
+				83AA3A2114E645C700C39446 /* Database.cpp */,
+				8351BC3714E6AFB3005C058D /* DatabaseData.h */,
+				830747A814EC5C5C00C01E52 /* DatabaseData.cpp */,
+				83B56FBE14EAD030002AA428 /* SingleValueData.h */,
+				83B56FC014EAD10B002AA428 /* VectorData.h */,
+				83B56FBF14EAD03D002AA428 /* MatrixData.h */,
+				8351BC3C14E6D40F005C058D /* Record.h */,
+				8351BC3D14E6D418005C058D /* Record.cpp */,
+				83B56FC414EB9FC9002AA428 /* GenericSource.h */,
+				830747AA14EC5CF900C01E52 /* GenericSource.cpp */,
+				8351BC4114E6DB60005C058D /* Source.h */,
+				8351BC4214E6DB70005C058D /* Source.cpp */,
+				8351BC4414E6DC86005C058D /* Donnee.h */,
+				8351BC4514E6DC93005C058D /* Donnee.cpp */,
+				83BAF05B14E7B432000880F0 /* NumericValue.h */,
+				83BAF05C14E7B43C000880F0 /* NumericValue.cpp */,
+				8399ED1A14ED779F00AAB062 /* MatriceTemplate.h */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		83B601D414CD83C60022569F /* Sidebar */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,10 +531,21 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		83BAF05614E7A832000880F0 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				83BAF05714E7A856000880F0 /* Utilities.h */,
+				83BAF05814E7A860000880F0 /* Utilities.mm */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		83BC6E2014CC98AF002396A5 = {
 			isa = PBXGroup;
 			children = (
 				83025AEB14E46C500017F4E3 /* Asservissement */,
+				83BAF05614E7A832000880F0 /* Utilities */,
+				83AA3A1D14E6454000C39446 /* Database */,
 				8376E09A14D5914400ABECEA /* TraitementVideo */,
 				83F586C514CDB71100DA0F60 /* Status */,
 				83BC6E5514CC9997002396A5 /* ConnectionUSB */,
@@ -462,6 +576,8 @@
 			isa = PBXGroup;
 			children = (
 				83025BDA14E542140017F4E3 /* ACADO */,
+				8351BC3F14E6D8E5005C058D /* libboost_date_time-xgcc42-mt-1_48.dylib */,
+				83AA3A2414E6462E00C39446 /* libsqlite3.dylib */,
 				8376E0A014D5A21100ABECEA /* libopencv_calib3d.dylib */,
 				8376E0A114D5A21100ABECEA /* libopencv_highgui.dylib */,
 				8376E0A214D5A21100ABECEA /* libopencv_imgproc.dylib */,
@@ -531,6 +647,9 @@
 				83BC6E5914CC9997002396A5 /* hidapi.h */,
 				83BC6E5A14CC9997002396A5 /* InterfaceUSB.cpp */,
 				83BC6E5B14CC9997002396A5 /* InterfaceUSB.h */,
+				837D29EF15014CBC00221B7A /* ConnectionUSB.h */,
+				837D29F115014CC600221B7A /* ConnectionUSB.mm */,
+				837D29F315014DF000221B7A /* Position.cpp */,
 			);
 			path = ConnectionUSB;
 			sourceTree = "<group>";
@@ -607,6 +726,7 @@
 		83BC6E8514CC9997002396A5 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				83F6CC0414EA79CB0096890B /* Database */,
 				83F586EA14CF014200DA0F60 /* Application.xib */,
 				83F586BE14CDB48E00DA0F60 /* Status */,
 				83B601D414CD83C60022569F /* Sidebar */,
@@ -719,8 +839,34 @@
 				83F586D314CDEB5F00DA0F60 /* status2.png */,
 				83F586C614CDB73F00DA0F60 /* Status.h */,
 				83F586C714CDB73F00DA0F60 /* Status.m */,
+				83088E9F14F41C320005227E /* CameraStatus.h */,
+				83088EA014F41C320005227E /* CameraStatus.m */,
 			);
 			name = Status;
+			sourceTree = "<group>";
+		};
+		83F6CC0414EA79CB0096890B /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				830747A414EC43A300C01E52 /* ConfigurationForDisplay.h */,
+				830747A514EC43A300C01E52 /* ConfigurationForDisplay.mm */,
+				83A27C3E14E9388200B60BFC /* SourceForDisplay.h */,
+				83A27C3F14E9388200B60BFC /* SourceForDisplay.mm */,
+				83A27C4114E938A300B60BFC /* RecordForDisplay.h */,
+				83A27C4214E938A300B60BFC /* RecordForDisplay.mm */,
+				83B56FB414EAC831002AA428 /* CreateFieldController.h */,
+				83B56FB514EAC831002AA428 /* CreateFieldController.mm */,
+				83B56FB814EAC844002AA428 /* EditFieldSingleValue.h */,
+				83B56FB914EAC844002AA428 /* EditFieldSingleValue.mm */,
+				83B56FC114EB275B002AA428 /* EditFieldVector.h */,
+				83B56FC214EB275B002AA428 /* EditFieldVector.mm */,
+				83B56FBB14EAC857002AA428 /* EditFieldMatrix.h */,
+				83B56FBC14EAC857002AA428 /* EditFieldMatrix.mm */,
+				83F6CC0514EA7A170096890B /* DatabaseController.h */,
+				83F6CC0614EA7A170096890B /* DatabaseController.mm */,
+				83F6CC0714EA7A170096890B /* DatabaseController.xib */,
+			);
+			name = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -807,6 +953,8 @@
 				83F586D614CDEB5F00DA0F60 /* status2.png in Resources */,
 				83F586EB14CF014200DA0F60 /* Application.xib in Resources */,
 				8376E09814D590D900ABECEA /* WebcamCalibrationController.xib in Resources */,
+				83AA3A2014E6456B00C39446 /* psc.database.sqlite in Resources */,
+				83F6CC0914EA7A170096890B /* DatabaseController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -878,6 +1026,26 @@
 				83025AED14E46F8A0017F4E3 /* ControleOptimal.cpp in Sources */,
 				8301CF111504EFD2002E65AD /* Asservissement.cpp in Sources */,
 				83867FB11504FF550004ED08 /* EtatSysteme.cpp in Sources */,
+				83AA3A2214E645C700C39446 /* Database.cpp in Sources */,
+				8351BC3E14E6D418005C058D /* Record.cpp in Sources */,
+				8351BC4314E6DB70005C058D /* Source.cpp in Sources */,
+				8351BC4614E6DC93005C058D /* Donnee.cpp in Sources */,
+				83BAF05914E7A860000880F0 /* Utilities.mm in Sources */,
+				83BAF05D14E7B43C000880F0 /* NumericValue.cpp in Sources */,
+				83A27C4014E9388200B60BFC /* SourceForDisplay.mm in Sources */,
+				83A27C4314E938A300B60BFC /* RecordForDisplay.mm in Sources */,
+				83F6CC0814EA7A170096890B /* DatabaseController.mm in Sources */,
+				83B56FB614EAC831002AA428 /* CreateFieldController.mm in Sources */,
+				83B56FBA14EAC844002AA428 /* EditFieldSingleValue.mm in Sources */,
+				83B56FBD14EAC857002AA428 /* EditFieldMatrix.mm in Sources */,
+				83B56FC314EB275B002AA428 /* EditFieldVector.mm in Sources */,
+				83B56FC714EBA1F6002AA428 /* DataTypes.cpp in Sources */,
+				830747A614EC43A300C01E52 /* ConfigurationForDisplay.mm in Sources */,
+				830747A914EC5C5D00C01E52 /* DatabaseData.cpp in Sources */,
+				830747AB14EC5CFA00C01E52 /* GenericSource.cpp in Sources */,
+				83088EA114F41C320005227E /* CameraStatus.m in Sources */,
+				837D29F215014CC600221B7A /* ConnectionUSB.mm in Sources */,
+				837D29F415014DF000221B7A /* Position.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

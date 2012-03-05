@@ -18,7 +18,17 @@ Point::Point() : Vecteur()
 	
 }
 
-Point::Point(unsigned char dim, Referentiel* ref) : Vecteur(dim,ref)
+Point::Point(const void* binaryData, std::size_t size) : Vecteur(binaryData,size)
+{
+	
+}
+
+Point::Point(const std::vector<uint8_t>& binaryData) : Vecteur(binaryData.data(),binaryData.size())
+{
+	
+}
+
+Point::Point(std::size_t dim, Referentiel* ref) : Vecteur(dim,ref)
 {
 	
 }
@@ -121,4 +131,19 @@ void Point::changerDeReferentiel(Referentiel* newRef)
 		
 		setRef(newRef);
 	}
+}
+
+#pragma mark - DatabaseData
+
+
+DataType Point::type() const
+{
+	return typeOfTemplate<Point>();
+}
+
+void Point::operator=(const DatabaseData& toCopy)
+{
+	assert(toCopy.type() == this->type());
+	
+	this->operator=(reinterpret_cast<const Point&>(toCopy));
 }

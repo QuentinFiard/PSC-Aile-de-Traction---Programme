@@ -48,35 +48,11 @@
 {
 	[self showStatusView];
 	
-	Status* test = [[Status alloc] init];
+	Status* tmp = [[CameraStatus alloc] init];
 	
-	test.titre = @"Asservissement";
-	test.status = STATUS_FAILED;
+	[self insertObject:tmp inStatusArrayAtIndex:0];
 	
-	[self insertObject:test inStatusArrayAtIndex:0];
-	
-	[test release];
-	
-	test = [[Status alloc] init];
-	
-	test.titre = @"Joystick";
-	test.status = STATUS_WAITING;
-	
-	[self insertObject:test inStatusArrayAtIndex:1];
-	
-	[test release];
-	
-	test = [[Status alloc] init];
-	
-	test.titre = @"Moteur";
-	test.status = STATUS_OK;
-	
-	[self insertObject:test inStatusArrayAtIndex:2];
-}
-
--(IBAction)retryTest:(id)sender withTitle:(id)title
-{
-	NSLog(@"%@ %@",sender,title);
+	[tmp release];
 }
 
 -(void)dealloc
