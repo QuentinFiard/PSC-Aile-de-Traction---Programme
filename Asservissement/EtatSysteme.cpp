@@ -54,7 +54,7 @@ EtatSystemeDerivee EtatSysteme::calculDerivee(double commande)
 	grand_axe = kite->axes(0);
 	Vecteur3D normale = kite->axes(2);
 	
-	Vecteur3D F_poids = (VOLUME_AILE*RHO_AIR-MASSE_AILE)*g*axe_z;
+	Vecteur3D F_poids = (VOLUME_AILE*RHO_AIR-MASSE_AILE)*CONSTANTE_GRAVITATION*axe_z;
 	
 	Vecteur3D F_aero = ForceAero::force(kite, Vecteur3D(vent_x.valeur(),vent_y.valeur(),0), vitesse());
 	

@@ -20,6 +20,6 @@ private:
 	Vecteur3D vitesse;
 	Vecteur3D acceleration;
 	double psi_pt;
-}
+};
 
 #endif

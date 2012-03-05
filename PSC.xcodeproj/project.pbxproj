@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8301CF111504EFD2002E65AD /* Asservissement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8301CF101504EFD2002E65AD /* Asservissement.cpp */; };
-		83025AED14E46F8A0017F4E3 /* ControleOptimal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83025AEC14E46F8A0017F4E3 /* ControleOptimal.cpp */; };
 		83025BD514E542060017F4E3 /* libacado.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025BD014E542050017F4E3 /* libacado.a */; };
 		83025BD614E542060017F4E3 /* libcsparse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025BD114E542060017F4E3 /* libcsparse.a */; };
 		83025BD714E542060017F4E3 /* libgnuplot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025BD214E542060017F4E3 /* libgnuplot.a */; };
@@ -40,7 +38,6 @@
 		837D29F215014CC600221B7A /* ConnectionUSB.mm in Sources */ = {isa = PBXBuildFile; fileRef = 837D29F115014CC600221B7A /* ConnectionUSB.mm */; };
 		837D29F415014DF000221B7A /* Position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 837D29F315014DF000221B7A /* Position.cpp */; };
 		837D55DE14CCC612002CD3DA /* OgreDemoApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6EB714CC99DA002396A5 /* OgreDemoApp.mm */; };
-		83867FB11504FF550004ED08 /* EtatSysteme.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83867FB01504FF550004ED08 /* EtatSysteme.cpp */; };
 		83A27C4014E9388200B60BFC /* SourceForDisplay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83A27C3F14E9388200B60BFC /* SourceForDisplay.mm */; };
 		83A27C4314E938A300B60BFC /* RecordForDisplay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83A27C4214E938A300B60BFC /* RecordForDisplay.mm */; };
 		83A388B114CD8FB6009D7636 /* sidebarContent.xml in Resources */ = {isa = PBXBuildFile; fileRef = 83A388B014CD8FB6009D7636 /* sidebarContent.xml */; };
@@ -82,7 +79,6 @@
 		83BC6E9814CC9997002396A5 /* Moteur3D.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E7314CC9997002396A5 /* Moteur3D.mm */; };
 		83BC6E9914CC9997002396A5 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E7714CC9997002396A5 /* SDLMain.m */; };
 		83BC6E9A14CC9997002396A5 /* Action.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E7914CC9997002396A5 /* Action.cpp */; };
-		83BC6E9B14CC9997002396A5 /* AileTraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E7B14CC9997002396A5 /* AileTraction.cpp */; };
 		83BC6E9C14CC9997002396A5 /* Referentiel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E7D14CC9997002396A5 /* Referentiel.cpp */; };
 		83BC6E9D14CC9997002396A5 /* Solide.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E7F14CC9997002396A5 /* Solide.cpp */; };
 		83BC6E9E14CC9997002396A5 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6E8114CC9997002396A5 /* State.cpp */; };
@@ -147,7 +143,6 @@
 		83F65BEA14DA288F006B7C60 /* NSBitmapImageRep+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F65BE914DA288F006B7C60 /* NSBitmapImageRep+Extras.m */; };
 		83F6CC0814EA7A170096890B /* DatabaseController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83F6CC0614EA7A170096890B /* DatabaseController.mm */; };
 		83F6CC0914EA7A170096890B /* DatabaseController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F6CC0714EA7A170096890B /* DatabaseController.xib */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -188,12 +183,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8301CF0D1504EC15002E65AD /* Asservissement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Asservissement.h; path = Asservissement/Asservissement.h; sourceTree = "<group>"; };
-		8301CF0E1504EC5B002E65AD /* EtatSysteme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EtatSysteme.h; path = Asservissement/EtatSysteme.h; sourceTree = "<group>"; };
-		8301CF0F1504ECEC002E65AD /* CommandeMoteur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommandeMoteur.h; path = Asservissement/CommandeMoteur.h; sourceTree = "<group>"; };
-		8301CF101504EFD2002E65AD /* Asservissement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Asservissement.cpp; path = Asservissement/Asservissement.cpp; sourceTree = "<group>"; };
-		83025AEC14E46F8A0017F4E3 /* ControleOptimal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ControleOptimal.cpp; path = Asservissement/ControleOptimal.cpp; sourceTree = "<group>"; };
-		83025AEE14E46F9A0017F4E3 /* ControleOptimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControleOptimal.h; path = Asservissement/ControleOptimal.h; sourceTree = "<group>"; };
 		83025BD014E542050017F4E3 /* libacado.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libacado.a; path = /usr/local/lib/acado/libacado.a; sourceTree = "<absolute>"; };
 		83025BD114E542060017F4E3 /* libcsparse.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcsparse.a; path = /usr/local/lib/acado/libcsparse.a; sourceTree = "<absolute>"; };
 		83025BD214E542060017F4E3 /* libgnuplot.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgnuplot.a; path = /usr/local/lib/acado/libgnuplot.a; sourceTree = "<absolute>"; };
@@ -232,10 +221,6 @@
 		8376E0A014D5A21100ABECEA /* libopencv_calib3d.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_calib3d.dylib; path = usr/local/lib/libopencv_calib3d.dylib; sourceTree = SDKROOT; };
 		8376E0A114D5A21100ABECEA /* libopencv_highgui.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.dylib; path = usr/local/lib/libopencv_highgui.dylib; sourceTree = SDKROOT; };
 		8376E0A214D5A21100ABECEA /* libopencv_imgproc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgproc.dylib; path = usr/local/lib/libopencv_imgproc.dylib; sourceTree = SDKROOT; };
-		83867FAF1504FDC60004ED08 /* EtatSystemeDerivee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EtatSystemeDerivee.h; path = Asservissement/EtatSystemeDerivee.h; sourceTree = SOURCE_ROOT; };
-		83867FB01504FF550004ED08 /* EtatSysteme.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EtatSysteme.cpp; path = Asservissement/EtatSysteme.cpp; sourceTree = SOURCE_ROOT; };
-		83867FB2150501210004ED08 /* Capteur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Capteur.h; path = Asservissement/Capteur.h; sourceTree = SOURCE_ROOT; };
-		83867FB415050B270004ED08 /* ForceAero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForceAero.h; path = Asservissement/ForceAero.h; sourceTree = SOURCE_ROOT; };
 		837D29EF15014CBC00221B7A /* ConnectionUSB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionUSB.h; sourceTree = "<group>"; };
 		837D29F115014CC600221B7A /* ConnectionUSB.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConnectionUSB.mm; sourceTree = "<group>"; };
 		837D29F315014DF000221B7A /* Position.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Position.cpp; sourceTree = "<group>"; };
@@ -322,8 +307,6 @@
 		83BC6E7714CC9997002396A5 /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
 		83BC6E7914CC9997002396A5 /* Action.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Action.cpp; sourceTree = "<group>"; };
 		83BC6E7A14CC9997002396A5 /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
-		83BC6E7B14CC9997002396A5 /* AileTraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AileTraction.cpp; sourceTree = "<group>"; };
-		83BC6E7C14CC9997002396A5 /* AileTraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AileTraction.h; sourceTree = "<group>"; };
 		83BC6E7D14CC9997002396A5 /* Referentiel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Referentiel.cpp; sourceTree = "<group>"; };
 		83BC6E7E14CC9997002396A5 /* Referentiel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Referentiel.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		83BC6E7F14CC9997002396A5 /* Solide.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Solide.cpp; sourceTree = "<group>"; };
@@ -398,7 +381,6 @@
 		83F6CC0514EA7A170096890B /* DatabaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseController.h; sourceTree = "<group>"; };
 		83F6CC0614EA7A170096890B /* DatabaseController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DatabaseController.mm; sourceTree = "<group>"; };
 		83F6CC0714EA7A170096890B /* DatabaseController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatabaseController.xib; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -437,24 +419,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		83025AEB14E46C500017F4E3 /* Asservissement */ = {
-			isa = PBXGroup;
-			children = (
-				83025AEE14E46F9A0017F4E3 /* ControleOptimal.h */,
-				83025AEC14E46F8A0017F4E3 /* ControleOptimal.cpp */,
-				8301CF0E1504EC5B002E65AD /* EtatSysteme.h */,
-				83867FB01504FF550004ED08 /* EtatSysteme.cpp */,
-				8301CF0F1504ECEC002E65AD /* CommandeMoteur.h */,
-				8301CF0D1504EC15002E65AD /* Asservissement.h */,
-				8301CF101504EFD2002E65AD /* Asservissement.cpp */,
-				83867FAF1504FDC60004ED08 /* EtatSystemeDerivee.h */,
-				83867FB2150501210004ED08 /* Capteur.h */,
-				83867FB415050B270004ED08 /* ForceAero.h */,
-			);
-			name = Asservissement;
-			path = ACADOToolkit;
-			sourceTree = "<group>";
-		};
 		83025BDA14E542140017F4E3 /* ACADO */ = {
 			isa = PBXGroup;
 			children = (
@@ -553,7 +517,6 @@
 		83BC6E2014CC98AF002396A5 = {
 			isa = PBXGroup;
 			children = (
-				83025AEB14E46C500017F4E3 /* Asservissement */,
 				83BAF05614E7A832000880F0 /* Utilities */,
 				83AA3A1D14E6454000C39446 /* Database */,
 				8376E09A14D5914400ABECEA /* TraitementVideo */,
@@ -727,8 +690,6 @@
 			children = (
 				83BC6E7914CC9997002396A5 /* Action.cpp */,
 				83BC6E7A14CC9997002396A5 /* Action.h */,
-				83BC6E7B14CC9997002396A5 /* AileTraction.cpp */,
-				83BC6E7C14CC9997002396A5 /* AileTraction.h */,
 				83BC6E7D14CC9997002396A5 /* Referentiel.cpp */,
 				83BC6E7E14CC9997002396A5 /* Referentiel.h */,
 				83BC6E7F14CC9997002396A5 /* Solide.cpp */,
@@ -1013,7 +974,6 @@
 				83BC6E9814CC9997002396A5 /* Moteur3D.mm in Sources */,
 				83BC6E9914CC9997002396A5 /* SDLMain.m in Sources */,
 				83BC6E9A14CC9997002396A5 /* Action.cpp in Sources */,
-				83BC6E9B14CC9997002396A5 /* AileTraction.cpp in Sources */,
 				83BC6E9C14CC9997002396A5 /* Referentiel.cpp in Sources */,
 				83BC6E9D14CC9997002396A5 /* Solide.cpp in Sources */,
 				83BC6E9E14CC9997002396A5 /* State.cpp in Sources */,
@@ -1041,9 +1001,6 @@
 				83F65BE414DA1C60006B7C60 /* NSImage_OpenCV.mm in Sources */,
 				83F65BE714DA2769006B7C60 /* NSImage+CIImage.m in Sources */,
 				83F65BEA14DA288F006B7C60 /* NSBitmapImageRep+Extras.m in Sources */,
-				83025AED14E46F8A0017F4E3 /* ControleOptimal.cpp in Sources */,
-				8301CF111504EFD2002E65AD /* Asservissement.cpp in Sources */,
-				83867FB11504FF550004ED08 /* EtatSysteme.cpp in Sources */,
 				83AA3A2214E645C700C39446 /* Database.cpp in Sources */,
 				8351BC3E14E6D418005C058D /* Record.cpp in Sources */,
 				8351BC4314E6DB70005C058D /* Source.cpp in Sources */,
@@ -1064,7 +1021,6 @@
 				83088EA114F41C320005227E /* CameraStatus.m in Sources */,
 				837D29F215014CC600221B7A /* ConnectionUSB.mm in Sources */,
 				837D29F415014DF000221B7A /* Position.cpp in Sources */,
-				831BC0C7150151BD00614624 /* CameraStatus.m in Sources */,
 				831BC0DF1501522B00614624 /* ConnectionUSB.mm in Sources */,
 				831BC0E01501522B00614624 /* Position.cpp in Sources */,
 			);

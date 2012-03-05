@@ -11,13 +11,13 @@
 #include "CommandeMoteur.h"
 
 #include <acado_toolkit.hpp>
-#include <include/acado_gnuplot/gnuplot_window.hpp>
+#include <acado/acado_gnuplot/gnuplot_window.hpp>
 
 
 
 std::vector<CommandeMoteur> Asservissement::calculCommandeOptimale(EtatSysteme& etat)
 {
-	USING_NAMESPACE_ACADO
+	//USING_NAMESPACE_ACADO
 	
 	
 }

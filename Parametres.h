@@ -18,7 +18,7 @@
 #define VOLUME_AILE 0
 
 #define RHO_AIR 1.184
-#define g 9.81
+#define CONSTANTE_GRAVITATION 9.81
 
 #define Ixx 0
 #define Iyy 0

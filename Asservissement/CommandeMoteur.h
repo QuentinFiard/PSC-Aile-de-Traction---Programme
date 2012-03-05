@@ -16,6 +16,6 @@ class CommandeMoteur
 private:
 	boost::posix_time::ptime date;
 	double commande;
-}
+};
 
 #endif
