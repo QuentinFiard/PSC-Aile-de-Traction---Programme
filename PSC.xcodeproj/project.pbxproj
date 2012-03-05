@@ -38,9 +38,6 @@
 		837D29F215014CC600221B7A /* ConnectionUSB.mm in Sources */ = {isa = PBXBuildFile; fileRef = 837D29F115014CC600221B7A /* ConnectionUSB.mm */; };
 		837D29F415014DF000221B7A /* Position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 837D29F315014DF000221B7A /* Position.cpp */; };
 		837D55DE14CCC612002CD3DA /* OgreDemoApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6EB714CC99DA002396A5 /* OgreDemoApp.mm */; };
-		83867FD2150539D00004ED08 /* Asservissement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83867FC8150539D00004ED08 /* Asservissement.cpp */; };
-		83867FD3150539D00004ED08 /* ControleOptimal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83867FCC150539D00004ED08 /* ControleOptimal.cpp */; };
-		83867FD4150539D00004ED08 /* EtatSysteme.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83867FCE150539D00004ED08 /* EtatSysteme.cpp */; };
 		83A27C4014E9388200B60BFC /* SourceForDisplay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83A27C3F14E9388200B60BFC /* SourceForDisplay.mm */; };
 		83A27C4314E938A300B60BFC /* RecordForDisplay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83A27C4214E938A300B60BFC /* RecordForDisplay.mm */; };
 		83A388B114CD8FB6009D7636 /* sidebarContent.xml in Resources */ = {isa = PBXBuildFile; fileRef = 83A388B014CD8FB6009D7636 /* sidebarContent.xml */; };
@@ -227,16 +224,6 @@
 		837D29EF15014CBC00221B7A /* ConnectionUSB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionUSB.h; sourceTree = "<group>"; };
 		837D29F115014CC600221B7A /* ConnectionUSB.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConnectionUSB.mm; sourceTree = "<group>"; };
 		837D29F315014DF000221B7A /* Position.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Position.cpp; sourceTree = "<group>"; };
-		83867FC8150539D00004ED08 /* Asservissement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Asservissement.cpp; sourceTree = "<group>"; };
-		83867FC9150539D00004ED08 /* Asservissement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asservissement.h; sourceTree = "<group>"; };
-		83867FCA150539D00004ED08 /* Capteur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Capteur.h; sourceTree = "<group>"; };
-		83867FCB150539D00004ED08 /* CommandeMoteur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandeMoteur.h; sourceTree = "<group>"; };
-		83867FCC150539D00004ED08 /* ControleOptimal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControleOptimal.cpp; sourceTree = "<group>"; };
-		83867FCD150539D00004ED08 /* ControleOptimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControleOptimal.h; sourceTree = "<group>"; };
-		83867FCE150539D00004ED08 /* EtatSysteme.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EtatSysteme.cpp; sourceTree = "<group>"; };
-		83867FCF150539D00004ED08 /* EtatSysteme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EtatSysteme.h; sourceTree = "<group>"; };
-		83867FD0150539D00004ED08 /* EtatSystemeDerivee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EtatSystemeDerivee.h; sourceTree = "<group>"; };
-		83867FD1150539D00004ED08 /* ForceAero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForceAero.h; sourceTree = "<group>"; };
 		8399ED1A14ED779F00AAB062 /* MatriceTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatriceTemplate.h; sourceTree = "<group>"; };
 		83A27C3E14E9388200B60BFC /* SourceForDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceForDisplay.h; sourceTree = "<group>"; };
 		83A27C3F14E9388200B60BFC /* SourceForDisplay.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SourceForDisplay.mm; sourceTree = "<group>"; };
@@ -467,23 +454,6 @@
 			name = TraitementVideo;
 			sourceTree = "<group>";
 		};
-		83867FC7150539D00004ED08 /* Asservissement */ = {
-			isa = PBXGroup;
-			children = (
-				83867FC8150539D00004ED08 /* Asservissement.cpp */,
-				83867FC9150539D00004ED08 /* Asservissement.h */,
-				83867FCA150539D00004ED08 /* Capteur.h */,
-				83867FCB150539D00004ED08 /* CommandeMoteur.h */,
-				83867FCC150539D00004ED08 /* ControleOptimal.cpp */,
-				83867FCD150539D00004ED08 /* ControleOptimal.h */,
-				83867FCE150539D00004ED08 /* EtatSysteme.cpp */,
-				83867FCF150539D00004ED08 /* EtatSysteme.h */,
-				83867FD0150539D00004ED08 /* EtatSystemeDerivee.h */,
-				83867FD1150539D00004ED08 /* ForceAero.h */,
-			);
-			path = Asservissement;
-			sourceTree = "<group>";
-		};
 		83AA3A1D14E6454000C39446 /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -547,7 +517,6 @@
 		83BC6E2014CC98AF002396A5 = {
 			isa = PBXGroup;
 			children = (
-				83867FC7150539D00004ED08 /* Asservissement */,
 				83BAF05614E7A832000880F0 /* Utilities */,
 				83AA3A1D14E6454000C39446 /* Database */,
 				8376E09A14D5914400ABECEA /* TraitementVideo */,
@@ -1054,9 +1023,6 @@
 				837D29F415014DF000221B7A /* Position.cpp in Sources */,
 				831BC0DF1501522B00614624 /* ConnectionUSB.mm in Sources */,
 				831BC0E01501522B00614624 /* Position.cpp in Sources */,
-				83867FD2150539D00004ED08 /* Asservissement.cpp in Sources */,
-				83867FD3150539D00004ED08 /* ControleOptimal.cpp in Sources */,
-				83867FD4150539D00004ED08 /* EtatSysteme.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
