@@ -23,6 +23,8 @@
 		830747A914EC5C5D00C01E52 /* DatabaseData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 830747A814EC5C5C00C01E52 /* DatabaseData.cpp */; };
 		830747AB14EC5CFA00C01E52 /* GenericSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 830747AA14EC5CF900C01E52 /* GenericSource.cpp */; };
 		83088EA114F41C320005227E /* CameraStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 83088EA014F41C320005227E /* CameraStatus.m */; };
+		831BC0DF1501522B00614624 /* ConnectionUSB.mm in Sources */ = {isa = PBXBuildFile; fileRef = 831BC0DD1501522B00614624 /* ConnectionUSB.mm */; };
+		831BC0E01501522B00614624 /* Position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 831BC0DE1501522B00614624 /* Position.cpp */; };
 		8349FCBD14CCA9670028E058 /* RenderSystem_GL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8349FCBC14CCA9670028E058 /* RenderSystem_GL.dylib */; };
 		8351BC3E14E6D418005C058D /* Record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8351BC3D14E6D418005C058D /* Record.cpp */; };
 		8351BC4014E6D8E6005C058D /* libboost_date_time-xgcc42-mt-1_48.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8351BC3F14E6D8E5005C058D /* libboost_date_time-xgcc42-mt-1_48.dylib */; };
@@ -203,6 +205,14 @@
 		830747AA14EC5CF900C01E52 /* GenericSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GenericSource.cpp; sourceTree = "<group>"; };
 		83088E9F14F41C320005227E /* CameraStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraStatus.h; path = Status/CameraStatus.h; sourceTree = "<group>"; };
 		83088EA014F41C320005227E /* CameraStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraStatus.m; path = Status/CameraStatus.m; sourceTree = "<group>"; };
+		831BC0C5150151BD00614624 /* CameraStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraStatus.h; path = Status/CameraStatus.h; sourceTree = "<group>"; };
+		831BC0C6150151BD00614624 /* CameraStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraStatus.m; path = Status/CameraStatus.m; sourceTree = "<group>"; };
+		831BC0DB1501522B00614624 /* CommunicationProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunicationProtocol.h; sourceTree = "<group>"; };
+		831BC0DC1501522B00614624 /* ConnectionUSB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionUSB.h; sourceTree = "<group>"; };
+		831BC0DD1501522B00614624 /* ConnectionUSB.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConnectionUSB.mm; sourceTree = "<group>"; };
+		831BC0DE1501522B00614624 /* Position.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Position.cpp; sourceTree = "<group>"; };
+		831BC0E11501524200614624 /* AngleAbsolu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AngleAbsolu.h; sourceTree = "<group>"; };
+		831BC0E21501536B00614624 /* VitesseRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VitesseRotation.h; sourceTree = "<group>"; };
 		8349FCB914CCA14E0028E058 /* OgreOSXCocoaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreOSXCocoaView.h; path = ../../../../../../../Library/OgreSDK/lib/release/Ogre.framework/Versions/1.7.4/Headers/OSX/OgreOSXCocoaView.h; sourceTree = "<group>"; };
 		8349FCBC14CCA9670028E058 /* RenderSystem_GL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = RenderSystem_GL.dylib; path = /Library/OgreSDK/lib/RenderSystem_GL.dylib; sourceTree = "<absolute>"; };
 		8351BC3714E6AFB3005C058D /* DatabaseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DatabaseData.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -641,6 +651,10 @@
 		83BC6E5514CC9997002396A5 /* ConnectionUSB */ = {
 			isa = PBXGroup;
 			children = (
+				831BC0DB1501522B00614624 /* CommunicationProtocol.h */,
+				831BC0DC1501522B00614624 /* ConnectionUSB.h */,
+				831BC0DD1501522B00614624 /* ConnectionUSB.mm */,
+				831BC0DE1501522B00614624 /* Position.cpp */,
 				83BC6E5614CC9997002396A5 /* Dynamixel.cpp */,
 				83BC6E5714CC9997002396A5 /* Dynamixel.h */,
 				83BC6E5814CC9997002396A5 /* hid.c */,
@@ -650,6 +664,8 @@
 				837D29EF15014CBC00221B7A /* ConnectionUSB.h */,
 				837D29F115014CC600221B7A /* ConnectionUSB.mm */,
 				837D29F315014DF000221B7A /* Position.cpp */,
+				831BC0E11501524200614624 /* AngleAbsolu.h */,
+				831BC0E21501536B00614624 /* VitesseRotation.h */,
 			);
 			path = ConnectionUSB;
 			sourceTree = "<group>";
@@ -834,6 +850,8 @@
 		83F586C514CDB71100DA0F60 /* Status */ = {
 			isa = PBXGroup;
 			children = (
+				831BC0C5150151BD00614624 /* CameraStatus.h */,
+				831BC0C6150151BD00614624 /* CameraStatus.m */,
 				83F586D114CDEB5F00DA0F60 /* status0.png */,
 				83F586D214CDEB5F00DA0F60 /* status1.png */,
 				83F586D314CDEB5F00DA0F60 /* status2.png */,
@@ -1046,6 +1064,9 @@
 				83088EA114F41C320005227E /* CameraStatus.m in Sources */,
 				837D29F215014CC600221B7A /* ConnectionUSB.mm in Sources */,
 				837D29F415014DF000221B7A /* Position.cpp in Sources */,
+				831BC0C7150151BD00614624 /* CameraStatus.m in Sources */,
+				831BC0DF1501522B00614624 /* ConnectionUSB.mm in Sources */,
+				831BC0E01501522B00614624 /* Position.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

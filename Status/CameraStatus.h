@@ -10,4 +10,6 @@
 
 @interface CameraStatus : Status
 
+-(IBAction)retry:(id)sender;
+
 @end

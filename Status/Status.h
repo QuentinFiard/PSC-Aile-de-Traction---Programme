@@ -8,23 +8,31 @@
 
 #import <Foundation/Foundation.h>
 
-#define STATUS_OK 0
-#define STATUS_WAITING 1
-#define STATUS_FAILED 2
+enum STATUS
+{
+	STATUS_OK,
+	STATUS_WAITING,
+	STATUS_FAILED
+};
 
 @interface Status : NSObject
 {
 	NSString* titre;
 	NSUInteger status;
+	NSImage* statusImage;
 	
 	id target;
 }
 
+-(IBAction)retry:(id)sender;
+
 @property (retain,nonatomic) NSString* titre;
-@property (readonly) NSImage* statusImage;
-@property (retain,nonatomic) id target;
+@property (assign,nonatomic) NSImage* statusImage;
+@property (assign,nonatomic) id target;
 @property (readonly,nonatomic) NSNumber* isOk;
 
 @property (nonatomic) NSUInteger status;
 
 @end
+
+#import "CameraStatus.h"

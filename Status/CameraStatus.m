@@ -10,4 +10,18 @@
 
 @implementation CameraStatus
 
+-(id)init
+{
+	self = [super init];
+	if(self)
+	{
+		self.titre = @"Caméra";
+	}
+	return self;
+}
+
+-(IBAction)retry:(id)sender
+{
+	
+}
 @end
