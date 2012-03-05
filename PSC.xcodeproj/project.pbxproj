@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		831BC0C7150151BD00614624 /* CameraStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 831BC0C6150151BD00614624 /* CameraStatus.m */; };
+		831BC0DF1501522B00614624 /* ConnectionUSB.mm in Sources */ = {isa = PBXBuildFile; fileRef = 831BC0DD1501522B00614624 /* ConnectionUSB.mm */; };
+		831BC0E01501522B00614624 /* Position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 831BC0DE1501522B00614624 /* Position.cpp */; };
 		8349FCBD14CCA9670028E058 /* RenderSystem_GL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8349FCBC14CCA9670028E058 /* RenderSystem_GL.dylib */; };
 		8376E09714D590D900ABECEA /* WebcamCalibrationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8376E09514D590D900ABECEA /* WebcamCalibrationController.mm */; };
 		8376E09814D590D900ABECEA /* WebcamCalibrationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8376E09614D590D900ABECEA /* WebcamCalibrationController.xib */; };
@@ -109,8 +111,6 @@
 		83F65BE414DA1C60006B7C60 /* NSImage_OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83F65BE314DA1C60006B7C60 /* NSImage_OpenCV.mm */; };
 		83F65BE714DA2769006B7C60 /* NSImage+CIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F65BE614DA2769006B7C60 /* NSImage+CIImage.m */; };
 		83F65BEA14DA288F006B7C60 /* NSBitmapImageRep+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F65BE914DA288F006B7C60 /* NSBitmapImageRep+Extras.m */; };
-		83F65BEC14DA37F8006B7C60 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 83F65BEB14DA37F8006B7C60 /* test.jpg */; };
-		83F65BED14DA3801006B7C60 /* test.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83F65BEB14DA37F8006B7C60 /* test.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -133,7 +133,6 @@
 				83F586D914CDEB7400DA0F60 /* status2.png in CopyFiles */,
 				83F586E014CDFB7800DA0F60 /* StatusController.xib in CopyFiles */,
 				83F586E614CEF25600DA0F60 /* SimulationController.xib in CopyFiles */,
-				83F65BED14DA3801006B7C60 /* test.jpg in CopyFiles */,
 				83F586EC14CF015100DA0F60 /* Application.xib in CopyFiles */,
 				83F586D814CDEB7200DA0F60 /* status1.png in CopyFiles */,
 				83F586E714CEF25900DA0F60 /* WebcamController.xib in CopyFiles */,
@@ -149,6 +148,12 @@
 /* Begin PBXFileReference section */
 		831BC0C5150151BD00614624 /* CameraStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraStatus.h; path = Status/CameraStatus.h; sourceTree = "<group>"; };
 		831BC0C6150151BD00614624 /* CameraStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CameraStatus.m; path = Status/CameraStatus.m; sourceTree = "<group>"; };
+		831BC0DB1501522B00614624 /* CommunicationProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunicationProtocol.h; sourceTree = "<group>"; };
+		831BC0DC1501522B00614624 /* ConnectionUSB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionUSB.h; sourceTree = "<group>"; };
+		831BC0DD1501522B00614624 /* ConnectionUSB.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConnectionUSB.mm; sourceTree = "<group>"; };
+		831BC0DE1501522B00614624 /* Position.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Position.cpp; sourceTree = "<group>"; };
+		831BC0E11501524200614624 /* AngleAbsolu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AngleAbsolu.h; sourceTree = "<group>"; };
+		831BC0E21501536B00614624 /* VitesseRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VitesseRotation.h; sourceTree = "<group>"; };
 		8349FCB914CCA14E0028E058 /* OgreOSXCocoaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreOSXCocoaView.h; path = ../../../../../../../Library/OgreSDK/lib/release/Ogre.framework/Versions/1.7.4/Headers/OSX/OgreOSXCocoaView.h; sourceTree = "<group>"; };
 		8349FCBC14CCA9670028E058 /* RenderSystem_GL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = RenderSystem_GL.dylib; path = /Library/OgreSDK/lib/RenderSystem_GL.dylib; sourceTree = "<absolute>"; };
 		8376E09414D590D900ABECEA /* WebcamCalibrationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamCalibrationController.h; sourceTree = "<group>"; };
@@ -289,7 +294,6 @@
 		83F65BE614DA2769006B7C60 /* NSImage+CIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSImage+CIImage.m"; path = "TraitementVideo/NSImage+CIImage.m"; sourceTree = "<group>"; };
 		83F65BE814DA288F006B7C60 /* NSBitmapImageRep+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSBitmapImageRep+Extras.h"; path = "TraitementVideo/NSBitmapImageRep+Extras.h"; sourceTree = "<group>"; };
 		83F65BE914DA288F006B7C60 /* NSBitmapImageRep+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSBitmapImageRep+Extras.m"; path = "TraitementVideo/NSBitmapImageRep+Extras.m"; sourceTree = "<group>"; };
-		83F65BEB14DA37F8006B7C60 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = test.jpg; path = TraitementVideo/test.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,7 +344,6 @@
 				8376E09B14D5918800ABECEA /* CalibrationCamera.cpp */,
 				83F65BE214DA1C60006B7C60 /* NSImage_OpenCV.h */,
 				83F65BE314DA1C60006B7C60 /* NSImage_OpenCV.mm */,
-				83F65BEB14DA37F8006B7C60 /* test.jpg */,
 			);
 			name = TraitementVideo;
 			sourceTree = "<group>";
@@ -463,12 +466,18 @@
 		83BC6E5514CC9997002396A5 /* ConnectionUSB */ = {
 			isa = PBXGroup;
 			children = (
+				831BC0DB1501522B00614624 /* CommunicationProtocol.h */,
+				831BC0DC1501522B00614624 /* ConnectionUSB.h */,
+				831BC0DD1501522B00614624 /* ConnectionUSB.mm */,
+				831BC0DE1501522B00614624 /* Position.cpp */,
 				83BC6E5614CC9997002396A5 /* Dynamixel.cpp */,
 				83BC6E5714CC9997002396A5 /* Dynamixel.h */,
 				83BC6E5814CC9997002396A5 /* hid.c */,
 				83BC6E5914CC9997002396A5 /* hidapi.h */,
 				83BC6E5A14CC9997002396A5 /* InterfaceUSB.cpp */,
 				83BC6E5B14CC9997002396A5 /* InterfaceUSB.h */,
+				831BC0E11501524200614624 /* AngleAbsolu.h */,
+				831BC0E21501536B00614624 /* VitesseRotation.h */,
 			);
 			path = ConnectionUSB;
 			sourceTree = "<group>";
@@ -747,7 +756,6 @@
 				83F586D614CDEB5F00DA0F60 /* status2.png in Resources */,
 				83F586EB14CF014200DA0F60 /* Application.xib in Resources */,
 				8376E09814D590D900ABECEA /* WebcamCalibrationController.xib in Resources */,
-				83F65BEC14DA37F8006B7C60 /* test.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -817,6 +825,8 @@
 				83F65BE714DA2769006B7C60 /* NSImage+CIImage.m in Sources */,
 				83F65BEA14DA288F006B7C60 /* NSBitmapImageRep+Extras.m in Sources */,
 				831BC0C7150151BD00614624 /* CameraStatus.m in Sources */,
+				831BC0DF1501522B00614624 /* ConnectionUSB.mm in Sources */,
+				831BC0E01501522B00614624 /* Position.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
