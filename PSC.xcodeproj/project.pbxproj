@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8301CF111504EFD2002E65AD /* Asservissement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8301CF101504EFD2002E65AD /* Asservissement.cpp */; };
 		83025AED14E46F8A0017F4E3 /* ControleOptimal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83025AEC14E46F8A0017F4E3 /* ControleOptimal.cpp */; };
 		83025BD514E542060017F4E3 /* libacado.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025BD014E542050017F4E3 /* libacado.a */; };
 		83025BD614E542060017F4E3 /* libcsparse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025BD114E542060017F4E3 /* libcsparse.a */; };
@@ -27,6 +28,7 @@
 		8376E0A414D5A21100ABECEA /* libopencv_highgui.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E0A114D5A21100ABECEA /* libopencv_highgui.dylib */; };
 		8376E0A514D5A21100ABECEA /* libopencv_imgproc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E0A214D5A21100ABECEA /* libopencv_imgproc.dylib */; };
 		837D55DE14CCC612002CD3DA /* OgreDemoApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6EB714CC99DA002396A5 /* OgreDemoApp.mm */; };
+		83867FB11504FF550004ED08 /* EtatSysteme.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83867FB01504FF550004ED08 /* EtatSysteme.cpp */; };
 		83A388B114CD8FB6009D7636 /* sidebarContent.xml in Resources */ = {isa = PBXBuildFile; fileRef = 83A388B014CD8FB6009D7636 /* sidebarContent.xml */; };
 		83A388B314CD8FCA009D7636 /* sidebarContent.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83A388B014CD8FB6009D7636 /* sidebarContent.xml */; };
 		83B601E414CD83DB0022569F /* CellView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B601D714CD83DB0022569F /* CellView.mm */; };
@@ -159,8 +161,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		83025AEC14E46F8A0017F4E3 /* ControleOptimal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControleOptimal.cpp; sourceTree = "<group>"; };
-		83025AEE14E46F9A0017F4E3 /* ControleOptimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControleOptimal.h; sourceTree = "<group>"; };
+		8301CF0D1504EC15002E65AD /* Asservissement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Asservissement.h; path = Asservissement/Asservissement.h; sourceTree = "<group>"; };
+		8301CF0E1504EC5B002E65AD /* EtatSysteme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EtatSysteme.h; path = Asservissement/EtatSysteme.h; sourceTree = "<group>"; };
+		8301CF0F1504ECEC002E65AD /* CommandeMoteur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommandeMoteur.h; path = Asservissement/CommandeMoteur.h; sourceTree = "<group>"; };
+		8301CF101504EFD2002E65AD /* Asservissement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Asservissement.cpp; path = Asservissement/Asservissement.cpp; sourceTree = "<group>"; };
+		83025AEC14E46F8A0017F4E3 /* ControleOptimal.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ControleOptimal.cpp; path = Asservissement/ControleOptimal.cpp; sourceTree = "<group>"; };
+		83025AEE14E46F9A0017F4E3 /* ControleOptimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControleOptimal.h; path = Asservissement/ControleOptimal.h; sourceTree = "<group>"; };
 		83025BD014E542050017F4E3 /* libacado.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libacado.a; path = /usr/local/lib/acado/libacado.a; sourceTree = "<absolute>"; };
 		83025BD114E542060017F4E3 /* libcsparse.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcsparse.a; path = /usr/local/lib/acado/libcsparse.a; sourceTree = "<absolute>"; };
 		83025BD214E542060017F4E3 /* libgnuplot.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgnuplot.a; path = /usr/local/lib/acado/libgnuplot.a; sourceTree = "<absolute>"; };
@@ -177,6 +183,10 @@
 		8376E0A014D5A21100ABECEA /* libopencv_calib3d.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_calib3d.dylib; path = usr/local/lib/libopencv_calib3d.dylib; sourceTree = SDKROOT; };
 		8376E0A114D5A21100ABECEA /* libopencv_highgui.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.dylib; path = usr/local/lib/libopencv_highgui.dylib; sourceTree = SDKROOT; };
 		8376E0A214D5A21100ABECEA /* libopencv_imgproc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgproc.dylib; path = usr/local/lib/libopencv_imgproc.dylib; sourceTree = SDKROOT; };
+		83867FAF1504FDC60004ED08 /* EtatSystemeDerivee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EtatSystemeDerivee.h; path = Asservissement/EtatSystemeDerivee.h; sourceTree = SOURCE_ROOT; };
+		83867FB01504FF550004ED08 /* EtatSysteme.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EtatSysteme.cpp; path = Asservissement/EtatSysteme.cpp; sourceTree = SOURCE_ROOT; };
+		83867FB2150501210004ED08 /* Capteur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Capteur.h; path = Asservissement/Capteur.h; sourceTree = SOURCE_ROOT; };
+		83867FB415050B270004ED08 /* ForceAero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForceAero.h; path = Asservissement/ForceAero.h; sourceTree = SOURCE_ROOT; };
 		83A388B014CD8FB6009D7636 /* sidebarContent.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = sidebarContent.xml; path = UI/Sidebar/sidebarContent.xml; sourceTree = "<group>"; };
 		83B601D614CD83DB0022569F /* CellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CellView.h; path = UI/Sidebar/CellView.h; sourceTree = "<group>"; };
 		83B601D714CD83DB0022569F /* CellView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CellView.mm; path = UI/Sidebar/CellView.mm; sourceTree = "<group>"; };
@@ -342,12 +352,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		83025AEB14E46C500017F4E3 /* ACADOToolkit */ = {
+		83025AEB14E46C500017F4E3 /* Asservissement */ = {
 			isa = PBXGroup;
 			children = (
 				83025AEE14E46F9A0017F4E3 /* ControleOptimal.h */,
 				83025AEC14E46F8A0017F4E3 /* ControleOptimal.cpp */,
+				8301CF0E1504EC5B002E65AD /* EtatSysteme.h */,
+				83867FB01504FF550004ED08 /* EtatSysteme.cpp */,
+				8301CF0F1504ECEC002E65AD /* CommandeMoteur.h */,
+				8301CF0D1504EC15002E65AD /* Asservissement.h */,
+				8301CF101504EFD2002E65AD /* Asservissement.cpp */,
+				83867FAF1504FDC60004ED08 /* EtatSystemeDerivee.h */,
+				83867FB2150501210004ED08 /* Capteur.h */,
+				83867FB415050B270004ED08 /* ForceAero.h */,
 			);
+			name = Asservissement;
 			path = ACADOToolkit;
 			sourceTree = "<group>";
 		};
@@ -412,7 +431,7 @@
 		83BC6E2014CC98AF002396A5 = {
 			isa = PBXGroup;
 			children = (
-				83025AEB14E46C500017F4E3 /* ACADOToolkit */,
+				83025AEB14E46C500017F4E3 /* Asservissement */,
 				8376E09A14D5914400ABECEA /* TraitementVideo */,
 				83F586C514CDB71100DA0F60 /* Status */,
 				83BC6E5514CC9997002396A5 /* ConnectionUSB */,
@@ -857,6 +876,8 @@
 				83F65BE714DA2769006B7C60 /* NSImage+CIImage.m in Sources */,
 				83F65BEA14DA288F006B7C60 /* NSBitmapImageRep+Extras.m in Sources */,
 				83025AED14E46F8A0017F4E3 /* ControleOptimal.cpp in Sources */,
+				8301CF111504EFD2002E65AD /* Asservissement.cpp in Sources */,
+				83867FB11504FF550004ED08 /* EtatSysteme.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
