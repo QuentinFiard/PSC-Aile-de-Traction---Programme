@@ -38,56 +38,64 @@ public:
 	
 	void operator=(const DatabaseData& toCopy);
 	
+	const T& matrix() const;
+	
 private:
-	T matrix;
+	T matrix_;
 };
 
 template<typename T>
-MatriceTemplate<T>::MatriceTemplate() : matrix()
+MatriceTemplate<T>::MatriceTemplate() : matrix_()
 {
 	
 }
 
 template<typename T>
-MatriceTemplate<T>::MatriceTemplate(std::vector<uint8_t>& data) : matrix(data)
+MatriceTemplate<T>::MatriceTemplate(std::vector<uint8_t>& data) : matrix_(data)
 {
 	
+}
+
+template<typename T>
+const T& MatriceTemplate<T>::matrix() const
+{
+	return matrix_;
 }
 
 template<typename T>
 bool MatriceTemplate<T>::setValueAtIndexWithString(std::size_t i,std::size_t j,std::string& text)
 {
-	return matrix.setValueAtIndexWithString(i,j,text);
+	return matrix_.setValueAtIndexWithString(i,j,text);
 }
 
 template<typename T>
 std::string MatriceTemplate<T>::valueAtIndexToString(std::size_t i,std::size_t j) const
 {
-	return matrix.valueAtIndexToString(i,j);
+	return matrix_.valueAtIndexToString(i,j);
 }
 
 template<typename T>
 std::size_t MatriceTemplate<T>::nbLignes() const
 {
-	return matrix.nbLignes();
+	return matrix_.nbLignes();
 }
 
 template<typename T>
 std::size_t MatriceTemplate<T>::nbColonnes() const
 {
-	return matrix.nbColonnes();
+	return matrix_.nbColonnes();
 }
 
 template<typename T>
 void MatriceTemplate<T>::setNbLignes(std::size_t n)
 {
-	matrix.setNbLignes(n);
+	matrix_.setNbLignes(n);
 }
 
 template<typename T>
 void MatriceTemplate<T>::setNbColonnes(std::size_t n)
 {
-	matrix.setNbColonnes(n);
+	matrix_.setNbColonnes(n);
 }
 
 template<typename T>
@@ -99,19 +107,19 @@ void MatriceTemplate<T>::operator=(const MatrixData& toCopy)
 template<typename T>
 void MatriceTemplate<T>::operator=(const MatriceTemplate<T>& toCopy)
 {
-	matrix = toCopy.matrix;
+	matrix_ = toCopy.matrix;
 }
 
 template<typename T>
 std::vector<uint8_t> MatriceTemplate<T>::toBinary() const
 {
-	return matrix.toBinary();
+	return matrix_.toBinary();
 }
 
 template<typename T>
 std::string MatriceTemplate<T>::toCSVString() const
 {
-	return matrix.toCSVString();
+	return matrix_.toCSVString();
 }
 
 template<typename T>

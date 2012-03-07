@@ -10,6 +10,7 @@
 
 #import "Status.h"
 #import "UIController.h"
+#import "CameraStatus.h"
 
 @implementation StatusController
 
@@ -48,7 +49,7 @@
 {
 	[self showStatusView];
 	
-	Status* tmp = [[CameraStatus alloc] init];
+	Status* tmp = [CameraStatus shared];
 	
 	[self insertObject:tmp inStatusArrayAtIndex:0];
 	

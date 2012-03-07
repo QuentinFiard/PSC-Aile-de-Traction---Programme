@@ -12,6 +12,11 @@
 #import "NSImage+CIImage.h"
 #import "NSImage_OpenCV.h"
 
+#include "Database.h"
+#include "StringValue.h"
+
+#include "Status.h"
+
 @implementation WebcamCalibrationController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -25,35 +30,99 @@
     return self;
 }
 
+-(void)loadSelectedWebcam
+{
+	if(session)
+	{
+		[session stopRunning];
+		[session release];
+		session = nil;
+	}
+	if(decompressedSession)
+	{
+		[decompressedSession release];
+		decompressedSession = nil;
+	}
+	if(camera)
+	{
+		[camera release];
+		camera = nil;
+	}
+	if(decompressedVideo)
+	{
+		[decompressedVideo release];
+		decompressedVideo = nil;
+	}
+	
+	if(Database::hasConfigurationField("CameraID"))
+	{
+		StringValue* cameraIDValue = (StringValue*)Database::getConfigurationField("CameraID");
+		std::string cameraID = cameraIDValue->valueToString();
+		delete cameraIDValue;
+		
+		NSString* ID = [[NSString alloc] initWithUTF8String:cameraID.c_str()];
+		
+		camera = [[QTCaptureDevice deviceWithUniqueID:ID] retain];
+		
+		if(camera)
+		{
+			//Create the QT capture session
+			session = [[QTCaptureSession alloc] init];
+			decompressedSession = [[QTCaptureSession alloc] init];
+			
+			NSError* error;
+			[camera open:&error];
+			
+			NSLog(@"%@",error);
+			
+			/* Create a QTKit input for the session using the iSight Device */
+			QTCaptureDeviceInput *myInput = [QTCaptureDeviceInput deviceInputWithDevice:camera];
+			QTCaptureDeviceInput *myInput2 = [QTCaptureDeviceInput deviceInputWithDevice:camera];
+			
+			decompressedVideo = [[QTCaptureDecompressedVideoOutput alloc] init];
+			
+			/* Add inputs get the ball rolling etc */
+			[session addInput:myInput error:nil];
+			[decompressedSession addInput:myInput2 error:nil];
+			[decompressedSession addOutput:decompressedVideo error:nil];
+			[cameraView setCaptureSession:session];
+			//[cameraView setDelegate:self];
+			
+			
+			/* Let the video madness begin */
+			[session startRunning];
+		}
+	}
+	
+	if(!camera)
+	{
+		[[CameraStatus shared] setStatus:STATUS_FAILED];
+	}
+	else
+	{
+		[[CameraStatus shared] setStatus:STATUS_OK];
+	}
+}
+
+-(void)updateCameraList:(id)sender
+{
+	[cameraChoice removeAllItems];
+	
+	[cameraChoice addItemWithTitle:@"Choix de la caméra"];
+	
+	NSArray* devices = [QTCaptureDevice inputDevicesWithMediaType:QTMediaTypeVideo];
+	
+	for(int i=0 ; i<devices.count ; i++)
+	{
+		[cameraChoice addItemWithTitle:[[devices objectAtIndex:i] localizedDisplayName]];
+	}
+}
+
 - (void) awakeFromNib 
 {
-	//Create the QT capture session
-	session = [[QTCaptureSession alloc] init];
-	decompressedSession = [[QTCaptureSession alloc] init];
-	/* Select the default Video input device */
-	iSight = [QTCaptureDevice defaultInputDeviceWithMediaType:QTMediaTypeVideo];
+	[self loadSelectedWebcam];
 	
-	NSError* error;
-	[iSight open:&error];
-	
-	NSLog(@"%@",error);
-	
-	/* Create a QTKit input for the session using the iSight Device */
-	QTCaptureDeviceInput *myInput = [QTCaptureDeviceInput deviceInputWithDevice:iSight];
-	QTCaptureDeviceInput *myInput2 = [QTCaptureDeviceInput deviceInputWithDevice:iSight];
-	
-	decompressedVideo = [[QTCaptureDecompressedVideoOutput alloc] init];
-	
-	/* Add inputs get the ball rolling etc */
-	[session addInput:myInput error:nil];
-	[decompressedSession addInput:myInput2 error:nil];
-	[decompressedSession addOutput:decompressedVideo error:nil];
-	[cameraView setCaptureSession:session];
-	//[cameraView setDelegate:self];
-	
-	
-	/* Let the video madness begin */
-	[session startRunning]; 
+	[self updateCameraList:self];
 }
 
 -(void)dealloc
@@ -256,6 +325,44 @@
 	//shouldAnalyseImage = YES;
 	[decompressedSession startRunning];
 	[decompressedVideo setDelegate:self];
+}
+
+-(IBAction)chooseCamera:(id)sender
+{
+	NSString* selectedItem = [cameraChoice titleOfSelectedItem];
+	if([selectedItem isEqualToString:@"Choix de la caméra"])
+	{
+		StringValue* val = new StringValue("");
+		Database::setConfigurationField("CameraID", val);
+		delete val;
+	}
+	else
+	{
+		NSArray* devices = [QTCaptureDevice inputDevicesWithMediaType:QTMediaTypeVideo];
+		
+		int i=0;
+		
+		while(i<devices.count && ![[[devices objectAtIndex:i] localizedDisplayName] isEqualToString:selectedItem])
+		{
+			i++;
+		}
+		if(i>=devices.count)
+		{
+			StringValue* val = new StringValue("");
+			Database::setConfigurationField("CameraID", val);
+			delete val;
+		}
+		else
+		{
+			NSString* ID = [(QTCaptureDevice*)[devices objectAtIndex:i] uniqueID];
+			std::string stringID([ID UTF8String]);
+			StringValue* val = new StringValue(stringID);
+			Database::setConfigurationField("CameraID", val);
+			delete val;
+		}
+	}
+	
+	[self loadSelectedWebcam];
 }
 
 @end

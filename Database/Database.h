@@ -39,8 +39,10 @@ public:
 	
 #pragma mark - Configuration Field
 	
-	static void setConfigurationField(std::string field, DatabaseData* value);
+	template<typename T>
+	static void setConfigurationField(std::string field, T value);
 	static DatabaseData* getConfigurationField(std::string field);
+	static bool hasConfigurationField(std::string field);
 	
 	static std::string changeConfigurationFieldName(std::string oldFieldName, std::string newFieldName);
 	
@@ -80,12 +82,14 @@ private:
 	
 	static Database& shared();
 	
+	template<typename T>
+	void setConfigurationField_(std::string& field, T data);
 	
-	void setConfigurationField_(std::string& field, DatabaseData* data);
 	DatabaseData* getConfigurationField_(std::string& field);
 	std::vector< std::pair<std::string,DataType> > getAllConfigurationFields_();
 	void removeConfigurationField_(std::string field);
 	int indexOfField_(std::string field);
+	bool hasConfigurationField_(std::string field);
 	
 	template<typename T>
 	bool findData_(Donnee<T>& donnee);
@@ -209,6 +213,61 @@ bool Database::findData_(Donnee<T>& donnee)
 	sqlite3_finalize(statement);
 	
 	return res;
+}
+
+template<typename T>
+void Database::setConfigurationField(std::string field, T value)
+{
+	return Database::shared().setConfigurationField_(field, value);
+}
+
+template<typename T>
+void Database::setConfigurationField_(std::string& field, T data)
+{
+	std::string cmd;
+	
+	cmd = "SELECT ROWID FROM Configuration WHERE field=?001";
+	
+	sqlite3_stmt* statement;
+	
+	std::vector<uint8_t> value(data->toBinary());
+	
+	sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
+	
+	sqlite3_bind_text(statement, 1, field.c_str(), field.length(), SQLITE_STATIC);
+	
+	if(sqlite3_step(statement) == SQLITE_ROW)
+	{
+		sqlite_int64 ROWID = sqlite3_column_int64(statement, 0);
+		
+		sqlite3_finalize(statement);
+		
+		cmd = "UPDATE Configuration SET value=?001,dataType=?002 WHERE ROWID=?003";
+		
+		sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
+		
+		sqlite3_bind_blob(statement, 1, value.data(), value.size(), SQLITE_STATIC);
+		sqlite3_bind_int(statement, 2, typeOfTemplate<T>());
+		sqlite3_bind_int64(statement, 3, ROWID);
+		
+		sqlite3_step(statement);
+	}
+	else
+	{
+		sqlite3_finalize(statement);
+		
+		cmd = "INSERT INTO Configuration(field,value,dataType) VALUES (?001,?002,?003)";
+		
+		sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
+		
+		sqlite3_bind_text(statement, 1, field.c_str(), field.length(), SQLITE_STATIC);
+		sqlite3_bind_blob(statement, 2, value.data(), value.size(), SQLITE_STATIC);
+		sqlite3_bind_int(statement, 3, typeOfTemplate<T>());
+		
+		sqlite3_step(statement);
+	}
+	
+	sqlite3_finalize(statement);
 }
 
 #pragma mark - Source

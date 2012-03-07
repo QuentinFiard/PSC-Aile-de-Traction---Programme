@@ -17,6 +17,8 @@
 #include "Point.h"
 #include "NumericValue.h"
 #include "MatriceTemplate.h"
+#include "VectorTemplate.h"
+#include "StringValue.h"
 
 DatabaseData* DatabaseData::dataWithType(std::vector<uint8_t>& binaryData, DataType dataType)
 {
@@ -39,11 +41,11 @@ DatabaseData* DatabaseData::dataWithType(std::vector<uint8_t>& binaryData, DataT
 			break;
 			
 		case TYPE_VECTEUR:
-			return new Vecteur(binaryData);
+			return new VectorTemplate<Vecteur>(binaryData);
 			break;
 			
 		case TYPE_VECTEUR3D:
-			return new Vecteur3D(binaryData);
+			return new VectorTemplate<Vecteur3D>(binaryData);
 			break;
 			
 		case TYPE_REFERENTIEL:
@@ -55,15 +57,19 @@ DatabaseData* DatabaseData::dataWithType(std::vector<uint8_t>& binaryData, DataT
 			break;
 			
 		case TYPE_QUATERNION:
-			return new Quaternion(binaryData);
+			return new VectorTemplate<Quaternion>(binaryData);
 			break;
 			
 		case TYPE_POINT:
-			return new Point(binaryData);
+			return new VectorTemplate<Point>(binaryData);
 			break;
 			
 		case TYPE_MATRICE:
 			return new MatriceTemplate<Matrice>(binaryData);
+			break;
+			
+		case TYPE_STRING:
+			return new StringValue(binaryData);
 			break;
 			
 		default:
@@ -93,11 +99,11 @@ DatabaseData* DatabaseData::emptyDataWithType(DataType dataType)
 			break;
 			
 		case TYPE_VECTEUR:
-			return new Vecteur();
+			return new VectorTemplate<Vecteur>();
 			break;
 			
 		case TYPE_VECTEUR3D:
-			return new Vecteur3D();
+			return new VectorTemplate<Vecteur3D>();
 			break;
 			
 		case TYPE_REFERENTIEL:
@@ -109,15 +115,19 @@ DatabaseData* DatabaseData::emptyDataWithType(DataType dataType)
 			break;
 			
 		case TYPE_QUATERNION:
-			return new Quaternion();
+			return new VectorTemplate<Quaternion>();
 			break;
 			
 		case TYPE_POINT:
-			return new Point();
+			return new VectorTemplate<Point>();
 			break;
 			
 		case TYPE_MATRICE:
 			return new MatriceTemplate<Matrice>();
+			break;
+			
+		case TYPE_STRING:
+			return new StringValue();
 			break;
 			
 		default:

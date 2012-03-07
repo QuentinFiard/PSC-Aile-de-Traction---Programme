@@ -20,6 +20,7 @@ class NumericValue : public SingleValueData
 {
 public:
 	NumericValue();
+	NumericValue(T newValue);
 	NumericValue(std::vector<uint8_t>& data);
 	std::vector<uint8_t> toBinary() const;
 	std::string toCSVString() const;
@@ -32,33 +33,47 @@ public:
 	
 	void operator=(const DatabaseData& toCopy);
 	void operator=(const SingleValueData& toCopy);
+	
+	T value() const;
 
 private:
-	T value;
+	T value_;
 };
 
 template<typename T>
 NumericValue<T>::NumericValue()
 {
-	value = T();
+	value_ = T();
+}
+
+template<typename T>
+T NumericValue<T>::value() const
+{
+	return value_;
+}
+
+template<typename T>
+NumericValue<T>::NumericValue(T newValue)
+{
+	value_ = newValue;
 }
 
 template<typename T>
 NumericValue<T>::NumericValue(std::vector<uint8_t>& data)
 {
-	value = *((T*)data.data());
+	value_ = *((T*)data.data());
 }
 
 template<typename T>
 std::vector<uint8_t> NumericValue<T>::toBinary() const
 {
-	return std::vector<uint8_t>((uint8_t*)&value,(uint8_t*)&value + sizeof(T));
+	return std::vector<uint8_t>((uint8_t*)&value_,(uint8_t*)&value_ + sizeof(T));
 }
 
 template<typename T>
 std::string NumericValue<T>::toCSVString() const
 {
-	return boost::lexical_cast<std::string>(value)+";";
+	return boost::lexical_cast<std::string>(value_)+";";
 }
 
 template<typename T>
@@ -86,14 +101,14 @@ void NumericValue<T>::operator=(const SingleValueData& toCopy)
 template<typename T>
 void NumericValue<T>::operator=(const NumericValue<T>& toCopy)
 {
-	value = toCopy.value;
+	value_ = toCopy.value_;
 }
 
 template<typename T>
 bool NumericValue<T>::setValueFromString(std::string& text)
 {
 	try{
-		value = boost::lexical_cast<T>(text);
+		value_ = boost::lexical_cast<T>(text);
 		return true;
 	} catch (boost::exception & e) {
 		return false;
@@ -103,7 +118,7 @@ bool NumericValue<T>::setValueFromString(std::string& text)
 template<typename T>
 std::string NumericValue<T>::valueToString() const
 {
-	return boost::lexical_cast<std::string>(value);
+	return boost::lexical_cast<std::string>(value_);
 }
 
 #endif

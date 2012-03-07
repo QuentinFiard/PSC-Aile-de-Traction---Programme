@@ -8,7 +8,18 @@
 
 #import "CameraStatus.h"
 
+static CameraStatus* shared;
+
 @implementation CameraStatus
+
++(CameraStatus*)shared
+{
+	if(!shared)
+	{
+		shared = [[CameraStatus alloc] init];
+	}
+	return shared;
+}
 
 -(id)init
 {
@@ -24,4 +35,5 @@
 {
 	
 }
+
 @end

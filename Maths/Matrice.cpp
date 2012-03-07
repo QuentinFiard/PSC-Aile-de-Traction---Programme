@@ -36,6 +36,8 @@ Matrice& Matrice::operator=(const Matrice& mat)
 	m_ = mat.m_;
 	
 	isTransposed = mat.isTransposed;
+	
+	return *this;
 }
 
 Matrice Matrice::identite(std::size_t n)
@@ -389,4 +391,125 @@ void Matrice::setNbColonnes(std::size_t m)
 	
 	coord = newCoord;
 	isTransposed = false;
+}
+
+#pragma mark - Recopie des opérations vectorielles
+
+Matrice Matrice::operator+(const Matrice &mat2) // Somme vectorielle
+{
+	assert(nbLignes() == mat2.nbLignes() && nbColonnes() == mat2.nbColonnes());
+	
+	Matrice res(nbLignes(),nbColonnes());
+	
+	for(int i=0 ; i<nbLignes() ; i++)
+	{
+		for(int j=0 ; j<nbColonnes() ; j++)
+		{
+			res(i,j) = at(i, j) + mat2.at(i, j);
+		}
+	}
+	
+	return res;
+}
+
+Matrice Matrice::operator+(const Matrice &mat2) const // Somme vectorielle
+{
+	assert(nbLignes() == mat2.nbLignes() && nbColonnes() == mat2.nbColonnes());
+	
+	Matrice res(nbLignes(),nbColonnes());
+	
+	for(int i=0 ; i<nbLignes() ; i++)
+	{
+		for(int j=0 ; j<nbColonnes() ; j++)
+		{
+			res(i,j) = at(i, j) + mat2.at(i, j);
+		}
+	}
+	
+	return res;
+}
+
+Matrice Matrice::operator*(const Reel lambda) const // Produit par un scalaire
+{
+	Matrice res(nbLignes(),nbColonnes());
+	
+	for(int i=0 ; i<nbLignes() ; i++)
+	{
+		for(int j=0 ; j<nbColonnes() ; j++)
+		{
+			res(i,j) = at(i, j)*lambda;
+		}
+	}
+	
+	return res;
+}
+
+Matrice Matrice::operator-() const // Moins unaire
+{
+	Matrice res(nbLignes(),nbColonnes());
+	
+	for(int i=0 ; i<nbLignes() ; i++)
+	{
+		for(int j=0 ; j<nbColonnes() ; j++)
+		{
+			res(i,j) = -at(i, j);
+		}
+	}
+	
+	return res;
+}
+
+//Opérateurs auxiliaires
+Matrice Matrice::operator-(const Matrice &mat2) // Différence
+{
+	return *this + (-mat2);
+}
+
+Matrice Matrice::operator-(const Matrice &mat2) const // Différence
+{
+	return *this + (-mat2);
+}
+
+Matrice Matrice::operator/(const Reel lambda) const // Division par un scalaire
+{
+	return *this*(1/lambda);
+}
+
+void Matrice::operator+=(const Matrice &mat2)
+{
+	assert(nbLignes() == mat2.nbLignes() && nbColonnes() == mat2.nbColonnes());
+	
+	for(int i=0 ; i<nbLignes() ; i++)
+	{
+		for(int j=0 ; j<nbColonnes() ; j++)
+		{
+			at(i, j) += mat2.at(i, j);
+		}
+	}
+}
+
+void Matrice::operator*=(const Reel lambda)
+{
+	for(int i=0 ; i<nbLignes() ; i++)
+	{
+		for(int j=0 ; j<nbColonnes() ; j++)
+		{
+			at(i, j) *= lambda;
+		}
+	}
+}
+
+void Matrice::operator-=(const Matrice &mat2)
+{
+	operator+(-mat2);
+}
+
+void Matrice::operator/=(const Reel lambda)
+{
+	operator*=(1/lambda);
+}
+
+Matrice operator*(const Reel lambda, const Matrice& mat)
+{
+	return mat*lambda;
 }
