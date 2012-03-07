@@ -9,15 +9,22 @@
 #ifndef PSC_EtatSysteme_h
 #define PSC_EtatSysteme_h
 
+#include <acado_toolkit.hpp>
+
 #include "Referentiel3D.h"
 #include "Vecteur3D.h"
 #include "EtatSystemeDerivee.h"
 
-class EtatSysteme
+USING_NAMESPACE_ACADO
+
+class EtatSysteme : public DifferentialState
 {
+public:
 	EtatSysteme(Point position, Vecteur3D vitesse, double psi);
+	EtatSysteme(DifferentialState& vect);
+	EtatSysteme(uint nRows_, uint nCols_=1, String name_="");
 	
-	EtatSystemeDerivee calculDerivee(double commande);
+	DifferentialStateDerivative derivee(Control commande);
 	
 	Point& position();
 	Vecteur3D& vitesse();

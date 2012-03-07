@@ -13,13 +13,29 @@
 #include <acado_toolkit.hpp>
 #include <acado/acado_gnuplot/gnuplot_window.hpp>
 
-
-
-std::vector<CommandeMoteur> Asservissement::calculCommandeOptimale(EtatSysteme& etat)
+static double distanceTrajectoire(EtatSysteme& X)
 {
-	//USING_NAMESPACE_ACADO
+	return 0;
+}
+
+std::vector<CommandeMoteur> Asservissement::calculCommandeOptimale(EtatSysteme& etatInitial)
+{
+	USING_NAMESPACE_ACADO
 	
+	EtatSysteme X(7);
+	Control u;
 	
+	DifferentialEquation f;
+	
+	f << dot(X) == X.derivee(u);
+	
+	OCP ocp(0.0,HORIZON);
+	ocp.subjectTo(f);
+	ocp.minimizeLagrangeTerm(distanceTrajectoire(X));
+	//ocp.subjectTo(AT_START, X == etatInitial);
+	ocp.subjectTo( -V_ROTATION_MAX <= u <= V_ROTATION_MAX );
+	
+	OptimizationAlgorithm algorithm(ocp);
 }
 
 /*

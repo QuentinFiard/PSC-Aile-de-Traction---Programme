@@ -29,6 +29,10 @@
 
 #define DEG_RAD (180/M_PI)
 
+#define V_ROTATION_MAX 20 // rad/s = vitesse de rotation max du moteur
+
+#define HORIZON 2	// 2s Temps de l'horizon dans l'algorithme de controle optimal
+
 typedef double Reel; // changer pour modifier la précision des calculs
 
 #endif
