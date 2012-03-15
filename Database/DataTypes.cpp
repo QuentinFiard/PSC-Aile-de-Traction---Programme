@@ -19,6 +19,9 @@
 #include "Referentiel3D.h"
 #include "Point.h"
 
+#include "NumericValue.h"
+#include "StringValue.h"
+
 std::string typeToString(DataType type)
 {
 	switch(type)
@@ -65,6 +68,10 @@ std::string typeToString(DataType type)
 			
 		case TYPE_VECTEUR3D:
 			return "Vecteur 3D";
+			break;
+			
+		case TYPE_STRING:
+			return "String";
 			break;
 			
 		default:
@@ -141,6 +148,132 @@ DataType typeOfTemplate<Matrice>()
 	return TYPE_MATRICE;
 }
 
+template<>
+DataType typeOfTemplate< NumericValue<double> >()
+{
+	return typeOfTemplate<double>();
+}
+
+template<>
+DataType typeOfTemplate< NumericValue<int> >()
+{
+	return typeOfTemplate<int>();
+}
+
+template<>
+DataType typeOfTemplate< NumericValue<int64_t> >()
+{
+	return typeOfTemplate<int64_t>();
+}
+
+template<>
+DataType typeOfTemplate< NumericValue<float> >()
+{
+	return typeOfTemplate<float>();
+}
+
+template<>
+DataType typeOfTemplate< StringValue >()
+{
+	return TYPE_STRING;
+}
+
+template<>
+DataType typeOfTemplate<double*>()
+{
+	return TYPE_DOUBLE;
+}
+
+template<>
+DataType typeOfTemplate<float*>()
+{
+	return TYPE_FLOAT;
+}
+
+template<>
+DataType typeOfTemplate<int*>()
+{
+	return TYPE_INT;
+}
+
+template<>
+DataType typeOfTemplate<int64_t*>()
+{
+	return TYPE_INT64;
+}
+
+template<>
+DataType typeOfTemplate<Vecteur*>()
+{
+	return TYPE_VECTEUR;
+}
+
+template<>
+DataType typeOfTemplate<Vecteur3D*>()
+{
+	return TYPE_VECTEUR3D;
+}
+
+template<>
+DataType typeOfTemplate<Referentiel*>()
+{
+	return TYPE_REFERENTIEL;
+}
+
+template<>
+DataType typeOfTemplate<Referentiel3D*>()
+{
+	return TYPE_REFERENTIEL3D;
+}
+
+template<>
+DataType typeOfTemplate<Quaternion*>()
+{
+	return TYPE_QUATERNION;
+}
+
+template<>
+DataType typeOfTemplate<Point*>()
+{
+	return TYPE_POINT;
+}
+
+template<>
+DataType typeOfTemplate<Matrice*>()
+{
+	return TYPE_MATRICE;
+}
+
+template<>
+DataType typeOfTemplate< NumericValue<double>* >()
+{
+	return typeOfTemplate<double>();
+}
+
+template<>
+DataType typeOfTemplate< NumericValue<int>* >()
+{
+	return typeOfTemplate<int>();
+}
+
+template<>
+DataType typeOfTemplate< NumericValue<int64_t>* >()
+{
+	return typeOfTemplate<int64_t>();
+}
+
+template<>
+DataType typeOfTemplate< NumericValue<float>* >()
+{
+	return typeOfTemplate<float>();
+}
+
+template<>
+DataType typeOfTemplate< StringValue* >()
+{
+	return TYPE_STRING;
+}
+
 #pragma mark - Type of data
 
 DataType typeOfData(DataType type)
@@ -181,6 +314,10 @@ DataType typeOfData(DataType type)
 			
 		case TYPE_MATRICE:
 			return TYPE_MATRIXDATA;
+			break;
+			
+		case TYPE_STRING:
+			return TYPE_SINGLEVALUEDATA;
 			break;
 			
 		default:

@@ -90,59 +90,6 @@ DatabaseData* Database::getConfigurationField_(std::string& field)
 	return DatabaseData::dataWithType(res, type);
 }
 
-void Database::setConfigurationField(std::string field, DatabaseData* value)
-{
-	return Database::shared().setConfigurationField_(field, value);
-}
-
-void Database::setConfigurationField_(std::string& field, DatabaseData* data)
-{
-	std::string cmd;
-	
-	cmd = "SELECT ROWID FROM Configuration WHERE field=?001";
-	
-	sqlite3_stmt* statement;
-	
-	std::vector<uint8_t> value(data->toBinary());
-	
-	sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
-	
-	sqlite3_bind_text(statement, 1, field.c_str(), field.length(), SQLITE_STATIC);
-	
-	if(sqlite3_step(statement) == SQLITE_ROW)
-	{
-		sqlite_int64 ROWID = sqlite3_column_int64(statement, 0);
-		
-		sqlite3_finalize(statement);
-		
-		cmd = "UPDATE Configuration SET value=?001,dataType=?002 WHERE ROWID=?003";
-		
-		sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
-		
-		sqlite3_bind_blob(statement, 1, value.data(), value.size(), SQLITE_STATIC);
-		sqlite3_bind_int(statement, 2, data->type());
-		sqlite3_bind_int64(statement, 3, ROWID);
-		
-		sqlite3_step(statement);
-	}
-	else
-	{
-		sqlite3_finalize(statement);
-		
-		cmd = "INSERT INTO Configuration(field,value,dataType) VALUES (?001,?002,?003)";
-		
-		sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
-		
-		sqlite3_bind_text(statement, 1, field.c_str(), field.length(), SQLITE_STATIC);
-		sqlite3_bind_blob(statement, 2, value.data(), value.size(), SQLITE_STATIC);
-		sqlite3_bind_int(statement, 3, data->type());
-		
-		sqlite3_step(statement);
-	}
-	
-	sqlite3_finalize(statement);
-}
-
 std::vector< std::pair<std::string,DataType> > Database::getAllConfigurationFields()
 {
 	return Database::shared().getAllConfigurationFields_();
@@ -281,6 +228,31 @@ int Database::indexOfField_(std::string field)
 	
 	return res;
 }
+
+bool Database::hasConfigurationField(std::string field)
+{
+	return Database::shared().hasConfigurationField_(field);
+}
+
+bool Database::hasConfigurationField_(std::string field)
+{
+	sqlite3_stmt* statement;
+	
+	std::string cmd;
+	
+	cmd = "SELECT ROWID FROM Configuration WHERE field=?001";
+	
+	sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
+	
+	sqlite3_bind_text(statement, 1, field.c_str(), field.length(), SQLITE_STATIC);
+	
+	bool res = (sqlite3_step(statement)==SQLITE_ROW);
+	
+	sqlite3_finalize(statement);
+	
+	return res;
+}
+
 
 #pragma mark - Records
 

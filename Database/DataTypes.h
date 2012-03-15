@@ -32,6 +32,8 @@ enum DataTypeEnum
 	TYPE_SINGLEVALUEDATA,
 	TYPE_VECTORDATA,
 	TYPE_MATRIXDATA,
+	
+	TYPE_STRING
 };
 
 std::string typeToString(DataType type);

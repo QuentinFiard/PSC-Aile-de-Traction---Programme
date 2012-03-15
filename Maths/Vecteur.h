@@ -20,7 +20,7 @@ class Point;
 
 class Quaternion;
 
-class Vecteur : public VectorData// Vecteur d'un espace vectoriel réel
+class Vecteur // Vecteur d'un espace vectoriel réel
 {
 public:
 //Constructeurs

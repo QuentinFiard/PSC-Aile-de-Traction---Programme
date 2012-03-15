@@ -9,6 +9,11 @@
 #import "Status.h"
 
 @interface CameraStatus : Status
+{
+	
+}
+
++(CameraStatus*)shared;
 
 -(IBAction)retry:(id)sender;
 

@@ -63,11 +63,30 @@ public:
 	void setNbLignes(std::size_t n);
 	void setNbColonnes(std::size_t n);
 	
+#pragma mark - Recopie des opérations vectorielles
+	
+	Matrice operator+(const Matrice &mat2); // Somme vectorielle
+	Matrice operator+(const Matrice &mat2) const; // Somme vectorielle
+	Matrice operator*(const Reel lambda) const; // Produit par un scalaire
+	Matrice operator-() const; // Moins unaire
+	
+	//Opérateurs auxiliaires
+	Matrice operator-(const Matrice &mat2); // Différence
+	Matrice operator-(const Matrice &mat2) const; // Différence
+	Matrice operator/(const Reel lambda) const; // Division par un scalaire
+	
+	void operator+=(const Matrice &mat2);
+	void operator*=(const Reel lambda);
+	void operator-=(const Matrice &mat2);
+	void operator/=(const Reel lambda);
+	
 private:
 	std::size_t n_; // n nombre de lignes
 	std::size_t m_; // m nombre de colonnes
 	
 	bool isTransposed;
 };
+
+Matrice operator*(const Reel lambda, const Matrice& mat);
 
 #endif

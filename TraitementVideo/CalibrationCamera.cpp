@@ -11,6 +11,10 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
+#include "Database.h"
+#include "NumericValue.h"
+#include "MatriceTemplate.h"
+
 CalibrationCamera::CalibrationCamera()
 {
 	parametresIntrinseques_ = NULL;
@@ -115,6 +119,27 @@ Matrice CalibrationCamera::parametresIntrinseques()
 			{
 				parametresIntrinseques_->at(i,j) = intrinsic.at<double>(i,j);
 			}
+		}
+		
+		if(Database::hasConfigurationField("MatriceCamera"))
+		{
+			MatriceTemplate<Matrice>* oldMatTemplate = (MatriceTemplate<Matrice>*)Database::getConfigurationField("MatriceCamera");
+			const Matrice& oldMat = oldMatTemplate->matrix();
+			
+			NumericValue<int>* nbImagesValue = (NumericValue<int>*)Database::getConfigurationField("NbImagesAnalysees");
+			int nbImages = nbImagesValue->value();
+			
+			*parametresIntrinseques_ = (nbImages*oldMat + pointsImage.size()*(*parametresIntrinseques_))/(nbImages+pointsImage.size());
+			
+			Database::setConfigurationField("MatriceCamera", parametresIntrinseques_);
+			NumericValue<int> newNbImages(nbImages+pointsImage.size());
+			Database::setConfigurationField("NbImagesAnalysees", &newNbImages);
+		}
+		else
+		{
+			Database::setConfigurationField("MatriceCamera", parametresIntrinseques_);
+			NumericValue<int> nbImages(pointsImage.size());
+			Database::setConfigurationField("NbImagesAnalysees", &nbImages);
 		}
 	}
 	

@@ -10,6 +10,8 @@
 #import <QTKit/QTKit.h>
 #import "CalibrationCamera.h"
 
+@class AutoUpdatePopUpButton;
+
 @interface WebcamCalibrationController : NSViewController
 {
 	CalibrationCamera calibration;
@@ -37,10 +39,12 @@
 	int indiceAnalyse;
 	
 	QTCaptureSession *session;
-	QTCaptureDevice *iSight;
+	QTCaptureDevice *camera;
 	
 	QTCaptureDecompressedVideoOutput* decompressedVideo;
 	QTCaptureSession *decompressedSession;
+	
+	IBOutlet AutoUpdatePopUpButton* cameraChoice;
 }
 
 -(IBAction)afficherDerniereAnalyse:(id)sender;
@@ -52,5 +56,24 @@
 -(IBAction)analyserImageCourante:(id)sender;
 
 -(void)afficherAnalyse:(int)indice;
+
+-(IBAction)chooseCamera:(id)sender;
+-(void)updateCameraList:(id)sender;
+
+@end
+
+@interface AutoUpdatePopUpButton : NSPopUpButton
+{
+	IBOutlet WebcamCalibrationController* controller;
+}
+
+@end
+
+@implementation AutoUpdatePopUpButton
+
+- (void)mouseDown:(NSEvent *)theEvent {
+    [controller updateCameraList:self];
+	[super mouseDown:theEvent];	
+}
 
 @end
