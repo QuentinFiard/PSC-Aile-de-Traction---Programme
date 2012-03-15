@@ -28,6 +28,7 @@
 		8351BC4014E6D8E6005C058D /* libboost_date_time-xgcc42-mt-1_48.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8351BC3F14E6D8E5005C058D /* libboost_date_time-xgcc42-mt-1_48.dylib */; };
 		8351BC4314E6DB70005C058D /* Source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8351BC4214E6DB70005C058D /* Source.cpp */; };
 		8351BC4614E6DC93005C058D /* Donnee.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8351BC4514E6DC93005C058D /* Donnee.cpp */; };
+		8354B42C150E95050066EC6F /* CommandeMoteur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8354B42B150E95050066EC6F /* CommandeMoteur.cpp */; };
 		8376E09714D590D900ABECEA /* WebcamCalibrationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8376E09514D590D900ABECEA /* WebcamCalibrationController.mm */; };
 		8376E09814D590D900ABECEA /* WebcamCalibrationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8376E09614D590D900ABECEA /* WebcamCalibrationController.xib */; };
 		8376E09C14D5918800ABECEA /* CalibrationCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8376E09B14D5918800ABECEA /* CalibrationCamera.cpp */; };
@@ -215,6 +216,8 @@
 		8351BC4214E6DB70005C058D /* Source.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Source.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		8351BC4414E6DC86005C058D /* Donnee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Donnee.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		8351BC4514E6DC93005C058D /* Donnee.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Donnee.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		8354B407150E38750066EC6F /* Trajectoire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trajectoire.h; sourceTree = "<group>"; };
+		8354B42B150E95050066EC6F /* CommandeMoteur.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommandeMoteur.cpp; sourceTree = "<group>"; };
 		8376E09414D590D900ABECEA /* WebcamCalibrationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamCalibrationController.h; sourceTree = "<group>"; };
 		8376E09514D590D900ABECEA /* WebcamCalibrationController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WebcamCalibrationController.mm; sourceTree = "<group>"; };
 		8376E09614D590D900ABECEA /* WebcamCalibrationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebcamCalibrationController.xib; sourceTree = "<group>"; };
@@ -474,12 +477,14 @@
 				83867FC9150539D00004ED08 /* Asservissement.h */,
 				83867FCA150539D00004ED08 /* Capteur.h */,
 				83867FCB150539D00004ED08 /* CommandeMoteur.h */,
+				8354B42B150E95050066EC6F /* CommandeMoteur.cpp */,
 				83867FCC150539D00004ED08 /* ControleOptimal.cpp */,
 				83867FCD150539D00004ED08 /* ControleOptimal.h */,
 				83867FCE150539D00004ED08 /* EtatSysteme.cpp */,
 				83867FCF150539D00004ED08 /* EtatSysteme.h */,
 				83867FD0150539D00004ED08 /* EtatSystemeDerivee.h */,
 				83867FD1150539D00004ED08 /* ForceAero.h */,
+				8354B407150E38750066EC6F /* Trajectoire.h */,
 			);
 			path = Asservissement;
 			sourceTree = "<group>";
@@ -1057,6 +1062,7 @@
 				83867FD2150539D00004ED08 /* Asservissement.cpp in Sources */,
 				83867FD3150539D00004ED08 /* ControleOptimal.cpp in Sources */,
 				83867FD4150539D00004ED08 /* EtatSysteme.cpp in Sources */,
+				8354B42C150E95050066EC6F /* CommandeMoteur.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

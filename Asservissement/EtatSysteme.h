@@ -30,6 +30,9 @@ public:
 	Vecteur3D& vitesse();
 	double psi();
 	
+	double theta() const;
+	double phi() const;
+	
 private:
 	Point position_;
 	Vecteur3D vitesse_;

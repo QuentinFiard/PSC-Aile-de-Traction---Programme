@@ -13,6 +13,9 @@
 
 class CommandeMoteur
 {
+public:
+	CommandeMoteur(boost::posix_time::ptime date, double commande);
+	
 private:
 	boost::posix_time::ptime date;
 	double commande;

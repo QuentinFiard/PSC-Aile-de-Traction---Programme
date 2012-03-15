@@ -11,6 +11,8 @@
 
 #include <vector>
 
+#include <boost/date_time/posix_time/posix_time.hpp>
+
 typedef double Longueur;
 
 class EtatSysteme;
@@ -18,7 +20,7 @@ class CommandeMoteur;
 
 class Asservissement
 {
-	std::vector<CommandeMoteur> calculCommandeOptimale(EtatSysteme& etat);
+	std::vector<CommandeMoteur> calculCommandeOptimale(EtatSysteme& etat,boost::posix_time::ptime t0);
 	
 private:
 	

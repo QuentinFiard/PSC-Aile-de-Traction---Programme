@@ -13,12 +13,64 @@
 #include <acado_toolkit.hpp>
 #include <acado/acado_gnuplot/gnuplot_window.hpp>
 
-static double distanceTrajectoire(EtatSysteme& X)
+#include <math.h>
+
+#include "Trajectoire.h"
+
+#include <vector>
+
+using namespace boost::posix_time;
+
+void f(double *x, double *f, void *userData)
 {
-	return 0;
+	
 }
 
-std::vector<CommandeMoteur> Asservissement::calculCommandeOptimale(EtatSysteme& etatInitial)
+
+
+static double distancePoint(double theta1, double phi1, double theta2, double phi2)
+{
+	return acos(cos(theta1)*cos(theta2)+sin(theta1)*sin(theta2)*cos(phi2-phi1));
+}
+
+static int lastTrajPos = -1;
+
+static double distanceTrajectoire(EtatSysteme& X)
+{
+	double theta = X.theta();
+	double phi = X.phi();
+	
+	int indiceMin = -1;
+	double distMin;
+	
+	int minTrajPos,maxTrajPos;
+	
+	if(lastTrajPos==-1)
+	{
+		minTrajPos=0;
+		maxTrajPos=nbPointsTraj;
+	}
+	else
+	{
+		minTrajPos = (lastTrajPos - (nbPointsTraj/8) + nbPointsTraj)%nbPointsTraj;
+		maxTrajPos = (lastTrajPos + ((3*nbPointsTraj)/8))%nbPointsTraj;
+	}
+	
+	for(int i=minTrajPos ; i!=maxTrajPos ; i = (i+1)%nbPointsTraj)
+	{
+		double dist = distancePoint(theta,phi,traj[2*i],traj[2*i+1]);
+		if(indiceMin==-1 || dist < distMin)
+		{
+			indiceMin = i;
+		}
+	}
+	
+	lastTrajPos = indiceMin;
+	
+	return distMin;
+}
+
+std::vector<CommandeMoteur> Asservissement::calculCommandeOptimale(EtatSysteme& etatInitial, ptime t0)
 {
 	USING_NAMESPACE_ACADO
 	
@@ -31,11 +83,34 @@ std::vector<CommandeMoteur> Asservissement::calculCommandeOptimale(EtatSysteme& 
 	
 	OCP ocp(0.0,HORIZON);
 	ocp.subjectTo(f);
+	
+	//COperator operatorDistance(
+	
 	ocp.minimizeLagrangeTerm(distanceTrajectoire(X));
 	//ocp.subjectTo(AT_START, X == etatInitial);
 	ocp.subjectTo( -V_ROTATION_MAX <= u <= V_ROTATION_MAX );
 	
 	OptimizationAlgorithm algorithm(ocp);
+	
+	algorithm.set(INTEGRATOR_TYPE, INT_RK45);
+	algorithm.set(INTEGRATOR_TOLERANCE, 1e-8);
+	algorithm.set(DISCRETIZATION_TYPE, MULTIPLE_SHOOTING);
+	algorithm.set(KKT_TOLERANCE, 1e-4);
+	
+	algorithm.solve();
+	
+	VariablesGrid controls;
+	
+	algorithm.getControls(controls);
+	
+	std::vector<CommandeMoteur> res;
+	
+	for(int i=0 ; i<controls.getNumPoints() ; i++)
+	{
+		res.push_back(CommandeMoteur(t0+microseconds(1000000*controls(i,0)),controls(i,1)));
+	}
+	
+	return res;
 }
 
 /*
