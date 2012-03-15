@@ -475,3 +475,10 @@ void Database::removeSource_(GenericSource* source)
 
 #pragma mark - Fully specialized template functions
 
+template<>
+static std::string Database::getConfigurationFieldValue<std::string>(std::string field)
+{
+	DatabaseData* res = Database::getConfigurationField(field);
+	
+	if(res->type() != 
+}

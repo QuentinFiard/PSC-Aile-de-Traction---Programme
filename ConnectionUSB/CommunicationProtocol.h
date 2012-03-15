@@ -21,7 +21,9 @@ typedef enum
 typedef enum
 {
     MC_SET_POSITION,
-    MC_SET_SPEED
+    MC_SET_SPEED,
+	MC_SET_MIN_SIGNAL_DURATION,
+	MC_SET_MAX_SIGNAL_DURATION
 } MC_ACTION;
 
 

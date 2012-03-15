@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8301CA9315129AB800EC6EFB /* ConnectionUSBStatus.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8301CA9215129AB800EC6EFB /* ConnectionUSBStatus.mm */; };
 		83025BD514E542060017F4E3 /* libacado.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025BD014E542050017F4E3 /* libacado.a */; };
 		83025BD614E542060017F4E3 /* libcsparse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025BD114E542060017F4E3 /* libcsparse.a */; };
 		83025BD714E542060017F4E3 /* libgnuplot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025BD214E542060017F4E3 /* libgnuplot.a */; };
@@ -35,7 +36,6 @@
 		8376E0A314D5A21100ABECEA /* libopencv_calib3d.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E0A014D5A21100ABECEA /* libopencv_calib3d.dylib */; };
 		8376E0A414D5A21100ABECEA /* libopencv_highgui.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E0A114D5A21100ABECEA /* libopencv_highgui.dylib */; };
 		8376E0A514D5A21100ABECEA /* libopencv_imgproc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E0A214D5A21100ABECEA /* libopencv_imgproc.dylib */; };
-		837D29F215014CC600221B7A /* ConnectionUSB.mm in Sources */ = {isa = PBXBuildFile; fileRef = 837D29F115014CC600221B7A /* ConnectionUSB.mm */; };
 		837D29F415014DF000221B7A /* Position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 837D29F315014DF000221B7A /* Position.cpp */; };
 		837D55DE14CCC612002CD3DA /* OgreDemoApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6EB714CC99DA002396A5 /* OgreDemoApp.mm */; };
 		83A27C4014E9388200B60BFC /* SourceForDisplay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83A27C3F14E9388200B60BFC /* SourceForDisplay.mm */; };
@@ -183,6 +183,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8301CA9115129AB800EC6EFB /* ConnectionUSBStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionUSBStatus.h; path = Status/ConnectionUSBStatus.h; sourceTree = "<group>"; };
+		8301CA9215129AB800EC6EFB /* ConnectionUSBStatus.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ConnectionUSBStatus.mm; path = Status/ConnectionUSBStatus.mm; sourceTree = "<group>"; };
 		83025BD014E542050017F4E3 /* libacado.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libacado.a; path = /usr/local/lib/acado/libacado.a; sourceTree = "<absolute>"; };
 		83025BD114E542060017F4E3 /* libcsparse.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcsparse.a; path = /usr/local/lib/acado/libcsparse.a; sourceTree = "<absolute>"; };
 		83025BD214E542060017F4E3 /* libgnuplot.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgnuplot.a; path = /usr/local/lib/acado/libgnuplot.a; sourceTree = "<absolute>"; };
@@ -221,8 +223,6 @@
 		8376E0A014D5A21100ABECEA /* libopencv_calib3d.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_calib3d.dylib; path = usr/local/lib/libopencv_calib3d.dylib; sourceTree = SDKROOT; };
 		8376E0A114D5A21100ABECEA /* libopencv_highgui.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.dylib; path = usr/local/lib/libopencv_highgui.dylib; sourceTree = SDKROOT; };
 		8376E0A214D5A21100ABECEA /* libopencv_imgproc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgproc.dylib; path = usr/local/lib/libopencv_imgproc.dylib; sourceTree = SDKROOT; };
-		837D29EF15014CBC00221B7A /* ConnectionUSB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionUSB.h; sourceTree = "<group>"; };
-		837D29F115014CC600221B7A /* ConnectionUSB.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConnectionUSB.mm; sourceTree = "<group>"; };
 		837D29F315014DF000221B7A /* Position.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Position.cpp; sourceTree = "<group>"; };
 		8399ED1A14ED779F00AAB062 /* MatriceTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatriceTemplate.h; sourceTree = "<group>"; };
 		83A27C3E14E9388200B60BFC /* SourceForDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceForDisplay.h; sourceTree = "<group>"; };
@@ -624,8 +624,6 @@
 				83BC6E5914CC9997002396A5 /* hidapi.h */,
 				83BC6E5A14CC9997002396A5 /* InterfaceUSB.cpp */,
 				83BC6E5B14CC9997002396A5 /* InterfaceUSB.h */,
-				837D29EF15014CBC00221B7A /* ConnectionUSB.h */,
-				837D29F115014CC600221B7A /* ConnectionUSB.mm */,
 				837D29F315014DF000221B7A /* Position.cpp */,
 				831BC0E11501524200614624 /* AngleAbsolu.h */,
 				831BC0E21501536B00614624 /* VitesseRotation.h */,
@@ -820,6 +818,8 @@
 				83F586C714CDB73F00DA0F60 /* Status.m */,
 				83088E9F14F41C320005227E /* CameraStatus.h */,
 				83088EA014F41C320005227E /* CameraStatus.m */,
+				8301CA9115129AB800EC6EFB /* ConnectionUSBStatus.h */,
+				8301CA9215129AB800EC6EFB /* ConnectionUSBStatus.mm */,
 			);
 			name = Status;
 			sourceTree = "<group>";
@@ -1019,10 +1019,10 @@
 				830747A914EC5C5D00C01E52 /* DatabaseData.cpp in Sources */,
 				830747AB14EC5CFA00C01E52 /* GenericSource.cpp in Sources */,
 				83088EA114F41C320005227E /* CameraStatus.m in Sources */,
-				837D29F215014CC600221B7A /* ConnectionUSB.mm in Sources */,
 				837D29F415014DF000221B7A /* Position.cpp in Sources */,
 				831BC0DF1501522B00614624 /* ConnectionUSB.mm in Sources */,
 				831BC0E01501522B00614624 /* Position.cpp in Sources */,
+				8301CA9315129AB800EC6EFB /* ConnectionUSBStatus.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

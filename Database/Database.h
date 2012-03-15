@@ -42,6 +42,9 @@ public:
 	static void setConfigurationField(std::string field, DatabaseData* value);
 	static DatabaseData* getConfigurationField(std::string field);
 	
+	template<typename T>
+	static T getConfigurationFieldValue(std::string field);
+	
 	static std::string changeConfigurationFieldName(std::string oldFieldName, std::string newFieldName);
 	
 	static std::vector< std::pair<std::string,DataType> > getAllConfigurationFields();
@@ -268,6 +271,14 @@ void Database::saveSource_(Source<T>& source)
 	}
 	
 	sqlite3_finalize(statement);
+}
+
+template<typename T>
+static T Database::getConfigurationFieldValue(std::string field)
+{
+	std::cout << "Type non supporté";
+	assert(0);
+	return T();
 }
 
 #endif
