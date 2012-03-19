@@ -11,9 +11,8 @@
 
 #import <Foundation/Foundation.h>
 #import <boost/asio.hpp>
-
-typedef uint8_t Motor;
-typedef uint8_t Sensor;
+#import <vector>
+#import "CommunicationProtocol.h"
 
 @class ConnectionUSBStatus;
 
@@ -24,10 +23,22 @@ class ConnectionUSB
 {
 public:
 	
-	static void setPositionForMotor(AngleAbsolu angle, Motor motor);
-	static void setSpeedForMotor(VitesseRotation vitesse, Motor motor);
+	static void setMotorSignalMaxDuration(double seconds);
+	static void setMotorSignalMinDuration(double seconds);
 	
-	static AngleAbsolu readPositionFromSensor(Sensor sensor);
+	static void setSpeedPIDCoeffs(PID_Coeffs coeffs);
+	static void setPositionPIDCoeffs(PID_Coeffs coeffs);
+	
+	static PID_Coeffs readSpeedPIDCoeffs();
+	static PID_Coeffs readPositionPIDCoeffs();
+	
+	static double readMotorSignalMaxDuration();
+	static double readMotorSignalMinDuration();
+	
+	static void setPositionForMotor(AngleAbsolu& angle, Motor motor);
+	static void setSpeedForMotor(VitesseRotation& vitesse, Motor motor);
+	
+	static AngleAbsolu readPositionFromSensor(Sensor sensor, const AngleAbsolu* closestFrom = NULL);
 	
 	static void connect();
 	
@@ -37,12 +48,20 @@ public:
 	
 protected:
 	
+	static void appendPIDCoeffs(std::vector<uint8_t> &packet, PID_Coeffs& coeffs);
+	
 	ConnectionUSB(std::string bsdPath);
 	static ConnectionUSB* shared();
 	
+	static void checkSensorError(SensorStatus &status);
+	
+	static void sendData(std::vector<uint8_t>& data);
+	static std::vector<uint8_t> readData(std::size_t length);
+	
 // Fonctions membres protected
-	void connect_();
 	bool isConnected_() const;
+	void sendData_(std::vector<uint8_t>& data);
+	std::vector<uint8_t> readData_(std::size_t length);
 	
 private:
 	

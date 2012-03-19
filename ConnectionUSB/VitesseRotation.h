@@ -20,8 +20,10 @@ public:
 	CommandeVitesse consigneMoteur();	// Valeur comprise entre -1 et 1 interpolée 
 										// à partir d'une table de la base de données
 	
+	double speed() const;
+	
 private:
 	double radianParSeconde;
-}
+};
 
 #endif

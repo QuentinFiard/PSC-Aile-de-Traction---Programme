@@ -9,6 +9,7 @@
 #ifndef PSC_AngleAbsolu_h
 #define PSC_AngleAbsolu_h
 
+#include <stdlib.h>
 #include "CommunicationProtocol.h"
 
 class AngleAbsolu
@@ -16,10 +17,16 @@ class AngleAbsolu
 public:
 	AngleAbsolu(double radians);
 	
-	CommandeAngle consigneMoteur();
+	AngleAbsolu(SensorStatus status, const AngleAbsolu* closestFrom = NULL);
+	
+	CommandeAngle consigneMoteur() const;
+	
+	double angle() const;
+	
+	void setAngle(double radians);
 	
 private:
-	double angle;
-}
+	double angle_;
+};
 
 #endif
