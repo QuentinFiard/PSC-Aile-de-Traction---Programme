@@ -16,6 +16,10 @@
 #include <sqlite3.h>
 #include <boost/date_time.hpp>
 
+#include "StringValue.h"
+
+#include "VitesseRotation.h"
+
 using namespace boost::posix_time;
 using namespace boost::gregorian;
 
@@ -440,7 +444,90 @@ void Database::removeSource_(GenericSource* source)
 
 #pragma mark - Donnee
 
+#pragma mark - Motor command
 
+CommandeVitesse Database::commandForRequestedMotorSpeed(const VitesseRotation& vitesseRotation)
+{
+	return Database::shared().commandForRequestedMotorSpeed_(vitesseRotation);
+}
+
+CommandeVitesse Database::commandForRequestedMotorSpeed_(const VitesseRotation& vitesseRotation)
+{
+	sqlite3_stmt* statement;
+	
+	std::string cmd;
+	
+	cmd = "SELECT signal,speed FROM MotorSpeed ORDER BY ABS(speed-?001) ASC LIMIT 2";
+	
+	sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
+	
+	sqlite3_bind_double(statement, 1, vitesseRotation.speed());
+	
+	if(!sqlite3_step(statement))
+	{
+		std::cout << "Il est nécessaire de remplir le tableau Vitesse de Rotation / Signal pour utiliser le moteur\n";
+		assert(0);
+	}
+	
+	double signal1 = sqlite3_column_double(statement, 0);
+	double speed1 = sqlite3_column_double(statement, 1);
+	
+	if(!sqlite3_step(statement))
+	{
+		std::cout << "Le tableau Vitesse de Rotation / Signal ne contient qu'une seule valeur\n";
+		assert(0);
+	}
+	
+	double signal2 = sqlite3_column_double(statement, 0);
+	double speed2 = sqlite3_column_double(statement, 1);
+	
+	sqlite3_finalize(statement);
+	
+	if(speed1==speed2)
+	{
+		std::cout << "Deux vitesses identiques dans le tableau -> problème pour l'interpolation\n";
+		assert(0);
+	}
+	
+	CommandeVitesse res;
+	
+	res.signal = ((signal2-signal1)/(speed2-speed1))*(vitesseRotation.speed() - speed1) + signal1;
+	
+	if(res.signal > 1)
+	{
+		res.signal = 1;
+	}
+	
+	if(res.signal < -1)
+	{
+		res.signal = -1;
+	}
+	
+	return res;
+}
+
+void Database::saveCommandForMotorSpeed(const VitesseRotation& vitesseRotation, const CommandeVitesse commande)
+{
+	Database::shared().saveCommandForMotorSpeed_(vitesseRotation, commande);
+}
+
+void Database::saveCommandForMotorSpeed_(const VitesseRotation& vitesseRotation, const CommandeVitesse commande)
+{
+	sqlite3_stmt* statement;
+	
+	std::string cmd;
+	
+	cmd = "INSERT INTO MotorSpeed(speed,signal) VALUES (?001,?002)";
+	
+	sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
+	
+	sqlite3_bind_double(statement,1,vitesseRotation.speed());
+	sqlite3_bind_double(statement,2,commande.signal);
+	
+	sqlite3_step(statement);
+	
+	sqlite3_finalize(statement);
+}
 
 #pragma mark - Static functions
 
@@ -448,9 +535,21 @@ void Database::removeSource_(GenericSource* source)
 #pragma mark - Fully specialized template functions
 
 template<>
-static std::string Database::getConfigurationFieldValue<std::string>(std::string field)
+std::string Database::getConfigurationFieldValue<std::string>(std::string field)
 {
 	DatabaseData* res = Database::getConfigurationField(field);
 	
-	if(res->type() != 
+	if(res->type() != TYPE_STRING)
+	{
+		std::cout << "Type incompatible";
+		assert(0);
+	}
+	
+	StringValue* stringValue = (StringValue*)res;
+	
+	std::string resString = stringValue->valueToString();
+	
+	delete res;
+	
+	return resString;
 }

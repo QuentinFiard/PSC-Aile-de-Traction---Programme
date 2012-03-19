@@ -118,7 +118,7 @@ std::string VectorTemplate<T>::toCSVString() const
 template<typename T>
 DataType VectorTemplate<T>::type() const
 {
-	return typeOfTemplate<T>();
+	return typeOfTemplate(this);
 }
 
 template<typename T>

@@ -11,6 +11,8 @@
 bool StringValue::setValueFromString(std::string& text)
 {
 	value_ = text;
+	
+	return true;
 }
 
 std::string StringValue::valueToString() const

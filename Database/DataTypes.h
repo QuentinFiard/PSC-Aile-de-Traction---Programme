@@ -45,14 +45,100 @@ template<typename T>
 class Donnee;
 
 template<typename T>
-DataType typeOfTemplate()
-{
-	std::cout << "Type non supporté";
-	assert(0);
-	return 0;
-}
+class NumericValue;
+
+class Vecteur;
+class Vecteur3D;
+class Referentiel;
+class Referentiel3D;
+class Quaternion;
+class Point;
+class Matrice;
+class StringValue;
+class SingleValueData;
+class VectorData;
+class MatrixData;
+
+DataType typeOfTemplate(const double value);
+
+DataType typeOfTemplate(const float value);
+
+DataType typeOfTemplate(const int value);
+
+DataType typeOfTemplate(const int64_t value);
+
+DataType typeOfTemplate(const Vecteur value);
+
+DataType typeOfTemplate(const Vecteur3D value);
+
+DataType typeOfTemplate(const Referentiel value);
+
+DataType typeOfTemplate(const Referentiel3D value);
+
+DataType typeOfTemplate(const Quaternion value);
+
+DataType typeOfTemplate(const Point value);
+
+DataType typeOfTemplate(const Matrice value);
+
+DataType typeOfTemplate(const std::string value);
+
+DataType typeOfTemplate(const NumericValue<double> value);
+
+
+DataType typeOfTemplate(const NumericValue<int> value);
+
+DataType typeOfTemplate(const NumericValue<int64_t> value);
+
+DataType typeOfTemplate(const NumericValue<float> value);
+
+DataType typeOfTemplate(const StringValue value);
+
+DataType typeOfTemplate(const double* value);
+
+DataType typeOfTemplate(const float* value);
+
+DataType typeOfTemplate(const int* value);
+
+DataType typeOfTemplate(const int64_t* value);
+
+DataType typeOfTemplate(const Vecteur* value);
+
+DataType typeOfTemplate(const Vecteur3D* value);
+
+DataType typeOfTemplate(const Referentiel* value);
+
+DataType typeOfTemplate(const Referentiel3D* value);
+
+DataType typeOfTemplate(const Quaternion* value);
+
+DataType typeOfTemplate(const Point* value);
+
+DataType typeOfTemplate(const Matrice* value);
+
+DataType typeOfTemplate(const NumericValue<double>* value);
+
+DataType typeOfTemplate(const NumericValue<int>* value);
+
+DataType typeOfTemplate(const NumericValue<int64_t>* value);
+
+DataType typeOfTemplate(const NumericValue<float>* value);
+
+DataType typeOfTemplate(const StringValue* value);
+
+DataType typeOfTemplate(const std::string* value);
+
+DataType typeOfTemplate(const SingleValueData* value);
+
+DataType typeOfTemplate(const VectorData* value);
+
+DataType typeOfTemplate(const MatrixData* value);
+
+
 
 DataType typeOfData(DataType type);
+
+bool isNumeric(DataType type);
 
 
 #endif

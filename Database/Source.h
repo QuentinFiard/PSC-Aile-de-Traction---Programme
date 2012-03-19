@@ -72,7 +72,7 @@ void Source<T>::save()
 template<typename T>
 DataType Source<T>::type() const
 {
-	return typeOfTemplate<T>();
+	return typeOfTemplate(T());
 }
 
 template<typename T>

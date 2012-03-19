@@ -125,7 +125,7 @@ std::string MatriceTemplate<T>::toCSVString() const
 template<typename T>
 DataType MatriceTemplate<T>::type() const
 {
-	return typeOfTemplate<T>();
+	return typeOfTemplate(this);
 }
 
 template<typename T>

@@ -26,6 +26,9 @@ class Record;
 
 class GenericSource;
 
+class VitesseRotation;
+struct CommandeVitesse;
+
 #include "DatabaseData.h"
 
 class Database
@@ -75,7 +78,10 @@ public:
 	template<typename T>
 	static bool findData(Donnee<T>& donnee);
 	
+#pragma mark - Motor Command
 	
+	static CommandeVitesse commandForRequestedMotorSpeed(const VitesseRotation& vitesseRotation);
+	static void saveCommandForMotorSpeed(const VitesseRotation& vitesseRotation, const CommandeVitesse commande);
 	
 private:
 	Database();
@@ -111,6 +117,9 @@ private:
 	void removeRecord_(Record* record);
 	
 	std::string changeConfigurationFieldName_(std::string oldFieldName, std::string newFieldName);
+	
+	CommandeVitesse commandForRequestedMotorSpeed_(const VitesseRotation& vitesseRotation);
+	void saveCommandForMotorSpeed_(const VitesseRotation& vitesseRotation, const CommandeVitesse commande);
 
 };
 
@@ -122,6 +131,8 @@ private:
 
 #include "Donnee.h"
 #include "Source.h"
+
+#include "NumericValue.h"
 
 using namespace boost::posix_time;
 using namespace boost::gregorian;
@@ -250,7 +261,7 @@ void Database::setConfigurationField_(std::string& field, T data)
 		sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
 		
 		sqlite3_bind_blob(statement, 1, value.data(), value.size(), SQLITE_STATIC);
-		sqlite3_bind_int(statement, 2, typeOfTemplate<T>());
+		sqlite3_bind_int(statement, 2, typeOfTemplate(data));
 		sqlite3_bind_int64(statement, 3, ROWID);
 		
 		sqlite3_step(statement);
@@ -265,7 +276,7 @@ void Database::setConfigurationField_(std::string& field, T data)
 		
 		sqlite3_bind_text(statement, 1, field.c_str(), field.length(), SQLITE_STATIC);
 		sqlite3_bind_blob(statement, 2, value.data(), value.size(), SQLITE_STATIC);
-		sqlite3_bind_int(statement, 3, typeOfTemplate<T>());
+		sqlite3_bind_int(statement, 3, typeOfTemplate(data));
 		
 		sqlite3_step(statement);
 	}
@@ -333,11 +344,56 @@ void Database::saveSource_(Source<T>& source)
 }
 
 template<typename T>
-static T Database::getConfigurationFieldValue(std::string field)
+T Database::getConfigurationFieldValue(std::string field)
 {
-	std::cout << "Type non supporté";
-	assert(0);
-	return T();
+	// We assume T is a numeric type here
+	
+	DatabaseData* data = getConfigurationField(field);
+	
+	T res;
+	
+	switch(data->type()) 
+	{
+		case TYPE_DOUBLE:
+		{
+			NumericValue<double>* value = (NumericValue<double>*)data;
+			res = value->value();
+			break;
+		}
+			
+		case TYPE_FLOAT:
+		{
+			NumericValue<float>* value = (NumericValue<float>*)data;
+			res = value->value();
+			break;
+		}
+			
+		case TYPE_INT:
+		{
+			NumericValue<int>* value = (NumericValue<int>*)data;
+			res = value->value();
+			break;
+		}
+			
+		case TYPE_INT64:
+		{
+			NumericValue<int64_t>* value = (NumericValue<int64_t>*)data;
+			res = value->value();
+			break;
+		}
+			
+		default:
+		{
+			std::cout << "Type non supporté" << std::endl;
+			assert(0);
+			return T();
+			break;
+		}
+	}
+	
+	delete data;
+	
+	return res;
 }
 
 #endif

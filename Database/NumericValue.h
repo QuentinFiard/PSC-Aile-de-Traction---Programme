@@ -79,7 +79,7 @@ std::string NumericValue<T>::toCSVString() const
 template<typename T>
 DataType NumericValue<T>::type() const
 {
-	return typeOfTemplate<T>();
+	return typeOfTemplate(this);
 }
 
 template<typename T>

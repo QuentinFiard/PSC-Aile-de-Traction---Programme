@@ -82,196 +82,190 @@ std::string typeToString(DataType type)
 
 #pragma mark - Type
 
-template<>
-DataType typeOfTemplate<double>()
+DataType typeOfTemplate(const double value)
 {
 	return TYPE_DOUBLE;
 }
 
-template<>
-DataType typeOfTemplate<float>()
+DataType typeOfTemplate(const float value)
 {
 	return TYPE_FLOAT;
 }
 
-template<>
-DataType typeOfTemplate<int>()
+DataType typeOfTemplate(const int value)
 {
 	return TYPE_INT;
 }
 
-template<>
-DataType typeOfTemplate<int64_t>()
+DataType typeOfTemplate(const int64_t value)
 {
 	return TYPE_INT64;
 }
 
-template<>
-DataType typeOfTemplate<Vecteur>()
+DataType typeOfTemplate(const Vecteur value)
 {
 	return TYPE_VECTEUR;
 }
 
-template<>
-DataType typeOfTemplate<Vecteur3D>()
+DataType typeOfTemplate(const Vecteur3D value)
 {
 	return TYPE_VECTEUR3D;
 }
 
-template<>
-DataType typeOfTemplate<Referentiel>()
+DataType typeOfTemplate(const Referentiel value)
 {
 	return TYPE_REFERENTIEL;
 }
 
-template<>
-DataType typeOfTemplate<Referentiel3D>()
+DataType typeOfTemplate(const Referentiel3D value)
 {
 	return TYPE_REFERENTIEL3D;
 }
 
-template<>
-DataType typeOfTemplate<Quaternion>()
+DataType typeOfTemplate(const Quaternion value)
 {
 	return TYPE_QUATERNION;
 }
 
-template<>
-DataType typeOfTemplate<Point>()
+DataType typeOfTemplate(const Point value)
 {
 	return TYPE_POINT;
 }
 
-template<>
-DataType typeOfTemplate<Matrice>()
+DataType typeOfTemplate(const Matrice value)
 {
 	return TYPE_MATRICE;
 }
 
-template<>
-DataType typeOfTemplate< NumericValue<double> >()
-{
-	return typeOfTemplate<double>();
-}
-
-template<>
-DataType typeOfTemplate< NumericValue<int> >()
-{
-	return typeOfTemplate<int>();
-}
-
-template<>
-DataType typeOfTemplate< NumericValue<int64_t> >()
-{
-	return typeOfTemplate<int64_t>();
-}
-
-template<>
-DataType typeOfTemplate< NumericValue<float> >()
-{
-	return typeOfTemplate<float>();
-}
-
-template<>
-DataType typeOfTemplate< StringValue >()
+DataType typeOfTemplate(const std::string value)
 {
 	return TYPE_STRING;
 }
 
-template<>
-DataType typeOfTemplate<double*>()
+DataType typeOfTemplate(const NumericValue<double> value)
 {
 	return TYPE_DOUBLE;
 }
 
-template<>
-DataType typeOfTemplate<float*>()
-{
-	return TYPE_FLOAT;
-}
 
-template<>
-DataType typeOfTemplate<int*>()
+DataType typeOfTemplate(const NumericValue<int> value)
 {
 	return TYPE_INT;
 }
 
-template<>
-DataType typeOfTemplate<int64_t*>()
+DataType typeOfTemplate(const NumericValue<int64_t> value)
 {
 	return TYPE_INT64;
 }
 
-template<>
-DataType typeOfTemplate<Vecteur*>()
+DataType typeOfTemplate(const NumericValue<float> value)
+{
+	return TYPE_FLOAT;
+}
+
+DataType typeOfTemplate(const StringValue value)
+{
+	return TYPE_STRING;
+}
+
+DataType typeOfTemplate(const double* value)
+{
+	return TYPE_DOUBLE;
+}
+
+DataType typeOfTemplate(const float* value)
+{
+	return TYPE_FLOAT;
+}
+
+DataType typeOfTemplate(const int* value)
+{
+	return TYPE_INT;
+}
+
+DataType typeOfTemplate(const int64_t* value)
+{
+	return TYPE_INT64;
+}
+
+DataType typeOfTemplate(const Vecteur* value)
 {
 	return TYPE_VECTEUR;
 }
 
-template<>
-DataType typeOfTemplate<Vecteur3D*>()
+DataType typeOfTemplate(const Vecteur3D* value)
 {
 	return TYPE_VECTEUR3D;
 }
 
-template<>
-DataType typeOfTemplate<Referentiel*>()
+DataType typeOfTemplate(const Referentiel* value)
 {
 	return TYPE_REFERENTIEL;
 }
 
-template<>
-DataType typeOfTemplate<Referentiel3D*>()
+DataType typeOfTemplate(const Referentiel3D* value)
 {
 	return TYPE_REFERENTIEL3D;
 }
 
-template<>
-DataType typeOfTemplate<Quaternion*>()
+DataType typeOfTemplate(const Quaternion* value)
 {
 	return TYPE_QUATERNION;
 }
 
-template<>
-DataType typeOfTemplate<Point*>()
+DataType typeOfTemplate(const Point* value)
 {
 	return TYPE_POINT;
 }
 
-template<>
-DataType typeOfTemplate<Matrice*>()
+DataType typeOfTemplate(const Matrice* value)
 {
 	return TYPE_MATRICE;
 }
 
-template<>
-DataType typeOfTemplate< NumericValue<double>* >()
+DataType typeOfTemplate(const NumericValue<double>* value)
 {
-	return typeOfTemplate<double>();
+	return TYPE_DOUBLE;
 }
 
-template<>
-DataType typeOfTemplate< NumericValue<int>* >()
+DataType typeOfTemplate(const NumericValue<int>* value)
 {
-	return typeOfTemplate<int>();
+	return TYPE_INT;
 }
 
-template<>
-DataType typeOfTemplate< NumericValue<int64_t>* >()
+DataType typeOfTemplate(const NumericValue<int64_t>* value)
 {
-	return typeOfTemplate<int64_t>();
+	return TYPE_INT64;
 }
 
-template<>
-DataType typeOfTemplate< NumericValue<float>* >()
+DataType typeOfTemplate(const NumericValue<float>* value)
 {
-	return typeOfTemplate<float>();
+	return TYPE_FLOAT;
 }
 
-template<>
-DataType typeOfTemplate< StringValue* >()
+DataType typeOfTemplate(const StringValue* value)
+{
+	return value->type();
+}
+
+DataType typeOfTemplate(const std::string* value)
 {
 	return TYPE_STRING;
+}
+
+DataType typeOfTemplate(const SingleValueData* value)
+{
+	return value->type();
+}
+
+DataType typeOfTemplate(const VectorData* value)
+{
+	return value->type();
+}
+
+DataType typeOfTemplate(const MatrixData* value)
+{
+	return value->type();
 }
 
 #pragma mark - Type of data
@@ -318,6 +312,57 @@ DataType typeOfData(DataType type)
 			
 		case TYPE_STRING:
 			return TYPE_SINGLEVALUEDATA;
+			break;
+			
+		default:
+			std::cout << "Type non supporté" << std::endl;
+			assert(0);
+			break;
+	}
+}
+
+bool isNumeric(DataType type)
+{
+	switch(type) 
+	{
+		case TYPE_DOUBLE:
+			return true;
+			break;
+			
+		case TYPE_FLOAT:
+			return true;
+			break;
+			
+		case TYPE_INT:
+			return true;
+			break;
+			
+		case TYPE_INT64:
+			return true;
+			break;
+			
+		case TYPE_VECTEUR:
+			return false;
+			break;
+			
+		case TYPE_VECTEUR3D:
+			return false;
+			break;
+			
+		case TYPE_QUATERNION:
+			return false;
+			break;
+			
+		case TYPE_POINT:
+			return false;
+			break;
+			
+		case TYPE_MATRICE:
+			return false;
+			break;
+			
+		case TYPE_STRING:
+			return false;
 			break;
 			
 		default:
