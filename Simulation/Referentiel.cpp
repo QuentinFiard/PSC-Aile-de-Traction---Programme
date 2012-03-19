@@ -182,7 +182,7 @@ std::string Referentiel::toCSVString() const
 
 DataType Referentiel::type() const
 {
-	return typeOfTemplate<Referentiel>();
+	return typeOfTemplate(this);
 }
 
 void Referentiel::operator=(const DatabaseData& toCopy)
