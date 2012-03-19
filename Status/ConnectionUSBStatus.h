@@ -12,6 +12,8 @@ class ConnectionUSB;
 
 @interface ConnectionUSBStatus : Status
 
++(CameraStatus*)shared;
+
 -(IBAction)retry:(id)sender;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "CameraStatus.h"
+#import "Camera.h"
 
 static CameraStatus* shared;
 
@@ -33,7 +34,7 @@ static CameraStatus* shared;
 
 -(IBAction)retry:(id)sender
 {
-	
+	Camera::checkCameraStatus();
 }
 
 @end

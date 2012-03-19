@@ -9,14 +9,26 @@
 #import "ConnectionUSBStatus.h"
 #import "ConnectionUSB.h"
 
+static ConnectionUSBStatus* shared;
+
 @implementation ConnectionUSBStatus
+
++(ConnectionUSBStatus*)shared
+{
+	if(!shared)
+	{
+		shared = [[ConnectionUSBStatus alloc] init];
+	}
+	return shared;
+}
 
 -(id)init
 {
 	self = [super init];
 	if(self)
 	{
-		ConnectionUSB::connect();
+		self.titre = @"Connection USB";
+		ConnectionUSB::setStatus(self);
 	}
 	return self;
 }
