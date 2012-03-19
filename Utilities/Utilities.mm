@@ -11,6 +11,10 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import <boost/lexical_cast.hpp>
+#import <boost/date_time.hpp>
+#import <fstream>
+
 template<>
 bool isNumber(bool& value)
 {
@@ -101,7 +105,7 @@ static NSString* findOrCreateDirectory(NSSearchPathDirectory searchPathDirectory
 
 static NSString* applicationSupportDirectory()
 {
-    NSString *executableName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"];
+	NSString *executableName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"];
     NSError *error;
     NSString *result = findOrCreateDirectory(NSApplicationSupportDirectory,NSUserDomainMask,executableName,&error);
     if (error)
@@ -133,6 +137,8 @@ std::string prepareForCSV(std::string s)
 
 std::string pathToDatabase()
 {
+	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
+	
 	NSString* path = [applicationSupportDirectory() stringByAppendingString:@"/psc.database.sqlite"];
 	
 	if(![[NSFileManager defaultManager] fileExistsAtPath:path])
@@ -141,5 +147,52 @@ std::string pathToDatabase()
 		[[NSFileManager defaultManager] copyItemAtPath:modelPath toPath:path error:nil];
 	}
 	
-	return std::string([path UTF8String]);
+	std::string res([path UTF8String]);
+	
+	[pool release];
+	
+	return res;
+}
+
+std::string pathToLogFilesDirectory()
+{
+	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
+	
+	NSString* path = [applicationSupportDirectory() stringByAppendingString:@"/log/"];
+	
+	if(![[NSFileManager defaultManager] fileExistsAtPath:path])
+	{
+		NSError* error;
+		[[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
+		
+		if (error)
+		{
+			NSLog(@"Unable to find or create log files directory:\n%@", error);
+		}
+	}
+	
+	std::string res([path UTF8String]);
+	
+	[pool release];
+	
+	return res;
+}
+
+void log(std::string logName, std::string description)
+{
+	std::string path = pathToLogFilesDirectory() + logName + ".log";
+	
+	std::ofstream logFile(path.c_str(), std::ios_base::app);
+	
+	boost::posix_time::ptime currentDate();
+	
+	logFile << currentDate;
+	
+	logFile << " - ";
+	
+	logFile << description;
+	
+	logFile << "\n";
+	
+	logFile.close();
 }

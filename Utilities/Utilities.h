@@ -10,6 +10,8 @@
 #define PSC_Utilities_h
 
 #include <string>
+#include <iostream>
+#include <assert.h>
 
 template<typename T>
 bool isNumber(T& value)
@@ -20,5 +22,9 @@ bool isNumber(T& value)
 std::string prepareForCSV(std::string s);
 
 std::string pathToDatabase();
+
+std::string pathToLogFilesDirectory();
+
+void log(std::string logName, std::string description);
 
 #endif
