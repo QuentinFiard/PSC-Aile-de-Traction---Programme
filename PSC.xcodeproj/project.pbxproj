@@ -22,12 +22,19 @@
 		830747A914EC5C5D00C01E52 /* DatabaseData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 830747A814EC5C5C00C01E52 /* DatabaseData.cpp */; };
 		830747AB14EC5CFA00C01E52 /* GenericSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 830747AA14EC5CF900C01E52 /* GenericSource.cpp */; };
 		831BC0DF1501522B00614624 /* ConnectionUSB.mm in Sources */ = {isa = PBXBuildFile; fileRef = 831BC0DD1501522B00614624 /* ConnectionUSB.mm */; };
-		831BC0E01501522B00614624 /* Position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 831BC0DE1501522B00614624 /* Position.cpp */; };
+		831DA7B91514DA6B00CEE045 /* AngleAbsolu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 831DA7B81514DA6B00CEE045 /* AngleAbsolu.cpp */; };
+		831DA7BC1514DA7C00CEE045 /* VitesseRotation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 831DA7BB1514DA7C00CEE045 /* VitesseRotation.cpp */; };
+		831DA7C01515F48400CEE045 /* ConnectionUSBController.m in Sources */ = {isa = PBXBuildFile; fileRef = 831DA7BE1515F48400CEE045 /* ConnectionUSBController.m */; };
+		831DA7C11515F48400CEE045 /* ConnectionUSBController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 831DA7BF1515F48400CEE045 /* ConnectionUSBController.xib */; };
 		8349FCBD14CCA9670028E058 /* RenderSystem_GL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8349FCBC14CCA9670028E058 /* RenderSystem_GL.dylib */; };
 		8351BC3E14E6D418005C058D /* Record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8351BC3D14E6D418005C058D /* Record.cpp */; };
 		8351BC4014E6D8E6005C058D /* libboost_date_time-xgcc42-mt-1_48.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8351BC3F14E6D8E5005C058D /* libboost_date_time-xgcc42-mt-1_48.dylib */; };
 		8351BC4314E6DB70005C058D /* Source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8351BC4214E6DB70005C058D /* Source.cpp */; };
 		8351BC4614E6DC93005C058D /* Donnee.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8351BC4514E6DC93005C058D /* Donnee.cpp */; };
+		83520B7B15161F3E00B544B3 /* SensorForDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 83520B7A15161F3E00B544B3 /* SensorForDisplay.m */; };
+		83520B7E15161F9600B544B3 /* Capteur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83520B7D15161F9600B544B3 /* Capteur.cpp */; };
+		83520B8215161FDE00B544B3 /* CapteurAngulaire.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83520B8115161FDE00B544B3 /* CapteurAngulaire.cpp */; };
+		83520B86151624B900B544B3 /* Camera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83520B85151624B900B544B3 /* Camera.mm */; };
 		8376E09714D590D900ABECEA /* WebcamCalibrationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8376E09514D590D900ABECEA /* WebcamCalibrationController.mm */; };
 		8376E09814D590D900ABECEA /* WebcamCalibrationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8376E09614D590D900ABECEA /* WebcamCalibrationController.xib */; };
 		8376E09C14D5918800ABECEA /* CalibrationCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8376E09B14D5918800ABECEA /* CalibrationCamera.cpp */; };
@@ -197,12 +204,17 @@
 		830747AA14EC5CF900C01E52 /* GenericSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GenericSource.cpp; sourceTree = "<group>"; };
 		831BC0C5150151BD00614624 /* CameraStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CameraStatus.h; path = Status/CameraStatus.h; sourceTree = "<group>"; };
 		831BC0C6150151BD00614624 /* CameraStatus.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CameraStatus.mm; path = Status/CameraStatus.mm; sourceTree = "<group>"; };
-		831BC0DB1501522B00614624 /* CommunicationProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunicationProtocol.h; sourceTree = "<group>"; };
+		831BC0DB1501522B00614624 /* CommunicationProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CommunicationProtocol.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		831BC0DC1501522B00614624 /* ConnectionUSB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionUSB.h; sourceTree = "<group>"; };
 		831BC0DD1501522B00614624 /* ConnectionUSB.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConnectionUSB.mm; sourceTree = "<group>"; };
 		831BC0DE1501522B00614624 /* Position.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Position.cpp; sourceTree = "<group>"; };
-		831BC0E11501524200614624 /* AngleAbsolu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AngleAbsolu.h; sourceTree = "<group>"; };
+		831BC0E11501524200614624 /* AngleAbsolu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AngleAbsolu.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		831BC0E21501536B00614624 /* VitesseRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VitesseRotation.h; sourceTree = "<group>"; };
+		831DA7B81514DA6B00CEE045 /* AngleAbsolu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = AngleAbsolu.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		831DA7BB1514DA7C00CEE045 /* VitesseRotation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VitesseRotation.cpp; sourceTree = "<group>"; };
+		831DA7BD1515F48400CEE045 /* ConnectionUSBController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionUSBController.h; sourceTree = "<group>"; };
+		831DA7BE1515F48400CEE045 /* ConnectionUSBController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionUSBController.m; sourceTree = "<group>"; };
+		831DA7BF1515F48400CEE045 /* ConnectionUSBController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionUSBController.xib; sourceTree = "<group>"; };
 		8349FCB914CCA14E0028E058 /* OgreOSXCocoaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreOSXCocoaView.h; path = ../../../../../../../Library/OgreSDK/lib/release/Ogre.framework/Versions/1.7.4/Headers/OSX/OgreOSXCocoaView.h; sourceTree = "<group>"; };
 		8349FCBC14CCA9670028E058 /* RenderSystem_GL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = RenderSystem_GL.dylib; path = /Library/OgreSDK/lib/RenderSystem_GL.dylib; sourceTree = "<absolute>"; };
 		8351BC3714E6AFB3005C058D /* DatabaseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DatabaseData.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -213,6 +225,14 @@
 		8351BC4214E6DB70005C058D /* Source.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Source.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		8351BC4414E6DC86005C058D /* Donnee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Donnee.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		8351BC4514E6DC93005C058D /* Donnee.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Donnee.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
+		83520B7915161F3E00B544B3 /* SensorForDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorForDisplay.h; sourceTree = "<group>"; };
+		83520B7A15161F3E00B544B3 /* SensorForDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorForDisplay.m; sourceTree = "<group>"; };
+		83520B7D15161F9600B544B3 /* Capteur.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Capteur.cpp; sourceTree = "<group>"; };
+		83520B7F15161FB800B544B3 /* Capteur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Capteur.h; sourceTree = "<group>"; };
+		83520B8015161FC900B544B3 /* CapteurAngulaire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CapteurAngulaire.h; sourceTree = "<group>"; };
+		83520B8115161FDE00B544B3 /* CapteurAngulaire.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CapteurAngulaire.cpp; sourceTree = "<group>"; };
+		83520B84151624AA00B544B3 /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Camera.h; path = TraitementVideo/Camera.h; sourceTree = "<group>"; };
+		83520B85151624B900B544B3 /* Camera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Camera.mm; path = TraitementVideo/Camera.mm; sourceTree = "<group>"; };
 		8376E09414D590D900ABECEA /* WebcamCalibrationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamCalibrationController.h; sourceTree = "<group>"; };
 		8376E09514D590D900ABECEA /* WebcamCalibrationController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WebcamCalibrationController.mm; sourceTree = "<group>"; };
 		8376E09614D590D900ABECEA /* WebcamCalibrationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebcamCalibrationController.xib; sourceTree = "<group>"; };
@@ -441,6 +461,17 @@
 			name = Headers;
 			sourceTree = "<group>";
 		};
+		83520B7C15161F4C00B544B3 /* Capteurs */ = {
+			isa = PBXGroup;
+			children = (
+				83520B7F15161FB800B544B3 /* Capteur.h */,
+				83520B7D15161F9600B544B3 /* Capteur.cpp */,
+				83520B8015161FC900B544B3 /* CapteurAngulaire.h */,
+				83520B8115161FDE00B544B3 /* CapteurAngulaire.cpp */,
+			);
+			path = Capteurs;
+			sourceTree = "<group>";
+		};
 		8376E09A14D5914400ABECEA /* TraitementVideo */ = {
 			isa = PBXGroup;
 			children = (
@@ -452,6 +483,8 @@
 				8376E09B14D5918800ABECEA /* CalibrationCamera.cpp */,
 				83F65BE214DA1C60006B7C60 /* NSImage_OpenCV.h */,
 				83F65BE314DA1C60006B7C60 /* NSImage_OpenCV.mm */,
+				83520B84151624AA00B544B3 /* Camera.h */,
+				83520B85151624B900B544B3 /* Camera.mm */,
 			);
 			name = TraitementVideo;
 			sourceTree = "<group>";
@@ -525,6 +558,7 @@
 				83BAF05614E7A832000880F0 /* Utilities */,
 				83AA3A1D14E6454000C39446 /* Database */,
 				8376E09A14D5914400ABECEA /* TraitementVideo */,
+				83520B7C15161F4C00B544B3 /* Capteurs */,
 				83F586C514CDB71100DA0F60 /* Status */,
 				83BC6E5514CC9997002396A5 /* ConnectionUSB */,
 				83BC6E5C14CC9997002396A5 /* Joystick */,
@@ -631,7 +665,9 @@
 				83BC6E5B14CC9997002396A5 /* InterfaceUSB.h */,
 				837D29F315014DF000221B7A /* Position.cpp */,
 				831BC0E11501524200614624 /* AngleAbsolu.h */,
+				831DA7B81514DA6B00CEE045 /* AngleAbsolu.cpp */,
 				831BC0E21501536B00614624 /* VitesseRotation.h */,
+				831DA7BB1514DA7C00CEE045 /* VitesseRotation.cpp */,
 			);
 			path = ConnectionUSB;
 			sourceTree = "<group>";
@@ -727,6 +763,11 @@
 				8376E09414D590D900ABECEA /* WebcamCalibrationController.h */,
 				8376E09514D590D900ABECEA /* WebcamCalibrationController.mm */,
 				8376E09614D590D900ABECEA /* WebcamCalibrationController.xib */,
+				831DA7BD1515F48400CEE045 /* ConnectionUSBController.h */,
+				831DA7BE1515F48400CEE045 /* ConnectionUSBController.m */,
+				831DA7BF1515F48400CEE045 /* ConnectionUSBController.xib */,
+				83520B7915161F3E00B544B3 /* SensorForDisplay.h */,
+				83520B7A15161F3E00B544B3 /* SensorForDisplay.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -820,9 +861,7 @@
 				83F586D214CDEB5F00DA0F60 /* status1.png */,
 				83F586D314CDEB5F00DA0F60 /* status2.png */,
 				83F586C614CDB73F00DA0F60 /* Status.h */,
-				83F586C714CDB73F00DA0F60 /* Status.m */,
-				83088E9F14F41C320005227E /* CameraStatus.h */,
-				83088EA014F41C320005227E /* CameraStatus.m */,
+				83F586C714CDB73F00DA0F60 /* Status.mm */,
 				8301CA9115129AB800EC6EFB /* ConnectionUSBStatus.h */,
 				8301CA9215129AB800EC6EFB /* ConnectionUSBStatus.mm */,
 				83F586C714CDB73F00DA0F60 /* Status.mm */,
@@ -940,6 +979,7 @@
 				8376E09814D590D900ABECEA /* WebcamCalibrationController.xib in Resources */,
 				83AA3A2014E6456B00C39446 /* psc.database.sqlite in Resources */,
 				83F6CC0914EA7A170096890B /* DatabaseController.xib in Resources */,
+				831DA7C11515F48400CEE045 /* ConnectionUSBController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1029,6 +1069,13 @@
 				837D29F415014DF000221B7A /* Position.cpp in Sources */,
 				83B7510315059879003F60D0 /* StringValue.cpp in Sources */,
 				83B7510415059FBD003F60D0 /* CameraStatus.mm in Sources */,
+				831DA7B91514DA6B00CEE045 /* AngleAbsolu.cpp in Sources */,
+				831DA7BC1514DA7C00CEE045 /* VitesseRotation.cpp in Sources */,
+				831DA7C01515F48400CEE045 /* ConnectionUSBController.m in Sources */,
+				83520B7B15161F3E00B544B3 /* SensorForDisplay.m in Sources */,
+				83520B7E15161F9600B544B3 /* Capteur.cpp in Sources */,
+				83520B8215161FDE00B544B3 /* CapteurAngulaire.cpp in Sources */,
+				83520B86151624B900B544B3 /* Camera.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
