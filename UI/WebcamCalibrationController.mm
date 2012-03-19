@@ -17,14 +17,15 @@
 
 #include "Status.h"
 
+#include "Camera.h"
+
 @implementation WebcamCalibrationController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-		isDisplayingCamera = YES;
-		shouldAnalyseImage = NO;
+		
     }
     
     return self;
@@ -32,76 +33,7 @@
 
 -(void)loadSelectedWebcam
 {
-	if(session)
-	{
-		[session stopRunning];
-		[session release];
-		session = nil;
-	}
-	if(decompressedSession)
-	{
-		[decompressedSession release];
-		decompressedSession = nil;
-	}
-	if(camera)
-	{
-		[camera release];
-		camera = nil;
-	}
-	if(decompressedVideo)
-	{
-		[decompressedVideo release];
-		decompressedVideo = nil;
-	}
-	
-	if(Database::hasConfigurationField("CameraID"))
-	{
-		StringValue* cameraIDValue = (StringValue*)Database::getConfigurationField("CameraID");
-		std::string cameraID = cameraIDValue->valueToString();
-		delete cameraIDValue;
-		
-		NSString* ID = [[NSString alloc] initWithUTF8String:cameraID.c_str()];
-		
-		camera = [[QTCaptureDevice deviceWithUniqueID:ID] retain];
-		
-		if(camera)
-		{
-			//Create the QT capture session
-			session = [[QTCaptureSession alloc] init];
-			decompressedSession = [[QTCaptureSession alloc] init];
-			
-			NSError* error;
-			[camera open:&error];
-			
-			NSLog(@"%@",error);
-			
-			/* Create a QTKit input for the session using the iSight Device */
-			QTCaptureDeviceInput *myInput = [QTCaptureDeviceInput deviceInputWithDevice:camera];
-			QTCaptureDeviceInput *myInput2 = [QTCaptureDeviceInput deviceInputWithDevice:camera];
-			
-			decompressedVideo = [[QTCaptureDecompressedVideoOutput alloc] init];
-			
-			/* Add inputs get the ball rolling etc */
-			[session addInput:myInput error:nil];
-			[decompressedSession addInput:myInput2 error:nil];
-			[decompressedSession addOutput:decompressedVideo error:nil];
-			[cameraView setCaptureSession:session];
-			//[cameraView setDelegate:self];
-			
-			
-			/* Let the video madness begin */
-			[session startRunning];
-		}
-	}
-	
-	if(!camera)
-	{
-		[[CameraStatus shared] setStatus:STATUS_FAILED];
-	}
-	else
-	{
-		[[CameraStatus shared] setStatus:STATUS_OK];
-	}
+	Camera::switchToSelectedCamera();
 }
 
 -(void)updateCameraList:(id)sender
@@ -122,12 +54,14 @@
 {
 	[self loadSelectedWebcam];
 	
+	Camera::displayInView(cameraView);
+	
 	[self updateCameraList:self];
 }
 
 -(void)dealloc
 {
-	[session stopRunning];
+	Camera::removeFromView(cameraView);
 	[super dealloc];
 }
 
@@ -238,69 +172,6 @@
 	[calcul setEnabled:NO];
 }
 
--(IBAction)choisirCamera:(id)sender
-{
-	
-}
-
-- (CIImage *)view:(QTCaptureView *)view willDisplayImage:(CIImage *)image
-{
-	if(shouldAnalyseImage)
-	{
-		shouldAnalyseImage = NO;
-		NSImage *capturedImage = [[NSImage alloc] init];
-		[capturedImage addRepresentation:[NSCIImageRep
-										  imageRepWithCIImage:image]];
-		
-		//bool test = calibration.analyserImageAvecEchiquier([[NSImage imageNamed:@"test.jpg"] CVMat]);
-		bool test = calibration.analyserImageAvecEchiquier([capturedImage CVMat]);
-		
-		[capturedImage release];
-		
-		if(test)
-		{
-			NSLog(@"%@",@"Image analysée avec succès");
-		}
-		
-		[nbImagesAnalysees setIntValue:calibration.nbImagesTraitees()];
-		if(isDisplayingCamera && calibration.nbImagesTraitees()>0)
-		{
-			[affichage setEnabled:YES];
-		}
-	}
-	return nil;
-	return image;
-}
-
--(void)captureOutput:(QTCaptureOutput *)captureOutput didOutputVideoFrame:(CVImageBufferRef)videoFrame withSampleBuffer:(QTSampleBuffer *)sampleBuffer fromConnection:(QTCaptureConnection *)connection
-{
-	[decompressedSession stopRunning];
-	[decompressedVideo setDelegate:nil];
-	
-	NSCIImageRep *videoRep = [NSCIImageRep imageRepWithCIImage:[CIImage imageWithCVImageBuffer:videoFrame]];
-	NSImage *image = [[[NSImage alloc] initWithSize:[videoRep size]] autorelease];
-	[image addRepresentation:videoRep];
-	//CVBufferRelease(videoFrame);
-	
-	//bool test = calibration.analyserImageAvecEchiquier([[NSImage imageNamed:@"test.jpg"] CVMat]);
-	bool test = calibration.analyserImageAvecEchiquier([image CVMat]);
-	
-	if(test)
-	{
-		NSLog(@"%@",@"Image analysée avec succès");
-	}
-	
-	[nbImagesAnalysees setIntValue:calibration.nbImagesTraitees()];
-	if(isDisplayingCamera && calibration.nbImagesTraitees()>0)
-	{
-		[affichage setEnabled:YES];
-	}
-	if(calibration.nbImagesTraitees()>0)
-	{
-		[calcul setEnabled:YES];
-	}
-}
-
 -(IBAction)analyserImageCourante:(id)sender
 {
 	if([[nbLignes stringValue] isEqualToString:@""] || [[nbColonnes stringValue] isEqualToString:@""] || [[dimension stringValue] isEqualToString:@""])
@@ -322,9 +193,7 @@
 		calibration.setEchiquier(echiquier);
 	}
 	
-	//shouldAnalyseImage = YES;
-	[decompressedSession startRunning];
-	[decompressedVideo setDelegate:self];
+	Camera::useCurrentImageForCalibration(calibration);
 }
 
 -(IBAction)chooseCamera:(id)sender

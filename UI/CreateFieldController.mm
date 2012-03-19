@@ -12,9 +12,9 @@
 #import "Database.h"
 #import "DataTypes.h"
 
-static const int nbOfAllowedTypesForConfig = 9;
-static const char* allowedNamesForConfigTypes[9] = {"double","float","int","int64","Vecteur","Vecteur 3D","Point","Quaternion","Matrice"};
-static const DataType allowedTypesForConfigTypes[9] = {TYPE_DOUBLE,TYPE_FLOAT,TYPE_INT,TYPE_INT64,TYPE_VECTEUR,TYPE_VECTEUR3D,TYPE_POINT,TYPE_QUATERNION,TYPE_MATRICE};
+static const int nbOfAllowedTypesForConfig = 10;
+static const char* allowedNamesForConfigTypes[10] = {"String","double","float","int","int64","Vecteur","Vecteur 3D","Point","Quaternion","Matrice"};
+static const DataType allowedTypesForConfigTypes[10] = {TYPE_STRING,TYPE_DOUBLE,TYPE_FLOAT,TYPE_INT,TYPE_INT64,TYPE_VECTEUR,TYPE_VECTEUR3D,TYPE_POINT,TYPE_QUATERNION,TYPE_MATRICE};
 
 
 

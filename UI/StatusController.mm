@@ -11,6 +11,7 @@
 #import "Status.h"
 #import "UIController.h"
 #import "CameraStatus.h"
+#import "ConnectionUSBStatus.h"
 
 @implementation StatusController
 
@@ -49,11 +50,9 @@
 {
 	[self showStatusView];
 	
-	Status* tmp = [CameraStatus shared];
+	[self insertObject:[CameraStatus shared] inStatusArrayAtIndex:0];
 	
-	[self insertObject:tmp inStatusArrayAtIndex:0];
-	
-	[tmp release];
+	[self insertObject:[ConnectionUSBStatus shared] inStatusArrayAtIndex:1];
 }
 
 -(void)dealloc

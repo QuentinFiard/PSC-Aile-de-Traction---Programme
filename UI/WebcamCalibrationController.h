@@ -38,12 +38,6 @@
 	BOOL shouldAnalyseImage;
 	int indiceAnalyse;
 	
-	QTCaptureSession *session;
-	QTCaptureDevice *camera;
-	
-	QTCaptureDecompressedVideoOutput* decompressedVideo;
-	QTCaptureSession *decompressedSession;
-	
 	IBOutlet AutoUpdatePopUpButton* cameraChoice;
 }
 
