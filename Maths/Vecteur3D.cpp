@@ -78,7 +78,7 @@ Vecteur3D::Vecteur3D(const void* binaryData, std::size_t size) : Vecteur(binaryD
 
 DataType Vecteur3D::type() const
 {
-	return typeOfTemplate<Vecteur3D>();
+	return typeOfTemplate(this);
 }
 
 void Vecteur3D::operator=(const DatabaseData& toCopy)

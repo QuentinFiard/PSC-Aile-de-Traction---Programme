@@ -307,7 +307,7 @@ std::string Matrice::toCSVString() const
 
 DataType Matrice::type() const
 {
-	return typeOfTemplate<Reel>();
+	return typeOfTemplate(this);
 }
 
 void Matrice::operator=(const DatabaseData& toCopy)

@@ -155,7 +155,7 @@ std::string Referentiel3D::toCSVString() const
 
 DataType Referentiel3D::type() const
 {
-	return typeOfTemplate<Referentiel3D>();
+	return typeOfTemplate(this);
 }
 
 void Referentiel3D::operator=(const DatabaseData& toCopy)

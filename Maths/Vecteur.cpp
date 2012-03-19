@@ -422,7 +422,7 @@ std::string Vecteur::toCSVString() const
 
 DataType Vecteur::type() const
 {
-	return typeOfTemplate<Vecteur>();
+	return typeOfTemplate(this);
 }
 
 void Vecteur::operator=(const DatabaseData& toCopy)

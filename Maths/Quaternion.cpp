@@ -214,7 +214,7 @@ Quaternion::Quaternion(const std::vector<uint8_t>& binaryData) : Vecteur(binaryD
 
 DataType Quaternion::type() const
 {
-	return typeOfTemplate<Quaternion>();
+	return typeOfTemplate(this);
 }
 
 void Quaternion::operator=(const DatabaseData& toCopy)

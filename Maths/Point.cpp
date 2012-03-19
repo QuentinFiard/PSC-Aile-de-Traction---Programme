@@ -138,7 +138,7 @@ void Point::changerDeReferentiel(Referentiel* newRef)
 
 DataType Point::type() const
 {
-	return typeOfTemplate<Point>();
+	return typeOfTemplate(this);
 }
 
 void Point::operator=(const DatabaseData& toCopy)
