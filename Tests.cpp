@@ -21,8 +21,6 @@
 
 void testerReferentiels()
 {
-	InterfaceUSB test;
-	
 	Referentiel3D* ref = Referentiel3D::ReferentielDeReference();
 	ref->afficher();
 	Vecteur3D ey(0,1,0,ref);
