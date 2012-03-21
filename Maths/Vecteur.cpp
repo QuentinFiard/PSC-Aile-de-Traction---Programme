@@ -133,12 +133,18 @@ Vecteur Vecteur::operator*(const Reel lambda) const // Produit par un scalaire
 	return res;
 }
 
-Reel Vecteur::operator*(const Vecteur &vecteur2) const // Produit scalaire
+Reel Vecteur::operator*(const Vecteur &vecteur2) const// Produit scalaire
 {
+	Vecteur copie(*this);
+	
+	assert(dim()==vecteur2.dim() && ( (ref() && vecteur2.ref()) || (!ref() && !vecteur2.ref()) ));
+	
+	copie.changerDeReferentiel(vecteur2.ref());
+	
 	Reel res = 0;
 	for(int i=0 ; i<dim() ; i++)
 	{
-		res += vecteur2[i]*coord[i];
+		res += vecteur2[i]*copie[i];
 	}
 	
 	return res;
