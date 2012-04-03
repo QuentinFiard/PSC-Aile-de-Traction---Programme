@@ -15,15 +15,17 @@ class VitesseRotation
 {
 public:
 	
-	VitesseRotation(double radianParSeconde);
+	VitesseRotation(double radiansParSeconde);
 	
 	CommandeVitesse consigneMoteur();	// Valeur comprise entre -1 et 1 interpolée 
 										// à partir d'une table de la base de données
+										// Ou directement la vitesse de rotation si le moteur 
+										// est asservi en vitesse
 	
 	double speed() const;
 	
 private:
-	double radianParSeconde;
+	double radiansParSeconde;
 };
 
 #endif

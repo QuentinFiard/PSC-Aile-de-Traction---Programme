@@ -24,6 +24,7 @@ class ConnectionUSB
 public:
 	
 	static void setMotorSignalMaxDuration(double seconds);
+	static void setMotorSignalNeutralDuration(double seconds);
 	static void setMotorSignalMinDuration(double seconds);
 	
 	static void setSpeedPIDCoeffs(PID_Coeffs coeffs);
@@ -33,12 +34,19 @@ public:
 	static PID_Coeffs readPositionPIDCoeffs();
 	
 	static double readMotorSignalMaxDuration();
+	static double readMotorSignalNeutralDuration();
 	static double readMotorSignalMinDuration();
+	
+	static void setPIDPeriod(double seconds);
+	static double readPIDPeriod();
 	
 	static void setPositionForMotor(AngleAbsolu& angle, Motor motor);
 	static void setSpeedForMotor(VitesseRotation& vitesse, Motor motor);
 	
-	static AngleAbsolu readPositionFromSensor(Sensor sensor, const AngleAbsolu* closestFrom = NULL);
+	static void setChoixAsservissement(ChoixAsservissement choix);
+	static ChoixAsservissement readChoixAsservissement();
+	
+	static AngleAbsolu* readPositionFromSensor(Sensor sensor, const AngleAbsolu* closestFrom = NULL);
 	
 	static void connect();
 	

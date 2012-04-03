@@ -11,18 +11,39 @@
 
 #include <string>
 
+#include <boost/date_time.hpp>
+
+typedef enum
+{
+	CAPTEUR_NON_CONNECTE	= 0,
+	CAPTEUR_DIRECTION_VENT	= 1,
+	CAPTEUR_VITESSE_VENT	= 2,
+	CAPTEUR_ROTATION_MOTEUR = 3,
+	CAPTEUR_THETA			= 4,
+	CAPTEUR_PHI				= 5,
+	CAPTEUR_CAMERA			= 6,
+} GrandeurCapteur;
+
 class Capteur
 {
 public:
 	
-	static Capteur* shared(std::string name);
+	static Capteur* shared(GrandeurCapteur grandeur);
 	
-	std::string name();
+	boost::posix_time::ptime* lastAcquisition();
 	
-	virtual double value() = 0;
+	GrandeurCapteur grandeurMesuree();
 	
-private:
-	std::string name_;
+	std::string nomGrandeurMesuree();
+	
+protected:
+	
+	Capteur(GrandeurCapteur grandeur);
+	
+	GrandeurCapteur grandeur_;
+	
+	boost::posix_time::ptime* lastAcquisition_;
+	
 };
 
 #endif

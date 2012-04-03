@@ -9,6 +9,12 @@
 			<ownerClass>SimulationController</ownerClass>
         </node>
 		<node>
+            <name>Capteurs angulaires</name>
+            <imageName>NSRefreshTemplate</imageName>
+            <nibName>CapteursController</nibName>
+			<ownerClass>CapteursController</ownerClass>
+        </node>
+		<node>
             <name>Webcam</name>
             <imageName>NSQuickLookTemplate</imageName>
             <nibName>WebcamController</nibName>
@@ -40,6 +46,12 @@
             <imageName>NSActionTemplate</imageName>
             <nibName>DatabaseController</nibName>
 			<ownerClass>DatabaseController</ownerClass>
+        </node>
+		<node>
+            <name>Connection USB</name>
+            <imageName>NSEnterFullScreenTemplate</imageName>
+            <nibName>ConnectionUSBController</nibName>
+			<ownerClass>ConnectionUSBController</ownerClass>
         </node>
     </folder>
 </root>

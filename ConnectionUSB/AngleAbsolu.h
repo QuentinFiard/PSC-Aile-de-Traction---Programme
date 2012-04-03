@@ -16,8 +16,9 @@ class AngleAbsolu
 {
 public:
 	AngleAbsolu(double radians);
+	AngleAbsolu(const AngleAbsolu& aCopier);
 	
-	AngleAbsolu(SensorStatus status, const AngleAbsolu* closestFrom = NULL);
+	AngleAbsolu(UINT16 position, const AngleAbsolu* closestFrom = NULL);
 	
 	CommandeAngle consigneMoteur() const;
 	
@@ -25,8 +26,18 @@ public:
 	
 	void setAngle(double radians);
 	
+	AngleAbsolu& operator=(const AngleAbsolu& angle2);
+	double operator-(const AngleAbsolu& angle2);
+	
 private:
 	double angle_;
+	
 };
+
+typedef struct
+{
+	AngleAbsolu* lastAngle[3];
+	double timeOffset[2];
+} FilteredSensorData;
 
 #endif

@@ -17,9 +17,14 @@ AngleAbsolu::AngleAbsolu(double radians)
 	this->setAngle(radians);
 }
 
-AngleAbsolu::AngleAbsolu(SensorStatus status, const AngleAbsolu* closestFrom)
+AngleAbsolu::AngleAbsolu(const AngleAbsolu& aCopier) : angle_(aCopier.angle_)
 {
-	angle_ = status.position;
+	
+}
+
+AngleAbsolu::AngleAbsolu(UINT16 position, const AngleAbsolu* closestFrom)
+{
+	angle_ = position;
 	angle_ *= (2*M_PI)/MAX_SENSOR_ANGLE;
 	
 	double absoluteAngle = this->angle();
@@ -46,15 +51,22 @@ AngleAbsolu::AngleAbsolu(SensorStatus status, const AngleAbsolu* closestFrom)
 	
 	double refModulo2Pi = ref - 2*M_PI*floor(ref/(2*M_PI)); // Modulo 2π
 	
-	double offset = fabs(refModulo2Pi-angleModulo2Pi);
+	double offset = angleModulo2Pi-refModulo2Pi;
 	
-	if(offset>M_PI)
+	if(fabs(offset)>M_PI)
 	{
-		this->setAngle(ref + 2*M_PI - (angleModulo2Pi-refModulo2Pi));
+		if(offset>0)
+		{
+			this->setAngle(ref - 2*M_PI + offset);
+		}
+		else
+		{
+			this->setAngle(ref + 2*M_PI + offset);
+		}
 	}
 	else
 	{
-		this->setAngle(ref + (angleModulo2Pi-refModulo2Pi));
+		this->setAngle(ref + offset);
 	}
 }
 
@@ -87,4 +99,16 @@ CommandeAngle AngleAbsolu::consigneMoteur() const
 	res.positionInTurn = angle_ - 2*M_PI*res.turn;
 	
 	return res;
+}
+
+AngleAbsolu& AngleAbsolu::operator=(const AngleAbsolu& angle2)
+{
+	angle_ = angle2.angle_;
+	
+	return *this;
+}
+
+double AngleAbsolu::operator-(const AngleAbsolu& angle2)
+{
+	return angle_-angle2.angle_;
 }

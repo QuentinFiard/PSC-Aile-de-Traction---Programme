@@ -491,16 +491,16 @@ CommandeVitesse Database::commandForRequestedMotorSpeed_(const VitesseRotation& 
 	
 	CommandeVitesse res;
 	
-	res.signal = ((signal2-signal1)/(speed2-speed1))*(vitesseRotation.speed() - speed1) + signal1;
+	res.nonAsservie.signal = ((signal2-signal1)/(speed2-speed1))*(vitesseRotation.speed() - speed1) + signal1;
 	
-	if(res.signal > 1)
+	if(res.nonAsservie.signal > 1)
 	{
-		res.signal = 1;
+		res.nonAsservie.signal = 1;
 	}
 	
-	if(res.signal < -1)
+	if(res.nonAsservie.signal < -1)
 	{
-		res.signal = -1;
+		res.nonAsservie.signal = -1;
 	}
 	
 	return res;
@@ -522,7 +522,7 @@ void Database::saveCommandForMotorSpeed_(const VitesseRotation& vitesseRotation,
 	sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
 	
 	sqlite3_bind_double(statement,1,vitesseRotation.speed());
-	sqlite3_bind_double(statement,2,commande.signal);
+	sqlite3_bind_double(statement,2,commande.nonAsservie.signal);
 	
 	sqlite3_step(statement);
 	

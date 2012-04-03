@@ -17,6 +17,8 @@
 #include <iostream>
 #include <assert.h>
 
+#include "CommunicationProtocol.h"
+
 template<typename T>
 class Source;
 template<typename T>
@@ -27,7 +29,6 @@ class Record;
 class GenericSource;
 
 class VitesseRotation;
-struct CommandeVitesse;
 
 #include "DatabaseData.h"
 

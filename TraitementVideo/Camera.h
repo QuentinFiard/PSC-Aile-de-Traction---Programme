@@ -9,21 +9,26 @@
 #ifndef PSC_Camera_h
 #define PSC_Camera_h
 
+#import <Cocoa/Cocoa.h>
+#import <QTKit/QTKit.h>
+
 #include "Capteur.h"
 
 #include <opencv2/core/core.hpp>
 
-#import <Cocoa/Cocoa.h>
-#import <QTKit/QTKit.h>
+class CalibrationCamera;
+class Camera;
 
-@interface CameraDelegate : NSObject
+@interface ImageHandler : QTCaptureDecompressedVideoOutput
 {
-	
+	CalibrationCamera* calibration;
+	Camera* camera;
 }
 
-@end
+@property (assign,nonatomic) Camera* camera;
+@property (assign,nonatomic) CalibrationCamera* calibration;
 
-class CalibrationCamera;
+@end
 
 class Camera : public Capteur
 {
@@ -55,7 +60,7 @@ protected:
 	void displayInView_(QTCaptureView* view);
 	void removeFromView_(QTCaptureView* view);
 	void switchToSelectedCamera_();
-	void useCurrentImageForCalibration_();
+	void useCurrentImageForCalibration_(CalibrationCamera &calibration);
 	
 	double value();
 	
@@ -67,6 +72,8 @@ private:
 	QTCaptureSession *session;
 	
 	NSMutableArray* views;
+	
+	ImageHandler* handler;
 };
 
 #endif

@@ -11,7 +11,16 @@
 #include "CameraStatus.h"
 #include "CalibrationCamera.h"
 
-@implementation CameraDelegate
+#import "NSImage_OpenCV.h"
+
+#include <boost/date_time.hpp>
+#include <iostream>
+
+using namespace boost::posix_time;
+
+@implementation ImageHandler
+
+@synthesize camera,calibration;
 
 -(void)captureOutput:(QTCaptureOutput *)captureOutput didOutputVideoFrame:(CVImageBufferRef)videoFrame withSampleBuffer:(QTSampleBuffer *)sampleBuffer fromConnection:(QTCaptureConnection *)connection
 {
@@ -21,60 +30,58 @@
 	//CVBufferRelease(videoFrame);
 	
 	//bool test = calibration.analyserImageAvecEchiquier([[NSImage imageNamed:@"test.jpg"] CVMat]);
-	bool test = calibration.analyserImageAvecEchiquier([image CVMat]);
+	bool test = calibration->analyserImageAvecEchiquier([image CVMat]);
 	
 	if(test)
 	{
 		NSLog(@"%@",@"Image analysée avec succès");
 	}
-	
-	[nbImagesAnalysees setIntValue:calibration.nbImagesTraitees()];
-	if(isDisplayingCamera && calibration.nbImagesTraitees()>0)
-	{
-		[affichage setEnabled:YES];
-	}
-	if(calibration.nbImagesTraitees()>0)
-	{
-		[calcul setEnabled:YES];
-	}
 }
 
-- (CIImage *)view:(QTCaptureView *)view willDisplayImage:(CIImage *)image
+-(BOOL)automaticallyDropsLateVideoFrames
 {
-	if(shouldAnalyseImage)
+	return YES;
+}
+
+- (void)outputVideoFrame:(CVImageBufferRef)videoFrame withSampleBuffer:(QTSampleBuffer *)sampleBuffer fromConnection:(QTCaptureConnection *)connection
+{
+	ptime start = microsec_clock::universal_time();
+	
+	NSCIImageRep *videoRep = [NSCIImageRep imageRepWithCIImage:[CIImage imageWithCVImageBuffer:videoFrame]];
+	NSImage *image = [[[NSImage alloc] initWithSize:[videoRep size]] autorelease];
+	[image addRepresentation:videoRep];
+	//CVBufferRelease(videoFrame);
+	
+	//bool test = calibration.analyserImageAvecEchiquier([[NSImage imageNamed:@"test.jpg"] CVMat]);
+	//bool test = calibration->analyserImageAvecEchiquier([image CVMat]);
+	
+	/*if(test)
 	{
-		shouldAnalyseImage = NO;
-		NSImage *capturedImage = [[NSImage alloc] init];
-		[capturedImage addRepresentation:[NSCIImageRep
-										  imageRepWithCIImage:image]];
-		
-		//bool test = calibration.analyserImageAvecEchiquier([[NSImage imageNamed:@"test.jpg"] CVMat]);
-		bool test = calibration.analyserImageAvecEchiquier([capturedImage CVMat]);
-		
-		[capturedImage release];
-		
-		if(test)
-		{
-			NSLog(@"%@",@"Image analysée avec succès");
-		}
-		
-		[nbImagesAnalysees setIntValue:calibration.nbImagesTraitees()];
-		if(isDisplayingCamera && calibration.nbImagesTraitees()>0)
-		{
-			[affichage setEnabled:YES];
-		}
-	}
-	return nil;
-	return image;
+		NSLog(@"%@",@"Image analysée avec succès");
+	}*/
+	
+	ptime end = microsec_clock::universal_time();
+	
+	std::cout << (end-start).total_microseconds() <<std::endl;
 }
 
 @end
 
 static Camera* shared_;
 
-Camera::Camera()
+Camera::Camera() : Capteur(CAPTEUR_CAMERA)
 {
+	handler = [[ImageHandler alloc] init];
+	handler.camera = this;
 	
+	decompressedVideo = nil;
+	decompressedSession = nil;
+	camera = nil;
+	session = nil;
+	
+	views = [[NSMutableArray alloc] init];
+	
+	switchToSelectedCamera_();
 }
 
 Camera::~Camera()
@@ -133,12 +140,22 @@ void Camera::checkCameraStatus_()
 
 void Camera::displayInView_(QTCaptureView* view)
 {
-	
+	if(![views containsObject:view])
+	{
+		[views addObject:view];
+		
+		[view setCaptureSession:session];
+	}
 }
 
 void Camera::removeFromView_(QTCaptureView* view)
 {
-	
+	if([views containsObject:view])
+	{
+		[views removeObject:view];
+		
+		[view setCaptureSession:nil];
+	}
 }
 
 void Camera::switchToSelectedCamera_()
@@ -151,6 +168,7 @@ void Camera::switchToSelectedCamera_()
 	}
 	if(decompressedSession)
 	{
+		[decompressedSession stopRunning];
 		[decompressedSession release];
 		decompressedSession = nil;
 	}
@@ -200,8 +218,11 @@ void Camera::switchToSelectedCamera_()
 				[view setCaptureSession:session];
 			}
 			
+			[decompressedSession addOutput:handler error:nil];
+			
 			/* Let the video madness begin */
 			[session startRunning];
+			[decompressedSession startRunning];
 		}
 	}
 	
@@ -217,9 +238,10 @@ void Camera::switchToSelectedCamera_()
 
 void Camera::useCurrentImageForCalibration_(CalibrationCamera &calibration)
 {
+	handler.calibration = &calibration;
 	//shouldAnalyseImage = YES;
-	[decompressedSession startRunning];
-	[decompressedVideo setDelegate:self];
+	//[decompressedSession startRunning];
+	//[decompressedVideo setDelegate:self];
 }
 
 double Camera::value()

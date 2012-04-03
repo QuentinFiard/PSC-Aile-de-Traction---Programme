@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+#import "CapteurAngulaire.h"
+
 @interface SensorForDisplay : NSObject
+{
+	CapteurAngulaire* capteur;	
+}
+
+-(id)initWithSensor:(Sensor)sensor;
+
+@property (nonatomic) NSNumber* grandeurCapteur;
+@property (readonly,nonatomic) NSNumber* sensor;
 
 @end
