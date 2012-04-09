@@ -19,6 +19,8 @@
 #include <boost/thread.hpp>
 #include <boost/asio.hpp>
 
+#include "Source.h"
+
 class CapteurAngulaire : public Capteur
 {
 public:
@@ -41,6 +43,8 @@ public:
 	
 	void setGrandeurMesuree(GrandeurCapteur grandeur);
 	
+	void saveLastValue();
+	
 protected:
 	
 	CapteurAngulaire(GrandeurCapteur grandeur, Sensor sensor);
@@ -59,6 +63,8 @@ private:
 	boost::posix_time::ptime* lastAcquisition_;
 	
 	ArrowView* view;
+	
+	Source< NumericValue<double> >* output;
 };
 
 #endif

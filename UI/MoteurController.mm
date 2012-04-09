@@ -313,7 +313,7 @@ static NSString* binaryToHexString(std::vector<uint8_t> v)
 		{
 			if(event.type==SDL_JOYAXISMOTION || event.type==SDL_JOYHATMOTION || event.type==SDL_JOYBUTTONUP || event.type==SDL_JOYBALLMOTION || event.type==SDL_JOYBUTTONDOWN)
 			{
-				Joystick::handler()->handleJoystickEvent(event,dynamixel);
+				Joystick::handler()->handleJoystickEvent(event);
 			}
 		}
 	}

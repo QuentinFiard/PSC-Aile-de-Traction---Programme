@@ -17,6 +17,8 @@
 
 #import <QTKit/QTKit.h>
 
+#import "Recorder.h"
+
 @implementation UIController
 
 @dynamic window;
@@ -99,6 +101,20 @@
 {
 	[currentView removeFromSuperview];
 	[mainViewController release];
+}
+
+-(IBAction)toggleRecording:(id)sender
+{
+	if([[recorderButton title] isEqualToString:@"Commencer\nl'enregistrement"])
+	{
+		Recorder::startRecording();
+		[recorderButton setTitle:@"Arrêter\nl'enregistrement"];
+	}
+	else
+	{
+		Recorder::stopRecording();
+		[recorderButton setTitle:@"Commencer\nl'enregistrement"];
+	}
 }
 
 @end

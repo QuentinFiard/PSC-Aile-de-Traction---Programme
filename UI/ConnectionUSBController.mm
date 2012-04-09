@@ -8,6 +8,7 @@
 
 #import "ConnectionUSBController.h"
 #import "ConnectionUSB.h"
+#include <math.h>
 
 #import "SensorForDisplay.h"
 
@@ -429,6 +430,16 @@ static ConnectionUSBController* shared;
 		}
 		[choixAsservissementCancel setHidden:NO];
 	}
+}
+
+-(IBAction)setPositionGoalValue:(id)sender
+{
+	double positionGoalValue = [[formatter numberFromString:[positionGoal stringValue]] doubleValue];
+	
+	UINT16 consigne = round(positionGoalValue*MAX_SENSOR_ANGLE/360);
+	consigne %= MAX_SENSOR_ANGLE;
+	
+	ConnectionUSB::setPositionGoal(consigne);
 }
 
 #pragma mark - NSTextField delegate methods

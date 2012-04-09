@@ -13,16 +13,13 @@
 
 #include <boost/date_time.hpp>
 
-/* Remarque :
-	Toute modification d'une instance de la classe Expérience est automatiquement propagée
-	à la base de données (modification de la date de début,modif du tag
- */
-
 class Record
 {
 public:
 	
-	Record(sqlite3_int64 ID, std::string tag, boost::posix_time::ptime date);
+	Record(boost::posix_time::ptime date, std::string tag = "");
+	Record(sqlite3_int64 ID);
+	Record(sqlite3_int64 ID,boost::posix_time::ptime date, std::string tag);
 	
 	sqlite3_int64 ID();
 	void setID(sqlite3_int64 newID);
@@ -34,6 +31,8 @@ public:
 	void save();
 	
 private:
+	boost::posix_time::ptime privateDate();
+	
 	sqlite3_int64 ID_;
 	std::string tag_;
 	boost::posix_time::ptime date_;

@@ -52,6 +52,8 @@
 	IBOutlet NSTextField* MoteurAsservissement;
 	IBOutlet NSTextField* CapteurAsservissement;
 	
+	IBOutlet NSTextField* positionGoal;
+	
 	NSNumberFormatter* formatter;
 	
 	double currentMinDuration,currentNeutralDuration,currentMaxDuration,currentPIDPeriod;
@@ -88,6 +90,8 @@
 -(IBAction)sendChoixAsservissement:(id)sender;
 -(IBAction)cancelChoixAsservissementModif:(id)sender;
 -(IBAction)choixAsservissementDidChange:(id)sender;
+
+-(IBAction)setPositionGoalValue:(id)sender;
 
 
 -(void)insertObject:(SensorForDisplay*)sensorDisplay inSensorArrayAtIndex:(NSUInteger)index;

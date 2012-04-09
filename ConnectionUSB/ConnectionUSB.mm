@@ -512,6 +512,45 @@ void ConnectionUSB::setMotorSignalMinDuration(double seconds)
 	ConnectionUSB::sendData(packet);
 }
 
+void ConnectionUSB::setSignalForMotor(double signal, Motor motor)
+{
+	std::vector<uint8_t> packet;
+	
+	packet.push_back(PR_MOTOR_CONTROL);
+	packet.push_back(MC_SET_SIGNAL);
+	packet.push_back(motor);
+	
+	float toSend = (float)signal;
+	
+	uint8_t* ptr = (uint8_t*)&toSend;
+	
+	for(int i=0 ; i<4 ; i++)
+	{
+		packet.push_back(*(ptr+i));
+	}
+	
+	ConnectionUSB::sendData(packet);
+}
+
+void ConnectionUSB::setPositionGoal(double positionGoal)
+{
+	std::vector<uint8_t> packet;
+	
+	packet.push_back(PR_MOTOR_CONTROL);
+	packet.push_back(MC_SET_POSITION);
+	
+	float toSend = (float)positionGoal;
+	
+	uint8_t* ptr = (uint8_t*)&toSend;
+	
+	for(int i=0 ; i<4 ; i++)
+	{
+		packet.push_back(*(ptr+i));
+	}
+	
+	ConnectionUSB::sendData(packet);
+}
+
 double ConnectionUSB::readMotorSignalMaxDuration()
 {
 	std::vector<uint8_t> packet;

@@ -39,9 +39,9 @@
 	NSRect frame = self.view.frame;
 	NSRect sidebarFrame = [uicontroller.sidebarContainer frame];
 	
-	frame.origin.x = sidebarFrame.size.width;
+	frame.origin.x = sidebarFrame.size.width + 156; //156 start recording button
 	frame.origin.y = 0;
-	frame.size.width = uicontroller.window.frame.size.width - sidebarFrame.size.width;
+	frame.size.width = uicontroller.window.frame.size.width - sidebarFrame.size.width - 156; //156 start recording button
 	
 	[self.view setFrame:frame];
 }

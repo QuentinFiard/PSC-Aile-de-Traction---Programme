@@ -44,6 +44,8 @@ protected:
 	
 	boost::posix_time::ptime* lastAcquisition_;
 	
+	
+	
 };
 
 #endif

@@ -25,7 +25,8 @@ template<typename T>
 class Donnee
 {
 public:
-	Donnee(Source<T>& source,boost::posix_time::ptime date,T value);
+	Donnee(Source<T>* source,T value);
+	Donnee(Source<T>* source,boost::posix_time::ptime date,T value);
 	Donnee(sqlite_int64 ID);
 	
 	void save();
@@ -35,7 +36,7 @@ public:
 	bool hasID();
 	void clearID();
 	
-	const Source<T>& source();
+	const Source<T>* source();
 	const boost::posix_time::ptime date();
 	
 	const T& value() const;
@@ -43,7 +44,7 @@ public:
 	
 private:
 	sqlite3_int64* ID_;
-	const Source<T>& source_;
+	const Source<T>* source_;
 	const boost::posix_time::ptime date_;
 	T value_;
 };
@@ -51,9 +52,15 @@ private:
 #include "Database.h"
 
 template<typename T>
-Donnee<T>::Donnee(Source<T>& source,boost::posix_time::ptime date,T value) : source_(source),date_(date),value_(value), ID_(NULL)
+Donnee<T>::Donnee(Source<T>* source,boost::posix_time::ptime date,T value) : source_(source),date_(date),value_(value), ID_(NULL)
 {
-	Database::saveData(*this);
+	
+}
+
+template<typename T>
+Donnee<T>::Donnee(Source<T>* source,T value) : source_(source),value_(value), ID_(NULL),date_(boost::gregorian::date())
+{
+	
 }
 
 template<typename T>
@@ -101,7 +108,7 @@ void Donnee<T>::clearID()
 }
 
 template<typename T>
-const Source<T>& Donnee<T>::source()
+const Source<T>* Donnee<T>::source()
 {
 	return source_;
 }

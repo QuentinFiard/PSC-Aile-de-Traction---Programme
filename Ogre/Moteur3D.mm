@@ -85,7 +85,7 @@ static Moteur3D* moteur3D;
 	
 	Joystick::handler()->prepareJoystick();
 	
-	testerCommunicationMoteur();
+	//testerCommunicationMoteur();
 	
 	new Ogre::LogManager();
 	

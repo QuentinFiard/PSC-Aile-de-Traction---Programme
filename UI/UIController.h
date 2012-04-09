@@ -23,6 +23,8 @@
 	IBOutlet NSScrollView* sidebarContainer;
 	IBOutlet NSOutlineView* sidebar;
 	
+	IBOutlet NSButton* recorderButton;
+	
 	StatusController* statusController;
 }
 
@@ -36,5 +38,7 @@
 -(void)changeView:(id)sender;
 
 -(void)windowWillClose;
+
+-(IBAction)toggleRecording:(id)sender;
 
 @end

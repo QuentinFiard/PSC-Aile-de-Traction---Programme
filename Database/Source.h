@@ -41,6 +41,8 @@ public:
 	std::string toCSVString() const;
 	DataType type() const;
 	
+	
+	
 	void save();
 	
 private:

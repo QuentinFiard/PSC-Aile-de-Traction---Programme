@@ -19,6 +19,10 @@
 
 #include <math.h>
 
+#include "Recorder.h"
+#include "Source.h"
+#include "Donnee.h"
+
 #define TIME_OFFSET_MICROSECONDS 500 // Theorically 384, but accounting for acquisition time
 
 #define SENSOR_UPDATE_PERIOD 1000 // Microseconds
@@ -37,6 +41,7 @@ CapteurAngulaire::CapteurAngulaire(GrandeurCapteur grandeur, Sensor sensor) : Ca
 	view = nil;
 	lastAcquisition_ = NULL;
 	lastValue_ = NULL;
+	output = NULL;
 }
 
 void CapteurAngulaire::prepareListeCapteurs()
@@ -209,6 +214,31 @@ void CapteurAngulaire::setGrandeurMesuree(GrandeurCapteur grandeur)
 		if(grandeurMesuree() != CAPTEUR_NON_CONNECTE)
 		{
 			Database::setConfigurationField(nomGrandeurMesuree(), &value);
+		}
+	}
+}
+
+void CapteurAngulaire::saveLastValue()
+{
+	if(Recorder::isRecording())
+	{
+		if(grandeurMesuree() != CAPTEUR_NON_CONNECTE)
+		{
+			Record* r = Recorder::record();
+			
+			if(output == NULL || output->recordID() != r->ID())
+			{
+				if(output != NULL)
+				{
+					delete output;
+				}
+				
+				output = new Source< NumericValue<double> >(r,nomGrandeurMesuree());
+				output->save();
+			}
+			NumericValue<double> data(lastValue_->angle())
+			Donnee< NumericValue<double> > toSave(output,data);
+			toSave.save();
 		}
 	}
 }

@@ -13,7 +13,21 @@
 using namespace boost::posix_time;
 using namespace boost::gregorian;
 
-Record::Record(sqlite3_int64 ID, std::string tag, boost::posix_time::ptime date) : ID_(ID), tag_(tag), date_(date)
+Record::Record(boost::posix_time::ptime date, std::string tag) : tag_(tag), date_(date)
+{
+	
+}
+
+Record::Record(sqlite3_int64 ID) : ID_(ID)
+{
+	Record* tmp = Database::recordWithId(ID);
+	tag_ = tmp->tag();
+	date_ = tmp->privateDate();
+	
+	delete tmp;
+}
+
+Record::Record(sqlite3_int64 ID,boost::posix_time::ptime date, std::string tag) : ID_(ID), date_(date), tag_(tag)
 {
 	
 }
@@ -52,6 +66,11 @@ int64_t Record::date()
 	ptime ref(boost::gregorian::date(2001,Jan,1));
 	
 	return (date_ - ref).total_microseconds();
+}
+
+boost::posix_time::ptime Record::privateDate()
+{
+	return date_;
 }
 
 void Record::setID(sqlite3_int64 newID)

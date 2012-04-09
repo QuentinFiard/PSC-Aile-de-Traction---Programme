@@ -38,7 +38,7 @@ public:
 	
 #pragma mark - Fonctions utiles
 	
-	static std::vector<uint8_t> toVector(DatabaseData& value);
+	static std::vector<uint8_t> toVector(DatabaseData value);
 	static DatabaseData* fromVector(std::vector<uint8_t>& value,DataType type);
 	
 #pragma mark - Configuration Field
@@ -64,6 +64,7 @@ public:
 	static std::vector<Record*> getAllRecords();
 	static void saveRecord(Record* record);
 	static void removeRecord(Record* record);
+	static Record* recordWithId(sqlite_int64 ID);
 	
 #pragma mark - Source
 	
@@ -116,6 +117,7 @@ private:
 	std::vector<Record*> getAllRecords_();
 	void saveRecord_(Record* record);
 	void removeRecord_(Record* record);
+	Record* recordWithId_(sqlite_int64 ID);
 	
 	std::string changeConfigurationFieldName_(std::string oldFieldName, std::string newFieldName);
 	
@@ -173,7 +175,7 @@ void Database::saveDataWithValue_(std::vector<uint8_t> value, Donnee<T>& donnee)
 		boost::int64_t offset = (donnee.date()-ref).total_nanoseconds();
 		
 		sqlite3_bind_int64(statement, 1, offset);
-		sqlite3_bind_int64(statement, 2, donnee.source().ID());
+		sqlite3_bind_int64(statement, 2, donnee.source()->ID());
 		sqlite3_bind_blob(statement, 3, value.data(), value.size(), SQLITE_STATIC);
 		
 		sqlite3_step(statement);
@@ -212,7 +214,7 @@ bool Database::findData_(Donnee<T>& donnee)
 	boost::int64_t offset = (donnee.date()-ref).ticks();
 	
 	sqlite3_bind_int64(statement, 1, offset);
-	sqlite3_bind_int64(statement, 2, donnee.source().ID());
+	sqlite3_bind_int64(statement, 2, donnee.source()->ID());
 	
 	bool res = (sqlite3_step(statement) == SQLITE_ROW);
 	

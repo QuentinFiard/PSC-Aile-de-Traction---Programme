@@ -37,9 +37,12 @@ public:
 	static double readMotorSignalNeutralDuration();
 	static double readMotorSignalMinDuration();
 	
+	static void setPositionGoal(double positionGoal);
+	
 	static void setPIDPeriod(double seconds);
 	static double readPIDPeriod();
 	
+	static void setSignalForMotor(double signal, Motor motor);
 	static void setPositionForMotor(AngleAbsolu& angle, Motor motor);
 	static void setSpeedForMotor(VitesseRotation& vitesse, Motor motor);
 	

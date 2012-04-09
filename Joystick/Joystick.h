@@ -24,9 +24,7 @@ public:
 	Joystick();
 	void prepareJoystick();
 	
-	void handleJoystickEvent(SDL_Event& event,Moteur3D* demo);
-	
-	void handleJoystickEvent(SDL_Event& event,Dynamixel* dynamixel);
+	void handleJoystickEvent(SDL_Event& event,Moteur3D* demo = NULL);
 	
 	static Joystick* handler();
 };

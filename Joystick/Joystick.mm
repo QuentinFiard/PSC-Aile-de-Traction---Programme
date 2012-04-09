@@ -9,6 +9,9 @@
 #include "Joystick.h"
 #include <iostream>
 #include "Moteur3D.h"
+#include "ConnectionUSB.h"
+
+#include "Database.h"
 
 #include "Tests.h"
 
@@ -71,15 +74,50 @@ void Joystick::handleJoystickEvent(SDL_Event& event,Moteur3D* demo)
 		
 		if(event.jaxis.axis == 0)
 		{
-			demo.pitchSpeed = ROTSPEED * event.jaxis.value/32768;
+			if(demo)
+			{
+				demo.pitchSpeed = ROTSPEED * event.jaxis.value/32768;
+			}
+			
+			double position = event.jaxis.value;// + 0x8000;
+			position /= 0x8000;
+			
+			if(!Database::hasConfigurationField("MOTOR_SIGNAL_OFFSET_HIGH"))
+			{
+				NumericValue<double> toSave(0.05);
+				Database::setConfigurationField("MOTOR_SIGNAL_OFFSET_HIGH",&toSave);
+			}
+			
+			if(!Database::hasConfigurationField("MOTOR_SIGNAL_OFFSET_LOW"))
+			{
+				NumericValue<double> toSave(0.05);
+				Database::setConfigurationField("MOTOR_SIGNAL_OFFSET_LOW",&toSave);
+			}
+			
+			//dynamixel->setPosition(position);
+			if(position<Database::getConfigurationFieldValue<double>("MOTOR_SIGNAL_OFFSET_HIGH") && position > -Database::getConfigurationFieldValue<double>("MOTOR_SIGNAL_OFFSET_LOW"))
+			{
+				position = 0;
+			}
+			
+			if(ConnectionUSB::isConnected())
+			{
+				ConnectionUSB::setSignalForMotor(position,0);
+			}
 		}
 		else if(event.jaxis.axis == 1)
 		{
-			demo.yawSpeed = -ROTSPEED * event.jaxis.value/32768;
+			if(demo)
+			{
+				demo.yawSpeed = -ROTSPEED * event.jaxis.value/32768;
+			}
 		}
 		else if(event.jaxis.axis == 2)
 		{
-			demo.rollSpeed = -1.5*ROTSPEED * event.jaxis.value/32768;
+			if(demo)
+			{
+				demo.rollSpeed = -1.5*ROTSPEED * event.jaxis.value/32768;
+			}
 		}
 	}
 	else if(event.type==SDL_JOYHATMOTION)
@@ -134,7 +172,7 @@ void Joystick::handleJoystickEvent(SDL_Event& event,Moteur3D* demo)
 	}
 }
 
-void Joystick::handleJoystickEvent(SDL_Event& event,Dynamixel* dynamixel)
+/*void Joystick::handleJoystickEvent(SDL_Event& event)
 {
 	if(event.type==SDL_JOYAXISMOTION)
 	{
@@ -144,10 +182,7 @@ void Joystick::handleJoystickEvent(SDL_Event& event,Dynamixel* dynamixel)
 		{
 			//Axe gauche droite
 			
-			double position = event.jaxis.value + 0x8000;
-			position /= 0x10000;
 			
-			dynamixel->setPosition(position);
 		}
 		else if(event.jaxis.axis == 1)
 		{
@@ -208,4 +243,4 @@ void Joystick::handleJoystickEvent(SDL_Event& event,Dynamixel* dynamixel)
 	{
 		printf("Button %d released for joystick %d\n",event.jbutton.button,event.jbutton.which);
 	}
-}
+}*/

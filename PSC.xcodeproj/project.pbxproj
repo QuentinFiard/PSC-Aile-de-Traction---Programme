@@ -128,6 +128,7 @@
 		83BC6EEA14CC9B47002396A5 /* SDL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83BC6ED714CC9AD4002396A5 /* SDL.framework */; };
 		83D5E4DE15209DDE00F8DE4B /* Status.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83D5E4DD15209DDE00F8DE4B /* Status.mm */; };
 		83D5E4E115209E5800F8DE4B /* SensorView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83D5E4E015209E5800F8DE4B /* SensorView.mm */; };
+		83E12EE415330B2A00F5CB19 /* Recorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E12EE315330B2A00F5CB19 /* Recorder.cpp */; };
 		83F586AD14CDA94200DA0F60 /* SimulationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83F586AB14CDA94200DA0F60 /* SimulationController.mm */; };
 		83F586AE14CDA94200DA0F60 /* SimulationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F586AC14CDA94200DA0F60 /* SimulationController.xib */; };
 		83F586B214CDB09D00DA0F60 /* WebcamController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F586B014CDB09D00DA0F60 /* WebcamController.m */; };
@@ -388,6 +389,8 @@
 		83D5E4DD15209DDE00F8DE4B /* Status.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Status.mm; path = Status/Status.mm; sourceTree = "<group>"; };
 		83D5E4DF15209E5800F8DE4B /* SensorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorView.h; sourceTree = "<group>"; };
 		83D5E4E015209E5800F8DE4B /* SensorView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SensorView.mm; sourceTree = "<group>"; };
+		83E12EE315330B2A00F5CB19 /* Recorder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Recorder.cpp; sourceTree = "<group>"; };
+		83E12EE615330B3700F5CB19 /* Recorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recorder.h; sourceTree = "<group>"; };
 		83F586AA14CDA94200DA0F60 /* SimulationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationController.h; sourceTree = "<group>"; };
 		83F586AB14CDA94200DA0F60 /* SimulationController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SimulationController.mm; sourceTree = "<group>"; };
 		83F586AC14CDA94200DA0F60 /* SimulationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimulationController.xib; sourceTree = "<group>"; };
@@ -595,6 +598,8 @@
 		83BC6E2014CC98AF002396A5 = {
 			isa = PBXGroup;
 			children = (
+				83E12EE615330B3700F5CB19 /* Recorder.h */,
+				83E12EE315330B2A00F5CB19 /* Recorder.cpp */,
 				83B86A68151BED04009C9174 /* Resources */,
 				83BAF05614E7A832000880F0 /* Utilities */,
 				83AA3A1D14E6454000C39446 /* Database */,
@@ -1121,6 +1126,7 @@
 				83B86A74151BF2B3009C9174 /* ArrowView.m in Sources */,
 				83D5E4DE15209DDE00F8DE4B /* Status.mm in Sources */,
 				83D5E4E115209E5800F8DE4B /* SensorView.mm in Sources */,
+				83E12EE415330B2A00F5CB19 /* Recorder.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

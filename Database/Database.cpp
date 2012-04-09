@@ -30,7 +30,7 @@ static Database* shared_ = NULL;
 
 #pragma mark - Fonctions utiles
 
-std::vector<uint8_t> Database::toVector(DatabaseData& value)
+std::vector<uint8_t> Database::toVector(DatabaseData value)
 {
 	return value.toBinary();
 }
@@ -290,7 +290,7 @@ std::vector<Record*> Database::getAllRecords_()
 		ptime date(ref);
 		date+=offsetTime;
 		
-		Record* tmp = new Record(ID,tag,date);
+		Record* tmp = new Record(ID,date,tag);
 		
 		res.push_back(tmp);
 	}
@@ -381,6 +381,44 @@ void Database::removeRecord_(Record* record)
 	sqlite3_step(statement);
 	
 	sqlite3_finalize(statement);
+}
+
+Record* Database::recordWithId(sqlite_int64 ID)
+{
+	Database::shared().recordWithId_(ID);
+}
+
+Record* Database::recordWithId_(sqlite_int64 ID)
+{
+	sqlite3_stmt* statement;
+	
+	std::string cmd;
+	
+	cmd = "SELECT startDate,tag FROM Record WHERE ROWID=?001";
+	
+	sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
+	
+	ptime ref(date(2001,Jan,1));
+	
+	if(sqlite3_step(statement) == SQLITE_ROW)
+	{
+		boost::int64_t offset = sqlite3_column_int64(statement,0);
+		std::string tag((const char*)sqlite3_column_text(statement,1));
+		
+		time_duration offsetTime = microseconds(offset);
+		
+		ptime date(ref);
+		date+=offsetTime;
+		
+		Record* tmp = new Record(ID,date,tag);
+		
+		return tmp;
+	}
+	else
+	{
+		sqlite3_finalize(statement);
+		return NULL;
+	}
 }
 
 #pragma mark - Source
