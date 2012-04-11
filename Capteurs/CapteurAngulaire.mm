@@ -132,14 +132,13 @@ bool CapteurAngulaire::update()
 		if(newValue)
 		{
 			ptime currentDate(microsec_clock::local_time());
-			currentDate -= microseconds(TIME_OFFSET_MICROSECONDS);
 			
 			if(lastAcquisition_)
 			{
 				ptime& lastDate = *lastAcquisition_;
 				double offset = abs(*lastValue_- *newValue);
 				time_duration duration = currentDate - lastDate;
-				double time =  static_cast<double>(duration.total_microseconds())/1000000;
+				double time =  static_cast<double>(duration.ticks())/1000000;
 				if(offset/time>MAX_SPEED)
 				{
 					delete newValue;
@@ -162,6 +161,8 @@ bool CapteurAngulaire::update()
 			{
 				*lastAcquisition_ = currentDate;
 			}
+			
+			saveLastValue();
 			
 			if(view)
 			{
@@ -233,11 +234,11 @@ void CapteurAngulaire::saveLastValue()
 					delete output;
 				}
 				
-				output = new Source< NumericValue<double> >(r,nomGrandeurMesuree());
+				output = new Source< NumericValue<double> >(r,nomGrandeurMesuree(),1);
 				output->save();
 			}
-			NumericValue<double> data(lastValue_->angle())
-			Donnee< NumericValue<double> > toSave(output,data);
+			NumericValue<double> data(lastValue_->angle());
+			Donnee< NumericValue<double> > toSave(output,*lastAcquisition(),data);
 			toSave.save();
 		}
 	}

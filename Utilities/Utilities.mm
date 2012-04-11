@@ -15,6 +15,8 @@
 #import <boost/date_time.hpp>
 #import <fstream>
 
+using namespace boost::posix_time;
+
 template<>
 bool isNumber(bool& value)
 {
@@ -195,4 +197,12 @@ void log(std::string logName, std::string description)
 	logFile << "\n";
 	
 	logFile.close();
+}
+
+boost::posix_time::time_duration microsecondsTimeDuration(sqlite3_int64 offset)
+{
+	long microsec = offset % 60000000;
+	long min = offset /= 60000000;
+	
+	return minutes(min) + microseconds(microsec);
 }

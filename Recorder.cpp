@@ -44,7 +44,8 @@ void Recorder::startRecording()
 
 void Recorder::startRecording_()
 {
-	currentRecord = new Record(ptime(date()));
+	currentRecord = new Record(microsec_clock::local_time());
+	currentRecord->save();
 }
 
 void Recorder::stopRecording()

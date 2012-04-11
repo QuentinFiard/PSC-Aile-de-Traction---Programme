@@ -20,18 +20,19 @@ class GenericSource
 {
 public:
 	
-	static GenericSource* sourceWithIDNameTypeAndRecordID(sqlite_int64 ID,std::string name, DataType type, Record* record);
+	static GenericSource* sourceWithIDNameTypeRecordIDAndSize(sqlite_int64 ID,std::string name, DataType type, Record* record, std::size_t size);
 	
 	virtual std::string name() const = 0;
 	virtual void setName(std::string newName) = 0;
-	virtual std::string toCSVString() const = 0;
+	virtual std::string CSVString(std::size_t row, bool* isRowEmpty) const = 0;
 	virtual DataType type() const = 0;
 	
 	virtual sqlite3_int64 ID() const = 0;
 	virtual void setID(sqlite3_int64 newID) = 0;
 	virtual sqlite3_int64 recordID() const = 0;
 	
-	//virtual std::size_t size() = 0;
+	virtual std::size_t size() const = 0;
+	virtual void setSize(std::size_t size) = 0;
 	
 	virtual void save() = 0;
 };

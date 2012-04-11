@@ -9,6 +9,7 @@
 #include "Record.h"
 #include <assert.h>
 #include "Database.h"
+#include <iostream>
 
 using namespace boost::posix_time;
 using namespace boost::gregorian;
@@ -65,7 +66,9 @@ int64_t Record::date()
 {
 	ptime ref(boost::gregorian::date(2001,Jan,1));
 	
-	return (date_ - ref).total_microseconds();
+	std::cout << "Offset : " << (date_ - ref).ticks();
+	
+	return (date_ - ref).ticks();
 }
 
 boost::posix_time::ptime Record::privateDate()

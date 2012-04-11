@@ -14,8 +14,11 @@
 #include <utility>
 #include <sqlite3.h>
 
+#include "Utilities.h"
+
 #include <iostream>
 #include <assert.h>
+#include <boost/lexical_cast.hpp>
 
 #include "CommunicationProtocol.h"
 
@@ -38,7 +41,7 @@ public:
 	
 #pragma mark - Fonctions utiles
 	
-	static std::vector<uint8_t> toVector(DatabaseData value);
+	static std::vector<uint8_t> toVector(const DatabaseData& value);
 	static DatabaseData* fromVector(std::vector<uint8_t>& value,DataType type);
 	
 #pragma mark - Configuration Field
@@ -80,6 +83,9 @@ public:
 	template<typename T>
 	static bool findData(Donnee<T>& donnee);
 	
+	template<typename T>
+	static Donnee<T>* donneeForSourceAtIndex(const Source<T>* source, std::size_t index);
+	
 #pragma mark - Motor Command
 	
 	static CommandeVitesse commandForRequestedMotorSpeed(const VitesseRotation& vitesseRotation);
@@ -108,6 +114,9 @@ private:
 	void saveDataWithValue_(T& value, Donnee<S>& donnee);
 	template<typename T>
 	void saveDataWithValue_(std::vector<uint8_t> value, Donnee<T>& donnee);
+	
+	template<typename T>
+	Donnee<T>* donneeForSourceAtIndex_(const Source<T>* source, std::size_t index);
 	
 	template<typename T>
 	void saveSource_(Source<T>& source);
@@ -155,7 +164,7 @@ void Database::saveDataWithValue_(std::vector<uint8_t> value, Donnee<T>& donnee)
 	
 	if(findData_(donnee))
 	{
-		cmd = "UPDATE Source SET value=?001 WHERE ROWID=?002";
+		cmd = "UPDATE Donnee SET value=?001 WHERE ROWID=?002";
 		
 		sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
 		
@@ -166,13 +175,13 @@ void Database::saveDataWithValue_(std::vector<uint8_t> value, Donnee<T>& donnee)
 	}
 	else
 	{
-		cmd = "INSERT INTO Source(date,sourceID,value) VALUES (?001,?002,?003)";
+		cmd = "INSERT INTO Donnee(date,sourceID,value) VALUES (?001,?002,?003)";
 		
 		sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
 		
 		ptime ref(date(2001,Jan,1));
 		
-		boost::int64_t offset = (donnee.date()-ref).total_nanoseconds();
+		boost::int64_t offset = (donnee.date()-ref).ticks();
 		
 		sqlite3_bind_int64(statement, 1, offset);
 		sqlite3_bind_int64(statement, 2, donnee.source()->ID());
@@ -230,6 +239,51 @@ bool Database::findData_(Donnee<T>& donnee)
 	sqlite3_finalize(statement);
 	
 	return res;
+}
+
+template<typename T>
+Donnee<T>* Database::donneeForSourceAtIndex(const Source<T>* source, std::size_t index)
+{
+	return Database::shared().donneeForSourceAtIndex_(source,index);
+}
+
+template<typename T>
+Donnee<T>* Database::donneeForSourceAtIndex_(const Source<T>* source, std::size_t index)
+{
+	std::string cmd;
+	
+	cmd = "SELECT date,value FROM Donnee WHERE sourceID=?001 LIMIT 1 OFFSET ?002";
+	
+	sqlite3_stmt* statement;
+	
+	sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
+	
+	sqlite3_bind_int64(statement, 1, source->ID());
+	sqlite3_bind_int64(statement, 2, index);
+	
+	if(sqlite3_step(statement) == SQLITE_ROW)
+	{
+		boost::int64_t offset = sqlite3_column_int64(statement,0);
+		
+		time_duration offsetTime = microsecondsTimeDuration(offset);
+		
+		ptime newDate(date(2001,Jan,1));
+		newDate+=offsetTime;
+		
+		uint8_t* buffer = (uint8_t*)sqlite3_column_blob(statement, 1);
+		std::size_t length = sqlite3_column_bytes(statement, 1);
+		
+		std::vector<uint8_t> res(buffer,buffer+length);
+		
+		sqlite3_finalize(statement);
+		
+		return new Donnee<T>(source,newDate,DatabaseData::dataWithType(res, source->type()));
+	}
+	else
+	{
+		sqlite3_finalize(statement);
+		return NULL;
+	}
 }
 
 template<typename T>
@@ -319,24 +373,28 @@ void Database::saveSource_(Source<T>& source)
 	
 	if(sourceStillExists)
 	{
-		cmd = "UPDATE Source SET name=?001,dataType=?002 WHERE ROWID=?003";
+		cmd = "UPDATE Source SET name=?001,dataType=?002,size=?004,recordId=?005 WHERE ROWID=?003";
 		
 		sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
 		
 		sqlite3_bind_text(statement, 1, source.name().c_str(), source.name().length(), SQLITE_STATIC);
 		sqlite3_bind_int(statement, 2, source.type());
 		sqlite3_bind_int64(statement, 3, sourceId);
+		sqlite3_bind_int64(statement, 4, source.size());
+		sqlite3_bind_int64(statement, 5, source.recordID());
 		
 		sqlite3_step(statement);
 	}
 	else
 	{
-		cmd = "INSERT INTO Source(name,dataType) VALUES (?001,?002)";
+		cmd = "INSERT INTO Source(name,dataType,size,recordId) VALUES (?001,?002,?003,?004)";
 		
 		sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
 		
 		sqlite3_bind_text(statement, 1, source.name().c_str(), source.name().length(), SQLITE_STATIC);
 		sqlite3_bind_int(statement, 2, source.type());
+		sqlite3_bind_int64(statement, 3, source.size());
+		sqlite3_bind_int64(statement, 4, source.recordID());
 		
 		sqlite3_step(statement);
 		

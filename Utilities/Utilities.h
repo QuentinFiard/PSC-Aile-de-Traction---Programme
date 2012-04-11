@@ -13,6 +13,9 @@
 #include <iostream>
 #include <assert.h>
 
+#include <boost/date_time.hpp>
+#include <sqlite3.h>
+
 template<typename T>
 bool isNumber(T& value)
 {
@@ -26,5 +29,7 @@ std::string pathToDatabase();
 std::string pathToLogFilesDirectory();
 
 void log(std::string logName, std::string description);
+
+boost::posix_time::time_duration microsecondsTimeDuration(sqlite3_int64 offset);
 
 #endif

@@ -105,7 +105,7 @@
 
 -(IBAction)toggleRecording:(id)sender
 {
-	if([[recorderButton title] isEqualToString:@"Commencer\nl'enregistrement"])
+	if(!Recorder::isRecording())
 	{
 		Recorder::startRecording();
 		[recorderButton setTitle:@"Arrêter\nl'enregistrement"];

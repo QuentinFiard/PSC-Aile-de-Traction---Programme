@@ -30,7 +30,7 @@ static Database* shared_ = NULL;
 
 #pragma mark - Fonctions utiles
 
-std::vector<uint8_t> Database::toVector(DatabaseData value)
+std::vector<uint8_t> Database::toVector(const DatabaseData& value)
 {
 	return value.toBinary();
 }
@@ -285,7 +285,7 @@ std::vector<Record*> Database::getAllRecords_()
 		boost::int64_t offset = sqlite3_column_int64(statement,1);
 		std::string tag((const char*)sqlite3_column_text(statement,2));
 		
-		time_duration offsetTime = microseconds(offset);
+		time_duration offsetTime = microsecondsTimeDuration(offset);
 		
 		ptime date(ref);
 		date+=offsetTime;
@@ -358,7 +358,7 @@ void Database::removeRecord(Record* record)
 
 void Database::removeRecord_(Record* record)
 {
-	sqlite3_stmt* statement;
+	sqlite3_stmt* statement, *statement2;
 	
 	std::string cmd;
 	
@@ -372,13 +372,36 @@ void Database::removeRecord_(Record* record)
 	
 	sqlite3_finalize(statement);
 	
-	cmd = "DELETE FROM Source WHERE recordId=?001";
+	cmd = "SELECT ROWID FROM Source WHERE recordId=?001";
 	
 	sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
 	
 	sqlite3_bind_int64(statement, 1, record->ID());
 	
-	sqlite3_step(statement);
+	while(sqlite3_step(statement) == SQLITE_ROW)
+	{
+		sqlite_int64 sourceID = sqlite3_column_int64(statement, 0);
+		
+		cmd = "DELETE FROM Source WHERE ROWID=?001";
+		
+		sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement2, NULL);
+		
+		sqlite3_bind_int64(statement2, 1, sourceID);
+		
+		sqlite3_step(statement2);
+		
+		sqlite3_finalize(statement2);
+		
+		cmd = "DELETE FROM Donnee WHERE sourceID=?001";
+		
+		sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement2, NULL);
+		
+		sqlite3_bind_int64(statement2, 1, sourceID);
+		
+		sqlite3_step(statement2);
+		
+		sqlite3_finalize(statement2);
+	}
 	
 	sqlite3_finalize(statement);
 }
@@ -405,7 +428,7 @@ Record* Database::recordWithId_(sqlite_int64 ID)
 		boost::int64_t offset = sqlite3_column_int64(statement,0);
 		std::string tag((const char*)sqlite3_column_text(statement,1));
 		
-		time_duration offsetTime = microseconds(offset);
+		time_duration offsetTime = microsecondsTimeDuration(offset);
 		
 		ptime date(ref);
 		date+=offsetTime;
@@ -436,7 +459,7 @@ std::vector<GenericSource*> Database::getAllSourcesForRecord_(Record* record)
 	
 	std::string cmd;
 	
-	cmd = "SELECT ROWID,name,dataType FROM Source WHERE recordId=?001 ORDER BY name ASC";
+	cmd = "SELECT ROWID,name,dataType,size FROM Source WHERE recordId=?001 ORDER BY name ASC";
 	
 	sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
 	
@@ -449,8 +472,9 @@ std::vector<GenericSource*> Database::getAllSourcesForRecord_(Record* record)
 		sqlite_int64 ID = sqlite3_column_int64(statement, 0);
 		std::string name((const char*)sqlite3_column_text(statement, 1),sqlite3_column_bytes(statement, 1));
 		DataType type = sqlite3_column_int(statement, 2);
+		std::size_t size = sqlite3_column_int64(statement, 3);
 		
-		res.push_back(GenericSource::sourceWithIDNameTypeAndRecordID(ID, name, type, record));
+		res.push_back(GenericSource::sourceWithIDNameTypeRecordIDAndSize(ID, name, type, record,size));
 	}
 	
 	sqlite3_finalize(statement);
@@ -470,6 +494,16 @@ void Database::removeSource_(GenericSource* source)
 	std::string cmd;
 	
 	cmd = "DELETE FROM Source WHERE ROWID=?001";
+	
+	sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
+	
+	sqlite3_bind_int64(statement, 1, source->ID());
+	
+	sqlite3_step(statement);
+	
+	sqlite3_finalize(statement);
+	
+	cmd = "DELETE FROM Donnee WHERE sourceID=?001";
 	
 	sqlite3_prepare_v2(database, cmd.c_str(), cmd.length(), &statement, NULL);
 	

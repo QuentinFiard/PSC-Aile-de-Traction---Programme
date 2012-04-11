@@ -434,8 +434,6 @@ AngleAbsolu* ConnectionUSB::readPositionFromSensor(Sensor sensor, const AngleAbs
 	
 	AngleAbsolu* res = new AngleAbsolu(data.position,closestFrom);
 	
-	std::cout << "Angle : " << res->angle() << " Vitesse : " << data.vitesseRotation * 180/M_PI<< "°/s" << std::endl;
-	
 	return res;
 }
 

@@ -62,7 +62,7 @@ using namespace boost::posix_time;
 	
 	ptime end = microsec_clock::universal_time();
 	
-	std::cout << (end-start).total_microseconds() <<std::endl;
+	std::cout << (end-start).ticks() <<std::endl;
 }
 
 @end

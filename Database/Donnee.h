@@ -15,8 +15,12 @@
 #include <sqlite3.h>
 
 #include <boost/date_time.hpp>
+#include <boost/lexical_cast.hpp>
+
+using namespace boost::posix_time;
 
 class Record;
+class DatabaseData;
 
 template<typename T>
 class Source;
@@ -25,8 +29,9 @@ template<typename T>
 class Donnee
 {
 public:
-	Donnee(Source<T>* source,T value);
-	Donnee(Source<T>* source,boost::posix_time::ptime date,T value);
+	Donnee(const Source<T>* source,T value);
+	Donnee(const Source<T>* source,boost::posix_time::ptime date,T value);
+	Donnee(const Source<T>* source,boost::posix_time::ptime date, DatabaseData* value);
 	Donnee(sqlite_int64 ID);
 	
 	void save();
@@ -42,6 +47,8 @@ public:
 	const T& value() const;
 	void setValue(T value);
 	
+	std::string toCSVString();
+	
 private:
 	sqlite3_int64* ID_;
 	const Source<T>* source_;
@@ -50,15 +57,23 @@ private:
 };
 
 #include "Database.h"
+#include "Source.h"
+#include "Record.h"
 
 template<typename T>
-Donnee<T>::Donnee(Source<T>* source,boost::posix_time::ptime date,T value) : source_(source),date_(date),value_(value), ID_(NULL)
+Donnee<T>::Donnee(const Source<T>* source,boost::posix_time::ptime date,T value) : source_(source),date_(date),value_(value), ID_(NULL)
 {
 	
 }
 
 template<typename T>
-Donnee<T>::Donnee(Source<T>* source,T value) : source_(source),value_(value), ID_(NULL),date_(boost::gregorian::date())
+Donnee<T>::Donnee(const Source<T>* source,boost::posix_time::ptime date, DatabaseData* value) : source_(source),date_(date),value_(*((T*)value)), ID_(NULL)
+{
+	
+}
+
+template<typename T>
+Donnee<T>::Donnee(const Source<T>* source,T value) : source_(source),value_(value), ID_(NULL),date_(boost::gregorian::date())
 {
 	
 }
@@ -129,6 +144,24 @@ template<typename T>
 void Donnee<T>::setValue(T value)
 {
 	value_ = value;
+}
+
+template<typename T>
+std::string Donnee<T>::toCSVString()
+{
+	std::string res;
+	
+	time_duration duration(date_ - source_->record()->privateDate());
+	
+	double dt = duration.ticks();
+	dt /= 1000000;
+	
+	res = boost::lexical_cast<std::string>(dt);
+	res += ";";
+	
+	res += value_.toCSVString();
+	
+	return res;
 }
 
 #endif

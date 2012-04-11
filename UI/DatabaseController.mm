@@ -182,18 +182,37 @@
 -(NSString*)CSVStringForSelectedSources
 {
 	NSMutableString* CSVFile = [[NSMutableString alloc] init];
-	[CSVFile appendString:@"t (s);"];
-	for(int i=0 ; i<sourcesArray.count ; i++)
+	bool isEOF = false;
+	std::size_t row = 0;
+	while(!isEOF)
 	{
-		SourceForDisplay* source = [sourcesArray objectAtIndex:i];
+		isEOF = true;
+		bool eof = true;
 		
-		if([source.selected boolValue])
+		for(int i=0 ; i<sourcesArray.count ; i++)
 		{
-			NSString* string = [[NSString alloc] initWithUTF8String:source.source->toCSVString().c_str()];
-			[CSVFile appendString:string];
-			[string release];
+			SourceForDisplay* source = [sourcesArray objectAtIndex:i];
+			
+			if([source.selected boolValue])
+			{
+				NSString* string = [[NSString alloc] initWithUTF8String:source.source->CSVString(row,&eof).c_str()];
+				[CSVFile appendString:string];
+				[string release];
+			}
+			
+			if(!eof)
+			{
+				isEOF = false;
+			}
 		}
+		if(!isEOF)
+		{
+			[CSVFile appendString:@"\n"];
+		}
+		row++;
 	}
+	
+	
 	
 	NSString* res = [NSString stringWithString:CSVFile];
 	

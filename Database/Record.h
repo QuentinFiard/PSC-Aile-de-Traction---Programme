@@ -30,9 +30,9 @@ public:
 	
 	void save();
 	
-private:
 	boost::posix_time::ptime privateDate();
 	
+private:	
 	sqlite3_int64 ID_;
 	std::string tag_;
 	boost::posix_time::ptime date_;
