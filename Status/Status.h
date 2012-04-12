@@ -20,6 +20,7 @@ enum STATUS
 	NSString* titre;
 	NSUInteger status;
 	NSImage* statusImage;
+	NSNumber* isOk;
 	
 	id target;
 }
@@ -29,7 +30,7 @@ enum STATUS
 @property (retain,nonatomic) NSString* titre;
 @property (assign,nonatomic) NSImage* statusImage;
 @property (assign,nonatomic) id target;
-@property (readonly,nonatomic) NSNumber* isOk;
+@property (retain,nonatomic) NSNumber* isOk;
 
 @property (nonatomic) NSUInteger status;
 

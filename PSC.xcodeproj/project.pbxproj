@@ -135,7 +135,6 @@
 		83F586B314CDB09D00DA0F60 /* WebcamController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F586B114CDB09D00DA0F60 /* WebcamController.xib */; };
 		83F586B714CDB0B100DA0F60 /* ComparaisonController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F586B514CDB0B100DA0F60 /* ComparaisonController.m */; };
 		83F586B814CDB0B100DA0F60 /* ComparaisonController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F586B614CDB0B100DA0F60 /* ComparaisonController.xib */; };
-		83F586BC14CDB0BE00DA0F60 /* MoteurController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83F586BA14CDB0BE00DA0F60 /* MoteurController.mm */; };
 		83F586BD14CDB0BE00DA0F60 /* MoteurController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F586BB14CDB0BE00DA0F60 /* MoteurController.xib */; };
 		83F586CF14CDE69900DA0F60 /* StatusController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83F586CD14CDE69900DA0F60 /* StatusController.mm */; };
 		83F586D014CDE69900DA0F60 /* StatusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F586CE14CDE69900DA0F60 /* StatusController.xib */; };
@@ -158,6 +157,7 @@
 		83F65BEA14DA288F006B7C60 /* NSBitmapImageRep+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F65BE914DA288F006B7C60 /* NSBitmapImageRep+Extras.m */; };
 		83F6CC0814EA7A170096890B /* DatabaseController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83F6CC0614EA7A170096890B /* DatabaseController.mm */; };
 		83F6CC0914EA7A170096890B /* DatabaseController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F6CC0714EA7A170096890B /* DatabaseController.xib */; };
+		83F6CCEB1535EDD6009A08F5 /* JoystickStatus.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83F6CCEA1535EDD6009A08F5 /* JoystickStatus.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -421,6 +421,8 @@
 		83F6CC0514EA7A170096890B /* DatabaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseController.h; sourceTree = "<group>"; };
 		83F6CC0614EA7A170096890B /* DatabaseController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DatabaseController.mm; sourceTree = "<group>"; };
 		83F6CC0714EA7A170096890B /* DatabaseController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatabaseController.xib; sourceTree = "<group>"; };
+		83F6CCE91535EDD6009A08F5 /* JoystickStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JoystickStatus.h; path = Status/JoystickStatus.h; sourceTree = "<group>"; };
+		83F6CCEA1535EDD6009A08F5 /* JoystickStatus.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = JoystickStatus.mm; path = Status/JoystickStatus.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -909,6 +911,8 @@
 				83D5E4DD15209DDE00F8DE4B /* Status.mm */,
 				8301CA9115129AB800EC6EFB /* ConnectionUSBStatus.h */,
 				8301CA9215129AB800EC6EFB /* ConnectionUSBStatus.mm */,
+				83F6CCE91535EDD6009A08F5 /* JoystickStatus.h */,
+				83F6CCEA1535EDD6009A08F5 /* JoystickStatus.mm */,
 			);
 			name = Status;
 			sourceTree = "<group>";
@@ -1086,7 +1090,6 @@
 				83F586AD14CDA94200DA0F60 /* SimulationController.mm in Sources */,
 				83F586B214CDB09D00DA0F60 /* WebcamController.m in Sources */,
 				83F586B714CDB0B100DA0F60 /* ComparaisonController.m in Sources */,
-				83F586BC14CDB0BE00DA0F60 /* MoteurController.mm in Sources */,
 				83F586CF14CDE69900DA0F60 /* StatusController.mm in Sources */,
 				8376E09714D590D900ABECEA /* WebcamCalibrationController.mm in Sources */,
 				8376E09C14D5918800ABECEA /* CalibrationCamera.cpp in Sources */,
@@ -1127,6 +1130,7 @@
 				83D5E4DE15209DDE00F8DE4B /* Status.mm in Sources */,
 				83D5E4E115209E5800F8DE4B /* SensorView.mm in Sources */,
 				83E12EE415330B2A00F5CB19 /* Recorder.cpp in Sources */,
+				83F6CCEB1535EDD6009A08F5 /* JoystickStatus.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

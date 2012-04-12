@@ -81,10 +81,6 @@ static Moteur3D* moteur3D;
 #endif
 	ogreFrameworkPrepared = true;
 	
-	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK);
-	
-	Joystick::handler()->prepareJoystick();
-	
 	//testerCommunicationMoteur();
 	
 	new Ogre::LogManager();
@@ -203,29 +199,6 @@ static Moteur3D* moteur3D;
 			 OgreFramework::getSingletonPtr()->m_pJoyStick->capture();
 			 #endif
 			 OgreFramework::getSingletonPtr()->m_pMouse->capture();*/
-			
-			SDL_Event event;
-			while(SDL_PollEvent(&event))
-			{
-				/*switch(event.type)
-				 { 
-				 case SDL_KEYDOWN:         
-				 out<<"Oh! Key press\n";
-				 break;
-				 case SDL_MOUSEMOTION: 
-				 out<<"Mouse Motion\n";
-				 break;
-				 case SDL_QUIT:
-				 i=-1;
-				 break;
-				 default:
-				 out<<"I don't know what this event is!\n";
-				 }*/
-				if(event.type==SDL_JOYAXISMOTION || event.type==SDL_JOYHATMOTION || event.type==SDL_JOYBUTTONUP || event.type==SDL_JOYBALLMOTION || event.type==SDL_JOYBUTTONDOWN)
-				{
-					Joystick::handler()->handleJoystickEvent(event,self);
-				}
-			}
 			
 			if(timeSinceLastFrame>0)
 			{

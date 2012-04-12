@@ -14,19 +14,31 @@
 
 #include "Dynamixel.h"
 
-@class Moteur3D;
+@class JoystickStatus;
 
 class Joystick
 {
 private:
 	SDL_Joystick* joystick;
-public:
+	JoystickStatus* status;
+	
+protected:
+	
 	Joystick();
-	void prepareJoystick();
 	
-	void handleJoystickEvent(SDL_Event& event,Moteur3D* demo = NULL);
+	void setStatus_(JoystickStatus* status);
+	void prepareJoystick_();
 	
-	static Joystick* handler();
+	void handleJoystickEvent(SDL_Event& event);
+	
+	void run();
+	
+public:
+	
+	static void prepareJoystick();
+	
+	static Joystick* shared();
+	static void setStatus(JoystickStatus* status);
 };
 
 #endif

@@ -15,7 +15,7 @@ static NSImage* image0,*image1,*image2;
 
 @synthesize titre;
 @synthesize statusImage;
-@dynamic isOk;
+@synthesize isOk;
 @synthesize target;
 
 @synthesize status;
@@ -65,11 +65,7 @@ static NSImage* image0,*image1,*image2;
 		default:
 			break;
 	}
-}
-
--(NSNumber*)isOk
-{
-	return [NSNumber numberWithBool:status==0];
+	[self setIsOk:[NSNumber numberWithBool:(status==STATUS_OK)]];
 }
 
 -(IBAction)retry:(id)sender

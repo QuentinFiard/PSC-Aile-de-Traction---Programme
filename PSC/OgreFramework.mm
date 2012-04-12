@@ -70,11 +70,6 @@ bool OgreFramework::initOgre(Ogre::String wndTitle, OIS::KeyListener *pKeyListen
 	if(!m_pRoot->showConfigDialog())
 		return false;
 	m_pRenderWnd = m_pRoot->initialise(true, wndTitle);
-	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK);
-	
-	Joystick::handler()->prepareJoystick();
-	
-	testerCommunicationMoteur();
 	
 	//SDL_Surface *screen = SDL_SetVideoMode(640, 480, 0, SDL_OPENGL);
 	//m_pRoot->restoreConfig();

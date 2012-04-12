@@ -15,29 +15,38 @@
 
 #include "Tests.h"
 
+#include "JoystickStatus.h"
+
 #define ROTSPEED 0.03
 
 using namespace std;
 
-static Joystick* shared;
+static Joystick* shared_;
 
-Joystick* Joystick::handler()
+Joystick* Joystick::shared()
 {
-	if(!shared)
+	if(!shared_)
 	{
-		shared = new Joystick();
+		shared_ = new Joystick();
 	}
-	return shared;
+	return shared_;
 }
 
 Joystick::Joystick()
 {
-	
+	status = nil;
 }
 
 void Joystick::prepareJoystick()
 {
+	shared()->prepareJoystick_();
+}
+
+void Joystick::prepareJoystick_()
+{
 	testerReferentiels();
+	
+	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK);
 	
 	cout << "************* Joysticks ***************"  << endl;
 	int nbJoySticks = SDL_NumJoysticks();
@@ -61,13 +70,29 @@ void Joystick::prepareJoystick()
 		printf("Nombre d'axes : %d\n", SDL_JoystickNumAxes(joystick));
 		printf("Nombre de boutons : %d\n", SDL_JoystickNumButtons(joystick));
 		printf("Nombre de chapeaux : %d\n", SDL_JoystickNumHats(joystick));
+		
+		if(status)
+		{
+			[status setStatus:STATUS_OK];
+		}
+		
+		run();
 	}
 	else
+	{
 		printf("Impossible de charger le joystick\n");
+		
+		if(status)
+		{
+			[status setStatus:STATUS_WAITING];
+		}
+	}
 }
 
-void Joystick::handleJoystickEvent(SDL_Event& event,Moteur3D* demo)
+void Joystick::handleJoystickEvent(SDL_Event& event)
 {
+	Moteur3D* demo = [Moteur3D moteur3D];
+	
 	if(event.type==SDL_JOYAXISMOTION)
 	{
 		printf("Axis %d %d %d\n",event.jaxis.which,event.jaxis.axis,event.jaxis.value);
@@ -172,75 +197,51 @@ void Joystick::handleJoystickEvent(SDL_Event& event,Moteur3D* demo)
 	}
 }
 
-/*void Joystick::handleJoystickEvent(SDL_Event& event)
+void Joystick::setStatus(JoystickStatus* status)
 {
-	if(event.type==SDL_JOYAXISMOTION)
+	shared()->setStatus_(status);
+}
+
+void Joystick::setStatus_(JoystickStatus* statusNew)
+{
+	status = statusNew;
+	
+	if(joystick)
 	{
-		printf("Axis %d %d %d\n",event.jaxis.which,event.jaxis.axis,event.jaxis.value);
-		
-		if(event.jaxis.axis == 0)
-		{
-			//Axe gauche droite
-			
-			
-		}
-		else if(event.jaxis.axis == 1)
-		{
-			//Axe avant arrière
-		}
-		else if(event.jaxis.axis == 2)
-		{
-			//Axe auxiliaire
-		}
+		[status setStatus:STATUS_OK];
 	}
-	else if(event.type==SDL_JOYHATMOTION)
+	else
 	{
-		printf("Hat %d %d ",event.jhat.which,event.jhat.hat);
-		Uint8 value = event.jhat.value;
-		if(value == SDL_HAT_CENTERED)
-		{
-			cout << "center";
-		}
-		else if(value == SDL_HAT_UP)
-		{
-			cout << "up";
-		}
-		else if(value == SDL_HAT_RIGHTUP)
-		{
-			cout << "right up";
-		}
-		else if(value == SDL_HAT_RIGHT)
-		{
-			cout << "right";
-		}
-		else if(value == SDL_HAT_RIGHTDOWN)
-		{
-			cout << "right down";
-		}
-		else if(value == SDL_HAT_DOWN)
-		{
-			cout << "down";
-		}
-		else if(value == SDL_HAT_LEFTDOWN)
-		{
-			cout << "left down";
-		}
-		else if(value == SDL_HAT_LEFT)
-		{
-			cout << "left";
-		}
-		else if(value == SDL_HAT_LEFTUP)
-		{
-			cout << "left up";
-		}
-		cout << endl;
+		[status setStatus:STATUS_WAITING];
 	}
-	else if(event.type == SDL_JOYBUTTONDOWN)
+}
+
+void Joystick::run()
+{
+	while(1)
 	{
-		printf("Button %d pressed for joystick %d\n",event.jbutton.button,event.jbutton.which);
+		SDL_Event event;
+		while(SDL_PollEvent(&event))
+		{
+			/*switch(event.type)
+			 { 
+			 case SDL_KEYDOWN:         
+			 out<<"Oh! Key press\n";
+			 break;
+			 case SDL_MOUSEMOTION: 
+			 out<<"Mouse Motion\n";
+			 break;
+			 case SDL_QUIT:
+			 i=-1;
+			 break;
+			 default:
+			 out<<"I don't know what this event is!\n";
+			 }*/
+			if(event.type==SDL_JOYAXISMOTION || event.type==SDL_JOYHATMOTION || event.type==SDL_JOYBUTTONUP || event.type==SDL_JOYBALLMOTION || event.type==SDL_JOYBUTTONDOWN)
+			{
+				handleJoystickEvent(event);
+			}
+		}
+		sleep(0.05);
 	}
-	else if(event.type == SDL_JOYBUTTONUP)
-	{
-		printf("Button %d released for joystick %d\n",event.jbutton.button,event.jbutton.which);
-	}
-}*/
+}

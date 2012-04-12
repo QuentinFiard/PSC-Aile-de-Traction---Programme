@@ -12,6 +12,7 @@
 #import "SidebarNode.h"
 
 #import "Moteur3D.h"
+#import "Joystick.h"
 
 #import "StatusController.h"
 
@@ -28,7 +29,6 @@
 
 -(id)init
 {
-		
 	return self;
 }
 
@@ -54,11 +54,18 @@
 	[statusController view]; // Creating the view and placing it on screen
 }
 
+-(void)prepareJoystick
+{
+	Joystick::prepareJoystick();
+}
+
 -(void)awakeFromNib
 {
 	[self testVideo];
 	
 	[self initializeStatusController];
+	
+	[self performSelectorOnMainThread:@selector(prepareJoystick) withObject:nil waitUntilDone:NO];
 }
 
 -(void)setWindow:(NSWindow *)aWindow
