@@ -56,11 +56,7 @@ protected:
 private:
 	Sensor sensorNumber_;
 	
-	GrandeurCapteur grandeur;
-	
 	AngleAbsolu* lastValue_;
-	
-	boost::posix_time::ptime* lastAcquisition_;
 	
 	ArrowView* view;
 	

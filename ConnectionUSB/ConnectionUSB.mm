@@ -413,7 +413,7 @@ AngleAbsolu* ConnectionUSB::readPositionFromSensor(Sensor sensor, const AngleAbs
 		std::cout << "Erreur de capteur !" << std::endl;
 	}*/
 	
-	//std::cout << "Angle : " << status.position << std::endl;
+	std::cout << data.position << std::endl;
 	
 	/*SensorStatus test = res.lastStatus[NUM_READ-1];
 	test.position = (sensorData.lastAngle[2]->angle()*MAX_SENSOR_ANGLE)/(2*M_PI);
