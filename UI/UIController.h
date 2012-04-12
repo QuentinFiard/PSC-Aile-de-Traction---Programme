@@ -35,10 +35,14 @@
 
 @property (retain,nonatomic) StatusController* statusController;
 
++(UIController*)controller;
+
 -(void)changeView:(id)sender;
 
 -(void)windowWillClose;
 
 -(IBAction)toggleRecording:(id)sender;
+
+-(void)prepareJoystick;
 
 @end

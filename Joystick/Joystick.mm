@@ -75,8 +75,6 @@ void Joystick::prepareJoystick_()
 		{
 			[status setStatus:STATUS_OK];
 		}
-		
-		run();
 	}
 	else
 	{
@@ -216,32 +214,38 @@ void Joystick::setStatus_(JoystickStatus* statusNew)
 	}
 }
 
-void Joystick::run()
+void Joystick::update()
 {
-	while(1)
+	SDL_Event event;
+	while(SDL_PollEvent(&event))
 	{
-		SDL_Event event;
-		while(SDL_PollEvent(&event))
+		/*switch(event.type)
+		 { 
+		 case SDL_KEYDOWN:         
+		 out<<"Oh! Key press\n";
+		 break;
+		 case SDL_MOUSEMOTION: 
+		 out<<"Mouse Motion\n";
+		 break;
+		 case SDL_QUIT:
+		 i=-1;
+		 break;
+		 default:
+		 out<<"I don't know what this event is!\n";
+		 }*/
+		if(event.type==SDL_JOYAXISMOTION || event.type==SDL_JOYHATMOTION || event.type==SDL_JOYBUTTONUP || event.type==SDL_JOYBALLMOTION || event.type==SDL_JOYBUTTONDOWN)
 		{
-			/*switch(event.type)
-			 { 
-			 case SDL_KEYDOWN:         
-			 out<<"Oh! Key press\n";
-			 break;
-			 case SDL_MOUSEMOTION: 
-			 out<<"Mouse Motion\n";
-			 break;
-			 case SDL_QUIT:
-			 i=-1;
-			 break;
-			 default:
-			 out<<"I don't know what this event is!\n";
-			 }*/
-			if(event.type==SDL_JOYAXISMOTION || event.type==SDL_JOYHATMOTION || event.type==SDL_JOYBUTTONUP || event.type==SDL_JOYBALLMOTION || event.type==SDL_JOYBUTTONDOWN)
-			{
-				handleJoystickEvent(event);
-			}
+			shared()->handleJoystickEvent(event);
 		}
-		sleep(0.05);
 	}
+}
+
+bool Joystick::isConnected()
+{
+	return shared()->isConnected_();
+}
+
+bool Joystick::isConnected_()
+{
+	return (joystick != NULL);
 }

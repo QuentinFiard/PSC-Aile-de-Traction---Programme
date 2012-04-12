@@ -29,9 +29,7 @@ protected:
 	void setStatus_(JoystickStatus* status);
 	void prepareJoystick_();
 	
-	void handleJoystickEvent(SDL_Event& event);
-	
-	void run();
+	bool isConnected_();
 	
 public:
 	
@@ -39,6 +37,12 @@ public:
 	
 	static Joystick* shared();
 	static void setStatus(JoystickStatus* status);
+	
+	static void update();
+	
+	static bool isConnected();
+	
+	void handleJoystickEvent(SDL_Event& event);
 };
 
 #endif

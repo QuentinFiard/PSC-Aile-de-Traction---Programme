@@ -12,6 +12,7 @@
 #import "UIController.h"
 #import "CameraStatus.h"
 #import "ConnectionUSBStatus.h"
+#import "JoystickStatus.h"
 
 @implementation StatusController
 
@@ -53,6 +54,8 @@
 	[self insertObject:[CameraStatus shared] inStatusArrayAtIndex:0];
 	
 	[self insertObject:[ConnectionUSBStatus shared] inStatusArrayAtIndex:1];
+	
+	[self insertObject:[JoystickStatus shared] inStatusArrayAtIndex:1];
 }
 
 -(void)dealloc

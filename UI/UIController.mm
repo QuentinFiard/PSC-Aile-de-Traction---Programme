@@ -20,6 +20,8 @@
 
 #import "Recorder.h"
 
+static UIController* shared;
+
 @implementation UIController
 
 @dynamic window;
@@ -29,6 +31,11 @@
 
 -(id)init
 {
+	self = [super init];
+	if(self)
+	{
+		shared = self;
+	}
 	return self;
 }
 
@@ -40,6 +47,11 @@
 	{
 		NSLog(@"%@ %@",[[devices objectAtIndex:i] modelUniqueID],[[devices objectAtIndex:i] deviceAttributes]);
 	}
+}
+
++(UIController*)controller
+{
+	return shared;
 }
 
 -(void)initializeStatusController
@@ -54,9 +66,21 @@
 	[statusController view]; // Creating the view and placing it on screen
 }
 
+-(void)updateJoystick
+{
+	Joystick::update();
+	
+	[self performSelector:@selector(updateJoystick) withObject:nil afterDelay:0.05];
+}
+
 -(void)prepareJoystick
 {
 	Joystick::prepareJoystick();
+	
+	if(Joystick::isConnected())
+	{
+		[self updateJoystick];
+	}
 }
 
 -(void)awakeFromNib
@@ -65,7 +89,7 @@
 	
 	[self initializeStatusController];
 	
-	[self performSelectorOnMainThread:@selector(prepareJoystick) withObject:nil waitUntilDone:NO];
+	[self prepareJoystick];
 }
 
 -(void)setWindow:(NSWindow *)aWindow

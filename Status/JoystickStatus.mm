@@ -8,6 +8,7 @@
 
 #import "JoystickStatus.h"
 #import "Joystick.h"
+#import "UIController.h"
 
 static JoystickStatus* shared;
 
@@ -33,14 +34,9 @@ static JoystickStatus* shared;
 	return self;
 }
 
--(void)prepareJoystick
-{
-	Joystick::prepareJoystick();
-}
-
 -(IBAction)retry:(id)sender
 {
-	[self performSelectorOnMainThread:@selector(prepareJoystick) withObject:nil waitUntilDone:NO];
+	[[UIController controller] prepareJoystick];
 }
 
 @end
