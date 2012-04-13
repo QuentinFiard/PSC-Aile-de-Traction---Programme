@@ -139,11 +139,11 @@ bool CapteurAngulaire::update()
 				double offset = abs(*lastValue_- *newValue);
 				time_duration duration = currentDate - lastDate;
 				double time =  static_cast<double>(duration.ticks())/1000000;
-				if(offset/time>MAX_SPEED)
+				/*if(offset/time>MAX_SPEED)
 				{
 					delete newValue;
 					return true;
-				}
+				}*/
 			}
 			
 			if(lastValue_)

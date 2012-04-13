@@ -59,10 +59,9 @@
 	if(capteur!=NULL)
 	{
 		capteur->update();
-		std::cout << "Angle : " << capteur->lastValue()->angle() << std::endl;
 	}
 	
-	[self performSelector:@selector(update) withObject:nil afterDelay:0.005];
+	[self performSelector:@selector(update) withObject:nil afterDelay:0.01];
 }
 
 -(void)awakeFromNib
