@@ -6,15 +6,19 @@
 //  Copyright (c) 2012 École Polytechnique. All rights reserved.
 //
 
+#ifndef __WebcamCalibrationController__
+#define __WebcamCalibrationController__
+
 #import <Cocoa/Cocoa.h>
 #import <QTKit/QTKit.h>
-#import "CalibrationCamera.h"
+
+class CalibrationCamera;
 
 @class AutoUpdatePopUpButton;
 
 @interface WebcamCalibrationController : NSViewController
 {
-	CalibrationCamera calibration;
+	CalibrationCamera* calibration;
 	
 	IBOutlet NSTextField* nbLignes;
 	IBOutlet NSTextField* nbColonnes;
@@ -54,20 +58,8 @@
 -(IBAction)chooseCamera:(id)sender;
 -(void)updateCameraList:(id)sender;
 
-@end
-
-@interface AutoUpdatePopUpButton : NSPopUpButton
-{
-	IBOutlet WebcamCalibrationController* controller;
-}
+-(void)updateCalibrationStatus;
 
 @end
 
-@implementation AutoUpdatePopUpButton
-
-- (void)mouseDown:(NSEvent *)theEvent {
-    [controller updateCameraList:self];
-	[super mouseDown:theEvent];	
-}
-
-@end
+#endif

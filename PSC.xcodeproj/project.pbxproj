@@ -37,13 +37,24 @@
 		83520B86151624B900B544B3 /* Camera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83520B85151624B900B544B3 /* Camera.mm */; };
 		8376E09714D590D900ABECEA /* WebcamCalibrationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8376E09514D590D900ABECEA /* WebcamCalibrationController.mm */; };
 		8376E09814D590D900ABECEA /* WebcamCalibrationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8376E09614D590D900ABECEA /* WebcamCalibrationController.xib */; };
-		8376E09C14D5918800ABECEA /* CalibrationCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8376E09B14D5918800ABECEA /* CalibrationCamera.cpp */; };
+		8376E09C14D5918800ABECEA /* CalibrationCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8376E09B14D5918800ABECEA /* CalibrationCamera.mm */; };
 		8376E09F14D5943900ABECEA /* libopencv_core.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E09E14D5943900ABECEA /* libopencv_core.dylib */; };
 		8376E0A314D5A21100ABECEA /* libopencv_calib3d.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E0A014D5A21100ABECEA /* libopencv_calib3d.dylib */; };
 		8376E0A414D5A21100ABECEA /* libopencv_highgui.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E0A114D5A21100ABECEA /* libopencv_highgui.dylib */; };
 		8376E0A514D5A21100ABECEA /* libopencv_imgproc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8376E0A214D5A21100ABECEA /* libopencv_imgproc.dylib */; };
 		837D29F415014DF000221B7A /* Position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 837D29F315014DF000221B7A /* Position.cpp */; };
 		837D55DE14CCC612002CD3DA /* OgreDemoApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6EB714CC99DA002396A5 /* OgreDemoApp.mm */; };
+		837E030C1543257500757B07 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 837E03051543257500757B07 /* libavcodec.a */; };
+		837E030D1543257500757B07 /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 837E03061543257500757B07 /* libavdevice.a */; };
+		837E030E1543257500757B07 /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 837E03071543257500757B07 /* libavfilter.a */; };
+		837E030F1543257500757B07 /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 837E03081543257500757B07 /* libavformat.a */; };
+		837E03101543257500757B07 /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 837E03091543257500757B07 /* libavutil.a */; };
+		837E03111543257500757B07 /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 837E030A1543257500757B07 /* libswresample.a */; };
+		837E03121543257500757B07 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 837E030B1543257500757B07 /* libswscale.a */; };
+		837E03141543261B00757B07 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 837E03131543261B00757B07 /* libz.dylib */; };
+		837E03161543266600757B07 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 837E03151543266600757B07 /* CoreVideo.framework */; };
+		837E03181543266E00757B07 /* VideoDecodeAcceleration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 837E03171543266E00757B07 /* VideoDecodeAcceleration.framework */; };
+		837E031A1543268700757B07 /* libbz2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 837E03191543268700757B07 /* libbz2.dylib */; };
 		83A27C4014E9388200B60BFC /* SourceForDisplay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83A27C3F14E9388200B60BFC /* SourceForDisplay.mm */; };
 		83A27C4314E938A300B60BFC /* RecordForDisplay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83A27C4214E938A300B60BFC /* RecordForDisplay.mm */; };
 		83A388B114CD8FB6009D7636 /* sidebarContent.xml in Resources */ = {isa = PBXBuildFile; fileRef = 83A388B014CD8FB6009D7636 /* sidebarContent.xml */; };
@@ -51,6 +62,7 @@
 		83AA3A2014E6456B00C39446 /* psc.database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 83AA3A1F14E6456B00C39446 /* psc.database.sqlite */; };
 		83AA3A2214E645C700C39446 /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83AA3A2114E645C700C39446 /* Database.cpp */; };
 		83AA3A2514E6462E00C39446 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AA3A2414E6462E00C39446 /* libsqlite3.dylib */; };
+		83AE276D15408A0400DD1D72 /* AutoUpdatePopUpButton.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83AE276C15408A0400DD1D72 /* AutoUpdatePopUpButton.mm */; };
 		83B56FB614EAC831002AA428 /* CreateFieldController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B56FB514EAC831002AA428 /* CreateFieldController.mm */; };
 		83B56FBA14EAC844002AA428 /* EditFieldSingleValue.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B56FB914EAC844002AA428 /* EditFieldSingleValue.mm */; };
 		83B56FBD14EAC857002AA428 /* EditFieldMatrix.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83B56FBC14EAC857002AA428 /* EditFieldMatrix.mm */; };
@@ -128,7 +140,7 @@
 		83BC6EEA14CC9B47002396A5 /* SDL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83BC6ED714CC9AD4002396A5 /* SDL.framework */; };
 		83D5E4DE15209DDE00F8DE4B /* Status.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83D5E4DD15209DDE00F8DE4B /* Status.mm */; };
 		83D5E4E115209E5800F8DE4B /* SensorView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83D5E4E015209E5800F8DE4B /* SensorView.mm */; };
-		83E12EE415330B2A00F5CB19 /* Recorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83E12EE315330B2A00F5CB19 /* Recorder.cpp */; };
+		83E12EE415330B2A00F5CB19 /* Recorder.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83E12EE315330B2A00F5CB19 /* Recorder.mm */; };
 		83F586AD14CDA94200DA0F60 /* SimulationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83F586AB14CDA94200DA0F60 /* SimulationController.mm */; };
 		83F586AE14CDA94200DA0F60 /* SimulationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F586AC14CDA94200DA0F60 /* SimulationController.xib */; };
 		83F586B214CDB09D00DA0F60 /* WebcamController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F586B014CDB09D00DA0F60 /* WebcamController.m */; };
@@ -243,13 +255,24 @@
 		8376E09414D590D900ABECEA /* WebcamCalibrationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebcamCalibrationController.h; sourceTree = "<group>"; };
 		8376E09514D590D900ABECEA /* WebcamCalibrationController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WebcamCalibrationController.mm; sourceTree = "<group>"; };
 		8376E09614D590D900ABECEA /* WebcamCalibrationController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebcamCalibrationController.xib; sourceTree = "<group>"; };
-		8376E09B14D5918800ABECEA /* CalibrationCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CalibrationCamera.cpp; path = TraitementVideo/CalibrationCamera.cpp; sourceTree = "<group>"; };
+		8376E09B14D5918800ABECEA /* CalibrationCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CalibrationCamera.mm; path = TraitementVideo/CalibrationCamera.mm; sourceTree = "<group>"; };
 		8376E09D14D5919900ABECEA /* CalibrationCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = CalibrationCamera.h; path = TraitementVideo/CalibrationCamera.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		8376E09E14D5943900ABECEA /* libopencv_core.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.dylib; path = usr/local/lib/libopencv_core.dylib; sourceTree = SDKROOT; };
 		8376E0A014D5A21100ABECEA /* libopencv_calib3d.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_calib3d.dylib; path = usr/local/lib/libopencv_calib3d.dylib; sourceTree = SDKROOT; };
 		8376E0A114D5A21100ABECEA /* libopencv_highgui.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_highgui.dylib; path = usr/local/lib/libopencv_highgui.dylib; sourceTree = SDKROOT; };
 		8376E0A214D5A21100ABECEA /* libopencv_imgproc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_imgproc.dylib; path = usr/local/lib/libopencv_imgproc.dylib; sourceTree = SDKROOT; };
 		837D29F315014DF000221B7A /* Position.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Position.cpp; sourceTree = "<group>"; };
+		837E03051543257500757B07 /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavcodec.a; path = /usr/local/lib/ffmpeg/libavcodec.a; sourceTree = "<absolute>"; };
+		837E03061543257500757B07 /* libavdevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavdevice.a; path = /usr/local/lib/ffmpeg/libavdevice.a; sourceTree = "<absolute>"; };
+		837E03071543257500757B07 /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavfilter.a; path = /usr/local/lib/ffmpeg/libavfilter.a; sourceTree = "<absolute>"; };
+		837E03081543257500757B07 /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavformat.a; path = /usr/local/lib/ffmpeg/libavformat.a; sourceTree = "<absolute>"; };
+		837E03091543257500757B07 /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavutil.a; path = /usr/local/lib/ffmpeg/libavutil.a; sourceTree = "<absolute>"; };
+		837E030A1543257500757B07 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswresample.a; path = /usr/local/lib/ffmpeg/libswresample.a; sourceTree = "<absolute>"; };
+		837E030B1543257500757B07 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswscale.a; path = /usr/local/lib/ffmpeg/libswscale.a; sourceTree = "<absolute>"; };
+		837E03131543261B00757B07 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		837E03151543266600757B07 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		837E03171543266E00757B07 /* VideoDecodeAcceleration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoDecodeAcceleration.framework; path = System/Library/Frameworks/VideoDecodeAcceleration.framework; sourceTree = SDKROOT; };
+		837E03191543268700757B07 /* libbz2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libbz2.dylib; path = usr/lib/libbz2.dylib; sourceTree = SDKROOT; };
 		83867FFE15058A8B0004ED08 /* VectorTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorTemplate.h; sourceTree = "<group>"; };
 		8399ED1A14ED779F00AAB062 /* MatriceTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatriceTemplate.h; sourceTree = "<group>"; };
 		83A27C3E14E9388200B60BFC /* SourceForDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceForDisplay.h; sourceTree = "<group>"; };
@@ -261,6 +284,8 @@
 		83AA3A2114E645C700C39446 /* Database.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = Database.cpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		83AA3A2314E645D300C39446 /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Database.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		83AA3A2414E6462E00C39446 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		83AE276B15408A0400DD1D72 /* AutoUpdatePopUpButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoUpdatePopUpButton.h; sourceTree = "<group>"; };
+		83AE276C15408A0400DD1D72 /* AutoUpdatePopUpButton.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AutoUpdatePopUpButton.mm; sourceTree = "<group>"; };
 		83B56FB414EAC831002AA428 /* CreateFieldController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateFieldController.h; sourceTree = "<group>"; };
 		83B56FB514EAC831002AA428 /* CreateFieldController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CreateFieldController.mm; sourceTree = "<group>"; };
 		83B56FB814EAC844002AA428 /* EditFieldSingleValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditFieldSingleValue.h; sourceTree = "<group>"; };
@@ -389,7 +414,7 @@
 		83D5E4DD15209DDE00F8DE4B /* Status.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Status.mm; path = Status/Status.mm; sourceTree = "<group>"; };
 		83D5E4DF15209E5800F8DE4B /* SensorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorView.h; sourceTree = "<group>"; };
 		83D5E4E015209E5800F8DE4B /* SensorView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SensorView.mm; sourceTree = "<group>"; };
-		83E12EE315330B2A00F5CB19 /* Recorder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Recorder.cpp; sourceTree = "<group>"; };
+		83E12EE315330B2A00F5CB19 /* Recorder.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Recorder.mm; sourceTree = "<group>"; };
 		83E12EE615330B3700F5CB19 /* Recorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recorder.h; sourceTree = "<group>"; };
 		83F586AA14CDA94200DA0F60 /* SimulationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationController.h; sourceTree = "<group>"; };
 		83F586AB14CDA94200DA0F60 /* SimulationController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SimulationController.mm; sourceTree = "<group>"; };
@@ -430,6 +455,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				837E031A1543268700757B07 /* libbz2.dylib in Frameworks */,
+				837E03181543266E00757B07 /* VideoDecodeAcceleration.framework in Frameworks */,
+				837E03161543266600757B07 /* CoreVideo.framework in Frameworks */,
+				837E03141543261B00757B07 /* libz.dylib in Frameworks */,
+				837E030C1543257500757B07 /* libavcodec.a in Frameworks */,
+				837E030D1543257500757B07 /* libavdevice.a in Frameworks */,
+				837E030E1543257500757B07 /* libavfilter.a in Frameworks */,
+				837E030F1543257500757B07 /* libavformat.a in Frameworks */,
+				837E03101543257500757B07 /* libavutil.a in Frameworks */,
+				837E03111543257500757B07 /* libswresample.a in Frameworks */,
+				837E03121543257500757B07 /* libswscale.a in Frameworks */,
 				83025BD514E542060017F4E3 /* libacado.a in Frameworks */,
 				83025BD614E542060017F4E3 /* libcsparse.a in Frameworks */,
 				83025BD714E542060017F4E3 /* libgnuplot.a in Frameworks */,
@@ -500,7 +536,7 @@
 				83F65BE514DA2769006B7C60 /* NSImage+CIImage.h */,
 				83F65BE614DA2769006B7C60 /* NSImage+CIImage.m */,
 				8376E09D14D5919900ABECEA /* CalibrationCamera.h */,
-				8376E09B14D5918800ABECEA /* CalibrationCamera.cpp */,
+				8376E09B14D5918800ABECEA /* CalibrationCamera.mm */,
 				83F65BE214DA1C60006B7C60 /* NSImage_OpenCV.h */,
 				83F65BE314DA1C60006B7C60 /* NSImage_OpenCV.mm */,
 				83520B84151624AA00B544B3 /* Camera.h */,
@@ -538,6 +574,24 @@
 				83867FFE15058A8B0004ED08 /* VectorTemplate.h */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		83AE277C1541959500DD1D72 /* ffmpeg */ = {
+			isa = PBXGroup;
+			children = (
+				837E03191543268700757B07 /* libbz2.dylib */,
+				837E03171543266E00757B07 /* VideoDecodeAcceleration.framework */,
+				837E03151543266600757B07 /* CoreVideo.framework */,
+				837E03131543261B00757B07 /* libz.dylib */,
+				837E03051543257500757B07 /* libavcodec.a */,
+				837E03061543257500757B07 /* libavdevice.a */,
+				837E03071543257500757B07 /* libavfilter.a */,
+				837E03081543257500757B07 /* libavformat.a */,
+				837E03091543257500757B07 /* libavutil.a */,
+				837E030A1543257500757B07 /* libswresample.a */,
+				837E030B1543257500757B07 /* libswscale.a */,
+			);
+			name = ffmpeg;
 			sourceTree = "<group>";
 		};
 		83B601D414CD83C60022569F /* Sidebar */ = {
@@ -601,7 +655,7 @@
 			isa = PBXGroup;
 			children = (
 				83E12EE615330B3700F5CB19 /* Recorder.h */,
-				83E12EE315330B2A00F5CB19 /* Recorder.cpp */,
+				83E12EE315330B2A00F5CB19 /* Recorder.mm */,
 				83B86A68151BED04009C9174 /* Resources */,
 				83BAF05614E7A832000880F0 /* Utilities */,
 				83AA3A1D14E6454000C39446 /* Database */,
@@ -635,6 +689,7 @@
 		83BC6E2E14CC98AF002396A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				83AE277C1541959500DD1D72 /* ffmpeg */,
 				83025BDA14E542140017F4E3 /* ACADO */,
 				8351BC3F14E6D8E5005C058D /* libboost_date_time-xgcc42-mt-1_48.dylib */,
 				83AA3A2414E6462E00C39446 /* libsqlite3.dylib */,
@@ -815,6 +870,8 @@
 				831DA7BD1515F48400CEE045 /* ConnectionUSBController.h */,
 				831DA7BE1515F48400CEE045 /* ConnectionUSBController.mm */,
 				831DA7BF1515F48400CEE045 /* ConnectionUSBController.xib */,
+				83AE276B15408A0400DD1D72 /* AutoUpdatePopUpButton.h */,
+				83AE276C15408A0400DD1D72 /* AutoUpdatePopUpButton.mm */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -1092,7 +1149,7 @@
 				83F586B714CDB0B100DA0F60 /* ComparaisonController.m in Sources */,
 				83F586CF14CDE69900DA0F60 /* StatusController.mm in Sources */,
 				8376E09714D590D900ABECEA /* WebcamCalibrationController.mm in Sources */,
-				8376E09C14D5918800ABECEA /* CalibrationCamera.cpp in Sources */,
+				8376E09C14D5918800ABECEA /* CalibrationCamera.mm in Sources */,
 				83F65BE414DA1C60006B7C60 /* NSImage_OpenCV.mm in Sources */,
 				83F65BE714DA2769006B7C60 /* NSImage+CIImage.m in Sources */,
 				83F65BEA14DA288F006B7C60 /* NSBitmapImageRep+Extras.m in Sources */,
@@ -1129,8 +1186,9 @@
 				83B86A74151BF2B3009C9174 /* ArrowView.m in Sources */,
 				83D5E4DE15209DDE00F8DE4B /* Status.mm in Sources */,
 				83D5E4E115209E5800F8DE4B /* SensorView.mm in Sources */,
-				83E12EE415330B2A00F5CB19 /* Recorder.cpp in Sources */,
+				83E12EE415330B2A00F5CB19 /* Recorder.mm in Sources */,
 				83F6CCEB1535EDD6009A08F5 /* JoystickStatus.mm in Sources */,
+				83AE276D15408A0400DD1D72 /* AutoUpdatePopUpButton.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1245,12 +1303,21 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PSC/PSC-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					"\"/Library/OgreSDK//include/OGRE\"",
+					"\"/Library/OgreSDK//include/OGRE/OSX\"",
+					"\"/Library/OgreSDK//include/OIS\"",
+					"\"/Library/OgreSDK//Dependencies/include\"",
+					/usr/local/include/boost/,
+					/usr/local/include/ffmpeg,
+				);
 				INFOPLIST_FILE = "PSC/PSC-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"/usr/local/lib/**",
 					"$(inherited)",
 					"\"$(LOCAL_LIBRARY_DIR)/OgreSDK/lib\"",
 					/usr/local/lib/acado,
+					/usr/local/lib/ffmpeg,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1267,12 +1334,21 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PSC/PSC-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = (
+					"\"/Library/OgreSDK//include/OGRE\"",
+					"\"/Library/OgreSDK//include/OGRE/OSX\"",
+					"\"/Library/OgreSDK//include/OIS\"",
+					"\"/Library/OgreSDK//Dependencies/include\"",
+					/usr/local/include/boost/,
+					/usr/local/include/ffmpeg,
+				);
 				INFOPLIST_FILE = "PSC/PSC-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"/usr/local/lib/**",
 					"$(inherited)",
 					"\"$(LOCAL_LIBRARY_DIR)/OgreSDK/lib\"",
 					/usr/local/lib/acado,
+					/usr/local/lib/ffmpeg,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

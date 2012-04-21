@@ -8,6 +8,8 @@
 
 #include "Recorder.h"
 
+#include "Camera.h"
+
 using namespace boost::posix_time;
 using namespace boost::gregorian;
 
@@ -46,6 +48,7 @@ void Recorder::startRecording_()
 {
 	currentRecord = new Record(microsec_clock::local_time());
 	currentRecord->save();
+	Camera::startTracking();
 }
 
 void Recorder::stopRecording()
@@ -57,6 +60,7 @@ void Recorder::stopRecording_()
 {
 	delete currentRecord;
 	currentRecord = NULL;
+	Camera::stopTracking();
 }
 
 Record* Recorder::record()

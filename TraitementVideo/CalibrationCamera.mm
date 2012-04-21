@@ -6,18 +6,22 @@
 //  Copyright (c) 2012 École Polytechnique. All rights reserved.
 //
 
-#include "CalibrationCamera.h"
 #include <opencv2/calib3d/calib3d.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
+
+#include "CalibrationCamera.h"
 
 #include "Database.h"
 #include "NumericValue.h"
 #include "MatriceTemplate.h"
 
-CalibrationCamera::CalibrationCamera()
+#import "WebcamCalibrationController.h"
+
+CalibrationCamera::CalibrationCamera(WebcamCalibrationController* aController)
 {
 	parametresIntrinseques_ = NULL;
+	uicontroller = aController;
 }
 
 void CalibrationCamera::setEchiquier(Echiquier echiquierNouveau)
@@ -84,6 +88,8 @@ bool CalibrationCamera::analyserImageAvecEchiquier(cv::Mat image)
 	{
 		imagesAnalyses.push_back(imageNoirEtBlanc);
 	}
+	
+	[uicontroller updateCalibrationStatus];
 	
 	return found;
 }

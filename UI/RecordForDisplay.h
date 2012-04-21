@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 École Polytechnique. All rights reserved.
 //
 
+#import <Cocoa/Cocoa.h>
+
 #import "Record.h"
 
 @interface RecordForDisplay : NSObject

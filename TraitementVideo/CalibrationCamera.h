@@ -11,7 +11,11 @@
 
 #include <opencv2/core/core.hpp>
 
+#import <Cocoa/Cocoa.h>
+
 #include "Matrice.h"
+
+@class WebcamCalibrationController;
 
 struct Echiquier
 {
@@ -25,7 +29,7 @@ class CalibrationCamera
 {
 	
 public:
-	CalibrationCamera();
+	CalibrationCamera(WebcamCalibrationController* controller);
 	
 	// Renvoie true si un échiquier a été détecté dans l'image, et s'il a été analysé avec succès.
 	bool analyserImageAvecEchiquier(cv::Mat image);
@@ -55,6 +59,8 @@ private:
 	
 	Echiquier echiquier;
 	cv::Size tailleEchiquier;
+	
+	WebcamCalibrationController* uicontroller;
 };
 
 #endif

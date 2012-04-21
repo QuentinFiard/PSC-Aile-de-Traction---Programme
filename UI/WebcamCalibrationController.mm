@@ -7,6 +7,7 @@
 //
 
 #import "WebcamCalibrationController.h"
+#import "AutoUpdatePopUpButton.h"
 #include "Matrice.h"
 
 #import "NSImage+CIImage.h"
@@ -18,6 +19,7 @@
 #include "Status.h"
 
 #include "Camera.h"
+#import "CalibrationCamera.h"
 
 @implementation WebcamCalibrationController
 
@@ -25,7 +27,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-		
+		calibration = new CalibrationCamera(self);
     }
     
     return self;
@@ -42,11 +44,25 @@
 	
 	[cameraChoice addItemWithTitle:@"Choix de la caméra"];
 	
+	NSString* cameraID = nil;
+	
+	if(Database::hasConfigurationField("CameraID"))
+	{
+		cameraID = [NSString stringWithUTF8String:Database::getConfigurationFieldValue<std::string>("CameraID").c_str()];
+	}
+	
+	[cameraChoice selectItemAtIndex:0];
+	
 	NSArray* devices = [QTCaptureDevice inputDevicesWithMediaType:QTMediaTypeVideo];
 	
 	for(int i=0 ; i<devices.count ; i++)
 	{
 		[cameraChoice addItemWithTitle:[[devices objectAtIndex:i] localizedDisplayName]];
+		
+		if(cameraID && [cameraID isEqualToString:[(QTCaptureDevice*)[devices objectAtIndex:i] uniqueID]])
+		{
+			[cameraChoice selectItemAtIndex:i+1];
+		}
 	}
 }
 
@@ -62,6 +78,7 @@
 -(void)dealloc
 {
 	Camera::removeFromView(cameraView);
+	delete calibration;
 	[super dealloc];
 }
 
@@ -73,7 +90,7 @@
 		
 		[next setEnabled:NO];
 		
-		if(calibration.nbImagesTraitees()>1)
+		if(calibration->nbImagesTraitees()>1)
 		{
 			[previous setEnabled:YES];
 		}
@@ -84,7 +101,7 @@
 		[next setEnabled:NO];
 		[previous setEnabled:NO];
 		
-		if(calibration.nbImagesTraitees()==0)
+		if(calibration->nbImagesTraitees()==0)
 		{
 			[sender setEnabled:NO];
 		}
@@ -101,7 +118,7 @@
 		[cameraView setHidden:YES];
 		[imageAnalyse setHidden:NO];
 		
-		[self afficherAnalyse:calibration.nbImagesTraitees()-1];
+		[self afficherAnalyse:calibration->nbImagesTraitees()-1];
 	}
 	else
 	{
@@ -113,7 +130,7 @@
 -(void)afficherAnalyse:(int)indice
 {
 	indiceAnalyse = indice;
-	[imageAnalyse setImage:[NSImage imageWithCVMat:calibration.imageAnalyse(indice)]];
+	[imageAnalyse setImage:[NSImage imageWithCVMat:calibration->imageAnalyse(indice)]];
 }
 
 -(IBAction)montrerAnalysePrecedente:(id)sender
@@ -131,7 +148,7 @@
 {
 	indiceAnalyse++;
 	[previous setEnabled:YES];
-	if(indiceAnalyse==calibration.nbImagesTraitees()-1)
+	if(indiceAnalyse==calibration->nbImagesTraitees()-1)
 	{
 		[next setEnabled:NO];
 	}
@@ -140,7 +157,7 @@
 
 -(IBAction)calculerCoefficientsIntrinseques:(id)sender
 {
-	Matrice camera = calibration.parametresIntrinseques();
+	Matrice camera = calibration->parametresIntrinseques();
 	
 	camera.afficher();
 	
@@ -153,7 +170,7 @@
 
 -(IBAction)reinitialiserCalibration:(id)sender
 {
-	calibration.reinitialiser();
+	calibration->reinitialiser();
 	
 	[nbImagesAnalysees setStringValue:@"0"];
 	[previous setEnabled:NO];
@@ -185,12 +202,12 @@
 	echiquier.nbColonnes = [nbColonnes intValue];
 	echiquier.dimension = [[dimension stringValue] doubleValue];
 	
-	Echiquier& courant = calibration.getEchiquier();
+	Echiquier& courant = calibration->getEchiquier();
 	
 	if(courant.nbLignes != echiquier.nbLignes || courant.nbColonnes != echiquier.nbColonnes || courant.dimension != echiquier.dimension)
 	{
 		[self reinitialiserCalibration:self];
-		calibration.setEchiquier(echiquier);
+		calibration->setEchiquier(echiquier);
 	}
 	
 	Camera::useCurrentImageForCalibration(calibration);
@@ -232,6 +249,27 @@
 	}
 	
 	[self loadSelectedWebcam];
+}
+
+-(void)updateCalibrationStatus
+{
+	if(isDisplayingCamera)
+	{
+		if(calibration->nbImagesTraitees()==0)
+		{
+			[affichage setEnabled:NO];
+		}
+		else
+		{
+			[affichage setEnabled:YES];
+		}
+	}
+	else
+	{
+		[next setEnabled:YES];
+	}
+	
+	[nbImagesAnalysees setIntValue:calibration->nbImagesTraitees()];
 }
 
 @end

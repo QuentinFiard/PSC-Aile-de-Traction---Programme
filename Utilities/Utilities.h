@@ -26,6 +26,8 @@ std::string prepareForCSV(std::string s);
 
 std::string pathToDatabase();
 
+std::string pathToVideosDirectory();
+
 std::string pathToLogFilesDirectory();
 
 void log(std::string logName, std::string description);

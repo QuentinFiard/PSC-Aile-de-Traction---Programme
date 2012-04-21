@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 École Polytechnique. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 enum STATUS
 {

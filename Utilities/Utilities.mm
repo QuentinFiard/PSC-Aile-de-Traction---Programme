@@ -156,6 +156,30 @@ std::string pathToDatabase()
 	return res;
 }
 
+std::string pathToVideosDirectory()
+{
+	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
+	
+	NSString* path = [applicationSupportDirectory() stringByAppendingString:@"/videos/"];
+	
+	if(![[NSFileManager defaultManager] fileExistsAtPath:path])
+	{
+		NSError* error;
+		[[NSFileManager defaultManager] createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:&error];
+		
+		if (error)
+		{
+			NSLog(@"Unable to find or create log files directory:\n%@", error);
+		}
+	}
+	
+	std::string res([path UTF8String]);
+	
+	[pool release];
+	
+	return res;
+}
+
 std::string pathToLogFilesDirectory()
 {
 	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
