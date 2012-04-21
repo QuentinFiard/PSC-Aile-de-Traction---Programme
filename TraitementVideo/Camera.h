@@ -83,9 +83,7 @@ protected:
 	void startTracking_();
 	void stopTracking_();
 	
-	void createVideoFileWithSize(int width,int height);
-	void saveImageInVideoFile(NSImage* image);
-	void stopRecordingMovie();
+	std::string imageNumber();
 	
 private:
 	QTCaptureDevice *camera;
@@ -100,26 +98,8 @@ private:
 	
 	CalibrationCamera* calibration;
 	
-	cv::VideoWriter* origin;
-	
 	bool isTracking;
-	
-// FFMpeg Structures
-	
-	AVCodecContext *codecContext;
-    AVStream *videoStream;
-    AVOutputFormat *outputFormat;
-    AVFormatContext *outputFormatContext;
-    AVFrame *videoFrame;
-    AVPicture inputRGBAFrame;
-	
-    uint8_t *pictureBuffer;
-    uint8_t *outputBuffer;
-    unsigned int outputBufferSize;
-    int frameColorCounter;
-	uint64_t movieStartTime;
-	
-    unsigned char *videoFrameToEncode;
+	uint64_t nbImages;
 };
 
 #endif
