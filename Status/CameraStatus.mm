@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 École Polytechnique. All rights reserved.
 //
 
-#import "CameraStatus.h"
 #import "Camera.h"
+#import "CameraStatus.h"
 
 static CameraStatus* shared;
 

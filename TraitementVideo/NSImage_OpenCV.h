@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 École Polytechnique. All rights reserved.
 //
 
-#import <AppKit/AppKit.h>
 #import <opencv2/core/core.hpp>
 #import <opencv2/core/operations.hpp>
+#import <AppKit/AppKit.h>
 
 @interface NSImage (NSImage_OpenCV)
 

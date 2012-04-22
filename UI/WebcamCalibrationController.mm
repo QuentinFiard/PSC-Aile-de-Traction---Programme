@@ -6,12 +6,12 @@
 //  Copyright (c) 2012 École Polytechnique. All rights reserved.
 //
 
+#import "NSImage_OpenCV.h"
+#import "NSImage+CIImage.h"
+
 #import "WebcamCalibrationController.h"
 #import "AutoUpdatePopUpButton.h"
 #include "Matrice.h"
-
-#import "NSImage+CIImage.h"
-#import "NSImage_OpenCV.h"
 
 #include "Database.h"
 #include "StringValue.h"

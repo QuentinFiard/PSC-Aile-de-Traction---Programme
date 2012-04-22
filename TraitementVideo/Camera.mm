@@ -7,6 +7,7 @@
 //
 
 #include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 
 #include "Camera.h"
 #include "Database.h"
@@ -72,19 +73,11 @@ Camera::Camera() : Capteur(CAPTEUR_CAMERA)
 	handler = [[ImageHandler alloc] init];
 	handler.camera = this;
 	
-	decompressedVideo = nil;
 	decompressedSession = nil;
 	camera = nil;
 	session = nil;
 	
-	
-	
-	//************************************
-	// FFMpeg recording
-	
-	
-	isTracking = false;
-	nbImages = 0;	
+	output = nil;
 	
 	calibration = NULL;
 	
@@ -177,10 +170,10 @@ void Camera::switchToSelectedCamera_()
 		[camera release];
 		camera = nil;
 	}
-	if(decompressedVideo)
+	if(output)
 	{
-		[decompressedVideo release];
-		decompressedVideo = nil;
+		[output release];
+		output = nil;
 	}
 	
 	if(Database::hasConfigurationField("CameraID"))
@@ -206,12 +199,11 @@ void Camera::switchToSelectedCamera_()
 			QTCaptureDeviceInput *myInput = [QTCaptureDeviceInput deviceInputWithDevice:camera];
 			QTCaptureDeviceInput *myInput2 = [QTCaptureDeviceInput deviceInputWithDevice:camera];
 			
-			decompressedVideo = [[QTCaptureDecompressedVideoOutput alloc] init];
+			output = [[QTCaptureMovieFileOutput alloc] init];
 			
 			/* Add inputs get the ball rolling etc */
 			[session addInput:myInput error:nil];
 			[decompressedSession addInput:myInput2 error:nil];
-			[decompressedSession addOutput:decompressedVideo error:nil];
 			
 			for(QTCaptureView* view in views)
 			{
@@ -219,6 +211,10 @@ void Camera::switchToSelectedCamera_()
 			}
 			
 			[decompressedSession addOutput:handler error:nil];
+			[decompressedSession addOutput:output error:nil];
+			
+			
+			[output setCompressionOptions:[QTCompressionOptions compressionOptionsWithIdentifier:@"QTCompressionOptionsSD480SizeH264Video"] forConnection:[[output connections] objectAtIndex:0]];
 			
 			/* Let the video madness begin */
 			[session startRunning];
@@ -254,7 +250,23 @@ void Camera::startTracking()
 void Camera::startTracking_()
 {
 	isTracking = true;
-	nbImages = 0;
+	
+	std::stringstream path;
+	
+	path << pathToVideosDirectory();
+	path << Recorder::record()->ID();
+	path << "_original";
+	path << ".mov";
+	
+	NSString* stringPath = [NSString stringWithUTF8String:path.str().c_str()];
+	
+	//NSLog(@"Writing video file %@",stringPath);
+	
+	NSURL* url = [NSURL fileURLWithPath:stringPath];
+	
+	//NSLog(@"Connection : %@",[output connections]);
+	
+	[output recordToOutputFileURL:url];
 }
 
 void Camera::stopTracking()
@@ -266,26 +278,7 @@ void Camera::stopTracking_()
 {
 	isTracking = false;
 	
-	if(nbImages>0)
-	{
-		
-	}
-}
-
-std::string Camera::imageNumber()
-{
-	std::string res = "";
-	uint64_t tmp = nbImages;
-	while(tmp!=0)
-	{
-		res = boost::lexical_cast<std::string>(tmp%10) + res;
-		tmp /= 10;
-	}
-	while(res.length() < 9)
-	{
-		res = "0" + res;
-	}
-	return res;
+	[output recordToOutputFileURL:nil];
 }
 
 void Camera::processImage(NSImage* image)
@@ -298,24 +291,6 @@ void Camera::processImage(NSImage* image)
 	}
 	if(isTracking)
 	{
-		nbImages++;
-		
-		cv::Mat cvImage = [image CVMat];
-		
-		std::stringstream path;
-		
-		path << pathToVideosDirectory();
-		path << Recorder::record()->ID();
-		path << "_original_";
-		path << imageNumber();
-		path << ".png";
-		
-		//std::cout << "Image path : " << path.str() << std::endl;
-		
-		//std::vector<int> params;
-		//params.push_back(CV_IMWRITE_JPEG_QUALITY);
-		//params.push_back(50);
-		cv::imwrite(path.str(), cvImage);//, params);
 		
 	}
 }

@@ -83,23 +83,19 @@ protected:
 	void startTracking_();
 	void stopTracking_();
 	
-	std::string imageNumber();
-	
 private:
 	QTCaptureDevice *camera;
-	
-	QTCaptureDecompressedVideoOutput* decompressedVideo;
 	QTCaptureSession *decompressedSession;
 	QTCaptureSession *session;
+	
+	QTCaptureMovieFileOutput* output;
+	BOOL isTracking;
 	
 	NSMutableArray* views;
 	
 	ImageHandler* handler;
 	
 	CalibrationCamera* calibration;
-	
-	bool isTracking;
-	uint64_t nbImages;
 };
 
 #endif
