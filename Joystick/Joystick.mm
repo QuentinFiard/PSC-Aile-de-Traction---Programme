@@ -17,9 +17,14 @@
 
 #include "JoystickStatus.h"
 
+#include "Recorder.h"
+#include "Source.h"
+#include "Donnee.h"
+
 #define ROTSPEED 0.03
 
 using namespace std;
+using namespace boost::posix_time;
 
 static Joystick* shared_;
 
@@ -32,9 +37,10 @@ Joystick* Joystick::shared()
 	return shared_;
 }
 
-Joystick::Joystick()
+Joystick::Joystick() : Capteur(CAPTEUR_JOYSTICK)
 {
 	status = nil;
+	output = NULL;
 }
 
 void Joystick::prepareJoystick()
@@ -107,7 +113,7 @@ void Joystick::handleJoystickEvent(SDL_Event& event)
 			
 			if(!Database::hasConfigurationField("MOTOR_SIGNAL_OFFSET_HIGH"))
 			{
-				NumericValue<double> toSave(0.05);
+				NumericValue<double> toSave(0.18);
 				Database::setConfigurationField("MOTOR_SIGNAL_OFFSET_HIGH",&toSave);
 			}
 			
@@ -126,6 +132,36 @@ void Joystick::handleJoystickEvent(SDL_Event& event)
 			if(ConnectionUSB::isConnected())
 			{
 				ConnectionUSB::setSignalForMotor(position,0);
+			}
+			
+			if(Recorder::isRecording())
+			{
+				ptime currentDate(microsec_clock::local_time());
+				
+				if(!lastAcquisition_)
+				{
+					lastAcquisition_ = new ptime(currentDate);
+				}
+				else
+				{
+					*lastAcquisition_ = currentDate;
+				}
+				
+				Record* r = Recorder::record();
+				
+				if(output == NULL || output->recordID() != r->ID())
+				{
+					if(output != NULL)
+					{
+						delete output;
+					}
+					
+					output = new Source< NumericValue<double> >(r,nomGrandeurMesuree(),1);
+					output->save();
+				}
+				NumericValue<double> data(position);
+				Donnee< NumericValue<double> > toSave(output,*lastAcquisition(),data);
+				toSave.save();
 			}
 		}
 		else if(event.jaxis.axis == 1)

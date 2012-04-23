@@ -39,7 +39,6 @@ static std::vector<CapteurAngulaire*> capteurs;
 CapteurAngulaire::CapteurAngulaire(GrandeurCapteur grandeur, Sensor sensor) : Capteur(grandeur), sensorNumber_(sensor)
 {
 	view = nil;
-	lastAcquisition_ = NULL;
 	lastValue_ = NULL;
 	output = NULL;
 }

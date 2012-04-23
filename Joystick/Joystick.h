@@ -12,11 +12,12 @@
 #import <Cocoa/Cocoa.h>
 #include <SDL/SDL.h>
 
-#include "Dynamixel.h"
+#include "Capteur.h"
+#include "Source.h"
 
 @class JoystickStatus;
 
-class Joystick
+class Joystick : public Capteur
 {
 private:
 	SDL_Joystick* joystick;
@@ -30,6 +31,8 @@ protected:
 	void prepareJoystick_();
 	
 	bool isConnected_();
+	
+	Source< NumericValue<double> >* output;
 	
 public:
 	

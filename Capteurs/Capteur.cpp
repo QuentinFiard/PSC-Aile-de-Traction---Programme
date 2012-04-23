@@ -21,7 +21,7 @@ GrandeurCapteur Capteur::grandeurMesuree()
 	return grandeur_;
 }
 
-Capteur::Capteur(GrandeurCapteur grandeur) : grandeur_(grandeur)
+Capteur::Capteur(GrandeurCapteur grandeur) : grandeur_(grandeur), lastAcquisition_(NULL)
 {
 	
 }
@@ -56,6 +56,10 @@ std::string Capteur::nomGrandeurMesuree()
 			
 		case CAPTEUR_CAMERA:
 			return "CAPTEUR_CAMERA";
+			break;
+			
+		case CAPTEUR_JOYSTICK:
+			return "CAPTEUR_JOYSTICK";
 			break;
 			
 		default:

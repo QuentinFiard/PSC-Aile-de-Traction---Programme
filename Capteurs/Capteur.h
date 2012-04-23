@@ -22,6 +22,7 @@ typedef enum
 	CAPTEUR_THETA			= 4,
 	CAPTEUR_PHI				= 5,
 	CAPTEUR_CAMERA			= 6,
+	CAPTEUR_JOYSTICK		= 7,
 } GrandeurCapteur;
 
 class Capteur
