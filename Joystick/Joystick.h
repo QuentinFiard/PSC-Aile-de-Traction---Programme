@@ -34,6 +34,12 @@ protected:
 	
 	Source< NumericValue<double> >* output;
 	
+	bool motorControl;
+	
+	bool isControllingMotor_();
+	
+	bool isActivated_();
+	
 public:
 	
 	static void prepareJoystick();
@@ -46,6 +52,10 @@ public:
 	static bool isConnected();
 	
 	void handleJoystickEvent(SDL_Event& event);
+	
+	static bool isControllingMotor();
+	
+	static bool isActivated();
 };
 
 #endif

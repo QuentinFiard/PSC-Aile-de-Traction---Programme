@@ -31,7 +31,7 @@ public:
 	
 	bool checkConnection();
 	
-	bool update();
+	virtual bool update();
 	
 	void setArrowView(ArrowView* view);
 	
@@ -43,7 +43,7 @@ public:
 	
 	void setGrandeurMesuree(GrandeurCapteur grandeur);
 	
-	void saveLastValue();
+	virtual void saveLastValue();
 	
 protected:
 	

@@ -42,15 +42,9 @@
 	IBOutlet NSButton* PIDSpeedConfirm;
 	IBOutlet NSButton* PIDSpeedCancel;
 	
-	IBOutlet NSTextField* PIDPeriod;
-	IBOutlet NSButton* PIDPeriodConfirm;
-	IBOutlet NSButton* PIDPeriodCancel;
-	
 	IBOutlet NSSegmentedControl* choixAsservissementControl;
 	IBOutlet NSButton* choixAsservissementConfirm;
 	IBOutlet NSButton* choixAsservissementCancel;
-	IBOutlet NSTextField* MoteurAsservissement;
-	IBOutlet NSTextField* CapteurAsservissement;
 	
 	IBOutlet NSTextField* positionGoal;
 	
@@ -84,14 +78,11 @@
 -(IBAction)sendPositionPIDCoeffs:(id)sender;
 -(IBAction)cancelPositionPIDModif:(id)sender;
 
--(IBAction)sendPIDPeriod:(id)sender;
--(IBAction)cancelPIDPeriodModif:(id)sender;
-
 -(IBAction)sendChoixAsservissement:(id)sender;
 -(IBAction)cancelChoixAsservissementModif:(id)sender;
 -(IBAction)choixAsservissementDidChange:(id)sender;
 
--(IBAction)setPositionGoalValue:(id)sender;
+-(IBAction)setGoalValue:(id)sender;
 
 
 -(void)insertObject:(SensorForDisplay*)sensorDisplay inSensorArrayAtIndex:(NSUInteger)index;

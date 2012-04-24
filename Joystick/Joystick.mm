@@ -21,6 +21,8 @@
 #include "Source.h"
 #include "Donnee.h"
 
+#include "Moteur.h"
+
 #define ROTSPEED 0.03
 
 using namespace std;
@@ -41,6 +43,7 @@ Joystick::Joystick() : Capteur(CAPTEUR_JOYSTICK)
 {
 	status = nil;
 	output = NULL;
+	motorControl = false;
 }
 
 void Joystick::prepareJoystick()
@@ -111,27 +114,24 @@ void Joystick::handleJoystickEvent(SDL_Event& event)
 			double position = event.jaxis.value;// + 0x8000;
 			position /= 0x8000;
 			
-			if(!Database::hasConfigurationField("MOTOR_SIGNAL_OFFSET_HIGH"))
-			{
-				NumericValue<double> toSave(0.18);
-				Database::setConfigurationField("MOTOR_SIGNAL_OFFSET_HIGH",&toSave);
-			}
-			
-			if(!Database::hasConfigurationField("MOTOR_SIGNAL_OFFSET_LOW"))
-			{
-				NumericValue<double> toSave(0.05);
-				Database::setConfigurationField("MOTOR_SIGNAL_OFFSET_LOW",&toSave);
-			}
-			
 			//dynamixel->setPosition(position);
-			if(position<Database::getConfigurationFieldValue<double>("MOTOR_SIGNAL_OFFSET_HIGH") && position > -Database::getConfigurationFieldValue<double>("MOTOR_SIGNAL_OFFSET_LOW"))
-			{
-				position = 0;
-			}
 			
-			if(ConnectionUSB::isConnected())
+			switch(Moteur::typeAsservissement())
 			{
-				ConnectionUSB::setSignalForMotor(position,0);
+				case ASSERVISSEMENT_SANS :
+				{
+					Moteur::setSignal(position);
+					break;
+				}
+					
+				case ASSERVISSEMENT_VITESSE :
+				{
+					Moteur::setSpeed(Moteur::maxSpeed() * position);
+					break;
+				}
+					
+				default:
+					break;
 			}
 			
 			if(Recorder::isRecording())
@@ -223,11 +223,17 @@ void Joystick::handleJoystickEvent(SDL_Event& event)
 	}
 	else if(event.type == SDL_JOYBUTTONDOWN)
 	{
-		printf("Button %d pressed for joystick %d\n",event.jbutton.button,event.jbutton.which);
+		if(event.jbutton.button == 1)
+		{
+			motorControl = true;
+		}
 	}
 	else if(event.type == SDL_JOYBUTTONUP)
 	{
-		printf("Button %d released for joystick %d\n",event.jbutton.button,event.jbutton.which);
+		if(event.jbutton.button == 1)
+		{
+			motorControl = false;
+		}
 	}
 }
 
@@ -284,4 +290,24 @@ bool Joystick::isConnected()
 bool Joystick::isConnected_()
 {
 	return (joystick != NULL);
+}
+
+bool Joystick::isControllingMotor()
+{
+	return shared()->isControllingMotor_();
+}
+
+bool Joystick::isControllingMotor_()
+{
+	return motorControl;
+}
+
+bool Joystick::isActivated()
+{
+	return shared()->isActivated_();
+}
+
+bool Joystick::isActivated_()
+{
+	return true;
 }

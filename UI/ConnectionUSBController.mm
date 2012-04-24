@@ -11,6 +11,10 @@
 #include <math.h>
 
 #import "SensorForDisplay.h"
+#import "Vecteur.h"
+#import "VectorTemplate.h"
+#import "Database.h"
+#import "Moteur.h"
 
 static ConnectionUSBController* shared;
 
@@ -108,15 +112,7 @@ static ConnectionUSBController* shared;
 }
 
 -(void)awakeFromNib
-{
-	IntegerFormater* myformatter = [[IntegerFormater alloc] initWithLimit:4];
-	[MoteurAsservissement setFormatter:myformatter];
-	[myformatter release];
-	
-	myformatter = [[IntegerFormater alloc] initWithLimit:6];
-	[CapteurAsservissement setFormatter:myformatter];
-	[myformatter release];
-	
+{	
 	if(ConnectionUSB::isConnected())
 	{
 		[self setConnected:YES];
@@ -152,10 +148,42 @@ static ConnectionUSBController* shared;
 		currentNeutralDuration = ConnectionUSB::readMotorSignalNeutralDuration();
 		currentMinDuration = ConnectionUSB::readMotorSignalMinDuration();
 		
-		speedCoeffs = ConnectionUSB::readSpeedPIDCoeffs();
-		positionCoeffs = ConnectionUSB::readPositionPIDCoeffs();
+		if(Database::hasConfigurationField("SpeedPID"))
+		{
+			VectorTemplate<Vecteur>* coeffsPIDFromDatabase = static_cast< VectorTemplate<Vecteur>* >(Database::getConfigurationField("SpeedPID"));
+			
+			Vecteur coeffs = coeffsPIDFromDatabase->vector();
+			
+			speedCoeffs.gainProportionnel = coeffs[0];
+			speedCoeffs.gainDifferentiel = coeffs[1];
+			speedCoeffs.gainIntegral = coeffs[2];
+			
+			delete coeffsPIDFromDatabase;
+		}
 		
-		choixAsservissement = ConnectionUSB::readChoixAsservissement();
+		if(Database::hasConfigurationField("PositionPID"))
+		{
+			VectorTemplate<Vecteur>* coeffsPIDFromDatabase = static_cast< VectorTemplate<Vecteur>* >(Database::getConfigurationField("PositionPID"));
+			
+			Vecteur coeffs = coeffsPIDFromDatabase->vector();
+			
+			positionCoeffs.gainProportionnel = coeffs[0];
+			positionCoeffs.gainDifferentiel = coeffs[1];
+			positionCoeffs.gainIntegral = coeffs[2];
+			
+			delete coeffsPIDFromDatabase;
+		}
+		
+		if(Database::hasConfigurationField("TypeAsservissement"))
+		{
+			choixAsservissement.type = Database::getConfigurationFieldValue<int>("TypeAsservissement");
+		}
+		else
+		{
+			NumericValue<int> toSave(ASSERVISSEMENT_SANS);
+			Database::setConfigurationField("TypeAsservissement",&toSave);
+			choixAsservissement.type = ASSERVISSEMENT_SANS;
+		}
 		
 		[self cancelSpeedPIDModif:self];
 		[self cancelPositionPIDModif:self];
@@ -260,41 +288,19 @@ static ConnectionUSBController* shared;
 	[maxDurationConfirm setHidden:YES];
 }
 
--(IBAction)sendPIDPeriod:(id)sender
-{
-	currentPIDPeriod = [PIDPeriod doubleValue]/1000;
-	
-	ConnectionUSB::setPIDPeriod(currentPIDPeriod);
-	
-	currentPIDPeriod = ConnectionUSB::readPIDPeriod();
-	
-	[self cancelPIDPeriodModif:self];
-}
-
--(IBAction)cancelPIDPeriodModif:(id)sender
-{
-	if(currentPIDPeriod==-1)
-	{
-		[PIDPeriod setStringValue:@""];
-	}
-	else
-	{
-		[PIDPeriod setStringValue:[formatter stringFromNumber:[NSNumber numberWithDouble:currentPIDPeriod*1000]]];
-	}
-	
-	[PIDPeriodCancel setHidden:YES];
-	[PIDPeriodConfirm setHidden:YES];
-}
-
 -(IBAction)sendSpeedPIDCoeffs:(id)sender
 {
 	speedCoeffs.gainProportionnel = [[formatter numberFromString:[PIDSpeedProportionnel stringValue]] floatValue];
 	speedCoeffs.gainDifferentiel = [[formatter numberFromString:[PIDSpeedDifferentiel stringValue]] floatValue];
 	speedCoeffs.gainIntegral = [[formatter numberFromString:[PIDSpeedIntegral stringValue]] floatValue];
 	
-	ConnectionUSB::setSpeedPIDCoeffs(speedCoeffs);
+	Vecteur coeffs(3);
 	
-	speedCoeffs = ConnectionUSB::readSpeedPIDCoeffs();
+	coeffs[0] = speedCoeffs.gainProportionnel;
+	coeffs[1] = speedCoeffs.gainDifferentiel;
+	coeffs[2] = speedCoeffs.gainIntegral;
+	
+	Database::setConfigurationField("SpeedPID", &coeffs);
 	
 	[self cancelSpeedPIDModif:self];
 }
@@ -338,9 +344,13 @@ static ConnectionUSBController* shared;
 	positionCoeffs.gainDifferentiel = [[formatter numberFromString:[PIDPositionDifferentiel stringValue]] floatValue];
 	positionCoeffs.gainIntegral = [[formatter numberFromString:[PIDPositionIntegral stringValue]] floatValue];
 	
-	ConnectionUSB::setPositionPIDCoeffs(positionCoeffs);
+	Vecteur coeffs(3);
 	
-	positionCoeffs = ConnectionUSB::readPositionPIDCoeffs();
+	coeffs[0] = positionCoeffs.gainProportionnel;
+	coeffs[1] = positionCoeffs.gainDifferentiel;
+	coeffs[2] = positionCoeffs.gainIntegral;
+	
+	Database::setConfigurationField("PositionPID", &coeffs);
 	
 	[self cancelPositionPIDModif:self];
 }
@@ -382,15 +392,7 @@ static ConnectionUSBController* shared;
 {	
 	choixAsservissement.type = static_cast<TypeAsservissement>([choixAsservissementControl selectedSegment]);
 	
-	if(choixAsservissement.type != ASSERVISSEMENT_SANS)
-	{
-		choixAsservissement.motor = static_cast<Motor>([MoteurAsservissement intValue]);
-		choixAsservissement.sensor = static_cast<Sensor>([CapteurAsservissement intValue]);
-	}
-	
-	ConnectionUSB::setChoixAsservissement(choixAsservissement);
-	
-	choixAsservissement = ConnectionUSB::readChoixAsservissement();
+	Moteur::setTypeAsservissement(choixAsservissement.type);
 	
 	[self cancelChoixAsservissementModif:self];
 }
@@ -405,17 +407,6 @@ static ConnectionUSBController* shared;
 
 -(IBAction)choixAsservissementDidChange:(id)sender
 {
-	if([choixAsservissementControl selectedSegment] == ASSERVISSEMENT_SANS)
-	{
-		[MoteurAsservissement setHidden:YES];
-		[CapteurAsservissement setHidden:YES];
-	}
-	else
-	{
-		[MoteurAsservissement setHidden:NO];
-		[CapteurAsservissement setHidden:NO];
-	}
-	
 	if([choixAsservissementControl selectedSegment] == choixAsservissement.type)
 	{
 		[choixAsservissementConfirm setHidden:YES];
@@ -423,23 +414,32 @@ static ConnectionUSBController* shared;
 	}
 	else
 	{
-		if(		choixAsservissement.type == ASSERVISSEMENT_SANS
-		   ||	(![[CapteurAsservissement stringValue] isEqualToString:@""] && ![[MoteurAsservissement stringValue] isEqualToString:@""]))
-		{
-			[choixAsservissementConfirm setHidden:NO];
-		}
+		[choixAsservissementConfirm setHidden:NO];
 		[choixAsservissementCancel setHidden:NO];
 	}
 }
 
--(IBAction)setPositionGoalValue:(id)sender
+-(IBAction)setGoalValue:(id)sender
 {
-	double positionGoalValue = [[formatter numberFromString:[positionGoal stringValue]] doubleValue];
+	double goalValue = [[formatter numberFromString:[positionGoal stringValue]] doubleValue];
 	
-	UINT16 consigne = round(positionGoalValue*MAX_SENSOR_ANGLE/360);
-	consigne %= MAX_SENSOR_ANGLE;
-	
-	ConnectionUSB::setPositionGoal(consigne);
+	switch(Moteur::typeAsservissement())
+	{
+		case ASSERVISSEMENT_SANS :
+			Moteur::setSignal(goalValue);
+			break;
+			
+		case ASSERVISSEMENT_VITESSE :
+			Moteur::setSpeed(goalValue);
+			break;
+			
+		case ASSERVISSEMENT_POSITION :
+			Moteur::setPosition(goalValue);
+			break;
+		
+		default:
+			break;
+	}
 }
 
 #pragma mark - NSTextField delegate methods
@@ -472,56 +472,6 @@ static ConnectionUSBController* shared;
 			[maxDurationConfirm setHidden:NO];
 			[maxDurationCancel setHidden:NO];
 		}
-		return YES;
-	}
-	if([control isEqual:PIDPeriod])
-	{
-		if([[formatter numberFromString:[fieldEditor string]] doubleValue] == currentPIDPeriod)
-		{
-			[PIDPeriodConfirm setHidden:YES];
-			[PIDPeriodCancel setHidden:YES];
-		}
-		else
-		{
-			[PIDPeriodConfirm setHidden:NO];
-			[PIDPeriodCancel setHidden:NO];
-		}
-		return YES;
-	}
-	if([control isEqual:CapteurAsservissement] || [control isEqual:MoteurAsservissement])
-	{
-		NSString* capteur = [CapteurAsservissement stringValue];
-		NSString* moteur = [MoteurAsservissement stringValue];
-		
-		if([control isEqual:CapteurAsservissement])
-		{
-			capteur = [fieldEditor string];
-		}
-		else
-		{
-			moteur = [fieldEditor string];
-		}
-		
-		if([capteur isEqualToString:@""] || [moteur isEqualToString:@""])
-		{
-			[PIDPeriodConfirm setHidden:YES];
-		}
-		else
-		{
-			if(		[choixAsservissementControl selectedSegment] == choixAsservissement.type 
-			   &&	[capteur intValue] == choixAsservissement.sensor
-			   &&	[moteur intValue] == choixAsservissement.motor)
-			{
-				[PIDPeriodConfirm setHidden:YES];
-				[PIDPeriodCancel setHidden:YES];
-			}
-			else
-			{
-				[PIDPeriodConfirm setHidden:NO];
-				[PIDPeriodCancel setHidden:NO];
-			}
-		}
-		
 		return YES;
 	}
 	if(		[control isEqual:PIDSpeedProportionnel] 

@@ -40,6 +40,8 @@
 		831DA7C01515F48400CEE045 /* ConnectionUSBController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 831DA7BE1515F48400CEE045 /* ConnectionUSBController.mm */; };
 		831DA7C11515F48400CEE045 /* ConnectionUSBController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 831DA7BF1515F48400CEE045 /* ConnectionUSBController.xib */; };
 		8349FCBD14CCA9670028E058 /* RenderSystem_GL.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8349FCBC14CCA9670028E058 /* RenderSystem_GL.dylib */; };
+		83500E3915458D73003EF454 /* Moteur.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83500E3815458D73003EF454 /* Moteur.mm */; };
+		83500E3C1545BAC6003EF454 /* MotorStatus.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83500E3B1545BAC5003EF454 /* MotorStatus.mm */; };
 		8351BC3E14E6D418005C058D /* Record.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8351BC3D14E6D418005C058D /* Record.cpp */; };
 		8351BC4014E6D8E6005C058D /* libboost_date_time-xgcc42-mt-1_48.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8351BC3F14E6D8E5005C058D /* libboost_date_time-xgcc42-mt-1_48.dylib */; };
 		8351BC4314E6DB70005C058D /* Source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8351BC4214E6DB70005C058D /* Source.cpp */; };
@@ -247,6 +249,10 @@
 		831DA7BF1515F48400CEE045 /* ConnectionUSBController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectionUSBController.xib; sourceTree = "<group>"; };
 		8349FCB914CCA14E0028E058 /* OgreOSXCocoaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OgreOSXCocoaView.h; path = ../../../../../../../Library/OgreSDK/lib/release/Ogre.framework/Versions/1.7.4/Headers/OSX/OgreOSXCocoaView.h; sourceTree = "<group>"; };
 		8349FCBC14CCA9670028E058 /* RenderSystem_GL.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = RenderSystem_GL.dylib; path = /Library/OgreSDK/lib/RenderSystem_GL.dylib; sourceTree = "<absolute>"; };
+		83500E3715458D66003EF454 /* Moteur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Moteur.h; sourceTree = "<group>"; };
+		83500E3815458D73003EF454 /* Moteur.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Moteur.mm; sourceTree = "<group>"; };
+		83500E3A1545BAC5003EF454 /* MotorStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MotorStatus.h; path = Status/MotorStatus.h; sourceTree = "<group>"; };
+		83500E3B1545BAC5003EF454 /* MotorStatus.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MotorStatus.mm; path = Status/MotorStatus.mm; sourceTree = "<group>"; };
 		8351BC3714E6AFB3005C058D /* DatabaseData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = DatabaseData.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		8351BC3C14E6D40F005C058D /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
 		8351BC3D14E6D418005C058D /* Record.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Record.cpp; sourceTree = "<group>"; };
@@ -511,6 +517,15 @@
 			name = Headers;
 			sourceTree = "<group>";
 		};
+		83500E3515458D1F003EF454 /* Moteur */ = {
+			isa = PBXGroup;
+			children = (
+				83500E3715458D66003EF454 /* Moteur.h */,
+				83500E3815458D73003EF454 /* Moteur.mm */,
+			);
+			path = Moteur;
+			sourceTree = "<group>";
+		};
 		83520B7C15161F4C00B544B3 /* Capteurs */ = {
 			isa = PBXGroup;
 			children = (
@@ -637,6 +652,7 @@
 				83AA3A1D14E6454000C39446 /* Database */,
 				8376E09A14D5914400ABECEA /* TraitementVideo */,
 				83520B7C15161F4C00B544B3 /* Capteurs */,
+				83500E3515458D1F003EF454 /* Moteur */,
 				83F586C514CDB71100DA0F60 /* Status */,
 				83BC6E5514CC9997002396A5 /* ConnectionUSB */,
 				83BC6E5C14CC9997002396A5 /* Joystick */,
@@ -954,6 +970,8 @@
 				8301CA9215129AB800EC6EFB /* ConnectionUSBStatus.mm */,
 				83F6CCE91535EDD6009A08F5 /* JoystickStatus.h */,
 				83F6CCEA1535EDD6009A08F5 /* JoystickStatus.mm */,
+				83500E3A1545BAC5003EF454 /* MotorStatus.h */,
+				83500E3B1545BAC5003EF454 /* MotorStatus.mm */,
 			);
 			name = Status;
 			sourceTree = "<group>";
@@ -1173,6 +1191,8 @@
 				83E12EE415330B2A00F5CB19 /* Recorder.mm in Sources */,
 				83F6CCEB1535EDD6009A08F5 /* JoystickStatus.mm in Sources */,
 				83AE276D15408A0400DD1D72 /* AutoUpdatePopUpButton.mm in Sources */,
+				83500E3915458D73003EF454 /* Moteur.mm in Sources */,
+				83500E3C1545BAC6003EF454 /* MotorStatus.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

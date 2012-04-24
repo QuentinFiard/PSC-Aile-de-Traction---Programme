@@ -23,6 +23,8 @@
 #include "Source.h"
 #include "Donnee.h"
 
+#include "Moteur.h"
+
 #define TIME_OFFSET_MICROSECONDS 500 // Theorically 384, but accounting for acquisition time
 
 #define SENSOR_UPDATE_PERIOD 1000 // Microseconds
@@ -95,6 +97,11 @@ CapteurAngulaire* CapteurAngulaire::sharedWithSensorNumber(Sensor sensor)
 CapteurAngulaire* CapteurAngulaire::shared(GrandeurCapteur grandeur)
 {
 	prepareListeCapteurs();
+	
+	if(grandeur == CAPTEUR_ROTATION_MOTEUR)
+	{
+		return Moteur::shared();
+	}
 	
 	for(int i=0 ; i<capteurs.size() ; i++)
 	{
