@@ -8,16 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8301CA9315129AB800EC6EFB /* ConnectionUSBStatus.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8301CA9215129AB800EC6EFB /* ConnectionUSBStatus.mm */; };
-		83025BD514E542060017F4E3 /* libacado.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025BD014E542050017F4E3 /* libacado.a */; };
-		83025BD614E542060017F4E3 /* libcsparse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025BD114E542060017F4E3 /* libcsparse.a */; };
-		83025BD714E542060017F4E3 /* libgnuplot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025BD214E542060017F4E3 /* libgnuplot.a */; };
-		83025BD814E542060017F4E3 /* libqpoases-extras.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025BD314E542060017F4E3 /* libqpoases-extras.a */; };
-		83025BD914E542060017F4E3 /* libqpoases.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025BD414E542060017F4E3 /* libqpoases.a */; };
-		83025BDB14E542350017F4E3 /* libacado.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83025BD014E542050017F4E3 /* libacado.a */; };
 		83025BDC14E542370017F4E3 /* libcsparse.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83025BD114E542060017F4E3 /* libcsparse.a */; };
-		83025BDD14E5423B0017F4E3 /* libgnuplot.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83025BD214E542060017F4E3 /* libgnuplot.a */; };
-		83025BDE14E5423E0017F4E3 /* libqpoases-extras.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83025BD314E542060017F4E3 /* libqpoases-extras.a */; };
-		83025BDF14E542400017F4E3 /* libqpoases.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83025BD414E542060017F4E3 /* libqpoases.a */; };
 		8305F9FB154446FC00AC3B30 /* libopencv_calib3d.2.3.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8305F9EE154446FC00AC3B30 /* libopencv_calib3d.2.3.1.dylib */; };
 		8305F9FC154446FC00AC3B30 /* libopencv_contrib.2.3.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8305F9EF154446FC00AC3B30 /* libopencv_contrib.2.3.1.dylib */; };
 		8305F9FD154446FC00AC3B30 /* libopencv_core.2.3.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8305F9F0154446FC00AC3B30 /* libopencv_core.2.3.1.dylib */; };
@@ -55,6 +46,10 @@
 		8376E09C14D5918800ABECEA /* CalibrationCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8376E09B14D5918800ABECEA /* CalibrationCamera.mm */; };
 		837D29F415014DF000221B7A /* Position.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 837D29F315014DF000221B7A /* Position.cpp */; };
 		837D55DE14CCC612002CD3DA /* OgreDemoApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BC6EB714CC99DA002396A5 /* OgreDemoApp.mm */; };
+		839CEF26154FF7B700B8FBE4 /* libcsparse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83025BD114E542060017F4E3 /* libcsparse.a */; };
+		839CEF2A154FF7B700B8FBE4 /* libacado_toolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 839CEF27154FF7B700B8FBE4 /* libacado_toolkit.a */; };
+		839CEF2B154FF7B700B8FBE4 /* libqpOASES2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 839CEF28154FF7B700B8FBE4 /* libqpOASES2.0.a */; };
+		839CEF2C154FF7B700B8FBE4 /* libqpOASESextras2.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 839CEF29154FF7B700B8FBE4 /* libqpOASESextras2.0.a */; };
 		83A27C4014E9388200B60BFC /* SourceForDisplay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83A27C3F14E9388200B60BFC /* SourceForDisplay.mm */; };
 		83A27C4314E938A300B60BFC /* RecordForDisplay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83A27C4214E938A300B60BFC /* RecordForDisplay.mm */; };
 		83A388B114CD8FB6009D7636 /* sidebarContent.xml in Resources */ = {isa = PBXBuildFile; fileRef = 83A388B014CD8FB6009D7636 /* sidebarContent.xml */; };
@@ -82,6 +77,7 @@
 		83B86A6D151BED04009C9174 /* Fleche.png in Resources */ = {isa = PBXBuildFile; fileRef = 83B86A69151BED04009C9174 /* Fleche.png */; };
 		83B86A6F151BED04009C9174 /* RoueGraduee.png in Resources */ = {isa = PBXBuildFile; fileRef = 83B86A6B151BED04009C9174 /* RoueGraduee.png */; };
 		83B86A74151BF2B3009C9174 /* ArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B86A73151BF2B3009C9174 /* ArrowView.m */; };
+		83B8B0DF1551B394006E609C /* RunThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B8B0DE1551B394006E609C /* RunThread.m */; };
 		83BAF05914E7A860000880F0 /* Utilities.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BAF05814E7A860000880F0 /* Utilities.mm */; };
 		83BAF05D14E7B43C000880F0 /* NumericValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BAF05C14E7B43C000880F0 /* NumericValue.cpp */; };
 		83BC6E3014CC98AF002396A5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83BC6E2F14CC98AF002396A5 /* Cocoa.framework */; };
@@ -180,11 +176,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				83BC6EEA14CC9B47002396A5 /* SDL.framework in CopyFiles */,
-				83025BDB14E542350017F4E3 /* libacado.a in CopyFiles */,
 				83025BDC14E542370017F4E3 /* libcsparse.a in CopyFiles */,
-				83025BDD14E5423B0017F4E3 /* libgnuplot.a in CopyFiles */,
-				83025BDE14E5423E0017F4E3 /* libqpoases-extras.a in CopyFiles */,
-				83025BDF14E542400017F4E3 /* libqpoases.a in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,11 +204,7 @@
 /* Begin PBXFileReference section */
 		8301CA9115129AB800EC6EFB /* ConnectionUSBStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionUSBStatus.h; path = Status/ConnectionUSBStatus.h; sourceTree = "<group>"; };
 		8301CA9215129AB800EC6EFB /* ConnectionUSBStatus.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ConnectionUSBStatus.mm; path = Status/ConnectionUSBStatus.mm; sourceTree = "<group>"; };
-		83025BD014E542050017F4E3 /* libacado.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libacado.a; path = /usr/local/lib/acado/libacado.a; sourceTree = "<absolute>"; };
 		83025BD114E542060017F4E3 /* libcsparse.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcsparse.a; path = /usr/local/lib/acado/libcsparse.a; sourceTree = "<absolute>"; };
-		83025BD214E542060017F4E3 /* libgnuplot.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgnuplot.a; path = /usr/local/lib/acado/libgnuplot.a; sourceTree = "<absolute>"; };
-		83025BD314E542060017F4E3 /* libqpoases-extras.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libqpoases-extras.a"; path = "/usr/local/lib/acado/libqpoases-extras.a"; sourceTree = "<absolute>"; };
-		83025BD414E542060017F4E3 /* libqpoases.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libqpoases.a; path = /usr/local/lib/acado/libqpoases.a; sourceTree = "<absolute>"; };
 		8305F9EE154446FC00AC3B30 /* libopencv_calib3d.2.3.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_calib3d.2.3.1.dylib; path = /opt/local/lib/libopencv_calib3d.2.3.1.dylib; sourceTree = "<absolute>"; };
 		8305F9EF154446FC00AC3B30 /* libopencv_contrib.2.3.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_contrib.2.3.1.dylib; path = /opt/local/lib/libopencv_contrib.2.3.1.dylib; sourceTree = "<absolute>"; };
 		8305F9F0154446FC00AC3B30 /* libopencv_core.2.3.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_core.2.3.1.dylib; path = /opt/local/lib/libopencv_core.2.3.1.dylib; sourceTree = "<absolute>"; };
@@ -277,6 +265,9 @@
 		837D29F315014DF000221B7A /* Position.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Position.cpp; sourceTree = "<group>"; };
 		83867FFE15058A8B0004ED08 /* VectorTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorTemplate.h; sourceTree = "<group>"; };
 		8399ED1A14ED779F00AAB062 /* MatriceTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatriceTemplate.h; sourceTree = "<group>"; };
+		839CEF27154FF7B700B8FBE4 /* libacado_toolkit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libacado_toolkit.a; path = /usr/local/lib/acado/libacado_toolkit.a; sourceTree = "<absolute>"; };
+		839CEF28154FF7B700B8FBE4 /* libqpOASES2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libqpOASES2.0.a; path = /usr/local/lib/acado/libqpOASES2.0.a; sourceTree = "<absolute>"; };
+		839CEF29154FF7B700B8FBE4 /* libqpOASESextras2.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libqpOASESextras2.0.a; path = /usr/local/lib/acado/libqpOASESextras2.0.a; sourceTree = "<absolute>"; };
 		83A27C3E14E9388200B60BFC /* SourceForDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceForDisplay.h; sourceTree = "<group>"; };
 		83A27C3F14E9388200B60BFC /* SourceForDisplay.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SourceForDisplay.mm; sourceTree = "<group>"; };
 		83A27C4114E938A300B60BFC /* RecordForDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordForDisplay.h; sourceTree = "<group>"; };
@@ -325,6 +316,8 @@
 		83B86A6B151BED04009C9174 /* RoueGraduee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RoueGraduee.png; sourceTree = "<group>"; };
 		83B86A72151BF2B3009C9174 /* ArrowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrowView.h; sourceTree = "<group>"; };
 		83B86A73151BF2B3009C9174 /* ArrowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrowView.m; sourceTree = "<group>"; };
+		83B8B0DD1551B394006E609C /* RunThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunThread.h; sourceTree = "<group>"; };
+		83B8B0DE1551B394006E609C /* RunThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunThread.m; sourceTree = "<group>"; };
 		83BAF05714E7A856000880F0 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utilities.h; path = Utilities/Utilities.h; sourceTree = "<group>"; };
 		83BAF05814E7A860000880F0 /* Utilities.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Utilities.mm; path = Utilities/Utilities.mm; sourceTree = "<group>"; };
 		83BAF05B14E7B432000880F0 /* NumericValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumericValue.h; sourceTree = "<group>"; };
@@ -470,13 +463,12 @@
 				8305FA05154446FC00AC3B30 /* libopencv_objdetect.2.3.1.dylib in Frameworks */,
 				8305FA06154446FC00AC3B30 /* libopencv_ts.2.3.1.dylib in Frameworks */,
 				8305FA07154446FC00AC3B30 /* libopencv_video.2.3.1.dylib in Frameworks */,
-				83025BD514E542060017F4E3 /* libacado.a in Frameworks */,
-				83025BD614E542060017F4E3 /* libcsparse.a in Frameworks */,
-				83025BD714E542060017F4E3 /* libgnuplot.a in Frameworks */,
-				83025BD814E542060017F4E3 /* libqpoases-extras.a in Frameworks */,
-				83025BD914E542060017F4E3 /* libqpoases.a in Frameworks */,
 				8351BC4014E6D8E6005C058D /* libboost_date_time-xgcc42-mt-1_48.dylib in Frameworks */,
 				83AA3A2514E6462E00C39446 /* libsqlite3.dylib in Frameworks */,
+				839CEF2A154FF7B700B8FBE4 /* libacado_toolkit.a in Frameworks */,
+				839CEF2B154FF7B700B8FBE4 /* libqpOASES2.0.a in Frameworks */,
+				839CEF2C154FF7B700B8FBE4 /* libqpOASESextras2.0.a in Frameworks */,
+				839CEF26154FF7B700B8FBE4 /* libcsparse.a in Frameworks */,
 				83F586E214CE210A00DA0F60 /* QTKit.framework in Frameworks */,
 				8349FCBD14CCA9670028E058 /* RenderSystem_GL.dylib in Frameworks */,
 				83BC6E3014CC98AF002396A5 /* Cocoa.framework in Frameworks */,
@@ -500,11 +492,10 @@
 		83025BDA14E542140017F4E3 /* ACADO */ = {
 			isa = PBXGroup;
 			children = (
-				83025BD014E542050017F4E3 /* libacado.a */,
+				839CEF27154FF7B700B8FBE4 /* libacado_toolkit.a */,
+				839CEF28154FF7B700B8FBE4 /* libqpOASES2.0.a */,
+				839CEF29154FF7B700B8FBE4 /* libqpOASESextras2.0.a */,
 				83025BD114E542060017F4E3 /* libcsparse.a */,
-				83025BD214E542060017F4E3 /* libgnuplot.a */,
-				83025BD314E542060017F4E3 /* libqpoases-extras.a */,
-				83025BD414E542060017F4E3 /* libqpoases.a */,
 			);
 			name = ACADO;
 			sourceTree = "<group>";
@@ -552,6 +543,26 @@
 				83520B85151624B900B544B3 /* Camera.mm */,
 			);
 			name = TraitementVideo;
+			sourceTree = "<group>";
+		};
+		839CEF2D154FF7FC00B8FBE4 /* OpenCV */ = {
+			isa = PBXGroup;
+			children = (
+				8305F9EE154446FC00AC3B30 /* libopencv_calib3d.2.3.1.dylib */,
+				8305F9EF154446FC00AC3B30 /* libopencv_contrib.2.3.1.dylib */,
+				8305F9F0154446FC00AC3B30 /* libopencv_core.2.3.1.dylib */,
+				8305F9F1154446FC00AC3B30 /* libopencv_features2d.2.3.1.dylib */,
+				8305F9F2154446FC00AC3B30 /* libopencv_flann.2.3.1.dylib */,
+				8305F9F3154446FC00AC3B30 /* libopencv_gpu.2.3.1.dylib */,
+				8305F9F4154446FC00AC3B30 /* libopencv_highgui.2.3.1.dylib */,
+				8305F9F5154446FC00AC3B30 /* libopencv_imgproc.2.3.1.dylib */,
+				8305F9F6154446FC00AC3B30 /* libopencv_legacy.2.3.1.dylib */,
+				8305F9F7154446FC00AC3B30 /* libopencv_ml.2.3.1.dylib */,
+				8305F9F8154446FC00AC3B30 /* libopencv_objdetect.2.3.1.dylib */,
+				8305F9F9154446FC00AC3B30 /* libopencv_ts.2.3.1.dylib */,
+				8305F9FA154446FC00AC3B30 /* libopencv_video.2.3.1.dylib */,
+			);
+			name = OpenCV;
 			sourceTree = "<group>";
 		};
 		83AA3A1D14E6454000C39446 /* Database */ = {
@@ -681,19 +692,7 @@
 		83BC6E2E14CC98AF002396A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8305F9EE154446FC00AC3B30 /* libopencv_calib3d.2.3.1.dylib */,
-				8305F9EF154446FC00AC3B30 /* libopencv_contrib.2.3.1.dylib */,
-				8305F9F0154446FC00AC3B30 /* libopencv_core.2.3.1.dylib */,
-				8305F9F1154446FC00AC3B30 /* libopencv_features2d.2.3.1.dylib */,
-				8305F9F2154446FC00AC3B30 /* libopencv_flann.2.3.1.dylib */,
-				8305F9F3154446FC00AC3B30 /* libopencv_gpu.2.3.1.dylib */,
-				8305F9F4154446FC00AC3B30 /* libopencv_highgui.2.3.1.dylib */,
-				8305F9F5154446FC00AC3B30 /* libopencv_imgproc.2.3.1.dylib */,
-				8305F9F6154446FC00AC3B30 /* libopencv_legacy.2.3.1.dylib */,
-				8305F9F7154446FC00AC3B30 /* libopencv_ml.2.3.1.dylib */,
-				8305F9F8154446FC00AC3B30 /* libopencv_objdetect.2.3.1.dylib */,
-				8305F9F9154446FC00AC3B30 /* libopencv_ts.2.3.1.dylib */,
-				8305F9FA154446FC00AC3B30 /* libopencv_video.2.3.1.dylib */,
+				839CEF2D154FF7FC00B8FBE4 /* OpenCV */,
 				83025BDA14E542140017F4E3 /* ACADO */,
 				8351BC3F14E6D8E5005C058D /* libboost_date_time-xgcc42-mt-1_48.dylib */,
 				83AA3A2414E6462E00C39446 /* libsqlite3.dylib */,
@@ -771,6 +770,8 @@
 				831DA7B81514DA6B00CEE045 /* AngleAbsolu.cpp */,
 				831BC0E21501536B00614624 /* VitesseRotation.h */,
 				831DA7BB1514DA7C00CEE045 /* VitesseRotation.cpp */,
+				83B8B0DD1551B394006E609C /* RunThread.h */,
+				83B8B0DE1551B394006E609C /* RunThread.m */,
 			);
 			path = ConnectionUSB;
 			sourceTree = "<group>";
@@ -1193,6 +1194,7 @@
 				83AE276D15408A0400DD1D72 /* AutoUpdatePopUpButton.mm in Sources */,
 				83500E3915458D73003EF454 /* Moteur.mm in Sources */,
 				83500E3C1545BAC6003EF454 /* MotorStatus.mm in Sources */,
+				83B8B0DF1551B394006E609C /* RunThread.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,9 @@
 	
 	IBOutlet ArrowView* azimut;
 	IBOutlet ArrowView* inclinaison;
+	
+	NSThread* updateThread;
+	NSTimer* updateTimer;
 }
 
 -(void)update;

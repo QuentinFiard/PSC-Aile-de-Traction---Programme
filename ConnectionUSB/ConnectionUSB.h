@@ -11,6 +11,7 @@
 
 #import <Foundation/Foundation.h>
 #import <boost/asio.hpp>
+#import <boost/thread.hpp>
 #import <vector>
 #import "CommunicationProtocol.h"
 
@@ -70,14 +71,24 @@ protected:
 	static std::vector<uint8_t> readData(std::size_t length);
 	
 // Fonctions membres protected
-	bool isConnected_() const;
-	void sendData_(std::vector<uint8_t>& data);
-	std::vector<uint8_t> readData_(std::size_t length);
+	void isConnected_(bool* res, bool* isDone) const;
+	void sendData_(std::vector<uint8_t>* data, bool* isDone);
+	void readData_(std::size_t length, std::vector<uint8_t>* res, bool* isDone);
+	
+	void readDataCompletion(std::vector<uint8_t>* res, bool* isDone);
+	void sendDataCompletion(bool* isDone);
+	
+	void initializeConnection(bool* isDone);
+	
+	std::string bsdPath;
+	
+	static bool isConnectedVar_;
 	
 private:
 	
-	boost::asio::io_service io;
-	boost::asio::serial_port port;
+	boost::asio::io_service* io;
+	boost::asio::serial_port* port;
+	boost::thread* thread;
 };
 
 #endif

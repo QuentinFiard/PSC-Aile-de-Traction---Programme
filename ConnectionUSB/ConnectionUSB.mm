@@ -25,19 +25,82 @@
 #define min(X,Y) ((X) < (Y) ? : (X) : (Y))
 #define max(X,Y) ((X) > (Y) ? : (X) : (Y))
 
-static ConnectionUSB* shared_;
-static ConnectionUSBStatus* status;
+static ConnectionUSB* shared_ = NULL;
+static ConnectionUSBStatus* status = nil;
 
-ConnectionUSB::ConnectionUSB(std::string bsdPath) : port(io,bsdPath)
-{
+static boost::condition_variable cond;
+static boost::condition_variable connected_cond;
+static boost::condition_variable init_cond;
+static boost::condition_variable read_cond;
+static boost::condition_variable send_cond;
+static boost::mutex mut;
+static boost::mutex iomutex;
+static boost::mutex initmutex;
+
+bool ConnectionUSB::isConnectedVar_ = false;
+
+void ConnectionUSB::initializeConnection(bool* isDone)
+{	
+	io = new boost::asio::io_service();
+	
+	boost::asio::io_service::work work(*io);
+	
+	port = new boost::asio::serial_port(*io,bsdPath);
+	
 	boost::asio::serial_port_base::baud_rate baud_option(115200); 
-	port.set_option(baud_option);
+	port->set_option(baud_option);
 	
 	boost::asio::serial_port_base::stop_bits stop_bit(boost::asio::serial_port_base::stop_bits::one);
-	port.set_option(stop_bit);
+	port->set_option(stop_bit);
 	
 	boost::asio::serial_port_base::parity parity(boost::asio::serial_port_base::parity::none);
-	port.set_option(parity);
+	port->set_option(parity);
+	
+	boost::unique_lock<boost::mutex> lock(mut);
+	
+	*isDone = true;
+	init_cond.notify_one();
+	
+	lock.unlock();
+	
+	io->run();
+}
+
+ConnectionUSB::ConnectionUSB(std::string aBsdPath) : bsdPath(aBsdPath)
+{
+	bool isDone = false;
+	boost::unique_lock<boost::mutex> lock(mut);
+	thread = new boost::thread(boost::bind(&ConnectionUSB::initializeConnection,this,&isDone));
+	
+	int retcode;
+    int policy;
+	
+    pthread_t threadID = (pthread_t)thread->native_handle();
+	
+    struct sched_param param;
+	
+    if ((retcode = pthread_getschedparam(threadID, &policy, &param)) != 0)
+    {
+        errno = retcode;
+        perror("pthread_getschedparam");
+        exit(EXIT_FAILURE);
+    }
+	
+	
+    policy = SCHED_FIFO;
+    param.sched_priority = 4;
+	
+    if ((retcode = pthread_setschedparam(threadID, policy, &param)) != 0)
+    {
+        errno = retcode;
+        perror("pthread_setschedparam");
+        exit(EXIT_FAILURE);
+    }
+	
+	while(!isDone)
+	{
+		init_cond.wait(lock);
+	}
 }
 
 #pragma mark - Fonctions statiques
@@ -74,15 +137,19 @@ void ConnectionUSB::connect()
 	{
 		try
 		{
+			boost::unique_lock<boost::mutex> lock(initmutex);
 			shared_ = new ConnectionUSB(Database::getConfigurationFieldValue<std::string>("CarteUSB_BSDPath"));
 		}
 		catch(boost::exception &e)
 		{
 			[status setStatus:STATUS_FAILED];
+			isConnectedVar_ = false;
 			return;
 		}
 		
-		if(shared_->isConnected_())
+		isConnectedVar_ = true;
+		
+		if(isConnected())
 		{
 			[status setStatus:STATUS_OK];
 		}
@@ -108,6 +175,7 @@ void ConnectionUSB::setStatus(ConnectionUSBStatus* newStatus)
 
 bool ConnectionUSB::isConnected()
 {
+	boost::unique_lock<boost::mutex> lock(initmutex);
 	bool res;
 	if(!shared_)
 	{
@@ -115,8 +183,15 @@ bool ConnectionUSB::isConnected()
 	}
 	else
 	{
-		res = shared_->isConnected_();
+		bool isDone = false;
+		boost::unique_lock<boost::mutex> lock(mut);
+		shared_->io->dispatch(boost::bind(&ConnectionUSB::isConnected_,shared_,&res,&isDone));
+		while(!isDone)
+		{
+			connected_cond.wait(lock);
+		}
 	}
+	res = isConnectedVar_;
 	if(status)
 	{
 		if(res)
@@ -772,40 +847,79 @@ ChoixAsservissement ConnectionUSB::readChoixAsservissement()
 
 void ConnectionUSB::sendData(std::vector<uint8_t>& data)
 {
+	boost::unique_lock<boost::mutex> iolock(iomutex,boost::defer_lock_t());
+	iolock.lock();
 	ConnectionUSB* shared = ConnectionUSB::shared();
 	if(shared)
 	{
-		shared->sendData_(data);
+		bool isDone = false;
+		boost::unique_lock<boost::mutex> lock(mut);
+		shared->io->post(boost::bind(&ConnectionUSB::sendData_,shared,&data,&isDone));
+		while(!isDone)
+		{
+			send_cond.wait(lock);
+		}
 	}
 }
 
 std::vector<uint8_t> ConnectionUSB::readData(std::size_t length)
 {
+	boost::unique_lock<boost::mutex> iolock(iomutex,boost::defer_lock_t());
+	iolock.lock();
 	ConnectionUSB* shared = ConnectionUSB::shared();
 	if(shared)
 	{
-		return shared->readData_(length);
+		std::vector<uint8_t> res;
+		bool isDone = false;
+		boost::unique_lock<boost::mutex> lock(mut);
+		shared->io->post(boost::bind(&ConnectionUSB::readData_,shared,length,&res,&isDone));
+		while(!isDone)
+		{
+			read_cond.wait(lock);
+		}
+		return res;
 	}
 	return std::vector<uint8_t>();
 }
 
 #pragma mark - Fonctions membres
 
-bool ConnectionUSB::isConnected_() const
+void ConnectionUSB::isConnected_(bool* res, bool* isDone) const
 {
-	return port.is_open();
+	*res = port->is_open();
+	
+	boost::unique_lock<boost::mutex> lock(mut);
+	
+	*isDone = true;
+	connected_cond.notify_all();
 }
 
-void ConnectionUSB::sendData_(std::vector<uint8_t>& data)
+void ConnectionUSB::sendData_(std::vector<uint8_t>* data, bool* isDone)
 {
-	boost::asio::write(port,boost::asio::buffer(data));
+	boost::asio::async_write(*port,boost::asio::buffer(*data),boost::bind(&ConnectionUSB::sendDataCompletion, this, isDone));
 }
 
-std::vector<uint8_t> ConnectionUSB::readData_(std::size_t length)
+void ConnectionUSB::sendDataCompletion(bool* isDone)
 {
-	std::vector<uint8_t> res(length);
+	boost::unique_lock<boost::mutex> lock(mut);
 	
-	boost::asio::read(port,boost::asio::buffer(res));
+	*isDone = true;
 	
-	return res;
+	send_cond.notify_one();
+}
+
+void ConnectionUSB::readData_(std::size_t length, std::vector<uint8_t>* res, bool* isDone)
+{
+	res->resize(length);
+	
+	boost::asio::async_read(*port,boost::asio::buffer(*res),boost::bind(&ConnectionUSB::readDataCompletion, this, res, isDone));
+}
+
+void ConnectionUSB::readDataCompletion(std::vector<uint8_t>* res, bool* isDone)
+{
+	boost::unique_lock<boost::mutex> lock(mut);
+	
+	*isDone = true;
+	
+	read_cond.notify_one();
 }

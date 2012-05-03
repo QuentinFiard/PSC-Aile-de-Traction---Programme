@@ -245,7 +245,7 @@ void CapteurAngulaire::saveLastValue()
 			}
 			NumericValue<double> data(lastValue_->angle());
 			Donnee< NumericValue<double> > toSave(output,*lastAcquisition(),data);
-			toSave.save();
+			//toSave.save();
 		}
 	}
 }

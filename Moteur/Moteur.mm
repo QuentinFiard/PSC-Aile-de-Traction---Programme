@@ -244,11 +244,11 @@ void Moteur::signalCorrection()
 					
 					double dt =  static_cast<double>(duration.ticks())/1000000;
 					
-					double error = meanSpeed - *goal;
+					double error = (meanSpeed - *goal)*dt;
 					
 					double differentialTerm = gainDifferentiel*(meanSpeed-lastMeanSpeed)/dt;
 					
-					integralTerm += gainIntegral*error*dt;
+					integralTerm += gainIntegral*error;
 					
 					if(integralTerm>1)
 					{

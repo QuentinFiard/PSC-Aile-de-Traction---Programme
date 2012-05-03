@@ -10,6 +10,9 @@
 
 #import "CapteurAngulaire.h"
 
+#import <boost/date_time.hpp>
+
+using namespace boost::posix_time;
 
 
 @implementation CapteursController
@@ -19,13 +22,24 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Initialization code here.
+		
+		updateTimer = nil;
+		updateThread = nil;
     }
     
     return self;
 }
 
+ptime lastUpdate;
+
 -(void)update
 {
+	ptime start(microsec_clock::local_time());
+	
+	std::cout << "Time since last update : " << start-lastUpdate << std::endl;
+	
+	lastUpdate = start;
+	
 	CapteurAngulaire* capteur = CapteurAngulaire::shared(CAPTEUR_DIRECTION_VENT);
 	
 	if(capteur!=NULL)
@@ -61,7 +75,20 @@
 		capteur->update();
 	}
 	
-	[self performSelector:@selector(update) withObject:nil afterDelay:0.01];
+	ptime end(microsec_clock::local_time());
+	
+	std::cout << "Time required for update : " << end-start << std::endl;
+	
+	if(!updateTimer)
+	{
+		updateTimer = [[NSTimer timerWithTimeInterval:0.02 target:self selector:@selector(update) userInfo:nil repeats:YES] retain];
+		
+		NSRunLoop* loop = [NSRunLoop currentRunLoop];
+		
+		[loop addTimer:updateTimer forMode:NSDefaultRunLoopMode];
+		
+		[loop run];
+	}
 }
 
 -(void)awakeFromNib
@@ -101,7 +128,10 @@
 		capteur->setArrowView(azimut);
 	}
 	
-	[self update];
+	updateThread = [[NSThread alloc] initWithTarget:self selector:@selector(update) object:nil];
+	[updateThread setThreadPriority:0.9];
+	[updateThread start];
+	//[self update];
 }
 
 @end
